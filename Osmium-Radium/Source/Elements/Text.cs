@@ -21,7 +21,7 @@ public class Text : GUIElement
     /// <param name="color"> Color of the text</param>
     /// <param name="font"> Font of the text</param>
     /// <param name="z"> Font of the text</param>
-    public Text(string? text = null, float? size = null, Vector2? pos = null, Vector2? center = null, Vector2? spacing = null, Color? color = null, Font? font = null, int z = 0) {
+    public Text(string? text = null, float? size = null, Vector2? pos = null, Vector2? center = null, Vector2? spacing = null, Palette? color = null, Font? font = null, int z = 0) {
         this.text = text ?? string.Empty;
         this.size = size ?? DefaultTextSize;
         this.pos = pos ?? Vector2.Zero;
@@ -67,9 +67,9 @@ public class Text : GUIElement
 
     
     /// <summary> The color of the text </summary>
-    public Color color;
+    public Palette color;
     /// <summary> The default color of new instances of Text, that do not set it implicitly. </summary>
-    public static Color DefaultColor = Color.White;
+    public static Palette DefaultColor = Palette.Unknown;
     
     
     /// <summary> The spacing between consecutive characters in the text </summary>
@@ -132,7 +132,7 @@ public class Text : GUIElement
             Vector4 uv = font[c];
             
 
-            Backend.DrawElement(font.texture.Handle, color,
+            Backend.DrawElement(font.texture.Handle, Radium.ColorPalette[(int) color],
                 screenPos.Z, screenPos.W, uv.Z, uv.W,
                 screenPos.X, screenPos.W, uv.X, uv.W,
                 screenPos.Z, screenPos.Y, uv.Z, uv.Y,

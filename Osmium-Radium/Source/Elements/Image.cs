@@ -18,7 +18,7 @@ public class Image : GUIElement
     /// <param name="pos"> Position of the box</param>
     /// <param name="center"> center of the box, mutually exclusive to pos </param>
     /// <param name="color"> Color of the box </param>
-    public Image(string path, Vector2? size = null, Vector2? pos = null, Vector2? center = null, Color? color = null, int z = 0) {
+    public Image(string path, Vector2? size = null, Vector2? pos = null, Vector2? center = null, Palette? color = null, int z = 0) {
         this.texture = new Texture(path);
         this.size = size ?? Vector2.One;
         this.pos = pos ?? Vector2.Zero;
@@ -40,9 +40,9 @@ public class Image : GUIElement
     
     
     /// <summary> The color of the text </summary>
-    public Color color;
+    public Palette color;
     /// <summary> The default color of new instances of Text, that do not set it implicitly. </summary>
-    public static Color DefaultColor = Color.White;
+    public static Palette DefaultColor = Palette.Unknown;
     
     
     
@@ -75,7 +75,7 @@ public class Image : GUIElement
             pos.Y + size.Y
         );
         
-        Backend.DrawElement(texture.Handle, color,
+        Backend.DrawElement(texture.Handle, Radium.ColorPalette[(int) color],
             screenPos.Z, screenPos.W, 1, 1,
             screenPos.X, screenPos.W, 0, 1,
             screenPos.Z, screenPos.Y, 1, 0,

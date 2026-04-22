@@ -9,14 +9,14 @@ public class Button : GUIElement
     
     
     
-    public Color backgroundColor;
-    public static Color DefaultBackgroundColor;
+    public Palette backgroundColor;
+    public static Palette DefaultBackgroundColor = Palette.Unknown;
     
-    public Color backgroundHoverColor;
-    public static Color DefaultBackgroundHoverColor;
+    public Palette backgroundHoverColor;
+    public static Palette DefaultBackgroundHoverColor = Palette.Unknown;
 
-    public Color backgroundHeldColor;
-    public static Color DefaultBackgroundHeldColor;
+    public Palette backgroundHeldColor;
+    public static Palette DefaultBackgroundHeldColor = Palette.Unknown;
     
     public Box box;
     
@@ -24,7 +24,7 @@ public class Button : GUIElement
     
     
     
-    public Button(Transform? transform = null, Text? text = null, Color? backgroundColor = null, Color? backgroundHoverColor = null, Color? backgroundHeldColor = null, int z = 0) {
+    public Button(Transform? transform = null, Text? text = null, Palette? backgroundColor = null, Palette? backgroundHoverColor = null, Palette? backgroundHeldColor = null, int z = 0) {
 
         Transform buttonTransform = transform ?? new Transform();
 
