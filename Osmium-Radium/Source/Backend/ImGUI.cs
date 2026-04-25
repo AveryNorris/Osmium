@@ -1,6 +1,6 @@
 namespace OsmiumRadium;
 
-public abstract class GUIElement
+public abstract class ImGUI
 {
 
     public int z {
@@ -14,8 +14,9 @@ public abstract class GUIElement
         }
     } private int _z;
 
-    protected GUIElement() {
+    protected ImGUI() {
         AddToPrioritySortedElements();
+        Backend.elementCount++;
     }
     
     protected internal abstract void Draw();

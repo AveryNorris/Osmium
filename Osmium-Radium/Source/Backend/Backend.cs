@@ -1,10 +1,11 @@
-using System.Drawing;
 using System.Numerics;
 using System.Reflection;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OsmiumNucleus;
+using RadiumTest2;
+using Vector4 = System.Numerics.Vector4;
 
 namespace OsmiumRadium;
 
@@ -19,6 +20,8 @@ public static partial class Backend
     internal static int IndexBufferHandle;
 
     internal static int VertexArrayHandle;
+
+    internal static int XScalingFactor;
     
     internal static readonly int[] Indices = [
         3, 2, 1,
@@ -26,11 +29,13 @@ public static partial class Backend
     ];
 
     internal static int DefaultTexture;
-
-    internal static List<GUIElement> Elements = [];
     
-    [MarkerAttributes.UnsafeInternal] internal static readonly SortedDictionary<int, List<GUIElement>> ZSortedElements = 
-        new SortedDictionary<int, List<GUIElement>>(Comparer<int>.Create((a, b) => {
+    internal static List<(int index, System.Numerics.Vector4 clippingRect)> ClippingRects = [];
+
+    internal static HashSet<RadiumElement> RetainedElements = [];
+    
+    [MarkerAttributes.UnsafeInternal] internal static readonly SortedDictionary<int, List<ImGUI>> ZSortedElements = 
+        new SortedDictionary<int, List<ImGUI>>(Comparer<int>.Create((a, b) => {
             int result = a.CompareTo(b);
             return result; 
     }));
@@ -48,7 +53,7 @@ public static partial class Backend
         
         //todo: rel paths or dll resource
 
-        using (StreamReader vertexReader = new(typeof(Backend).Assembly.GetManifestResourceStream("OsmiumRadium.Source.Vertex.glsl")!)) {
+        using (StreamReader vertexReader = new(typeof(Backend).Assembly.GetManifestResourceStream("OsmiumRadium.Source.Backend.Vertex.glsl")!)) {
             GL.ShaderSource(VertexShader, vertexReader.ReadToEnd());
         }
 
@@ -58,7 +63,7 @@ public static partial class Backend
         if (VertexShaderInfo != string.Empty)
             throw new Exception(VertexShaderInfo);
 
-        using (StreamReader fragmentReader = new(typeof(Backend).Assembly.GetManifestResourceStream("OsmiumRadium.Source.Fragment.glsl")!)) {
+        using (StreamReader fragmentReader = new(typeof(Backend).Assembly.GetManifestResourceStream("OsmiumRadium.Source.Backend.Fragment.glsl")!)) {
             GL.ShaderSource(FragmentShader, fragmentReader.ReadToEnd());
         }
 
@@ -135,6 +140,7 @@ public static partial class Backend
         //events
 
         Osmium.Context.Resize += Resize;
+        Osmium.Context.UpdateFrame += Update;
         Osmium.Context.RenderFrame += Draw;
     }
     
@@ -142,19 +148,63 @@ public static partial class Backend
         GL.Viewport(0, 0, Osmium.Context.FramebufferSize.X, Osmium.Context.FramebufferSize.Y);
     }
 
+    public static void Update(FrameEventArgs e) {
+        foreach (RadiumElement element in RetainedElements) {
+            try
+            {
+                element.Update();
+            }
+            catch(Exception ex)
+            {
+                Debug.LogError("Element failed to update! " + ex);
+            }
+        }
+    }
+
+    public static int elementCount = 0;
+
     public static void Draw(FrameEventArgs e)
     {
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-        
-        foreach(KeyValuePair<int, List<GUIElement>> ElementPriorityPairs in ZSortedElements) {
-            foreach (GUIElement element in ElementPriorityPairs.Value) {
+
+        foreach (RadiumElement element in RetainedElements.ToList()) {
+            try
+            {
                 element.Draw();
+            }
+            catch(Exception ex)
+            {
+                Debug.LogError("Element failed to Draw! " + ex);
+            }
+        }
+        
+        //resets clipping to normal; add default clipping value? todo:
+        elementCount = 0;
+        SetClipping(new Vector4(0,0,100,100));
+
+        int currentClipping = 0;
+        int index = 0;
+        foreach(KeyValuePair<int, List<ImGUI>> ElementPriorityPairs in ZSortedElements) {
+            foreach (ImGUI element in ElementPriorityPairs.Value) {
+                if (currentClipping < ClippingRects.Count && ClippingRects[currentClipping].index == index) {
+                    SetClipping(ClippingRects[currentClipping].clippingRect);
+                    currentClipping++;
+                }
+                
+                element.Draw();
+                index++;
             }
         }
         
         ZSortedElements.Clear();
+        ClippingRects.Clear();
         
         Osmium.Context.SwapBuffers();
+    }
+
+    public static void SetClipping(System.Numerics.Vector4 __clippingRect) {
+        int clippingRectUniform = GL.GetUniformLocation(ProgramHandle, "clippingRect");
+        GL.Uniform4f(clippingRectUniform, __clippingRect.X, __clippingRect.Y, __clippingRect.Z, __clippingRect.W);
     }
 
     
@@ -179,8 +229,9 @@ public static partial class Backend
 
         GL.UseProgram(ProgramHandle);
         
+        //todo: cache uniforms
         int colorUniform = GL.GetUniformLocation(ProgramHandle, "color");
-        GL.Uniform4f(colorUniform, color.R / 255f, color.G / 255f, color.B / 255f, color.A / 255f);
+        GL.Uniform4f(colorUniform, color.r / 255f, color.g / 255f, color.b / 255f, color.a / 255f);
         
         
         //int colorUniform = GL.GetUniformLocation(ProgramHandle, "color");

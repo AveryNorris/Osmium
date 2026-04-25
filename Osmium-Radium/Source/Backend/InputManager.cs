@@ -18,6 +18,9 @@ public static partial class Backend
     public static float MouseY => 100 * Osmium.Context.MousePosition.Y / Osmium.Context.ClientSize.Y;
     
     public static float WindowWidthHeightRatio => WindowWidth / WindowHeight;
+    
+    //todo: use vectors and add scroll and keyboard
+    public static float ScrollDeltaY => Osmium.Context.MouseState.ScrollDelta.Y;
 
 
 

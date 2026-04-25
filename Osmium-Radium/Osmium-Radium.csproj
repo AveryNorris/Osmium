@@ -17,8 +17,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="Source\Fragment.glsl" />
-        <EmbeddedResource Include="Source\Vertex.glsl" />
+        <EmbeddedResource Include="Source\Backend\Fragment.glsl" />
+        <EmbeddedResource Include="Source\Backend\Vertex.glsl" />
     </ItemGroup>
 
 </Project>
