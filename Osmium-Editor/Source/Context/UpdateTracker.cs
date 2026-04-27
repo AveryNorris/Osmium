@@ -12,6 +12,8 @@ public static class UpdateTracker
     private static FileSystemWatcher _watcher;
 
     internal static bool SurpressReload = false;
+
+    public static List<string> BlacklistedPaths = [];
     
     public static void Initialize() {
         
@@ -29,7 +31,8 @@ public static class UpdateTracker
     }
 
     public static void OnChanged(object sender, FileSystemEventArgs fileSystemEventArgs) {
-        if(!SurpressReload) Context.Reload();
+        if (BlacklistedPaths.Contains(fileSystemEventArgs.FullPath)) return;
+        if(!SurpressReload) Context.QueueReload();
     }
     
     

@@ -28,15 +28,35 @@ public static class Context
     
     //all previous occurences of the asembly are unloaded
     public static event Action OnUnload;
+
+    private static bool ReloadScheduled;
+
+    public static string ComponentMapPath;
+
+    public static bool FirstLoad = true;
     
     //todo: osmium isnt made to exit out of a project or anything so dont worry about that
-    
-    
+
+    public static void QueueReload() {
+        ReloadScheduled = true;
+    }
+
+    public static void AbortReload() {
+        ReloadScheduled = false;
+    }
+
+    public static void Update() {
+        if(ReloadScheduled) Reload();
+        
+        ReloadScheduled = false;
+    }
     
 
 
-    public static void Reload()
-    {
+    //todo: ENFORCE/DOCUMENT that actiosn that require another reload should not be tied to reload without manually calling it!
+    public static void Reload() {
+        //todo: make method
+        UpdateTracker.SurpressReload = true;
         MemoryStream assemblyStream = ScriptCompiler.CompileScripts();
 
         if (!ScriptCompiler.Success)  { Debug.LogError("Source did not compile! "); return; }
@@ -44,23 +64,25 @@ public static class Context
 
         List<SolidReference> Components = [];
         List<string> Scenes = [];
-        
-        foreach (Scene scene in Osmium.Scenes) {
-            
-            Scenes.Add(scene.Name);
-            
-            foreach (Component component in scene.Children) {
-                
-                Debug.LogAction("saving component");
-                
-                Components.Add(new SolidReference(component));
-                component.Destroy();
+
+        if (!FirstLoad) {
+            foreach (Scene scene in Osmium.Scenes) {
+
+                Scenes.Add(scene.Name);
+
+                foreach (Component component in scene.Children) {
+
+                    Debug.LogAction("saving component");
+
+                    Components.Add(new SolidReference(component));
+                    component.Destroy();
+                }
+
+                //destroy scene change this! and make it attach to scene
+                Osmium.RemoveScene(scene);
             }
-            
-            //destroy scene change this! and make it attach to scene
-            Osmium.RemoveScene(scene);
         }
-            
+
         Stopwatch timer = Stopwatch.StartNew();
         
         Debug.LogAction("Reloading Osmium!");
@@ -93,20 +115,45 @@ public static class Context
 
 
         Osmium.VirtualInitialize(LoadedProgram.Assemblies);
+        
+        if (FirstLoad) {
+            
+            //todo: store scene data
+            foreach (string referenceData in File.ReadAllText(ComponentMapPath).Split('#')) {
+            
+                //todo: fix debugs in event resolved to use parameters and not concatenation and debug.log
+                Debug.LogAction(referenceData);
+            
+                if (referenceData == string.Empty) continue;
+            
+                //todo: streamline in solid reference and rename solid reference class
+                JsonIntermediate jsonIntermediate = System.Text.Json.JsonSerializer.Deserialize<JsonIntermediate>(referenceData);
+            
+                SolidReference newReference = new SolidReference(jsonIntermediate);
+                newReference.Reconstruct();
+            }
+        }
+        
 
         foreach (string sceneName in Scenes) {
             Osmium.AddScene(sceneName);
         }
+
+        string OsmiumMap = string.Empty;
         
         foreach (SolidReference component in Components) {
-            Debug.LogAction("Reconstructing " + component.ComponentName);
-            if (component.Reconstruct() == null) {
-                Debug.LogError("oh no it is null!");
-            }
+
+            OsmiumMap += System.Text.Json.JsonSerializer.Serialize(component.Translate()) + '#';
+
+            component.Reconstruct();
         }
-            
+        
+        File.WriteAllText(ComponentMapPath, OsmiumMap);
+        
         OnReload?.Invoke();
 
+        UpdateTracker.SurpressReload = false;
+        
         timer.Stop();
         Debug.LogAction("Reload finished in: " + timer.Elapsed.Milliseconds + "ms!");
 
@@ -118,6 +165,8 @@ public static class Context
     public static void OpenProject(string __path)
     {
         
+        //todo: event
+        
         Debug.LogAction("Opening project! ", ["Path"], [__path]);
         
         //check for valid project
@@ -127,6 +176,14 @@ public static class Context
         
         UpdateTracker.Initialize();
         
+        ComponentMapPath = Project.GetProjectSubPath(Path.Combine("Editor", "Component.osmap"), regenerate: true);
+        UpdateTracker.BlacklistedPaths.Add(ComponentMapPath);
+        
         Reload();
+        FirstLoad = false;
+        
+        //post reload so the assemblies exist
+        
+        //todo: check file permissions and throw in the editor if we dont have
     }
 }

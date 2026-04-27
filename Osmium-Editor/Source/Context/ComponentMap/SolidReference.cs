@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text.Json.Serialization;
 using OsmiumNucleus;
 
 
@@ -23,12 +24,13 @@ public class SolidReference
     public bool Enabled;
     public int Priority;
     
-    public IReadOnlySet<string> Tags;
+    public List<string> Tags;
 
     public Dictionary<string, object?> MemberData = [];
 
-    public static BindingFlags FieldSearchFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+    public static BindingFlags FieldSearchFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly | BindingFlags.Static;
 
+    //todo: set value dumb and DUMB DUMB DUMB BREAKS NON PRIMITIVES??
 
     //todo: directly save order profile and enable internal visualization in osmium-nucleus
 
@@ -47,7 +49,7 @@ public class SolidReference
         Enabled = __component.Enabled;
         Priority = __component.Priority;
 
-        Tags = __component.Tags;
+        Tags = __component.Tags.ToList();
         
         //todo: all children unit test
         
@@ -57,6 +59,41 @@ public class SolidReference
             MemberData.Add(field.Name, field.GetValue(__component));
         }
     }
+
+    public SolidReference(JsonIntermediate __data) {
+        AssemblyName = __data.AssemblyName;
+        ComponentTypeName = __data.ComponentTypeName;
+        SceneName = __data.SceneName;
+        ComponentName = __data.ComponentName;
+        Enabled = __data.Enabled;
+        Priority = __data.Priority;
+        Tags = __data.Tags;
+
+        foreach (MemberDatum data in __data.MemberData) {
+            MemberData.Add(data.FieldName, data.Value);
+        } 
+    }
+
+    public JsonIntermediate Translate() {
+        JsonIntermediate newIntermediate = new JsonIntermediate();
+        
+        //fix order
+        newIntermediate.AssemblyName = AssemblyName;
+        newIntermediate.ComponentTypeName = ComponentTypeName;
+        newIntermediate.SceneName = SceneName;
+        newIntermediate.ComponentName = ComponentName;
+        newIntermediate.Enabled = Enabled;
+        newIntermediate.Priority = Priority;
+        newIntermediate.Tags = Tags;
+        
+        //todo: ireadonlyset to ireadonlylist for tags in nucleus?
+
+        foreach (KeyValuePair<string, object?> member in MemberData) {
+            newIntermediate.MemberData.Add(new MemberDatum{FieldName = member.Key, Value = member.Value});
+        }
+        
+        return newIntermediate;
+    }
     
     //todo: constructor from string (which would be file text) and method to save to file
     
@@ -64,7 +101,6 @@ public class SolidReference
     //doesnt call create
     public Component? Reconstruct() {
         
-        Debug.LogAction("1");
 
         Assembly? componentAssembly = Context.LoadedProgram!.Assemblies.First(x => x.GetName().Name == AssemblyName);
 
@@ -74,7 +110,6 @@ public class SolidReference
             return null;
         }
         
-        Debug.LogAction("2");
         
         //todo: many exceptions
         Type? componentType = componentAssembly.GetType(ComponentTypeName);
@@ -83,7 +118,6 @@ public class SolidReference
             return null;
         }
         
-        Debug.LogAction("3");
 
         Component newComponent;
         try {
@@ -101,7 +135,9 @@ public class SolidReference
             return null;
         }
         
-        Debug.LogAction("4");
+        Scene scene = Osmium.GetScene(SceneName) ?? Osmium.AddScene(SceneName)!;
+        scene.Add(newComponent);
+        
 
         foreach (KeyValuePair<string, object?> member in MemberData) {
             
@@ -116,24 +152,14 @@ public class SolidReference
             field.SetValue(newComponent, member.Value);
         }
         
-        Debug.LogAction("5");
-
-        newComponent.Name = ComponentName; 
-        newComponent.Enabled = Enabled; 
+        newComponent.Name = ComponentName;
+        newComponent.Enabled = Enabled;
         newComponent.Priority = Priority;
+        //todo: figure out why this is surpressive?
 
-        Debug.LogAction("a");
         foreach (string tag in Tags) {
             newComponent.AddTag(tag);
-            Debug.LogAction("c");
         }
-        Debug.LogAction("b");
-        
-        Debug.LogAction("6");
-
-        Scene scene = Osmium.AddScene(SceneName) ?? Osmium.GetScene(SceneName)!;
-        
-        scene.Add(newComponent);
 
         return newComponent;
     }

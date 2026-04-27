@@ -1,4 +1,5 @@
 using System.Numerics;
+using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Common.Input;
 using OsmiumNucleus;
 using OsmiumRadium;
@@ -44,6 +45,8 @@ public static class Editor
         Osmium.AddScene("A");
         Osmium.AddScene("I AM A LONG SCENE I AM A LONG SCENE I AM A LONG SCENE");
 
+        Osmium.Context.UpdateFrame += (FrameEventArgs e) => Context.Update();
+        
         Osmium.Run();
         
         return 0;
