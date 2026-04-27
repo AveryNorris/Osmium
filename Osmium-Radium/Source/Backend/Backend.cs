@@ -142,6 +142,8 @@ public static partial class Backend
         Osmium.Context.Resize += Resize;
         Osmium.Context.UpdateFrame += Update;
         Osmium.Context.RenderFrame += Draw;
+
+        Osmium.Context.TextInput += OnTextInput;
     }
     
     public static void Resize(ResizeEventArgs e) {
@@ -149,15 +151,9 @@ public static partial class Backend
     }
 
     public static void Update(FrameEventArgs e) {
+        
         foreach (RadiumElement element in RetainedElements) {
-            try
-            {
-                element.Update();
-            }
-            catch(Exception ex)
-            {
-                Debug.LogError("Element failed to update! " + ex);
-            }
+            element.Update();
         }
     }
 
@@ -168,14 +164,7 @@ public static partial class Backend
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
         foreach (RadiumElement element in RetainedElements.ToList()) {
-            try
-            {
-                element.Draw();
-            }
-            catch(Exception ex)
-            {
-                Debug.LogError("Element failed to Draw! " + ex);
-            }
+            element.Draw();
         }
         
         //resets clipping to normal; add default clipping value? todo:
@@ -198,6 +187,10 @@ public static partial class Backend
         
         ZSortedElements.Clear();
         ClippingRects.Clear();
+        
+        //placement doesnt make sense todo: also make sure that this becomes a method called clear state or something cool and sick and cool and sick ok bye thanks for talking make text boxes force ascii or something so that the font doesnt have a panic attack
+        //todo: make text boxes work in whatever encoding strings support so that object names in scenes/components always match C#
+        TextInput = "";
         
         Osmium.Context.SwapBuffers();
     }

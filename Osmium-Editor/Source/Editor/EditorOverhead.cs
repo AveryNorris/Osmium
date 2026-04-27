@@ -1,5 +1,6 @@
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
+using OsmiumEditor.Source;
 using OsmiumNucleus;
 using OsmiumRadium;
 using RadiumTest2;
@@ -26,6 +27,8 @@ public class EditorOverhead : RadiumElement
     
     protected override void Draw() {
         ConfigureWindow();
+        
+        //Console.WriteLine("Components " + string.Join(',', AssemblyWindow.GetComponents()));
         
         //todo: load editor config
     }

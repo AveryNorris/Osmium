@@ -16,7 +16,7 @@ namespace OsmiumEditor;
 public class ProjectSelectMenu : RadiumElement
 {
     
-    private Font jetbrains = new Font("/Users/averynorris/Programming/Radium-Test2/RadiumFonts/JetbrainsMono.radfont");
+    private Font jetbrains = new Font("/home/avery/Documents/RadiumFonts/JetbrainsMono.radfont");
 
     public ProjectSelectMenu() {
         ProjectMemory.RefreshProjectList();
@@ -48,7 +48,7 @@ public class ProjectSelectMenu : RadiumElement
 
     public void DefineHeader() {
         var OsmiumLogo = new Image(
-            "/Users/averynorris/Programming/Radium-Test2/logo.png",
+            "/home/avery/Projects/Osmium/Osmium-Nucleus/Osmium.png",
             transform: new Transform(size: Vector2.One * 13, pos: new Vector2(2, 2)),
             color: Palette.White);
         

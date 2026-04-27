@@ -22,7 +22,7 @@ public class Inspector : RadiumElement
 
         var DividerLine = new Box(new Transform(pos: new Vector2(100 - Size, 0), size: new Vector2(.125f, 100)), color: Palette.BackgroundHigh);
         
-        var Header = new Box(new Transform(pos: new Vector2(100 - Size, 0), size: new Vector2(Size, 6.75f)), color: Palette.Secondary);
-        var HeaderText = new Text("Inspector", pos: new Vector2((100 - Size) + .5f, 4.5f), spacing: new Vector2(.285f, 1), size: 1.6f);
+        var Header = new Box(new Transform(pos: new Vector2(100 - Size, 0), size: new Vector2(Size, 3.125f)), color: Palette.Secondary);
+        var HeaderText = new Text("Inspector", pos: new Vector2((100 - Size) + .5f, .9f), spacing: new Vector2(.285f, 1), size: 1.6f);
     }
 }

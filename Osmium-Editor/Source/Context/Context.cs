@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Numerics;
 using System.Reflection;
 using System.Runtime.Loader;
+using OsmiumEditor.ComponentMap;
 using OsmiumNucleus;
 using OsmiumRadium;
 using Debug = OsmiumNucleus.Debug;
@@ -23,10 +24,10 @@ public static class Context
     //tracking events required! Everything must be able to change at runtime!
     
     //all are reloaded
-    public static event EventHandler OnReload;
+    public static event Action OnReload;
     
     //all previous occurences of the asembly are unloaded
-    public static event EventHandler OnUnload;
+    public static event Action OnUnload;
     
     //todo: osmium isnt made to exit out of a project or anything so dont worry about that
     
@@ -39,6 +40,26 @@ public static class Context
         MemoryStream assemblyStream = ScriptCompiler.CompileScripts();
 
         if (!ScriptCompiler.Success)  { Debug.LogError("Source did not compile! "); return; }
+
+
+        List<SolidReference> Components = [];
+        List<string> Scenes = [];
+        
+        foreach (Scene scene in Osmium.Scenes) {
+            
+            Scenes.Add(scene.Name);
+            
+            foreach (Component component in scene.Children) {
+                
+                Debug.LogAction("saving component");
+                
+                Components.Add(new SolidReference(component));
+                component.Destroy();
+            }
+            
+            //destroy scene change this! and make it attach to scene
+            Osmium.RemoveScene(scene);
+        }
             
         Stopwatch timer = Stopwatch.StartNew();
         
@@ -47,7 +68,7 @@ public static class Context
 
         //keep old scripts if new ones do not compiles
 
-        OnUnload?.Invoke(null, EventArgs.Empty);
+        OnUnload?.Invoke();
 
 
 
@@ -72,8 +93,19 @@ public static class Context
 
 
         Osmium.VirtualInitialize(LoadedProgram.Assemblies);
+
+        foreach (string sceneName in Scenes) {
+            Osmium.AddScene(sceneName);
+        }
+        
+        foreach (SolidReference component in Components) {
+            Debug.LogAction("Reconstructing " + component.ComponentName);
+            if (component.Reconstruct() == null) {
+                Debug.LogError("oh no it is null!");
+            }
+        }
             
-        OnReload?.Invoke(null, EventArgs.Empty);
+        OnReload?.Invoke();
 
         timer.Stop();
         Debug.LogAction("Reload finished in: " + timer.Elapsed.Milliseconds + "ms!");

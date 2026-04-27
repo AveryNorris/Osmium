@@ -1,6 +1,9 @@
 using System.Numerics;
-using OpenTK.Windowing.GraphicsLibraryFramework;
+using OpenTK.Platform;
 using OsmiumNucleus;
+using MouseButton = OpenTK.Windowing.GraphicsLibraryFramework.MouseButton;
+using TextInputEventArgs = OpenTK.Windowing.Common.TextInputEventArgs;
+
 
 namespace OsmiumRadium;
 
@@ -113,4 +116,17 @@ public static partial class Backend
     public static bool MouseInBounds(Vector2 __min, Vector2 __max) {
         return MouseX >= __min.X && MouseY >= __min.Y && MouseX <= __max.X && MouseY <= __max.Y;
     }
+
+
+
+    public static string TextInput = "";
+
+
+
+    public static void OnTextInput(TextInputEventArgs textInputEventArgs) {
+        TextInput += textInputEventArgs.AsString;
+    }
+    
+    //todo: component docker inherits list?
+    
 }
