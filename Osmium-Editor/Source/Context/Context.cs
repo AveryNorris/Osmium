@@ -32,8 +32,6 @@ public static class Context
     private static bool ReloadScheduled;
 
     public static string ComponentMapPath;
-
-    public static bool FirstLoad = true;
     
     //todo: osmium isnt made to exit out of a project or anything so dont worry about that
 
@@ -60,27 +58,19 @@ public static class Context
         MemoryStream assemblyStream = ScriptCompiler.CompileScripts();
 
         if (!ScriptCompiler.Success)  { Debug.LogError("Source did not compile! "); return; }
+        
+        OnUnload?.Invoke();
 
 
-        List<SolidReference> Components = [];
         List<string> Scenes = [];
 
-        if (!FirstLoad) {
-            foreach (Scene scene in Osmium.Scenes) {
+        foreach (Scene scene in Osmium.Scenes) {
 
-                Scenes.Add(scene.Name);
+            Scenes.Add(scene.Name);
 
-                foreach (Component component in scene.Children) {
-
-                    Debug.LogAction("saving component");
-
-                    Components.Add(new SolidReference(component));
-                    component.Destroy();
-                }
-
-                //destroy scene change this! and make it attach to scene
-                Osmium.RemoveScene(scene);
-            }
+            //destroy scene change this! and make it attach to scene
+            Osmium.RemoveScene(scene);
+            scene.DestroyAll();
         }
 
         Stopwatch timer = Stopwatch.StartNew();
@@ -90,7 +80,6 @@ public static class Context
 
         //keep old scripts if new ones do not compiles
 
-        OnUnload?.Invoke();
 
 
 
@@ -116,39 +105,10 @@ public static class Context
 
         Osmium.VirtualInitialize(LoadedProgram.Assemblies);
         
-        if (FirstLoad) {
-            
-            //todo: store scene data
-            foreach (string referenceData in File.ReadAllText(ComponentMapPath).Split('#')) {
-            
-                //todo: fix debugs in event resolved to use parameters and not concatenation and debug.log
-                Debug.LogAction(referenceData);
-            
-                if (referenceData == string.Empty) continue;
-            
-                //todo: streamline in solid reference and rename solid reference class
-                JsonIntermediate jsonIntermediate = System.Text.Json.JsonSerializer.Deserialize<JsonIntermediate>(referenceData);
-            
-                SolidReference newReference = new SolidReference(jsonIntermediate);
-                newReference.Reconstruct(Osmium.GetScene(newReference.SceneName) ?? Osmium.AddScene(newReference.SceneName));
-            }
-        }
-        
 
         foreach (string sceneName in Scenes) {
             Osmium.AddScene(sceneName);
         }
-
-        string OsmiumMap = string.Empty;
-        
-        foreach (SolidReference component in Components) {
-
-            OsmiumMap += System.Text.Json.JsonSerializer.Serialize(component.Translate()) + '#';
-
-            component.Reconstruct(Osmium.GetScene(component.SceneName) ?? Osmium.AddScene(component.SceneName));
-        }
-        
-        File.WriteAllText(ComponentMapPath, OsmiumMap);
         
         OnReload?.Invoke();
 
@@ -180,7 +140,6 @@ public static class Context
         UpdateTracker.BlacklistedPaths.Add(ComponentMapPath);
         
         Reload();
-        FirstLoad = false;
         
         //post reload so the assemblies exist
         

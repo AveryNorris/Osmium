@@ -1,5 +1,6 @@
 using System.Drawing;
 using System.Numerics;
+using System.Reflection;
 using System.Text;
 using NativeFileDialogNET;
 using OpenTK.Mathematics;
@@ -15,8 +16,7 @@ namespace OsmiumEditor;
 
 public class ProjectSelectMenu : RadiumElement
 {
-    
-    private Font jetbrains = new Font("/Users/averynorris/Programming/Radium-Test2/RadiumFonts/JetbrainsMono.radfont");
+    private Font jetbrains = new Font(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.jetbrainsMonoRegular.png"), 100, 19, [32,136]);
 
     public ProjectSelectMenu() {
         ProjectMemory.RefreshProjectList();

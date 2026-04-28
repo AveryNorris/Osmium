@@ -82,6 +82,32 @@ public class Texture : IDisposable
         TextureMemory.Add(__path, (Handle, Width, Height));
     }
 
+    public Texture(Stream __bitmapStream) {
+        //todo: bye bye texture memory
+        
+        ImageResult image;
+        
+        //opens the font, todo: dont hardcode
+        using (Stream fileStream = __bitmapStream)
+        {
+            image = ImageResult.FromStream(fileStream, ColorComponents.RedGreenBlueAlpha);
+        }
+
+        Width = image.Width;
+        Height = image.Height;
+        
+        Handle = GL.GenTexture();
+        GL.BindTexture(TextureTarget.Texture2d, Handle);
+        GL.TexImage2D(TextureTarget.Texture2d, 0, InternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, image.Data);
+        
+        GL.TexParameteri(TextureTarget.Texture2d, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
+        GL.TexParameteri(TextureTarget.Texture2d, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
+        GL.BindTexture(TextureTarget.Texture2d, 0);
+        
+        GL.Enable(EnableCap.Blend);
+        GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+    }
+
     /// <summary> Frees up GL resources </summary>
     public void Dispose() {
         GL.BindTexture(TextureTarget.Texture2d, Handle);

@@ -25,6 +25,14 @@
 
     <ItemGroup>
       <EmbeddedResource Include="Assets\Osmium.png" />
+      <None Remove="Assets\proggyBitmapASCII.png" />
+      <EmbeddedResource Include="Assets\proggyBitmapASCII.png" />
+      <None Remove="Assets\jetbrainsMonoRegular.png" />
+      <EmbeddedResource Include="Assets\jetbrainsMonoRegular.png" />
+      <None Remove="Assets\JetbrainsMono.radfont" />
+      <EmbeddedResource Include="Assets\JetbrainsMono.radfont" />
+      <None Remove="Assets\ProggyClean.radfont" />
+      <EmbeddedResource Include="Assets\ProggyClean.radfont" />
     </ItemGroup>
 
 </Project>
