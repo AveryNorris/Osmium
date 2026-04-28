@@ -25,6 +25,8 @@ public class SolidReference
     public int Priority;
     
     public List<string> Tags;
+    
+    public List<SolidReference> Children = [];
 
     public Dictionary<string, object?> MemberData = [];
 
@@ -50,6 +52,10 @@ public class SolidReference
         Priority = __component.Priority;
 
         Tags = __component.Tags.ToList();
+
+        foreach (Component child in __component) {
+            Children.Add(new SolidReference(child));
+        }
         
         //todo: all children unit test
         
@@ -69,6 +75,10 @@ public class SolidReference
         Priority = __data.Priority;
         Tags = __data.Tags;
 
+        foreach (JsonIntermediate child in __data.Children) {
+            Children.Add(new SolidReference(child));
+        }
+
         foreach (MemberDatum data in __data.MemberData) {
             MemberData.Add(data.FieldName, data.Value);
         } 
@@ -86,6 +96,10 @@ public class SolidReference
         newIntermediate.Priority = Priority;
         newIntermediate.Tags = Tags;
         
+        foreach (SolidReference child in Children) {
+            newIntermediate.Children.Add(child.Translate());
+        }
+        
         //todo: ireadonlyset to ireadonlylist for tags in nucleus?
 
         foreach (KeyValuePair<string, object?> member in MemberData) {
@@ -99,7 +113,7 @@ public class SolidReference
     
 
     //doesnt call create
-    public Component? Reconstruct() {
+    public Component? Reconstruct(ComponentDocker __parent) {
         
 
         Assembly? componentAssembly = Context.LoadedProgram!.Assemblies.First(x => x.GetName().Name == AssemblyName);
@@ -135,8 +149,7 @@ public class SolidReference
             return null;
         }
         
-        Scene scene = Osmium.GetScene(SceneName) ?? Osmium.AddScene(SceneName)!;
-        scene.Add(newComponent);
+        __parent.Add(newComponent);
         
 
         foreach (KeyValuePair<string, object?> member in MemberData) {
@@ -161,6 +174,10 @@ public class SolidReference
             newComponent.AddTag(tag);
         }
 
+        foreach (SolidReference child in Children) {
+            child.Reconstruct(newComponent);
+        }
+        
         return newComponent;
     }
 }

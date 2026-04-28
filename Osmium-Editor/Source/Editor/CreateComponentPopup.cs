@@ -38,10 +38,19 @@ public class CreateComponentPopup : RadiumElement
             if (SceneHierarchy.SelectedScene != null) {
                 //todo: preemtive guard and guard class
 
-                if (filteredTypes.Count != 0) {
+                if (filteredTypes.Count != 0)
+                {
 
-                    SceneHierarchy.SelectedScene.Add((Component)Activator.CreateInstance(filteredTypes[0])!);
-                    
+                    Component createdComponent = (Activator.CreateInstance(filteredTypes[0])! as Component)!;
+
+                    if (ComponentHierarchy.SelectedComponent != null) {
+                        ComponentHierarchy.SelectedComponent.Add(createdComponent);
+                    }
+                    else
+                    {
+                        SceneHierarchy.SelectedScene.Add(createdComponent);
+                    }
+
                     Radium.Remove<CreateComponentPopup>();
                 }
             }

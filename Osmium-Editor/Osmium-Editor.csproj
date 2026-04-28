@@ -19,4 +19,12 @@
       <ProjectReference Include="..\Osmium-Radium\Osmium-Radium.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Osmium.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Assets\Osmium.png" />
+    </ItemGroup>
+
 </Project>

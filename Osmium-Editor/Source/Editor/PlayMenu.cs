@@ -24,7 +24,14 @@ public class PlayMenu : RadiumElement
         var DividerLine = new Box(new Transform(pos: new Vector2(0, 3.125f - .125f), size: new Vector2(Size, .125f)), color: Palette.BackgroundHigh);
 
         var PlayButton = new Button(new Transform(center: new Vector2(Size / 2f, 3.125f / 2), size: new Vector2(7, 3.125f)), new Text("Play"));
-        
+
+        var ReloadButton = new Button(new Transform(center: Vector2.One * 5, size: Vector2.One * 5), new Text("r"));
+
+        if (ReloadButton.Active())
+        {
+            Context.Reload();
+        }
+
         //todo: handle negative size
     }
 }

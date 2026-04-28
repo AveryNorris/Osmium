@@ -130,7 +130,7 @@ public static class Context
                 JsonIntermediate jsonIntermediate = System.Text.Json.JsonSerializer.Deserialize<JsonIntermediate>(referenceData);
             
                 SolidReference newReference = new SolidReference(jsonIntermediate);
-                newReference.Reconstruct();
+                newReference.Reconstruct(Osmium.GetScene(newReference.SceneName) ?? Osmium.AddScene(newReference.SceneName));
             }
         }
         
@@ -145,7 +145,7 @@ public static class Context
 
             OsmiumMap += System.Text.Json.JsonSerializer.Serialize(component.Translate()) + '#';
 
-            component.Reconstruct();
+            component.Reconstruct(Osmium.GetScene(component.SceneName) ?? Osmium.AddScene(component.SceneName));
         }
         
         File.WriteAllText(ComponentMapPath, OsmiumMap);

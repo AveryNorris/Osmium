@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Reflection;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Common.Input;
 using OsmiumNucleus;
@@ -13,9 +14,11 @@ public static class Editor
 {
     public static int Main(string[] __args) {
         Osmium.EditorInitialize();
+
+        Console.WriteLine("Manifest Names " + string.Join('\n', Assembly.GetAssembly(typeof(Editor))!.GetManifestResourceNames()));
         
         ImageResult image;
-        using (FileStream stream = File.OpenRead("/home/avery/Projects/Osmium/Osmium-Nucleus/Osmium.png"))
+        using (FileStream stream = File.OpenRead("/Users/averynorris/Osmium/Osmium-Nucleus/Osmium.png"))
         {
             image = ImageResult.FromStream(stream);
         }
@@ -23,7 +26,7 @@ public static class Editor
         if(!OperatingSystem.IsMacOS())
             Osmium.Context.Icon = new WindowIcon(new Image(image.Width, image.Height, image.Data));
             
-        Text.DefaultFont = new Font("/home/avery/Documents/RadiumFonts/ProggyClean.radfont");
+        Text.DefaultFont = new Font("/Users/averynorris/Programming/Radium-Test2/RadiumFonts/ProggyClean.radfont");
         Text.DefaultColor = Palette.TextHigh;
         Text.DefaultSpacingFactor = new Vector2(.285f, 1);
         Text.DefaultTextSize = 1.6f;
