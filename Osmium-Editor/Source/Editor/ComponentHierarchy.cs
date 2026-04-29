@@ -1,5 +1,5 @@
 using System.Numerics;
-using OsmiumEditor.Source.Components;
+using System.Reflection;
 using OsmiumNucleus;
 using OsmiumRadium;
 using RadiumTest2;
@@ -17,9 +17,22 @@ public class ComponentHierarchy : RadiumElement
 
     public static Component? SelectedComponent;
 
+    public static Texture ComponentTexture;
+    
+    public static Texture PackageTexture;
+
     //todo: make sure subscription leaks dont happen
     static ComponentHierarchy() {
         Context.OnUnload += () => SelectedComponent = null;
+        
+        using (Stream stream = Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.Component.png")) { 
+            ComponentTexture = new Texture(stream);
+        }
+        
+        //todo: assembly constant?
+        using (Stream stream = Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.Package.png")) { 
+            PackageTexture = new Texture(stream);
+        }
     }
     
     protected override void Draw() {
@@ -82,21 +95,13 @@ public class ComponentHierarchy : RadiumElement
             name = __component.GetType().Name;
         
         Vector2 pos = new Vector2((100 - Size) - Offset, 5.5f + 4 * count);
-
-        Color boxColor = Color.White;
-        //todo: console.clear button!
-        //todo: watch int/float overflow for stuff
-        if (__component.GetType() == Context.LoadedProgram.Assemblies.First(x => x.GetType(typeof(Package).FullName) != null)?.GetType(typeof(Package).FullName))
-        {
-            boxColor = Color.FromArgb(255, 255, 0, 0);
-        }
         
         //todo: clear selected component when scenes switch
         //todo: add unselecting components by clicking anywhere
         
             
         var SceneDisplay = new Button(new Transform(size: new Vector2(Size, 3), pos: pos), new Text(name, size: 1.25f), backgroundColor: Palette.Transparent, backgroundHoverColor: Palette.BackgroundHigh, backgroundHeldColor: Palette.SecondaryHover);
-        SceneDisplay.text.pos = pos + new Vector2(2, 1) + new Vector2(2,0) * __depth;    
+        SceneDisplay.text.pos = pos + new Vector2(2.5f, 1) + new Vector2(.5f,0) * __depth;    
             
         //todo: one fram disparity between selection nerd
         if (__component == SelectedComponent) {
@@ -111,8 +116,14 @@ public class ComponentHierarchy : RadiumElement
             SelectedComponent = __component;
         }
         
-        var TabColor = new Box(new Transform(pos: pos, size: new Vector2(1, 3)), boxColor);
-
+        //todo: console.clear button!
+        //todo: watch int/float overflow for stuff
+        if (__component.GetType() == typeof(Package)) {
+            new Image(PackageTexture, new Transform(pos: (pos + new Vector2(.4f, .6f))+ new Vector2(.5f,0) * __depth, size: new Vector2(2 * r169, 2) * new Vector2(26/20f, 1)));
+        } else {
+            new Image(ComponentTexture, new Transform(pos: pos + new Vector2(.4f, .6f)+ new Vector2(.5f,0) * __depth, size: new Vector2(2 * r169, 2)));
+        }
+        
 
         count++;
 

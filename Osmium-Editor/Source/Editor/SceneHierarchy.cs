@@ -73,6 +73,7 @@ public class SceneHierarchy : RadiumElement
 
             if (SceneDisplay.Active() || SceneDisplay.Held()) {
                 SelectedScene = scene;
+                ComponentHierarchy.SelectedComponent = null;
             }
 
             pos += new Vector2(0, 4);

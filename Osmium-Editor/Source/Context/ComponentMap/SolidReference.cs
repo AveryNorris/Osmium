@@ -74,7 +74,7 @@ public static partial class ComponentMap
         public void Build(ComponentDocker? __parent = null) {
             //todo: invalid json exceptions
             
-            Assembly? componentAssembly = Context.LoadedProgram!.Assemblies.First(x => x.GetName().Name == AssemblyName);
+            Assembly? componentAssembly = Context.LoadedProgram!.Assemblies.Append(typeof(Package).Assembly).FirstOrDefault(x => x.GetName().Name == AssemblyName);
 
             if (componentAssembly == null) {
                 //todo: add a component map error system and detect assembly/component name refactors

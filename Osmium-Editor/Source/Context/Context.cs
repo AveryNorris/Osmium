@@ -48,7 +48,6 @@ public static class Context
         
         ReloadScheduled = false;
     }
-    
 
 
     //todo: ENFORCE/DOCUMENT that actiosn that require another reload should not be tied to reload without manually calling it!
@@ -104,7 +103,10 @@ public static class Context
         Debug.Action("Finished Compiling and Loading program!");
 
 
-        Osmium.VirtualInitialize(LoadedProgram.Assemblies);
+        List<Assembly> usedAssemblies = LoadedProgram.Assemblies.ToList();
+        usedAssemblies.Add(typeof(Package).Assembly);
+        
+        Osmium.VirtualInitialize(usedAssemblies);
         
 
         foreach (string sceneName in Scenes) {

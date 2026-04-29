@@ -33,6 +33,10 @@
       <EmbeddedResource Include="Assets\JetbrainsMono.radfont" />
       <None Remove="Assets\ProggyClean.radfont" />
       <EmbeddedResource Include="Assets\ProggyClean.radfont" />
+      <None Remove="Assets\Package.png" />
+      <EmbeddedResource Include="Assets\Package.png" />
+      <None Remove="Assets\Component.png" />
+      <EmbeddedResource Include="Assets\Component.png" />
     </ItemGroup>
 
 </Project>

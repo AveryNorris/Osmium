@@ -24,6 +24,7 @@ public class CreateComponentPopup : RadiumElement
         
         //todo: cache component types in assembly window and unload them
         Type[] componentTypes = AssemblyWindow.GetComponents();
+        componentTypes = componentTypes.Append(typeof(Package)).ToArray();
 
         List<Type> filteredTypes = [];
         

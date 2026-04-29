@@ -11,7 +11,7 @@ public static class ModuleManager
 {
     
     public static string[] InternalModules = [
-        Assembly.GetAssembly(typeof(Editor)).Location,
+        //Assembly.GetAssembly(typeof(Package)).Location,
         //it seems like since Osmium and Radium are dependencies of Editor it actually breaks? 
         //Assembly.GetAssembly(typeof(Osmium)).Location,
         //Assembly.GetAssembly(typeof(Radium)).Location,

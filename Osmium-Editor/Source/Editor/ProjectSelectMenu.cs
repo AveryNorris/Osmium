@@ -54,6 +54,8 @@ public class ProjectSelectMenu : RadiumElement
         var HorizontalDividerLine = new Box(color: Palette.BackgroundHighest, transform: new Transform(min: new Vector2(0, 16.75f), max: new Vector2(100, 17)));
         var VerticalDividerLine = new Box(color: Palette.BackgroundHighest, transform: new Transform(min: new Vector2(2, 16.75f), max: new Vector2(2.25f, 100)));
     }
+    
+    //todo: change component map method from reload and unload to save?
 
     public void DefineHeader() {
         var OsmiumLogo = new Image(
