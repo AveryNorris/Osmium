@@ -18,8 +18,8 @@ public class Image : ImGUI
     /// <summary> Creates a new box element. Allows you to control many different options </summary>
     /// <param name="size"> size of the box characters</param>
     /// <param name="color"> Color of the box </param>
-    public Image(string path, Transform transform = new Transform(), Color? color = null, int z = 0) {
-        this.texture = new Texture(path);
+    public Image(Texture __texture, Transform transform = new Transform(), Color? color = null, int z = 0) {
+        this.texture = __texture;
         this.color = color ?? DefaultColor;
         this.z = z;
         this.transform = transform;

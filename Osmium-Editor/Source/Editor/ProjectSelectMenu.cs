@@ -16,7 +16,16 @@ namespace OsmiumEditor;
 
 public class ProjectSelectMenu : RadiumElement
 {
-    private Font jetbrains = new Font(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.jetbrainsMonoRegular.png"), 100, 19, [32,136]);
+    private static Font jetbrains = new Font(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.jetbrainsMonoRegular.png"), 100, 19, [32,136]);
+    
+    //todo: add back texture caching
+    private static Texture osmiumLogo;
+
+    static ProjectSelectMenu() {
+        using (Stream stream = Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.Osmium.png")) {
+            osmiumLogo = new Texture(stream);
+        }
+    }
 
     public ProjectSelectMenu() {
         ProjectMemory.RefreshProjectList();
@@ -48,7 +57,7 @@ public class ProjectSelectMenu : RadiumElement
 
     public void DefineHeader() {
         var OsmiumLogo = new Image(
-            "/Users/averynorris/Osmium/Osmium-Nucleus/Osmium.png",
+            osmiumLogo,
             transform: new Transform(size: Vector2.One * 13, pos: new Vector2(2, 2)),
             color: Palette.White);
         
