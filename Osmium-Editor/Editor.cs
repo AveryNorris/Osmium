@@ -53,7 +53,7 @@ public static class Editor
 
         Osmium.Context.UpdateFrame += (FrameEventArgs e) => Context.Update();
         
-        Osmium.Run();
+        Osmium.EditorRun();
         
         return 0;
     }

@@ -1,4 +1,5 @@
 using System.Numerics;
+using OsmiumEditor.Source.Components;
 using OsmiumNucleus;
 using OsmiumRadium;
 using RadiumTest2;
@@ -81,13 +82,21 @@ public class ComponentHierarchy : RadiumElement
             name = __component.GetType().Name;
         
         Vector2 pos = new Vector2((100 - Size) - Offset, 5.5f + 4 * count);
-            
+
+        Color boxColor = Color.White;
+        //todo: console.clear button!
+        //todo: watch int/float overflow for stuff
+        if (__component.GetType() == Context.LoadedProgram.Assemblies.First(x => x.GetType(typeof(Package).FullName) != null)?.GetType(typeof(Package).FullName))
+        {
+            boxColor = Color.FromArgb(255, 255, 0, 0);
+        }
+        
         //todo: clear selected component when scenes switch
         //todo: add unselecting components by clicking anywhere
+        
             
-            
-        var SceneDisplay = new Button(new Transform(size: new Vector2(Size, 3), pos: pos), new Text(name, size: 1.25f), backgroundColor: Palette.BackgroundLow, backgroundHoverColor: Palette.BackgroundHigh, backgroundHeldColor: Palette.SecondaryHover);
-        SceneDisplay.text.pos = pos + new Vector2(1, 1) + new Vector2(2,0) * __depth;    
+        var SceneDisplay = new Button(new Transform(size: new Vector2(Size, 3), pos: pos), new Text(name, size: 1.25f), backgroundColor: Palette.Transparent, backgroundHoverColor: Palette.BackgroundHigh, backgroundHeldColor: Palette.SecondaryHover);
+        SceneDisplay.text.pos = pos + new Vector2(2, 1) + new Vector2(2,0) * __depth;    
             
         //todo: one fram disparity between selection nerd
         if (__component == SelectedComponent) {
@@ -101,6 +110,9 @@ public class ComponentHierarchy : RadiumElement
         if (SceneDisplay.Active() || SceneDisplay.Held()) {
             SelectedComponent = __component;
         }
+        
+        var TabColor = new Box(new Transform(pos: pos, size: new Vector2(1, 3)), boxColor);
+
 
         count++;
 

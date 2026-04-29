@@ -51,8 +51,9 @@ public class CreateComponentPopup : RadiumElement
                         SceneHierarchy.SelectedScene.Add(createdComponent);
                     }
 
-                    Radium.Remove<CreateComponentPopup>();
                 }
+                
+                Radium.Remove<CreateComponentPopup>();
             }
         }
     }

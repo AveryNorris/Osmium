@@ -53,11 +53,8 @@ public static partial class ComponentMap
         
         foreach (string jsonSegment in ComponentMap.Split('#')) {
             if (jsonSegment == string.Empty) return;
-
-            SolidReference solidReference = SolidReference.Parse(jsonSegment);
-            solidReference.Build();
             
-            ComponentReferences.Add(solidReference);
+            ComponentReferences.Add(SolidReference.Parse(jsonSegment));
         }
         //todo: make this assume scene map is correct and throw correcting errors if not
     }
