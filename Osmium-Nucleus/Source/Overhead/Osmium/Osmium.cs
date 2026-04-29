@@ -51,9 +51,9 @@ public static class Osmium
     /// <summary> Starts up Osmium, and resolves all the Components in the App Domain! Must be called before Run() and Osmium is not guaranteed to work until you call this method! </summary>
     /// <errors> Osmium cannot be initialized again! And it cannot be initialized if you have already called Close() </errors>
     public static void Initialize() {
-        if (IsClosed) { Debug.LogError("Osmium is already closed!"); return; }
-        if (IsRunning) { Debug.LogError("Osmium is already Running!"); return; }
-        if (IsInitialized) { Debug.LogError("Osmium has already Started!"); return; }
+        if (IsClosed) { Debug.Error("Osmium is already closed!"); return; }
+        if (IsRunning) { Debug.Error("Osmium is already Running!"); return; }
+        if (IsInitialized) { Debug.Error("Osmium has already Started!"); return; }
         
         IsInitialized = true;
         
@@ -62,7 +62,7 @@ public static class Osmium
 
         EventManager.ResolveAllModules();
         
-        Debug.LogAction("Successfully Initialized Osmium!");
+        Debug.Action("Successfully Initialized Osmium!");
     }
     
     
@@ -70,13 +70,13 @@ public static class Osmium
     /// <summary> Begins the update loop and sends Load() to all Components! </summary>
     /// <errors>Osmium must be initialized before calling this method.The given name cannot be null. And Osmium cannot have a Scene by the same name! </errors>
     public static void Run() {
-        if(!IsInitialized) { Debug.LogError("Osmium has not been Initialized yet!"); return; }
-        if(IsRunning) { Debug.LogError("Osmium is already Running!"); return; }
-        if(IsClosed) { Debug.LogError("Osmium has already been closed!"); return; }
+        if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return; }
+        if(IsRunning) { Debug.Error("Osmium is already Running!"); return; }
+        if(IsClosed) { Debug.Error("Osmium has already been closed!"); return; }
         
         IsRunning = true;
         
-        Debug.LogAction("Beginning Update Loop!");
+        Debug.Action("Beginning Update Loop!");
         Context!.Run();
     }
     
@@ -85,9 +85,9 @@ public static class Osmium
     /// <summary> Closes Osmium and ends the OpenTK instance! </summary>
     /// <errors>Osmium must be initialized and running before calling this method. And Osmium cannot close after it has been closed! </errors>
     public static void Close() {
-        if(!IsInitialized) { Debug.LogError("Osmium has not been Initialized yet!"); return; }
-        if(!IsRunning) { Debug.LogError("Osmium is already not Running!"); return; }
-        if(IsClosed) { Debug.LogError("Osmium has already been closed!"); return; }
+        if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return; }
+        if(!IsRunning) { Debug.Error("Osmium is already not Running!"); return; }
+        if(IsClosed) { Debug.Error("Osmium has already been closed!"); return; }
 
         IsClosed = true;
         IsRunning = false;
@@ -103,14 +103,14 @@ public static class Osmium
     /// These methods are made required in order to use Virtualization! Use Editor Methods instead of normal ones for Virtualization to work.</remarks>
     [MarkerAttributes.EditorPipeline]
     public static void EditorInitialize() {
-        if (IsRunning) { Debug.LogError("Osmium is already Running!"); return; }
-        if (IsInitialized) { Debug.LogError("Osmium has already Started!"); return; }
+        if (IsRunning) { Debug.Error("Osmium is already Running!"); return; }
+        if (IsInitialized) { Debug.Error("Osmium has already Started!"); return; }
         
         IsInitialized = true;
         
         Context = new Context();
         
-        Debug.LogAction("Successfully Initialized Osmium!");
+        Debug.Action("Successfully Initialized Osmium!");
     }
     
     
@@ -120,8 +120,8 @@ public static class Osmium
     /// These methods are made required in order to use Virtualization! Use Editor Methods instead of normal ones for Virtualization to work.</remarks>
     [MarkerAttributes.EditorPipeline]
     public static void EditorRun() {
-        if(!IsInitialized) { Debug.LogError("Osmium has not been Initialized yet!"); return; }
-        if(IsRunning) { Debug.LogError("Osmium is already Running!"); return; }
+        if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return; }
+        if(IsRunning) { Debug.Error("Osmium is already Running!"); return; }
         
         Context!.Run();
     }
@@ -176,9 +176,9 @@ public static class Osmium
     /// <errors>Osmium must be initialized before calling this method.The given name cannot be null. And Osmium cannot have a Scene by the same name! </errors>
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
     public static Scene? AddScene(string __name) {
-        if(!IsInitialized) { Debug.LogError("Osmium has not been Initialized yet!"); return null; }
-        if (__name == null) { Debug.LogError("A Scene cannot have a null name!"); return null; }
-        if (ContainsScene(__name)) { Debug.LogError("A Scene with the given name already Exists!"); return null; }
+        if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return null; }
+        if (__name == null) { Debug.Error("A Scene cannot have a null name!"); return null; }
+        if (ContainsScene(__name)) { Debug.Error("A Scene with the given name already Exists!"); return null; }
 
         Scene newScene = new (__name);
         _scenes.Add(newScene);
@@ -193,9 +193,9 @@ public static class Osmium
     /// <remarks> Using this is only recommended for custom types of Scene! If you wish to Spawn in a normal scene, use <see cref="AddScene(string)"/> </remarks>
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
     public static void AddScene(Scene __scene) {
-        if(!IsInitialized) { Debug.LogError("Osmium has not been Initialized yet!"); return; }
-        if (__scene == null) { Debug.LogError("The given Scene is null!"); return; }
-        if (ContainsScene(__scene.Name)) { Debug.LogError("A Scene with the given name already Exists!"); return; }
+        if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return; }
+        if (__scene == null) { Debug.Error("The given Scene is null!"); return; }
+        if (ContainsScene(__scene.Name)) { Debug.Error("A Scene with the given name already Exists!"); return; }
         
         _scenes.Add(__scene);
     }
@@ -209,8 +209,8 @@ public static class Osmium
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium),
      MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public static Scene? GetScene(string __name) {
-        if(!IsInitialized)  { Debug.LogError("Osmium has not been Initialized yet!"); return null; }
-        if(__name == null) { Debug.LogError("A Scene cannot have a null name!"); return null; }
+        if(!IsInitialized)  { Debug.Error("Osmium has not been Initialized yet!"); return null; }
+        if(__name == null) { Debug.Error("A Scene cannot have a null name!"); return null; }
         
         return _scenes.FirstOrDefault(scene => scene.Name == __name);
     }
@@ -224,8 +224,8 @@ public static class Osmium
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium),
      MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public static bool ContainsScene(string __name) {
-        if(!IsInitialized)  { Debug.LogError("Osmium has not been Initialized yet!"); return false; }
-        if(__name == null) { Debug.LogError("A Scene cannot have a null name!"); return false; }
+        if(!IsInitialized)  { Debug.Error("Osmium has not been Initialized yet!"); return false; }
+        if(__name == null) { Debug.Error("A Scene cannot have a null name!"); return false; }
         
         return _scenes.Any(scene => scene.Name == __name);
     }
@@ -237,9 +237,9 @@ public static class Osmium
     /// <errors> Osmium must be initialized before calling this method. The given Name cannot be null. And the given Scene must exist </errors>
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public static void RemoveScene(string __name) {
-        if(!IsInitialized)  { Debug.LogError("Osmium has not been Initialized yet!"); return; }
-        if(__name == null) { Debug.LogError("A Scene cannot have a null name!"); return; }
-        if(!ContainsScene(__name)) { Debug.LogError("The given scene does not exist!"); return; }
+        if(!IsInitialized)  { Debug.Error("Osmium has not been Initialized yet!"); return; }
+        if(__name == null) { Debug.Error("A Scene cannot have a null name!"); return; }
+        if(!ContainsScene(__name)) { Debug.Error("The given scene does not exist!"); return; }
 
         _scenes.Remove(GetScene(__name)!);
     }
@@ -251,9 +251,9 @@ public static class Osmium
     /// <errors> Osmium must be initialized before calling this method. The given Scene cannot be null. And the given Scene must exist </errors>
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public static void RemoveScene(Scene __scene) {
-        if(!IsInitialized)  { Debug.LogError("Osmium has not been Initialized yet!"); return; }
-        if(__scene == null) { Debug.LogError("A given scene cannot be null!"); return; }
-        if(!ContainsScene(__scene.Name)) { Debug.LogError("The given scene does not exist!"); return; }
+        if(!IsInitialized)  { Debug.Error("Osmium has not been Initialized yet!"); return; }
+        if(__scene == null) { Debug.Error("A given scene cannot be null!"); return; }
+        if(!ContainsScene(__scene.Name)) { Debug.Error("The given scene does not exist!"); return; }
         
         _scenes.Remove(__scene);
     }

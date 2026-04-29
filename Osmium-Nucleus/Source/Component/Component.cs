@@ -19,7 +19,7 @@ public abstract partial class Component : ComponentDocker
     public string Name {
         get => _name;
         set { 
-            if (value == null) { Debug.LogError("A Component's name cannot be null!"); return; } 
+            if (value == null) { Debug.Error("A Component's name cannot be null!"); return; } 
             
             _name = value; 
         }
@@ -43,7 +43,7 @@ public abstract partial class Component : ComponentDocker
     public int Priority {
         get => Math.Abs(OrderProfile) - 64;
         set {
-            if(value is < -63 or > 63) { Debug.LogError("Priority cannot be set to any integer larger than 63 or less than -64!"); return; }
+            if(value is < -63 or > 63) { Debug.Error("Priority cannot be set to any integer larger than 63 or less than -64!"); return; }
 
             Parent.UpdatePriority(this, Priority, value);
             OrderProfile = (sbyte) (Enabled ? value + 64 : (value + 64) * -1);
@@ -78,8 +78,8 @@ public abstract partial class Component : ComponentDocker
     /// <summary> Adds a new tag to the component</summary>
     [MarkerAttributes.CalculatedProperty, MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public void AddTag(string __tag) {
-        if(__tag == null) { Debug.LogError("A Component's tag cannot be null!"); return; }
-        if(Tags.Contains(__tag)) { Debug.LogError("Component already has the given tag!", ["ComponentName", "Tag"], [_name, __tag]); return; }
+        if(__tag == null) { Debug.Error("A Component's tag cannot be null!"); return; }
+        if(Tags.Contains(__tag)) { Debug.Error("Component already has the given tag!", ["ComponentName", "Tag"], [_name, __tag]); return; }
 
         _tags.Add(__tag);
         Parent.HashTaggedComponent(__tag, this);
@@ -90,8 +90,8 @@ public abstract partial class Component : ComponentDocker
     /// <summary> Removes a tag from the component.</summary>
     [MarkerAttributes.CalculatedProperty, MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public void RemoveTag(string __tag) {
-        if (__tag == null) { Debug.LogError("Cannot remove a null tag! It is impossible for Components to have null tags"); return;};
-        if(!Tags.Contains(__tag)) { Debug.LogError("Component does not have the given tag!", ["ComponentName", "Tag"], [_name, __tag]); return; }
+        if (__tag == null) { Debug.Error("Cannot remove a null tag! It is impossible for Components to have null tags"); return;};
+        if(!Tags.Contains(__tag)) { Debug.Error("Component does not have the given tag!", ["ComponentName", "Tag"], [_name, __tag]); return; }
 
         _tags.Remove(__tag);
         Parent.UnhashTaggedComponent(__tag, this);

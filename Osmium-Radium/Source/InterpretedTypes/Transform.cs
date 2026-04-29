@@ -16,17 +16,17 @@ public struct Transform
             this.size = (Vector2) size;
             
             if (min != null || max != null) 
-                Debug.LogError("Setting size before setting min or max is redundant; both settings override the previously defined size. Only set one of the two!");
+                Debug.Error("Setting size before setting min or max is redundant; both settings override the previously defined size. Only set one of the two!");
         }
         
         if (pos != null) {
             this.pos = (Vector2) pos; 
             
             if (min != null)
-                Debug.LogError("Setting pos before setting min is redundant; the setting overrides the previously defined pos. Only set one of the two!");
+                Debug.Error("Setting pos before setting min is redundant; the setting overrides the previously defined pos. Only set one of the two!");
             
             if (center != null)
-                Debug.LogError("Setting pos before setting center redundant; setting center overrides the previously defined pos. Only set one of the two!");
+                Debug.Error("Setting pos before setting center redundant; setting center overrides the previously defined pos. Only set one of the two!");
         }
 
         if (max != null) this.max = (Vector2) max;
@@ -35,7 +35,7 @@ public struct Transform
             this.min = (Vector2) min;
             
             if (center != null)
-                Debug.LogError("Setting min before setting center is redundant; the setting overrides the previously defined min. Only set one of the two!");
+                Debug.Error("Setting min before setting center is redundant; the setting overrides the previously defined min. Only set one of the two!");
         }
         
         if (center != null) this.center = (Vector2) center;
@@ -102,7 +102,7 @@ public struct Transform
             min = newMin;
             max = newMax;
 
-            Debug.LogError("Min and Max were incorrect!");
+            Debug.Error("Min and Max were incorrect!");
         }
     }
     

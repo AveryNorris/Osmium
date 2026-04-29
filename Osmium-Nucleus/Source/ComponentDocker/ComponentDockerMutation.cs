@@ -56,8 +56,8 @@ public abstract partial class ComponentDocker
     /// <summary> Destroys a component attached to the Docker </summary>
     /// <param name="__component"></param>
     public void Destroy(Component __component) {
-        if(__component == null) { Debug.LogError("A given Component cannot be null!"); return; }
-        if(!Contains(__component)) { Debug.LogError("This Docker does not own the given Component"); return; }
+        if(__component == null) { Debug.Error("A given Component cannot be null!"); return; }
+        if(!Contains(__component)) { Debug.Error("This Docker does not own the given Component"); return; }
         
         __component.TryEvent(5);
         __component.ChainEvent(5);

@@ -37,7 +37,7 @@ public class Font
 
             for (int i = 0; i < CharRanges.Count; i += 2) {
                 if (i == CharRanges.Count - 1) {
-                    Debug.LogError("A given char is not within the font's valid range! ", ["Char"], [__c.ToString()]);
+                    Debug.Error("A given char is not within the font's valid range! ", ["Char"], [__c.ToString()]);
                     return Vector4.Zero;
                 }
 

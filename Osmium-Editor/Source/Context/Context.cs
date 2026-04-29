@@ -53,11 +53,12 @@ public static class Context
 
     //todo: ENFORCE/DOCUMENT that actiosn that require another reload should not be tied to reload without manually calling it!
     public static void Reload() {
+        Debug.Clear();
         //todo: make method
         UpdateTracker.SurpressReload = true;
         MemoryStream assemblyStream = ScriptCompiler.CompileScripts();
 
-        if (!ScriptCompiler.Success)  { Debug.LogError("Source did not compile! "); return; }
+        if (!ScriptCompiler.Success)  { Debug.Error("Source did not compile! "); return; }
         
         OnUnload?.Invoke();
 
@@ -75,7 +76,7 @@ public static class Context
 
         Stopwatch timer = Stopwatch.StartNew();
         
-        Debug.LogAction("Reloading Osmium!");
+        Debug.Action("Reloading Osmium!");
         
 
         //keep old scripts if new ones do not compiles
@@ -100,7 +101,7 @@ public static class Context
 
         ModuleManager.AppendModules();
 
-        Debug.LogAction("Finished Compiling and Loading program!");
+        Debug.Action("Finished Compiling and Loading program!");
 
 
         Osmium.VirtualInitialize(LoadedProgram.Assemblies);
@@ -115,7 +116,7 @@ public static class Context
         UpdateTracker.SurpressReload = false;
         
         timer.Stop();
-        Debug.LogAction("Reload finished in: " + timer.Elapsed.Milliseconds + "ms!");
+        Debug.Action("Reload finished in: " + timer.Elapsed.Milliseconds + "ms!");
 
         //todo: wait to reload if a game is running
     }
@@ -127,7 +128,7 @@ public static class Context
         
         //todo: event
         
-        Debug.LogAction("Opening project! ", ["Path"], [__path]);
+        Debug.Action("Opening project! ", ["Path"], [__path]);
         
         //check for valid project
         string parentDirectory = Path.GetDirectoryName(__path);

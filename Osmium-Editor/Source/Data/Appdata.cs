@@ -17,7 +17,7 @@ public static class Appdata
         Path = SystemAppdataFolder + "/Osmium";
 
         if (!Directory.Exists(Path)) {
-            Debug.LogAction("Failed to find an Appdata folder! Creating a new one...", ["Appdata Path"], [Path]);
+            Debug.Action("Failed to find an Appdata folder! Creating a new one...", ["Appdata Path"], [Path]);
             Directory.CreateDirectory(Path);
         } 
     }           
@@ -58,7 +58,7 @@ public static class Appdata
         
         //todo: make resistant to false middle directories
         if (!File.Exists(__path)) {
-            Debug.LogAction("Failed to find a config file! Creating a new one...", ["File Path"], [__path]);
+            Debug.Action("Failed to find a config file! Creating a new one...", ["File Path"], [__path]);
             File.Create(__path).Close();
         }
     }

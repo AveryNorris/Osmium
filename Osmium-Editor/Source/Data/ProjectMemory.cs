@@ -29,7 +29,7 @@ public static class ProjectMemory
             string[] contents = projectPointer.Split("|");
             
             if (contents.Length < 2 || !DateTime.TryParse(contents[0], out DateTime time) || !ValidOsmiumProject(contents[1])) {
-                update = true; Debug.LogError("Failed to parse an OsPtr! It will be ignored.", ["Path"], [projectData]); continue;
+                update = true; Debug.Error("Failed to parse an OsPtr! It will be ignored.", ["Path"], [projectData]); continue;
             }
 
             //time
@@ -38,7 +38,7 @@ public static class ProjectMemory
             if (refreshedProjectLinks.Contains(projectPointer)) {
                 update = true; 
                 //error
-                Debug.LogError("Project ref has duplicate projects!", ["Path"], [projectData]); continue;
+                Debug.Error("Project ref has duplicate projects!", ["Path"], [projectData]); continue;
             }
                 
             refreshedProjectLinks.Add(contents[1]);

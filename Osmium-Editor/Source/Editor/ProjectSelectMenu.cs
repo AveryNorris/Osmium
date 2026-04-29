@@ -75,6 +75,7 @@ public class ProjectSelectMenu : RadiumElement
         var VersionText = new Text('V' + Osmium.Version, color: Palette.TextHigh, size: 3, spacing: new Vector2(.5f,1));
         VersionText.pos = new Vector2(100, 16) - VersionText.bounds;
         
+        //todo: radium scrolling abstractions debug color options
         
         
         if (ExitButton.Active()) Osmium.Close();
@@ -99,7 +100,7 @@ public class ProjectSelectMenu : RadiumElement
             string projectFolderPath = Path.ChangeExtension(output, null);
 
             if (Directory.Exists(projectFolderPath)) {
-                Debug.LogError("A folder with the given name already exists!", ["Path", "Name"], [projectFolderPath, projectName]);
+                Debug.Error("A folder with the given name already exists!", ["Path", "Name"], [projectFolderPath, projectName]);
                 return;
             }
                 

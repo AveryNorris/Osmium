@@ -8,12 +8,12 @@ public abstract partial class ComponentDocker
     
     /// <summary> Moves a component belonging to the docker to another docker</summary>
     public void Move(Component __component, ComponentDocker __componentDocker) {
-        if(__component == null) { Debug.LogError("Component cannot be null!"); return; }
-        if(__componentDocker == null) { Debug.LogError("Docker cannot be null!"); return; }
-        if(__componentDocker == this) { Debug.LogError("A Component cannot move to a Docker it already belongs to!"); return; }
-        if(!this.Contains(__component)) { Debug.LogError("The Docker you are calling does not own this Component!"); return; }
-        if(__component == __componentDocker)  { Debug.LogError("You cannot move a Component into itself!"); return; }
-        if(__component.AllChildren.Contains(__componentDocker)) { Debug.LogError("The Component is a parent of the Docker it is trying to move to!"); return; }
+        if(__component == null) { Debug.Error("Component cannot be null!"); return; }
+        if(__componentDocker == null) { Debug.Error("Docker cannot be null!"); return; }
+        if(__componentDocker == this) { Debug.Error("A Component cannot move to a Docker it already belongs to!"); return; }
+        if(!this.Contains(__component)) { Debug.Error("The Docker you are calling does not own this Component!"); return; }
+        if(__component == __componentDocker)  { Debug.Error("You cannot move a Component into itself!"); return; }
+        if(__component.AllChildren.Contains(__componentDocker)) { Debug.Error("The Component is a parent of the Docker it is trying to move to!"); return; }
         
         RemoveComponentFromLists(__component);
         __componentDocker.AddComponentToLists(__component);
@@ -24,9 +24,9 @@ public abstract partial class ComponentDocker
 
     /// <summary> Moves all components in a list to another docker</summary>
     public void MoveAll(IEnumerable<Component> __Components, ComponentDocker __componentDocker) {
-        if(__Components == null) { Debug.LogError("Components cannot be null!"); return; }
-        if(__componentDocker == null) { Debug.LogError("Docker cannot be null!"); return; }
-        if(__componentDocker == this) { Debug.LogError("A Component cannot move to a Docker it already belongs to!"); return; }
+        if(__Components == null) { Debug.Error("Components cannot be null!"); return; }
+        if(__componentDocker == null) { Debug.Error("Docker cannot be null!"); return; }
+        if(__componentDocker == this) { Debug.Error("A Component cannot move to a Docker it already belongs to!"); return; }
         
         foreach (Component component in __Components) {
             Move(component, __componentDocker);

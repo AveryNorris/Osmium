@@ -31,7 +31,7 @@ public class Text : ImGUI
         if (font != null) {
             this.font = font;
         }else if (DefaultFont == null) {
-            Debug.LogError("A default font does not exist! Either set one implicit or configure a default font.");
+            Debug.Error("A default font does not exist! Either set one implicit or configure a default font.");
         }else
             this.font = DefaultFont;
 
@@ -41,7 +41,7 @@ public class Text : ImGUI
             this.center = (Vector2)center;
 
             if (pos != null)
-                Debug.LogError("A given Text element has definitions of both center and pos! Which causes one of them to be overridden.");
+                Debug.Error("A given Text element has definitions of both center and pos! Which causes one of them to be overridden.");
         }
     }
 

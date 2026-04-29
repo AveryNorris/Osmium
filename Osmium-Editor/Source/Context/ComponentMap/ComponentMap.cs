@@ -17,7 +17,7 @@ public static partial class ComponentMap
     public static void Unload() {
         
         
-        Debug.LogAction("Serializing Components!");
+        Debug.Action("Serializing Components!");
         Stopwatch serializeWatch = Stopwatch.StartNew();
         
         ComponentReferences = [];
@@ -27,14 +27,14 @@ public static partial class ComponentMap
         }
         
         serializeWatch.Stop();
-        Debug.LogAction("Serialized Components in " + serializeWatch.ElapsedMilliseconds + "ms!");
+        Debug.Action("Serialized Components in " + serializeWatch.ElapsedMilliseconds + "ms!");
     }
 
     public static void Reload() {
         if(FirstLoad) TryOpenProject();
         FirstLoad = false;
         
-        Debug.LogAction("Reloading Component map!");
+        Debug.Action("Reloading Component map!");
         Stopwatch componentMap = Stopwatch.StartNew();
         
         foreach (SolidReference dynamicReference in ComponentReferences) {
@@ -42,7 +42,7 @@ public static partial class ComponentMap
         }
         
         componentMap.Stop();
-        Debug.LogAction("Reloaded Component map in " + componentMap.ElapsedMilliseconds + "ms!");
+        Debug.Action("Reloaded Component map in " + componentMap.ElapsedMilliseconds + "ms!");
         
         SaveMap();
     }
@@ -63,7 +63,7 @@ public static partial class ComponentMap
     }
 
     public static void SaveMap() {
-        Debug.LogAction("Writing Serialized Components!");
+        Debug.Action("Writing Serialized Components!");
         
         string ComponentMap = string.Empty;
         foreach (SolidReference dynamicReference in ComponentReferences) {
@@ -77,6 +77,6 @@ public static partial class ComponentMap
         //todo: always use get path in case things are removed mid runtime and rename to getandregenpath() or something
         
         saveWatch.Stop();
-        Debug.LogAction("Compiled and wrote Component Map in " + saveWatch.ElapsedMilliseconds + "ms!");
+        Debug.Action("Compiled and wrote Component Map in " + saveWatch.ElapsedMilliseconds + "ms!");
     }
 }

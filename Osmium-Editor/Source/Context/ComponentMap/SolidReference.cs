@@ -78,7 +78,7 @@ public static partial class ComponentMap
 
             if (componentAssembly == null) {
                 //todo: add a component map error system and detect assembly/component name refactors
-                Debug.LogError("Osmium cannot find a Components assembly! Has its name changed?", ["Assembly Name"], [AssemblyName]);
+                Debug.Error("Osmium cannot find a Components assembly! Has its name changed?", ["Assembly Name"], [AssemblyName]);
                 return ;
             }
             
@@ -86,7 +86,7 @@ public static partial class ComponentMap
             //todo: many exceptions
             Type? componentType = componentAssembly.GetType(ComponentTypeName);
             if (componentType == null) {
-                Debug.LogError("Osmium cannot find a Component's types! Has its name changed or has it moved assemblies?", ["Component Type"], [ComponentTypeName]);
+                Debug.Error("Osmium cannot find a Component's types! Has its name changed or has it moved assemblies?", ["Component Type"], [ComponentTypeName]);
                 return ;
             }
             
@@ -97,13 +97,13 @@ public static partial class ComponentMap
 
                 //todo: clean up here  and move out of try catch cuz it breaks if debug is set to throw exceptions
                 if (instantiatedComponent == null) {
-                    Debug.LogError("Osmium failed to create an instance of a Component!");
+                    Debug.Error("Osmium failed to create an instance of a Component!");
                     return ;
                 }
                 
                 newComponent = instantiatedComponent;
             } catch(Exception e) {
-                Debug.LogError("Reinstantiating a referenced Component has failed!", ["Error"], [e.Message]);
+                Debug.Error("Reinstantiating a referenced Component has failed!", ["Error"], [e.Message]);
                 return ;
             }
             
@@ -118,7 +118,7 @@ public static partial class ComponentMap
                 FieldInfo? field = componentType.GetField(member.FieldName, FieldSearchFlags);
 
                 if (field == null) {
-                    Debug.LogError("Osmium cannot find a field belonging to a Component!", ["Field Name"], [member.FieldName]);
+                    Debug.Error("Osmium cannot find a field belonging to a Component!", ["Field Name"], [member.FieldName]);
                     return ;
                 }
                 

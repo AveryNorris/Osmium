@@ -43,7 +43,7 @@ public class Texture : IDisposable
     {
 
         if (__path == null) {
-            Debug.LogError("Texture path is null");
+            Debug.Error("Texture path is null");
             return;
         }
         

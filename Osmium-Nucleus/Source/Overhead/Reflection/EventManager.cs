@@ -40,7 +40,7 @@ internal static class EventManager
     [MarkerAttributes.UnsafeInternal]
     internal static void ResolveAllModules() {
         ResolveAllModules(AppDomain.CurrentDomain.GetAssemblies());
-        Debug.LogAction("Finished Resolving!");
+        Debug.Action("Finished Resolving!");
     }
     
     
@@ -76,7 +76,7 @@ internal static class EventManager
 
 
 
-                Debug.LogAction("Found and Resolved events attached to : " + type.Name + " In " + type.Namespace);
+                Debug.Action("Found and Resolved events attached to : " + type.Name + " In " + type.Namespace);
 
                 _newAssociatedTimeEvents.Add(type, timeEvents.ToArray());
                 _newAssociatedVirtualEventPrivileges.Add(type, type.GetCustomAttribute<NonVirtual>() != null);

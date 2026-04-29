@@ -85,11 +85,11 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
     //Indexers to make for loops easier.
     public Component this[int __index] {
         get {
-            if(__index < 0 || __index >= _components.Count) { Debug.LogError("Docker Index out of range!", ["Count", "Index"], [Count.ToString(), __index.ToString()]); return null; }
+            if(__index < 0 || __index >= _components.Count) { Debug.Error("Docker Index out of range!", ["Count", "Index"], [Count.ToString(), __index.ToString()]); return null; }
             return _components[__index];
         }
         set {
-            if(__index < 0 || __index >= _components.Count) { Debug.LogError("Docker Index out of range!", ["Count", "Index"], [Count.ToString(), __index.ToString()]); return; }
+            if(__index < 0 || __index >= _components.Count) { Debug.Error("Docker Index out of range!", ["Count", "Index"], [Count.ToString(), __index.ToString()]); return; }
             _components[__index] = value;
         }
     }

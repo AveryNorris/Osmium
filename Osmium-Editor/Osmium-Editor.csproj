@@ -35,4 +35,8 @@
       <EmbeddedResource Include="Assets\ProggyClean.radfont" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Source\Debug\" />
+    </ItemGroup>
+
 </Project>

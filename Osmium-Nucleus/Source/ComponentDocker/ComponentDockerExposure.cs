@@ -11,7 +11,7 @@ public abstract partial class ComponentDocker
     /// <summary> Tells you whether the docker contains a component with the given tag </summary>
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.VeryLow), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
     public bool Contains(string __tag) {
-        if(__tag == null) { Debug.LogError("A given tag cannot be null!"); return false; }
+        if(__tag == null) { Debug.Error("A given tag cannot be null!"); return false; }
         return _componentTagDictionary.ContainsKey(__tag);
     }
     
@@ -35,7 +35,7 @@ public abstract partial class ComponentDocker
     /// <summary> Tells you whether the docker contains the given component.</summary>
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.VeryLow), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
     public bool Contains(Component __component) {
-        if(__component == null) { Debug.LogError("A given Component cannot be null!"); return false; }
+        if(__component == null) { Debug.Error("A given Component cannot be null!"); return false; }
         
         return _componentTypeDictionary.TryGetValue(__component.GetType(), out HashSet<Component>? components) && components.Contains(__component);
     }
@@ -72,8 +72,8 @@ public abstract partial class ComponentDocker
     /// <summary> Finds all components that have all the given tags</summary>
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.VeryLow), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public ICollection<Component> GetAll(ICollection<string> __tags) {
-        if (__tags == null) { Debug.LogError("A given collection cannot be null!"); return []; }
-        if(__tags.Contains(null)) { Debug.LogError("A given collection cannot contain null!"); return []; }
+        if (__tags == null) { Debug.Error("A given collection cannot be null!"); return []; }
+        if(__tags.Contains(null)) { Debug.Error("A given collection cannot contain null!"); return []; }
         if(__tags.Count == 0) return GetAll(); 
         
         HashSet<Component> components;
@@ -100,8 +100,8 @@ public abstract partial class ComponentDocker
     /// <summary> Finds all Components that have the given type, and all the given tags</summary>
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.VeryLow), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public ICollection<__Type> GetAll<__Type>(ICollection<string> __tags) where __Type : Component {
-        if (__tags == null) { Debug.LogError("A given collection cannot be null!"); return []; }
-        if(__tags.Contains(null)) { Debug.LogError("A given collection cannot contain null!"); return []; }
+        if (__tags == null) { Debug.Error("A given collection cannot be null!"); return []; }
+        if(__tags.Contains(null)) { Debug.Error("A given collection cannot contain null!"); return []; }
         if (__tags.Count == 0) return GetAll<__Type>();
         
         HashSet<__Type> components = [];
@@ -131,7 +131,7 @@ public abstract partial class ComponentDocker
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.VeryLow),
      MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
     public ICollection<Component> GetAll(string __tag) {
-        if(__tag == null) { Debug.LogError("A given tag cannot be null!"); return []; }
+        if(__tag == null) { Debug.Error("A given tag cannot be null!"); return []; }
         
         return _componentTagDictionary.TryGetValue(__tag, out HashSet<Component>? components) ? components.ToList() : Array.Empty<Component>();
     }

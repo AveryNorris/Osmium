@@ -18,8 +18,9 @@ public static class Debug
     
     /// <summary> Target name of the log file </summary>
     public const string LogFileName = "Log";
-        
-        
+
+    public static OrderedDictionary<DebugMessage, int> Stack = [];
+    
         
     //Whether to throw error exceptions
     public static bool ThrowExceptions { get; set; } = false;
@@ -70,49 +71,52 @@ public static class Debug
             WriteToConsole = true;
     }
 
-    
-    
+
+
+
     /// <summary> Sends an action message! </summary>
-    public static void LogAction(string __message) => LogGeneric(__message, "ACT", [], [], false);
+    public static void Action(string __message) => LogGeneric(new DebugMessage(__message, "ACT", [], [], false));
     /// <summary> Sends an action message! Also sends extra information in the form of objects; the first list is the names of objects to send, and the second
     /// is the actual information at each index.</summary>
-    public static void LogAction(string __message, ICollection<string> __values, ICollection<string> __args) => LogGeneric(__message, "ACT", __values, __args, false);
+    public static void Action(string __message, string[] __params, string[] __values) => LogGeneric(new DebugMessage(__message, "ACT", __params, __values, false));
         
         
     /// <summary> Sends a warning message! </summary>
-    public static void LogWarning(string __message) => LogGeneric(__message, "WRN", [], [], false);
+    public static void Warning(string __message) => LogGeneric(new DebugMessage(__message, "WRN", [], [], false));
     /// <summary> Sends a warning message! Also sends extra information in the form of objects; the first list is the names of objects to send, and the second
     /// is the actual information at each index.</summary>
-    public static void LogWarning(string __message, ICollection<string> __values, ICollection<string> __args) => LogGeneric(__message, "WRN", __values, __args, false);
+    public static void Warning(string __message, string[] __params, string[] __values) => LogGeneric(new DebugMessage(__message, "WRN", __params, __values, false));
         
         
     
     /// <summary> Sends an error message! </summary>
-    public static void LogError(string __message) => LogGeneric(__message, "ERR", [], [], true);
+    public static void Error(string __message) => LogGeneric(new DebugMessage(__message, "ERR", [], [], true));
     /// <summary> Sends an error message! Also sends extra information in the form of objects; the first list is the names of objects to send, and the second
     /// is the actual information at each index.</summary>
-    public static void LogError(string __message, ICollection<string> __values, ICollection<string> __args) => LogGeneric(__message, "ERR", __values, __args, true);
+    public static void Error(string __message, string[] __params, string[] __values) => LogGeneric(new DebugMessage(__message, "ERR", __params, __values, true));
     
     
+    /// <summary> Logs an error! </summary>
+    public static void Log(string __message, string __callSign = "LOG") => LogGeneric(new DebugMessage(__message, __callSign, [],[], false));
     
-    
-    /// <summary> Logs an error!  </summary>
-    public static void Log(string __message, string __callSign = "LOG") => LogGeneric(__message, __callSign, [],[], false);
-    
-    public static void Log(string __message, string[] __parameters, string[] __values, string __callSign = "LOG") => LogGeneric(__message, __callSign, __parameters,__values, false);
+    public static void Log(string __message, string[] __params, string[] __values, string __callSign = "LOG") => LogGeneric(new DebugMessage(__message, __callSign, __params,__values, false));
 
         
     /// <summary>Writes the current message to the log file. With any given call sign.</summary>
-    private static void LogGeneric(string __message, string __callSign, ICollection<string> __parameters, ICollection<string> __values, bool __error = false) {
-        if (__values.Count != __parameters.Count) throw new Exception("Debug Parameters does not match the amount of values!");
-        
-        string output = "\n\n" + __callSign + "- \"" + __message + '\"';
-        if (__error) output += "\n         STK-" + new StackTrace();
+    public static void LogGeneric(DebugMessage __message) {
+        if (__message.Values.Length != __message.Parameters.Length) throw new Exception("Debug Parameters does not match the amount of values!");
 
-        for (int i = 0; i < __parameters.Count; i++)
-            output += "\n         " + __parameters.ElementAt(i) + "- " + __values.ElementAt(i);
+        if (!Stack.TryAdd(__message, 1)) {
+            Stack[__message]++;
+        }
 
-        if (__error && ThrowExceptions) throw new Exception(output);
+        string output = "\n\n" + __message.CallSign + "- \"" + __message.Message + '\"';
+        if (__message.Error) output += "\n         STK-" + new StackTrace();
+
+        for (int i = 0; i < __message.Parameters.Length; i++)
+            output += "\n         " + __message.Parameters[i] + "- " + __message.Values.ElementAt(i);
+
+        if (__message.Error && ThrowExceptions) throw new Exception(output);
             
         if(WriteToFile) File.AppendAllText(LogFilePath, output);
         if(WriteToConsole) Console.WriteLine(output);
@@ -123,9 +127,22 @@ public static class Debug
 
 
     public static void Clear() {
+        Stack.Clear();
+        
         if(WriteToFile) File.WriteAllText(LogFilePath, "");
         if(WriteToConsole) Console.Clear();
         
         _debugTable.Clear();
     }
+}
+
+public struct DebugMessage(string __message, string __callSign, string[] __parameters, string[] __values, bool __error)
+{
+    public string Message = __message;
+    public string CallSign = __callSign;
+    
+    public string[] Parameters = __parameters;
+    public string[] Values = __values;
+    
+    public bool Error = __error;
 }

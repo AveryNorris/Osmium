@@ -18,11 +18,11 @@ public static class Project
 
             if (!Path.Exists(path))
             {
-                Debug.LogError("Requested Path Does Not Exist! ", ["Path"], [path]);
+                Debug.Error("Requested Path Does Not Exist! ", ["Path"], [path]);
 
                 if (regenerate)
                 {
-                    Debug.LogAction("Regenerating Project Subdirectory...", ["Path"], [path]);
+                    Debug.Error("Regenerating Project Subdirectory...", ["Path"], [path]);
                     
                     UpdateTracker.SurpressReload = true;
                     Directory.CreateDirectory(path);
@@ -38,11 +38,11 @@ public static class Project
 
         if (!Path.Exists(path))
         {
-            Debug.LogError("Requested Path Does Not Exist! ", ["Path"], [path]);
+            Debug.Error("Requested Path Does Not Exist! ", ["Path"], [path]);
 
             if (regenerate)
             {
-                Debug.LogAction("Regenerating Project Subdirectory...", ["Path"], [path]);
+                Debug.Action("Regenerating Project Subdirectory...", ["Path"], [path]);
                     
                 UpdateTracker.SurpressReload = true;
                 Directory.CreateDirectory(Path.GetDirectoryName(path));

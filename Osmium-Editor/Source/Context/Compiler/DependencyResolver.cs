@@ -57,9 +57,9 @@ public static class DependencyResolver
         try {
             return MetadataReference.CreateFromFile(path);
         } catch (ArgumentException) {
-            Debug.LogError("The system cannot resolve a given trusted library's path! ", ["Path"], [path]);
+            Debug.Error("The system cannot resolve a given trusted library's path! ", ["Path"], [path]);
         } catch (IOException) {
-            Debug.LogError("An error occured while reading a trusted library!", ["Path"], [path]);
+            Debug.Error("An error occured while reading a trusted library!", ["Path"], [path]);
         }
 
         return null;

@@ -14,7 +14,7 @@ public abstract partial class Component
         if (Parent is Scene scene) return scene;
         if (Parent is Component Component) return Component.__QueryScene();
         
-        Debug.LogError("Failed To Find Scene? Osmium does not know what is going on but you beefed up.");
+        Debug.Error("Failed To Find Scene? Osmium does not know what is going on but you beefed up.");
         
         return null;
     }
