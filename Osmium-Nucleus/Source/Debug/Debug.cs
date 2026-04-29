@@ -92,10 +92,18 @@ public static class Debug
     /// <summary> Sends an error message! Also sends extra information in the form of objects; the first list is the names of objects to send, and the second
     /// is the actual information at each index.</summary>
     public static void LogError(string __message, ICollection<string> __values, ICollection<string> __args) => LogGeneric(__message, "ERR", __values, __args, true);
+    
+    
+    
+    
+    /// <summary> Logs an error!  </summary>
+    public static void Log(string __message, string __callSign = "LOG") => LogGeneric(__message, __callSign, [],[], false);
+    
+    public static void Log(string __message, string[] __parameters, string[] __values, string __callSign = "LOG") => LogGeneric(__message, __callSign, __parameters,__values, false);
 
-
+        
     /// <summary>Writes the current message to the log file. With any given call sign.</summary>
-    private static void LogGeneric(string __message, string __callSign, ICollection<string> __parameters, ICollection<string> __values, bool __error) {
+    private static void LogGeneric(string __message, string __callSign, ICollection<string> __parameters, ICollection<string> __values, bool __error = false) {
         if (__values.Count != __parameters.Count) throw new Exception("Debug Parameters does not match the amount of values!");
         
         string output = "\n\n" + __callSign + "- \"" + __message + '\"';

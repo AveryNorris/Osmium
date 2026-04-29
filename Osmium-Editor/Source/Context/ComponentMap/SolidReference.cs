@@ -7,7 +7,7 @@ using Context = OsmiumEditor.Context;
 namespace OsmiumEditor.ComponentMap;
 
 public static partial class ComponentMap
-{
+{ 
     private class SolidReference
     {
         public string AssemblyName { get; set; }
