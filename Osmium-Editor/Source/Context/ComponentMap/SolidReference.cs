@@ -71,6 +71,8 @@ public static partial class ComponentMap
             return System.Text.Json.JsonSerializer.Deserialize<SolidReference>(__json)!;
         }
 
+        //todo: BETTER .NET JSON BRIDGE
+        
         public void Build(ComponentDocker? __parent = null) {
             //todo: invalid json exceptions
             

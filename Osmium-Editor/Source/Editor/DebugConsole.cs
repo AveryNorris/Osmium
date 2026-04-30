@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Drawing;
 using System.Numerics;
+using System.Text;
 using OsmiumNucleus;
 using OsmiumRadium;
 using RadiumTest2;
@@ -22,6 +23,7 @@ public class DebugConsole : RadiumElement
 
 
     protected override void Draw() {
+        //todo: optimize holy
         var BackgroundBox = new Box(new Transform(pos: new Vector2(0, 100 - Height), size: new Vector2(Width, Height)), color: Palette.BackgroundLow);
 
         var DividerLine = new Box(new Transform(pos: new Vector2(0, 100 - Height), size: new Vector2(Width, .125f)), color: Palette.BackgroundHigh);
@@ -50,6 +52,9 @@ public class DebugConsole : RadiumElement
             currentMenu = 0;
         
         Vector2 min = new Vector2(0, 100 - Height);
+        
+        //todo: lag after here but also a good chunk before
+        
         Radium.SetClippingBounds(new Vector2(0, 100 - Height + 1 + 4), min + new Vector2(Width, Height));
 
         scroll += Backend.ScrollDeltaY;
@@ -63,26 +68,32 @@ public class DebugConsole : RadiumElement
         scroll = Math.Clamp(scroll, -4f * scrollMax, 0f);
         //todo: gross code
 
+        //todo: retained UI?
+
+        StringBuilder output = new StringBuilder();
+        
         if (currentMenu == 0)
         {
             float count = 0;
             foreach (KeyValuePair<DebugMessage, int> Entry in Debug.Stack)
             {
-                Vector2 Pos = new Vector2(1.5f, 100 - Height + 5 + 4 * count + scroll);
-                
                 DebugMessage debugMessage = Entry.Key;
 
-                string output = (Entry.Value > 1 ? Entry.Value + " : " : string.Empty) + debugMessage.Message;
+                output.Append((Entry.Value > 1 ? Entry.Value + " : " : string.Empty) + debugMessage.Message);
 
                 for (int i = 0; i < debugMessage.Values.Length; i++) {
-                    output += "\n   " + debugMessage.Parameters[i] + " : " + debugMessage.Values[i];
+                    output.Append("\n   " + debugMessage.Parameters[i] + " : " + debugMessage.Values[i]);
                     count += .5f;
                 }
 
+                output.Append("\n\n");
+
                 count++;
-                var Text = new Text(output, pos: Pos);
             }
         }
+        //todo: handle compilation error, add safemode and encapsulate the editor more
+        
+        var Text = new Text(output.ToString(), pos: new Vector2(1.5f, 100 - Height + 5 + scroll));
         
         Radium.SetClippingBounds(Vector2.Zero, Vector2.One * 100);
 

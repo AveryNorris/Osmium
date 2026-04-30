@@ -50,6 +50,7 @@ public class PlayMenu : RadiumElement
             if (!Running) {
                 Running = true;
                 Context.Reload();
+                Osmium.VirtualInitialize(Context.LoadedProgram!.Assemblies.Append(typeof(Package).Assembly));
                 Osmium.VirtualRun();
             } else {
                 Running = false;
