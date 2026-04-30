@@ -43,10 +43,6 @@ public static class Editor
         Radium.Add<ProjectSelectMenu>();
         
         //todo: make osmium mapping and delete scenes and components and collect garbage before then
-        
-        Osmium.AddScene("Test");
-        Osmium.AddScene("A");
-        Osmium.AddScene("I AM A LONG SCENE I AM A LONG SCENE I AM A LONG SCENE");
 
         Context.OnUnload += ComponentMap.ComponentMap.Unload;
         Context.OnReload += ComponentMap.ComponentMap.Reload;

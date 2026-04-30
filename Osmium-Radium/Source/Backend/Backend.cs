@@ -22,6 +22,9 @@ public static partial class Backend
     internal static int VertexArrayHandle;
 
     internal static int XScalingFactor;
+
+    public static bool ShouldUpdate = true;
+    public static bool ShouldDraw = true;
     
     internal static readonly int[] Indices = [
         3, 2, 1,
@@ -151,9 +154,13 @@ public static partial class Backend
     }
 
     public static void Update(FrameEventArgs e) {
-        
-        foreach (RadiumElement element in RetainedElements) {
-            element.Update();
+
+        if (ShouldUpdate)
+        {
+            foreach (RadiumElement element in RetainedElements)
+            {
+                element.Update();
+            }
         }
     }
 
@@ -163,10 +170,14 @@ public static partial class Backend
     {
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-        foreach (RadiumElement element in RetainedElements.ToList()) {
-            element.Draw();
+        if (ShouldDraw)
+        {
+            foreach (RadiumElement element in RetainedElements.ToList())
+            {
+                element.Draw();
+            }
         }
-        
+
         //resets clipping to normal; add default clipping value? todo:
         elementCount = 0;
         SetClipping(new Vector4(0,0,100,100));

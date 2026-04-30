@@ -4,6 +4,7 @@ using System.Numerics;
 using System.Reflection;
 using System.Runtime.Loader;
 using OsmiumEditor.ComponentMap;
+using OsmiumEditor.Source.Analyzers;
 using OsmiumNucleus;
 using OsmiumRadium;
 using Debug = OsmiumNucleus.Debug;
@@ -116,6 +117,18 @@ public static class Context
         OnReload?.Invoke();
 
         UpdateTracker.SurpressReload = false;
+        
+        
+        //todo: make system for editor scripting classes to store data across
+
+        foreach (Assembly assembly in Context.LoadedProgram.Assemblies) {
+            foreach (Type type in assembly.DefinedTypes) {
+                if (type.IsSubclassOf(typeof(EditorScripting))) {
+                    Debug.Log("Found subclass of EditorScripting!" + type.Name);
+                    Activator.CreateInstance(type);
+                }
+            }
+        }
         
         timer.Stop();
         Debug.Action("Reload finished in: " + timer.Elapsed.Milliseconds + "ms!");

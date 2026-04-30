@@ -5,7 +5,7 @@ namespace OsmiumNucleus;
 
 
 
-/// <summary> Handles all Osmium Debugging! Writes to a file in the same directory as the running assembly! </summary>
+/// <summary> Manages and organizes all Osmium debugging systems! </summary>
 public static class Debug
 {
 
@@ -13,12 +13,8 @@ public static class Debug
 
     /// <summary> True path of the log file Osmium dumps to. </summary>
     public static readonly string LogFilePath;
-    
-    
-    
-    /// <summary> Target name of the log file </summary>
-    public const string LogFileName = "Log";
 
+    /// <summary> A stack of messages which preserves order </summary>
     public static OrderedDictionary<DebugMessage, int> Stack = [];
     
         
@@ -37,35 +33,9 @@ public static class Debug
     public static IReadOnlyList<string> Output => _debugTable;
         
         
-    /// <summary> The safety level of the Debugger</summary>
-    public static SafetyLevel safetyLevel {
-        get => _safetyLevel; 
-        set {
-            ThrowExceptions = value is SafetyLevel.Extreme;
-            DebugErrors = value is not SafetyLevel.None;
-            _safetyLevel = value;
-        }
-    } private static SafetyLevel _safetyLevel;
-
-    
-    
-    /// <summary> Represents the safety level of Osmium! Set to normal by default. </summary>
-    public enum SafetyLevel {
-        Extreme, //Throw exceptions and stop the whole program
-        Normal, //Just debug it to the file, and try to exit safely. 
-        Low, //Push through tasks but debug error
-        None, //Ignore most/all errors and do not debug it,
-    }
-        
-        
         
     /// <summary> Finds the target debug file and saves it's path.</summary>
     static Debug() {
-        string directoryPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? AppContext.BaseDirectory;
-        LogFilePath = Path.Join(directoryPath, LogFileName + ".awlf");
-        
-        File.WriteAllText(LogFilePath, "");
-        
         //always write to console if WriteToConsole is true, but don't set it to false if there isn't a direct console.
         if(Console.IsOutputRedirected)
             WriteToConsole = true;
@@ -81,6 +51,7 @@ public static class Debug
     public static void Action(string __message, string[] __params, string[] __values) => LogGeneric(new DebugMessage(__message, "ACT", __params, __values, false));
         
         
+    
     /// <summary> Sends a warning message! </summary>
     public static void Warning(string __message) => LogGeneric(new DebugMessage(__message, "WRN", [], [], false));
     /// <summary> Sends a warning message! Also sends extra information in the form of objects; the first list is the names of objects to send, and the second
@@ -96,9 +67,10 @@ public static class Debug
     public static void Error(string __message, string[] __params, string[] __values) => LogGeneric(new DebugMessage(__message, "ERR", __params, __values, true));
     
     
-    /// <summary> Logs an error! </summary>
-    public static void Log(string __message, string __callSign = "LOG") => LogGeneric(new DebugMessage(__message, __callSign, [],[], false));
     
+    /// <summary> Sends a message to the Console. </summary>
+    public static void Log(string __message, string __callSign = "LOG") => LogGeneric(new DebugMessage(__message, __callSign, [],[], false));
+    /// <summary> Sends a message to the Console </summary>
     public static void Log(string __message, string[] __params, string[] __values, string __callSign = "LOG") => LogGeneric(new DebugMessage(__message, __callSign, __params,__values, false));
 
         
@@ -107,7 +79,9 @@ public static class Debug
         if (__message.Values.Length != __message.Parameters.Length) throw new Exception("Debug Parameters does not match the amount of values!");
 
         if (!Stack.TryAdd(__message, 1)) {
-            Stack[__message]++;
+            int value = Stack[__message];
+            Stack.Remove(__message);
+            Stack.Add(__message, ++value);
         }
 
         string output = "\n\n" + __message.CallSign + "- \"" + __message.Message + '\"';
