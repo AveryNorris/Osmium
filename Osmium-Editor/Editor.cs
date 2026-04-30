@@ -15,6 +15,9 @@ public static class Editor
     public static int Main(string[] __args) {
         Osmium.EditorInitialize();
 
+        Debug.WriteToConsole = true;
+        Debug.WriteToFile = false;
+
         Console.WriteLine("Manifest Names " + string.Join('\n', Assembly.GetAssembly(typeof(Editor))!.GetManifestResourceNames()));
         
         ImageResult image;
