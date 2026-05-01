@@ -22,7 +22,7 @@ public static class Osmium
 
 
     /// <summary> Bottom class of Osmium. Contains the OpenTK Instance. </summary>
-    public static Context? Context { get; internal set; }
+    public static Context Context { get; internal set; }
 
     
     

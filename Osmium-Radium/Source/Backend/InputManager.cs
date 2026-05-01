@@ -14,11 +14,6 @@ public static partial class Backend
     public static float WindowWidth => Osmium.Context.Size.X;
     
     public static float WindowHeight => Osmium.Context.Size.Y;
-
-    //returns 0-100 for the mouse position as a percentage of the screen 0 is left/top and 100 is bottom/right
-    public static float MouseX => 100 * Osmium.Context.MousePosition.X / Osmium.Context.ClientSize.X;
-    
-    public static float MouseY => 100 * Osmium.Context.MousePosition.Y / Osmium.Context.ClientSize.Y;
     
     public static float WindowWidthHeightRatio => WindowWidth / WindowHeight;
     
@@ -114,7 +109,6 @@ public static partial class Backend
     
     
     public static bool MouseInBounds(Vector2 __min, Vector2 __max) {
-        return MouseX >= __min.X && MouseY >= __min.Y && MouseX <= __max.X && MouseY <= __max.Y;
     }
 
 
