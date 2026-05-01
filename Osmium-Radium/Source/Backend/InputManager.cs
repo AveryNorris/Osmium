@@ -108,9 +108,11 @@ public static partial class Backend
     
     
     
-    public static bool MouseInBounds(Vector2 __min, Vector2 __max) {
-    }
-
+    public static bool MouseInBounds(Vector2 __min, Vector2 __max) =>
+            MousePos.X >= __min.X && MousePos.Y >= __min.Y && MousePos.X <= __max.X && MousePos.Y <= __max.Y;
+    
+    public static Vector2 MousePos => new Vector2(100 * Osmium.Context.MousePosition.X / Osmium.Context.ClientSize.X, 100 * Osmium.Context.MousePosition.Y / Osmium.Context.ClientSize.Y);
+    
 
 
     public static string TextInput = "";

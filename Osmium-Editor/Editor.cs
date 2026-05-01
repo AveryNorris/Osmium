@@ -4,7 +4,6 @@ using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Common.Input;
 using OsmiumNucleus;
 using OsmiumRadium;
-using RadiumTest2;
 using StbImageSharp;
 using Image = OpenTK.Windowing.Common.Input.Image;
 

@@ -3,7 +3,6 @@ using OpenTK.Windowing.Common;
 using OsmiumEditor.Source;
 using OsmiumNucleus;
 using OsmiumRadium;
-using RadiumTest2;
 using Vector2 = System.Numerics.Vector2;
 
 namespace OsmiumEditor;

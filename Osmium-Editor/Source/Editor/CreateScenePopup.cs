@@ -2,7 +2,6 @@ using System.Numerics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OsmiumNucleus;
 using OsmiumRadium;
-using RadiumTest2;
 
 
 namespace OsmiumEditor;

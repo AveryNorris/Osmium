@@ -1,13 +1,13 @@
 
 using System.Numerics;
-using OpenTK.Platform;
+using OpenTK.Windowing.GraphicsLibraryFramework;
 using OsmiumNucleus;
-using OsmiumRadium
+using OsmiumRadium;
 
 
-namespace RadiumTest2;
+namespace OsmiumRadium;
 
-public abstract class RadiumElement
+public abstract partial class RadiumElement
 {
 
     protected internal virtual void Update() {}
@@ -23,24 +23,30 @@ public abstract class RadiumElement
     public static Vector2 MousePos => new Vector2(100 * Osmium.Context.MousePosition.X / Osmium.Context.ClientSize.X, 100 * Osmium.Context.MousePosition.Y / Osmium.Context.ClientSize.Y);
     
 
-    protected internal void GetMouseDown(Transform transform = new Transform(), MouseButton button = MouseButton.Button1) {
-        
-    }
+    protected static bool GetMouseDown(Transform transform, MouseButton button) => 
+            MouseInBounds(transform) && Osmium.Context.MouseState.IsButtonPressed(button);
     
-    protected internal void GetMouseUp(Transform transform = new Transform(), MouseButton button = MouseButton.Button1) {
-        
-    }
+    protected static bool GetMouseUp(Transform transform, MouseButton button) => 
+            MouseInBounds(transform) && Osmium.Context.MouseState.IsButtonReleased(button);
 
-    protected internal void GetMouseHeld(Transform transform = new Transform(), MouseButton button = MouseButton.Button1) {
+    protected static bool GetMouseHeld(Transform transform, MouseButton button) => 
+            MouseInBounds(transform) && Osmium.Context.MouseState.IsButtonDown(button);
+
+    protected static bool MouseInBounds(Transform transform) => 
+            MousePos.X >= transform.min.X && MousePos.Y >= transform.min.Y && MousePos.X <= transform.max.X && MousePos.Y <= transform.max.Y;
+
+    protected void Button(Transform transform, Text text) {
         
     }
     
-    protected internal void MouseInBounds(Transform transform) => MousePos.X >= transform.min.X && MousePos.Y >= transform.min.Y && MousePos.X <= transform.max.X && MousePos.Y <= transform.
-
+    public static void SetClippingBounds(Transform __pos) {
+        Backend.ClippingRects.Add((Backend.elementCount, new Vector4(__pos.min.X, __pos.min.Y, __pos.max.X, __pos.max.Y)));
+    }
     
     
-    protected internal void Box(Transform transform = new Transform(), Color? color = null, Texture? texture = null) {
-        Backend.DrawElement(Backend.DefaultTexture, color ?? Palette.Secondary,
+    //todo: fix osmium nucleus naming convetions
+    protected void Box(Transform transform, Color? color = null, Texture? texture = null) {
+        Backend.DrawElement(texture ?? Backend.DefaultTexture, color ?? Palette.Secondary,
             transform.max.X, transform.max.Y, 1, 1,
             transform.min.X, transform.max.Y, 0, 1,
             transform.max.X, transform.min.Y, 1, 0,

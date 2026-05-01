@@ -43,7 +43,7 @@ public static class Osmium
     
     /// <summary> The amount of time since the last type of a frame event. For instance if Draw was just called, DeltaTime would currently reflect the time since the
     /// last DRAW call, even though there was an Update call in between. Use this for framerate independent logic!</summary>
-    public static double DeltaTime { get; internal set; } = 0;
+    public static float DeltaTime { get; internal set; } = 0;
     
     
     

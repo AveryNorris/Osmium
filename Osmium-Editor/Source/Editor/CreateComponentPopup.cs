@@ -3,7 +3,6 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using OsmiumEditor.Source;
 using OsmiumNucleus;
 using OsmiumRadium;
-using RadiumTest2;
 
 
 namespace OsmiumEditor;

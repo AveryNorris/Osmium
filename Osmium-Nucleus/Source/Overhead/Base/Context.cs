@@ -43,7 +43,7 @@ public sealed class Context() : GameWindow(GameWindowSettings.Default, new Nativ
     protected override void OnUpdateFrame(FrameEventArgs __args) {
         base.OnUpdateFrame(__args);
         
-        Osmium.DeltaTime = __args.Time;
+        Osmium.DeltaTime = (float) __args.Time;
         foreach(Scene scene in Osmium._scenes) if(scene.Enabled) scene.ChainEvent(2);
     }
     
@@ -56,7 +56,7 @@ public sealed class Context() : GameWindow(GameWindowSettings.Default, new Nativ
     protected override void OnRenderFrame(FrameEventArgs __args) {
         base.OnRenderFrame(__args);
             
-        Osmium.DeltaTime = __args.Time;
+        Osmium.DeltaTime = (float) __args.Time;
         foreach(Scene scene in Osmium._scenes) if(scene.Enabled) scene.ChainEvent(3);
     }
     

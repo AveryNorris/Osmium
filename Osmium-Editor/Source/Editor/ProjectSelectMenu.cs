@@ -7,7 +7,6 @@ using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OsmiumNucleus;
 using OsmiumRadium;
-using RadiumTest2;
 using Vector2 = System.Numerics.Vector2;
 
 
@@ -17,6 +16,9 @@ namespace OsmiumEditor;
 public class ProjectSelectMenu : RadiumElement
 {
     private static Font jetbrains = new Font(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.jetbrainsMonoRegular.png"), 100, 19, [32,136]);
+
+    private static float frameratesum = 0;
+    private static int frameratecount = 0;
     
     //todo: add back texture caching
     private static Texture osmiumLogo;
@@ -32,6 +34,17 @@ public class ProjectSelectMenu : RadiumElement
     }
 
     protected override void Draw() {
+        
+        //todo: delta time float?
+        frameratesum += 1f / Osmium.DeltaTime;
+        frameratecount++;
+        
+        //STARTING FPS IS 160
+        
+        //todo: add debug overloads
+        Debug.Log((frameratesum / frameratecount).ToString());
+        
+        
         ConfigureWindow();
         
         DefineHeader();
@@ -46,6 +59,10 @@ public class ProjectSelectMenu : RadiumElement
         
         Osmium.Context.ClientSize = clientSize;
         Osmium.Context.ClientLocation = Osmium.Context.CurrentMonitor.ClientArea.HalfSize - clientSize / 2;
+        
+        Box(new Transform(
+                size: new Vector2(100, 100)), 
+            color: Palette.BackgroundLow);
         
         var Background = new Box(new Transform(
                 size: new Vector2(100, 100)), 

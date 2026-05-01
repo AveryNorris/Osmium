@@ -4,7 +4,7 @@ using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OsmiumNucleus;
-using RadiumTest2;
+using OsmiumRadium;
 using Vector4 = System.Numerics.Vector4;
 
 namespace OsmiumRadium;
