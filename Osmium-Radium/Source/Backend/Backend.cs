@@ -15,6 +15,10 @@ public static partial class Backend
     //todo: dispose
 
     internal static int ProgramHandle;
+
+    internal static Texture BaseTexture;
+
+    internal static Font BaseFont;
     
     internal static int VertexBufferHandle;
     internal static int IndexBufferHandle;
@@ -25,6 +29,8 @@ public static partial class Backend
 
     public static bool ShouldUpdate = true;
     public static bool ShouldDraw = true;
+    
+    public static float WindowWidthHeightRatio { get; internal set; }
     
     internal static readonly int[] Indices = [
         3, 2, 1,
@@ -42,6 +48,16 @@ public static partial class Backend
             int result = a.CompareTo(b);
             return result; 
     }));
+    
+    //todo: character limit parameter from config or something
+
+    private const int MaxCharacters = 10000;
+    
+    //todo: THIS IS SO SLOW LOLLLLLLLLL
+    
+    [MarkerAttributes.UnsafeInternal] internal static List<Element> IMGUIElements = [];
+
+    public static int largeIndexBuffer;
     
 
     static Backend()
@@ -140,6 +156,14 @@ public static partial class Backend
         
         GL.UseProgram(0);
         
+        using (Stream stream = Assembly.GetAssembly(typeof(Backend)).GetManifestResourceStream("OsmiumRadium.DefaultTexture.png")) {
+            BaseTexture = new Texture(stream);
+        }
+        
+        using (Stream stream = Assembly.GetAssembly(typeof(Backend)).GetManifestResourceStream("OsmiumRadium.proggyBitmapASCII.png")) {
+            BaseFont = new Font(stream, 75, 19, [32,136]);
+        }
+        
         //events
 
         Osmium.Context.Resize += Resize;
@@ -147,14 +171,41 @@ public static partial class Backend
         Osmium.Context.RenderFrame += Draw;
 
         Osmium.Context.TextInput += OnTextInput;
+        
+        int[] indices = new int[MaxCharacters * 6];
+
+        for (int i = 0; i < MaxCharacters; i++)
+        {
+            int v = i * 4;
+            int idx = i * 6;
+
+            indices[idx + 0] = v + 3;
+            indices[idx + 1] = v + 2;
+            indices[idx + 2] = v + 1;
+            indices[idx + 3] = v + 1;
+            indices[idx + 4] = v + 0;
+            indices[idx + 5] = v + 2;
+        }
+
+        largeIndexBuffer = GL.GenBuffer();
+        GL.BindBuffer(BufferTarget.ElementArrayBuffer, largeIndexBuffer);
+        
+        GL.BufferData(BufferTarget.ElementArrayBuffer, indices.Length * sizeof(int), indices, BufferUsage.StaticRead);
+        
+        GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
+
     }
     
     public static void Resize(ResizeEventArgs e) {
         GL.Viewport(0, 0, Osmium.Context.FramebufferSize.X, Osmium.Context.FramebufferSize.Y);
+        WindowWidthHeightRatio = WindowWidth / WindowHeight;
     }
 
     public static void Update(FrameEventArgs e) {
 
+        //move this somewhere where it makes sense
+        MousePos = new System.Numerics.Vector2(100 * Osmium.Context.MousePosition.X / Osmium.Context.ClientSize.X, 100 * Osmium.Context.MousePosition.Y / Osmium.Context.ClientSize.Y);
+        
         if (ShouldUpdate)
         {
             foreach (RadiumElement element in RetainedElements)
@@ -169,6 +220,7 @@ public static partial class Backend
     public static void Draw(FrameEventArgs e)
     {
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+        
 
         if (ShouldDraw)
         {
@@ -182,33 +234,34 @@ public static partial class Backend
         elementCount = 0;
         SetClipping(new Vector4(0,0,100,100));
 
-        int currentClipping = 0;
-        int index = 0;
         foreach(KeyValuePair<int, List<ImGUI>> ElementPriorityPairs in ZSortedElements) {
             foreach (ImGUI element in ElementPriorityPairs.Value) {
-                if (currentClipping < ClippingRects.Count && ClippingRects[currentClipping].index == index) {
-                    SetClipping(ClippingRects[currentClipping].clippingRect);
-                    currentClipping++;
-                }
                 
                 element.Draw();
-                index++;
             }
         }
         
+        foreach(Element element in IMGUIElements.ToList())
+        {
+            element.Draw();
+        }
+        
+        IMGUIElements.Clear();
         ZSortedElements.Clear();
         ClippingRects.Clear();
         
-        //placement doesnt make sense todo: also make sure that this becomes a method called clear state or something cool and sick and cool and sick ok bye thanks for talking make text boxes force ascii or something so that the font doesnt have a panic attack
-        //todo: make text boxes work in whatever encoding strings support so that object names in scenes/components always match C#
+        //placement doesnt make sense todo: also make sure that this becomes a method called clear state or something cool and sick and cool and sick ok bye thanks for talking make _text boxes force ascii or something so that the _font doesnt have a panic attack
+        //todo: make _text boxes work in whatever encoding strings support so that object names in scenes/components always match C#
         TextInput = "";
         
         Osmium.Context.SwapBuffers();
     }
 
-    public static void SetClipping(System.Numerics.Vector4 __clippingRect) {
+    public static void SetClipping(Vector4 __clippingRect) {
+        GL.UseProgram(ProgramHandle);
         int clippingRectUniform = GL.GetUniformLocation(ProgramHandle, "clippingRect");
         GL.Uniform4f(clippingRectUniform, __clippingRect.X, __clippingRect.Y, __clippingRect.Z, __clippingRect.W);
+        GL.UseProgram(0);
     }
 
     
@@ -238,10 +291,34 @@ public static partial class Backend
         GL.Uniform4f(colorUniform, color.r / 255f, color.g / 255f, color.b / 255f, color.a / 255f);
         
         
-        //int colorUniform = GL.GetUniformLocation(ProgramHandle, "color");
-        //GL.GetUniformf(ProgramHandle, colorUniform, [color.R / 255f, color.G / 255f, color.B / 255f, color.A / 255f]);
+        //int colorUniform = GL.GetUniformLocation(ProgramHandle, "_color");
+        //GL.GetUniformf(ProgramHandle, colorUniform, [_color.R / 255f, _color.G / 255f, _color.B / 255f, _color.A / 255f]);
         
         GL.DrawElements(PrimitiveType.Triangles, Indices.Length, DrawElementsType.UnsignedInt, 0);
+    }
+    
+    public static void DrawElements(int __texture, int __count, Color color, params float[] vertexData)
+    {
+        GL.BindTexture(TextureTarget.Texture2d, __texture);
+        GL.ActiveTexture(TextureUnit.Texture0);
+        
+        GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferHandle);
+        GL.BufferData(BufferTarget.ArrayBuffer, vertexData.Length * sizeof(float), vertexData, BufferUsage.DynamicDraw);
+        GL.BindBuffer(BufferTarget.ElementArrayBuffer, largeIndexBuffer);
+        
+        GL.BindVertexArray(VertexArrayHandle);
+
+        GL.UseProgram(ProgramHandle);
+        
+        //todo: cache uniforms
+        int colorUniform = GL.GetUniformLocation(ProgramHandle, "color");
+        GL.Uniform4f(colorUniform, color.r / 255f, color.g / 255f, color.b / 255f, color.a / 255f);
+        
+        
+        //int colorUniform = GL.GetUniformLocation(ProgramHandle, "_color");
+        //GL.GetUniformf(ProgramHandle, colorUniform, [_color.R / 255f, _color.G / 255f, _color.B / 255f, _color.A / 255f]);
+        
+        GL.DrawElements(PrimitiveType.Triangles, __count * 6, DrawElementsType.UnsignedInt, 0);
     }
     
 }

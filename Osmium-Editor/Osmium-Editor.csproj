@@ -37,6 +37,7 @@
       <EmbeddedResource Include="Assets\Package.png" />
       <None Remove="Assets\Component.png" />
       <EmbeddedResource Include="Assets\Component.png" />
+      <None Remove="Assets\DefaultTexture.png" />
     </ItemGroup>
 
 </Project>

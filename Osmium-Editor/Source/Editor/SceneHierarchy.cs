@@ -27,14 +27,14 @@ public class SceneHierarchy : RadiumElement
         //todo: scene order messed up  on reserialize? 
         
         //todo: window element?
-        var BackgroundBox = new Box(new Transform(pos: new Vector2((100 - Size) - Offset, 100 - Height), size: new Vector2(Size, 100 - Height)), color: Palette.BackgroundLow);
+        var BackgroundBox = new Box(new Bounds(pos: new Vector2((100 - Size) - Offset, 100 - Height), size: new Vector2(Size, 100 - Height)), color: Palette.BackgroundLow);
 
-        var HorizontalDividerLine = new Box(new Transform(pos: new Vector2((100 - Size) - Offset, 100 - Height), size: new Vector2(.125f, 100 - Height)), color: Palette.BackgroundHigh);
+        var HorizontalDividerLine = new Box(new Bounds(pos: new Vector2((100 - Size) - Offset, 100 - Height), size: new Vector2(.125f, 100 - Height)), color: Palette.BackgroundHigh);
         
-        var Header = new Box(new Transform(pos: new Vector2((100 - Size) - Offset, 100 - Height), size: new Vector2(Size, 3.125f + .125f)), color: Palette.Secondary);
+        var Header = new Box(new Bounds(pos: new Vector2((100 - Size) - Offset, 100 - Height), size: new Vector2(Size, 3.125f + .125f)), color: Palette.Secondary);
         var HeaderText = new Text("Scenes", pos: new Vector2(((100 - Size) + .5f) - Offset, (100 - Height) + .9f), spacing: new Vector2(.285f, 1), size: 1.6f);
 
-        var AddSceneButton = new Button(new Transform(pos: new Vector2((100 - Size) - Offset, 100 - 3.75f), size: new Vector2(Size, 3.75f)), new Text("Add"));
+        var AddSceneButton = new Button(new Bounds(pos: new Vector2((100 - Size) - Offset, 100 - 3.75f), size: new Vector2(Size, 3.75f)), new Text("Add"));
         if (AddSceneButton.Active()) {
             //todo: safeguard and change button to have right click options
             Radium.Add<CreateScenePopup>();
@@ -42,25 +42,25 @@ public class SceneHierarchy : RadiumElement
 
         //var AddSceneButton = new Button()
 
-        //todo: set bounds to prevent text overlap
+        //todo: set _bounds to prevent _text overlap
     }
 
     private void DisplayScenes() {
 
         Vector2 pos = new Vector2((100 - Size) - Offset, (100 - Height) + 5.5f);
         
-        //todo: reset clipping bounds in catch statements in backend and use transform to represent the bounds
+        //todo: reset clipping _bounds in catch statements in backend and use _bounds to represent the _bounds
         
         //todo: make a divider line and make z standardized
         
-        //todo: make spacing a ratio of text size and screen proportion
+        //todo: make _spacing a ratio of _text _size and screen proportion
 
         Vector2 min = new Vector2((100 - Size) - Offset, 100 - Height);
         Vector2 size = new Vector2(Size, 100 - Height);
         Radium.SetClippingBounds(min, min + size);
         
         foreach (Scene scene in Osmium.Scenes) {
-            var SceneDisplay = new Button(new Transform(size: new Vector2(Size, 3), pos: pos), new Text(scene.Name, size: 1.25f), backgroundColor: Palette.BackgroundLow, backgroundHoverColor: Palette.BackgroundHigh, backgroundHeldColor: Palette.SecondaryHover);
+            var SceneDisplay = new Button(new Bounds(size: new Vector2(Size, 3), pos: pos), new Text(scene.Name, size: 1.25f), backgroundColor: Palette.BackgroundLow, backgroundHoverColor: Palette.BackgroundHigh, backgroundHeldColor: Palette.SecondaryHover);
             SceneDisplay.text.pos = pos + new Vector2(1, 1);
             
             if (scene == SelectedScene) {
@@ -69,7 +69,7 @@ public class SceneHierarchy : RadiumElement
                 SceneDisplay.backgroundHoverColor = Palette.SecondaryHover;
             }
             
-            //todo: make them alternate colors so light gray dark gray light gray dark gray so it looks better and make hover color offset too
+            //todo: make them alternate colors so light gray dark gray light gray dark gray so it looks better and make hover _color offset too
 
             if (SceneDisplay.Active() || SceneDisplay.Held()) {
                 SelectedScene = scene;

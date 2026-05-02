@@ -1,3 +1,8 @@
+
+
+using OsmiumNucleus;
+
+
 namespace OsmiumRadium;
 
 
@@ -7,34 +12,34 @@ public class Box : ImGUI
 {
     
 
-    /// <summary> Transform of the box </summary>
-    public Transform transform;
+    /// <summary> Bounds of the box </summary>
+    public Bounds Bounds;
 
 
-    /// <summary> The color of the box </summary>
+    /// <summary> The _color of the box </summary>
     public Color color;
-    /// <summary> The default color of new instances of box that do not set it implicitly. </summary>
+    /// <summary> The default _color of new instances of box that do not set it implicitly. </summary>
     public static Color DefaultColor = Palette.Primary;
     
     
     /// <summary> Creates a new box for that frame </summary>
-    /// <param name="transform"> Transform of the box, it will be invisible if this is not set</param>
+    /// <param name="boundsorm"> Bounds of the box, it will be invisible if this is not set</param>
     /// <param name="color"> Color of the box </param>
     /// <param name="z"> Z of the box </param>
-    public Box(Transform transform = new Transform(), Color? color = null, int z = 0) {
-        this.transform = transform;
+    public Box(Bounds bounds = new Bounds(), Color? color = null, int z = 0) {
+        this.Bounds = bounds;
         this.color = color ?? DefaultColor;
         this.z = z;
     }
     
     
     
-    protected internal override void Draw() { 
+    protected internal override void Draw() {
         Backend.DrawElement(Backend.DefaultTexture, color,
-            transform.max.X, transform.max.Y, 1, 1,
-            transform.min.X, transform.max.Y, 0, 1,
-            transform.max.X, transform.min.Y, 1, 0,
-            transform.min.X, transform.min.Y, 0, 0
+            Bounds.max.X, Bounds.max.Y, 1, 1,
+            Bounds.min.X, Bounds.max.Y, 0, 1,
+            Bounds.max.X, Bounds.min.Y, 1, 0,
+            Bounds.min.X, Bounds.min.Y, 0, 0
         );
     }
     

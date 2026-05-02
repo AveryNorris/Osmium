@@ -16,17 +16,17 @@ public class BoxText : ImGUI
     
     
     
-    public BoxText(Transform transform = new Transform(), Text? text = null, Color? backgroundColor = null, Color? backgroundHoverColor = null, Color? backgroundHeldColor = null, int z = 0) {
+    public BoxText(Bounds bounds = new Bounds(), Text? text = null, Color? backgroundColor = null, Color? backgroundHoverColor = null, Color? backgroundHeldColor = null, int z = 0) {
 
-        Transform boxTransform = transform;
+        Bounds boxBounds = bounds;
 
         this.text = text ?? new Text();
-        this.text.center = boxTransform.center;
+        this.text.center = boxBounds.center;
         
-        this.box = new Box(boxTransform);
+        this.box = new Box(boxBounds);
         this.box.z = z;
         
-        //puts the text on top of the Z stack, text is instantiated in the constructor so it will always be behind the box unless you reset it.
+        //puts the _text on top of the Z stack, _text is instantiated in the constructor so it will always be behind the box unless you reset it.
         this.text.z = z;
         
         this.backgroundColor = backgroundColor ?? Box.DefaultColor;
@@ -34,11 +34,11 @@ public class BoxText : ImGUI
     
     
     
-    public bool Active() => Backend.MouseUp(box.transform.min, box.transform.max, MouseButton.Left);
+    public bool Active() => Backend.MouseUp(box.Bounds.min, box.Bounds.max, MouseButton.Left);
     
-    public bool Held() => Backend.MouseHeld(box.transform.min, box.transform.max, MouseButton.Left);
+    public bool Held() => Backend.MouseHeld(box.Bounds.min, box.Bounds.max, MouseButton.Left);
     
-    public bool Hovered() => Backend.MouseInBounds(box.transform.min, box.transform.max);
+    public bool Hovered() => Backend.MouseInBounds(box.Bounds.min, box.Bounds.max);
     
     
     

@@ -5,7 +5,7 @@ namespace OsmiumEditor;
 
 public static class UpdateTracker
 {
-    //todo: events that track change, public texture classes sign up to the events for their source path.
+    //todo: events that track change, public _texture classes sign up to the events for their source path.
 
 
 

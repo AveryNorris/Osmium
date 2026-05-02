@@ -24,11 +24,11 @@ public class DebugConsole : RadiumElement
 
     protected override void Draw() {
         //todo: optimize holy
-        var BackgroundBox = new Box(new Transform(pos: new Vector2(0, 100 - Height), size: new Vector2(Width, Height)), color: Palette.BackgroundLow);
+        var BackgroundBox = new Box(new Bounds(pos: new Vector2(0, 100 - Height), size: new Vector2(Width, Height)), color: Palette.BackgroundLow);
 
-        var DividerLine = new Box(new Transform(pos: new Vector2(0, 100 - Height), size: new Vector2(Width, .125f)), color: Palette.BackgroundHigh);
+        var DividerLine = new Box(new Bounds(pos: new Vector2(0, 100 - Height), size: new Vector2(Width, .125f)), color: Palette.BackgroundHigh);
 
-        var DebugButton = new Button(new Transform(pos: new Vector2(0, 100 - Height), size: new Vector2(7, 3.125f)), new Text("Console"));
+        var DebugButton = new Button(new Bounds(pos: new Vector2(0, 100 - Height), size: new Vector2(7, 3.125f)), new Text("Console"));
         if (currentMenu == 0)
         {
             //add elevated colors
@@ -36,7 +36,7 @@ public class DebugConsole : RadiumElement
             DebugButton.backgroundHoverColor = Palette.SecondaryActive;
         }
 
-        var Files = new Button(new Transform(pos: new Vector2(7.25f, 100 - Height), size: new Vector2(7, 3.125f)), new Text("Files"));
+        var Files = new Button(new Bounds(pos: new Vector2(7.25f, 100 - Height), size: new Vector2(7, 3.125f)), new Text("Files"));
         if (currentMenu == 1)
         {
             Files.backgroundColor = Palette.SecondaryActive;
@@ -44,7 +44,7 @@ public class DebugConsole : RadiumElement
         }
 
 
-        var ButtonDivider = new Box(new Transform(pos: new Vector2(0, (100 - Height) + 3.125f), size: new Vector2(Width, .125f)), Palette.Secondary);
+        var ButtonDivider = new Box(new Bounds(pos: new Vector2(0, (100 - Height) + 3.125f), size: new Vector2(Width, .125f)), Palette.Secondary);
 
         if (Files.Active())
             currentMenu = 1;
@@ -98,7 +98,7 @@ public class DebugConsole : RadiumElement
         Radium.SetClippingBounds(Vector2.Zero, Vector2.One * 100);
 
 
-        //var Header = new Box(new Transform(pos: new Vector2((100 - Size) - Offset, 0), size: new Vector2(Size, 6.75f)), color: Palette.Secondary);
-        //var HeaderText = new Text("Hierarchy", pos: new Vector2(((100 - Size) + .5f) - Offset, 4.5f), spacing: new Vector2(.285f, 1), size: 1.6f)
+        //var Header = new Box(new Bounds(pos: new Vector2((100 - Size) - Offset, 0), _size: new Vector2(Size, 6.75f)), _color: Palette.Secondary);
+        //var HeaderText = new Text("Hierarchy", pos: new Vector2(((100 - Size) + .5f) - Offset, 4.5f), _spacing: new Vector2(.285f, 1), _size: 1.6f)
     }
 }

@@ -18,12 +18,19 @@ public static class Radium
         Color.FromRgb(16, 16, 16), //background medium
         Color.FromRgb(14, 14, 14), //background low
         
-        Color.FromRgb(255, 255, 255), //text high
-        Color.FromRgb(50, 50, 50), //text low
+        Color.FromRgb(255, 255, 255), //_text high
+        Color.FromRgb(50, 50, 50), //_text low
         
         Color.White,
-        Color.Clear
+        Color.Clear,
+        
+        //Box
+        Color.White,
     ];
+
+    public static void DefaultColor(Palette color, Color value) {
+        ColorPalette[(int) color] = value;
+    }
     
     //todo: file customization for palettes?
 
@@ -42,5 +49,9 @@ public static class Radium
 
     public static void SetClippingBounds(Vector2 __min, Vector2 __max) {
         Backend.ClippingRects.Add((Backend.elementCount, new Vector4(__min.X, __min.Y, __max.X, __max.Y)));
+    }
+    
+    public static void SetClippingBounds(Bounds __bounds) {
+        Backend.SetClipping(new Vector4(__bounds.min.X, __bounds.min.Y, __bounds.max.X, __bounds.max.Y));
     }
 }

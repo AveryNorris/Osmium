@@ -15,10 +15,10 @@ public class CreateComponentPopup : RadiumElement
     protected override void Draw() {
         ComponentName += Backend.TextInput;
 
-        //todo: blinking line for text input??? and make htis a radium thing and fix myu naming conventoins and do everything in the whole wide owr;d
-        var BackgroundBox = new Box(new Transform(size: new Vector2(10, 10), center: Vector2.One * 50), Palette.BackgroundLow);
+        //todo: blinking line for _text input??? and make htis a radium thing and fix myu naming conventoins and do everything in the whole wide owr;d
+        var BackgroundBox = new Box(new Bounds(size: new Vector2(10, 10), center: Vector2.One * 50), Palette.BackgroundLow);
 
-        //todo: make text support transform somehow naming conventions hello
+        //todo: make _text support _bounds somehow naming conventions hello
         var OptionText = new Text(ComponentName, center: Vector2.One * 50);
         
         //todo: cache component types in assembly window and unload them

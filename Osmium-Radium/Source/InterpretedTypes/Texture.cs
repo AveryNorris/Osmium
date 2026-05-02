@@ -7,15 +7,15 @@ using StbImageSharp;
 namespace OsmiumRadium;
 
 
-/// <summary> Represents an OpenGL texture which can be drawn; textures loaded from the same path twice will be recognized, and will not create duplicates; in other words
-/// it is ok to make a new texture of a file every frame; it will not reload the file</summary>
+/// <summary> Represents an OpenGL _texture which can be drawn; textures loaded from the same path twice will be recognized, and will not create duplicates; in other words
+/// it is ok to make a new _texture of a file every frame; it will not reload the file</summary>
 /// <remarks> You can call Dispose() to free up the GL resources, but this will cause the image to have to be reloaded the next time you use it so call this carefully. </remarks>
 public class Texture : IDisposable
 {
     
     
     
-    /// <summary> OpenGL handle of the texture</summary>
+    /// <summary> OpenGL handle of the _texture</summary>
     public int Handle;
     
     
@@ -29,7 +29,7 @@ public class Texture : IDisposable
     public readonly string Path;
     
     
-    //easy texture syntax
+    //easy _texture syntax
     public static implicit operator int(Texture __texture) => __texture.Handle;
     
     /// <summary> Contains stored memory of textures so that they don't need to be reloaded if they are inside openGL</summary>
@@ -37,7 +37,7 @@ public class Texture : IDisposable
 
     
     
-    /// <summary> Creates a texture from the contents of a given file </summary>
+    /// <summary> Creates a _texture from the contents of a given file </summary>
     /// <param name="__path"> Path of the file </param>
     public Texture(string __path)
     {
@@ -58,7 +58,7 @@ public class Texture : IDisposable
         
         ImageResult image;
         
-        //opens the font, todo: dont hardcode
+        //opens the _font, todo: dont hardcode
         using (Stream fileStream = File.OpenRead(__path))
         {
             image = ImageResult.FromStream(fileStream, ColorComponents.RedGreenBlueAlpha);
@@ -83,11 +83,11 @@ public class Texture : IDisposable
     }
 
     public Texture(Stream __bitmapStream) {
-        //todo: bye bye texture memory
+        //todo: bye bye _texture memory
         
         ImageResult image;
         
-        //opens the font, todo: dont hardcode
+        //opens the _font, todo: dont hardcode
         using (Stream fileStream = __bitmapStream)
         {
             image = ImageResult.FromStream(fileStream, ColorComponents.RedGreenBlueAlpha);

@@ -17,5 +17,7 @@ public enum Palette : uint
     TextLow,
     
     White,
-    Transparent
+    Transparent,
+    
+    Box
 }

@@ -1,22 +1,23 @@
 using System.Numerics;
+using OpenTK.Windowing.GraphicsLibraryFramework;
 using OsmiumNucleus;
 
 
 namespace OsmiumRadium;
 
 
-public struct Transform
+public struct Bounds
 {
 
 
 
-    public Transform(Vector2? size = null, Vector2? pos = null, Vector2? center = null, Vector2? min = null, Vector2? max = null) {
+    public Bounds(Vector2? size = null, Vector2? pos = null, Vector2? center = null, Vector2? min = null, Vector2? max = null) {
 
         if (size != null) {
             this.size = (Vector2) size;
             
             if (min != null || max != null) 
-                Debug.Error("Setting size before setting min or max is redundant; both settings override the previously defined size. Only set one of the two!");
+                Debug.Error("Setting _size before setting min or max is redundant; both settings override the previously defined _size. Only set one of the two!");
         }
         
         if (pos != null) {
@@ -105,6 +106,19 @@ public struct Transform
             Debug.Error("Min and Max were incorrect!");
         }
     }
+    
+    
+    public bool MouseDown(MouseButton button) => 
+            MouseInBounds() && Osmium.Context.MouseState.IsButtonPressed(button);
+    
+    public bool MouseUp(MouseButton button) => 
+            MouseInBounds() && Osmium.Context.MouseState.IsButtonReleased(button);
+
+    public bool MouseHeld(MouseButton button) => 
+            MouseInBounds() && Osmium.Context.MouseState.IsButtonDown(button);
+
+    public bool MouseInBounds() => 
+            Backend.MousePos.X >= min.X && Backend.MousePos.Y >= min.Y && Backend.MousePos.X <= max.X && Backend.MousePos.Y <= max.Y;
     
     
     

@@ -44,26 +44,26 @@ public class ComponentHierarchy : RadiumElement
     private void ConfigureWindow() {
         
         //todo: window element?
-        var BackgroundBox = new Box(new Transform(pos: new Vector2((100 - Size) - Offset, 0), size: new Vector2(Size, Height)), color: Palette.BackgroundLow);
+        var BackgroundBox = new Box(new Bounds(pos: new Vector2((100 - Size) - Offset, 0), size: new Vector2(Size, Height)), color: Palette.BackgroundLow);
 
-        var DividerLine = new Box(new Transform(pos: new Vector2((100 - Size) - Offset, 0), size: new Vector2(.125f, Height)), color: Palette.BackgroundHigh);
+        var DividerLine = new Box(new Bounds(pos: new Vector2((100 - Size) - Offset, 0), size: new Vector2(.125f, Height)), color: Palette.BackgroundHigh);
         
-        var Header = new Box(new Transform(pos: new Vector2((100 - Size) - Offset, 0), size: new Vector2(Size, 3.125f)), color: Palette.Secondary);
+        var Header = new Box(new Bounds(pos: new Vector2((100 - Size) - Offset, 0), size: new Vector2(Size, 3.125f)), color: Palette.Secondary);
         var HeaderText = new Text("Hierarchy", pos: new Vector2(((100 - Size) + .5f) - Offset, .9f), spacing: new Vector2(.285f, 1), size: 1.6f);
         
-        //todo: set bounds to prevent text overlap
+        //todo: set _bounds to prevent _text overlap
     }
 
     private void DisplayComponents() {
 
         Vector2 pos = new Vector2((100 - Size) - Offset, 5.5f);
         
-        //todo: reset clipping bounds in catch statements in backend and use transform to represent the bounds
+        //todo: reset clipping _bounds in catch statements in backend and use _bounds to represent the _bounds
 
         Vector2 min = new Vector2((100 - Size) - Offset, 0);
         Vector2 size = new Vector2(Size, Height);
-        //Radium.SetClippingBounds(min, min + size);
-        //todo: clipping bounds
+        //Radium.SetClippingBounds(min, min + _size);
+        //todo: clipping _bounds
 
         if (SceneHierarchy.SelectedScene == null) {
             //Radium.SetClippingBounds(Vector2.Zero, Vector2.One * 100);
@@ -76,7 +76,7 @@ public class ComponentHierarchy : RadiumElement
             DisplayComponent(0, component);
         }
         
-        var AddComponentButton = new Button(new Transform(pos: new Vector2((100 - Size) - Offset, Height - 3.75f), size: new Vector2(Size, 3.75f)), new Text("Add"));
+        var AddComponentButton = new Button(new Bounds(pos: new Vector2((100 - Size) - Offset, Height - 3.75f), size: new Vector2(Size, 3.75f)), new Text("Add"));
         if (AddComponentButton.Active()) {
             //todo: safeguard and change button to have right click options
             Radium.Add<CreateComponentPopup>();
@@ -100,7 +100,7 @@ public class ComponentHierarchy : RadiumElement
         //todo: add unselecting components by clicking anywhere
         
             
-        var SceneDisplay = new Button(new Transform(size: new Vector2(Size, 3), pos: pos), new Text(name, size: 1.25f), backgroundColor: Palette.Transparent, backgroundHoverColor: Palette.BackgroundHigh, backgroundHeldColor: Palette.SecondaryHover);
+        var SceneDisplay = new Button(new Bounds(size: new Vector2(Size, 3), pos: pos), new Text(name, size: 1.25f), backgroundColor: Palette.Transparent, backgroundHoverColor: Palette.BackgroundHigh, backgroundHeldColor: Palette.SecondaryHover);
         SceneDisplay.text.pos = pos + new Vector2(2.5f, 1) + new Vector2(.5f,0) * __depth;    
             
         //todo: one fram disparity between selection nerd
@@ -110,7 +110,7 @@ public class ComponentHierarchy : RadiumElement
             SceneDisplay.backgroundHoverColor = Palette.SecondaryHover;
         }
             
-        //todo: make them alternate colors so light gray dark gray light gray dark gray so it looks better and make hover color offset too
+        //todo: make them alternate colors so light gray dark gray light gray dark gray so it looks better and make hover _color offset too
 
         if (SceneDisplay.Active() || SceneDisplay.Held()) {
             SelectedComponent = __component;
@@ -119,9 +119,9 @@ public class ComponentHierarchy : RadiumElement
         //todo: console.clear button!
         //todo: watch int/float overflow for stuff
         if (__component.GetType() == typeof(Package)) {
-            new Image(PackageTexture, new Transform(pos: (pos + new Vector2(.4f, .6f))+ new Vector2(.5f,0) * __depth, size: new Vector2(2 * r169, 2) * new Vector2(26/20f, 1)));
+            new Image(PackageTexture, new Bounds(pos: (pos + new Vector2(.4f, .6f))+ new Vector2(.5f,0) * __depth, size: new Vector2(2 * r169, 2) * new Vector2(26/20f, 1)));
         } else {
-            new Image(ComponentTexture, new Transform(pos: pos + new Vector2(.4f, .6f)+ new Vector2(.5f,0) * __depth, size: new Vector2(2 * r169, 2)));
+            new Image(ComponentTexture, new Bounds(pos: pos + new Vector2(.4f, .6f)+ new Vector2(.5f,0) * __depth, size: new Vector2(2 * r169, 2)));
         }
         
 

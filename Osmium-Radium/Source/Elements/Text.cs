@@ -12,15 +12,15 @@ public class Text : ImGUI
 
     
     
-    /// <summary> Creates a new text element. Allows you to control many different options </summary>
+    /// <summary> Creates a new _text element. Allows you to control many different options </summary>
     /// <param name="text"> Text to be written</param>
-    /// <param name="size"> size of the text characters</param>
-    /// <param name="pos"> Position of the text</param>
-    /// <param name="center"> center of the text, mutually exclusive to pos </param>
-    /// <param name="spacing"> Spacing between the chars, relative to font size (Not in absolute coordinates) (realWorldSpacing = fontSize * Spacing)</param>
-    /// <param name="color"> Color of the text</param>
-    /// <param name="font"> Font of the text</param>
-    /// <param name="z"> Font of the text</param>
+    /// <param name="size"> _size of the _text characters</param>
+    /// <param name="pos"> Position of the _text</param>
+    /// <param name="center"> center of the _text, mutually exclusive to pos </param>
+    /// <param name="spacing"> Spacing between the chars, relative to _font _size (Not in absolute coordinates) (realWorldSpacing = fontSize * Spacing)</param>
+    /// <param name="color"> Color of the _text</param>
+    /// <param name="font"> Font of the _text</param>
+    /// <param name="z"> Font of the _text</param>
     public Text(string? text = null, float? size = null, Vector2? pos = null, Vector2? center = null, Vector2? spacing = null, Color? color = null, Font? font = null, int z = 0) {
         this.text = text ?? string.Empty;
         this.size = size ?? DefaultTextSize;
@@ -31,7 +31,7 @@ public class Text : ImGUI
         if (font != null) {
             this.font = font;
         }else if (DefaultFont == null) {
-            Debug.Error("A default font does not exist! Either set one implicit or configure a default font.");
+            Debug.Error("A default _font does not exist! Either set one implicit or configure a default _font.");
         }else
             this.font = DefaultFont;
 
@@ -47,45 +47,45 @@ public class Text : ImGUI
 
     
     
-    /// <inheritdoc cref="Transform.pos"/>
+    /// <inheritdoc cref="Bounds.pos"/>
     public Vector2 pos;
-    /// <inheritdoc cref="Transform.center"/>
+    /// <inheritdoc cref="Bounds.center"/>
     public Vector2 center {
         get => pos + bounds / 2;
         set => pos = value - bounds / 2;
     }
     
 
-    /// <summary> The text the element will render </summary>
+    /// <summary> The _text the element will render </summary>
     public string text;
     
     
-    /// <summary> The element's text size </summary>
+    /// <summary> The element's _text _size </summary>
     public float size;
-    /// <summary> The default text size for new instances of text that do not set it implicitly </summary>
+    /// <summary> The default _text _size for new instances of _text that do not set it implicitly </summary>
     public static float DefaultTextSize = 3;
 
     
-    /// <summary> The color of the text </summary>
+    /// <summary> The _color of the _text </summary>
     public Color color;
-    /// <summary> The default color of new instances of Text, that do not set it implicitly. </summary>
+    /// <summary> The default _color of new instances of Text, that do not set it implicitly. </summary>
     public static Color DefaultColor = Palette.White;
     
     
-    /// <summary> The spacing between consecutive characters in the text </summary>
+    /// <summary> The _spacing between consecutive characters in the _text </summary>
     public Vector2 spacing;
-    /// <summary> The default text spacing for new instances of text that do not set it implicitly;
-    /// represented as a relative factor of text size for relative scaling </summary>
+    /// <summary> The default _text _spacing for new instances of _text that do not set it implicitly;
+    /// represented as a relative factor of _text _size for relative scaling </summary>
     public static Vector2 DefaultSpacingFactor = new Vector2(.2f, 1);
     
     
-    /// <summary> Position of the text, from the top left corner</summary>
+    /// <summary> Position of the _text, from the top left corner</summary>
     public Font font;
-    /// <summary> The default position of new instances of text that do not set it implicitly. </summary>
+    /// <summary> The default position of new instances of _text that do not set it implicitly. </summary>
     public static Font DefaultFont;
     
     
-    /// <summary> The predicted size of the text element in its respective dimensions. </summary>
+    /// <summary> The predicted _size of the _text element in its respective dimensions. </summary>
     public Vector2 bounds {
         get {
             float Y = spacing.Y * size;

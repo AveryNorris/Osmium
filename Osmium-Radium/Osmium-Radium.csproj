@@ -17,6 +17,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <EmbeddedResource Include="DefaultTexture.png">
+          <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </EmbeddedResource>
+        <EmbeddedResource Include="proggyBitmapASCII.png" />
         <EmbeddedResource Include="Source\Backend\Fragment.glsl" />
         <EmbeddedResource Include="Source\Backend\Vertex.glsl" />
     </ItemGroup>

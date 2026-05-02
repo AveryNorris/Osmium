@@ -85,8 +85,6 @@ public static class Osmium
     /// <summary> Closes Osmium and ends the OpenTK instance! </summary>
     /// <errors>Osmium must be initialized and running before calling this method. And Osmium cannot close after it has been closed! </errors>
     public static void Close() {
-        if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return; }
-        if(!IsRunning) { Debug.Error("Osmium is already not Running!"); return; }
         if(IsClosed) { Debug.Error("Osmium has already been closed!"); return; }
 
         IsClosed = true;

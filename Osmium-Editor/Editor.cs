@@ -29,12 +29,8 @@ public static class Editor
         Text.DefaultColor = Palette.TextHigh;
         Text.DefaultSpacingFactor = new Vector2(.285f, 1);
         Text.DefaultTextSize = 1.6f;
-            
+            //todo: dont use manifest resource stream
         //viewport must be 36.56 high, if it is 65 wide todo:
-
-        Button.DefaultBackgroundColor = Palette.Secondary;
-        Button.DefaultBackgroundHoverColor = Palette.Secondary;
-        Button.DefaultBackgroundHeldColor = Palette.SecondaryActive;
         
         Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.Personal));
 
