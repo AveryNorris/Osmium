@@ -1,6 +1,7 @@
 using System.Numerics;
 using OsmiumNucleus;
 using OsmiumRadium;
+using OsmiumRadium.Source.Interfaces;
 
 
 namespace OsmiumRadium;
@@ -42,8 +43,15 @@ public abstract partial class RadiumElement
         new Vector2(-.5f, -.5f),
     ];
 
-    public TextData Text() {
+    public TextData TextBox() {
         TextData returnValue = new TextData();
+        returnValue.Introduce();
+        return returnValue;
+    }
+    
+    public TextData TextBox(string text) {
+        TextData returnValue = new TextData();
+        returnValue.Text(text);
         returnValue.Introduce();
         return returnValue;
     }
@@ -64,7 +72,7 @@ public abstract partial class RadiumElement
     /// <param name="color"></param>
     /// <param name="spacing"></param>
     /// todo: fontsize not _text _size, and manage fixing _bounds even if error occurs
-    protected void Text(string text, Bounds bounds, float? size = null, Font? font = null, Color? color = null, Vector2? spacing = null, Anchor anchor = Anchor.TopLeft) {
+    protected void TextBox(string text, Bounds bounds, float? size = null, Font? font = null, Color? color = null, Vector2? spacing = null, Anchor anchor = Anchor.TopLeft) {
         
         float textSize = size ?? OsmiumRadium.Text.DefaultTextSize;
         

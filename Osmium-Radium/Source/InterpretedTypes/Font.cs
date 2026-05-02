@@ -58,9 +58,6 @@ public class Font
 
         charIndexes = indexes.ToArray();
         
-        
-        Debug.Log(string.Join(" , ", indexes.ToImmutableArray()));
-
         //TODO: PRECOMPUTE LOOKUP TABLES!!!
     }
 

@@ -145,6 +145,8 @@ public static class Context
         
         Debug.Action("Opening project! ", ["Path"], [__path]);
         
+        ProjectMemory.RefreshProjectTime(__path);
+        
         //check for valid project
         string parentDirectory = Path.GetDirectoryName(__path);
         

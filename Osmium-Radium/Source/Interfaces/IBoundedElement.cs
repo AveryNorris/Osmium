@@ -31,6 +31,12 @@ public static class IBoundsExtensions
         return element;
     }
     
+    public static T Size<T>(this T element, float v) where T : Element, IBoundedElement<T> {
+        element._bounds = element._bounds with { size = new Vector2(v) };
+        
+        return element;
+    }
+    
     public static T Pos<T>(this T element, Vector2 pos) where T : Element, IBoundedElement<T> {
         element._bounds = element._bounds with { pos = pos };
         
@@ -39,6 +45,12 @@ public static class IBoundsExtensions
     
     public static T Pos<T>(this T element, float x, float y) where T : Element, IBoundedElement<T> {
         element._bounds = element._bounds with { pos = new Vector2(x, y) };
+        
+        return element;
+    }
+    
+    public static T Pos<T>(this T element, float v) where T : Element, IBoundedElement<T> {
+        element._bounds = element._bounds with { pos = new Vector2(v) };
         
         return element;
     }
@@ -55,6 +67,12 @@ public static class IBoundsExtensions
         return element;
     }
     
+    public static T Min<T>(this T element, float v) where T : Element, IBoundedElement<T> {
+        element._bounds = element._bounds with { min = new Vector2(v) };
+        
+        return element;
+    }
+    
     public static T Max<T>(this T element, Vector2 max) where T : Element, IBoundedElement<T> {
         element._bounds = element._bounds with { max = max };
         
@@ -67,6 +85,12 @@ public static class IBoundsExtensions
         return element;
     }
     
+    public static T Max<T>(this T element, float v) where T : Element, IBoundedElement<T> {
+        element._bounds = element._bounds with { max = new Vector2(v) };
+        
+        return element;
+    }
+    
     public static T Center<T>(this T element, Vector2 center) where T : Element, IBoundedElement<T> {
         element._bounds = element._bounds with { center = center };
         
@@ -75,6 +99,12 @@ public static class IBoundsExtensions
     
     public static T Center<T>(this T element, float x, float y) where T : Element, IBoundedElement<T> {
         element._bounds = element._bounds with { center = new Vector2(x, y) };
+        
+        return element;
+    }
+    
+    public static T Center<T>(this T element, float v) where T : Element, IBoundedElement<T> {
+        element._bounds = element._bounds with { center = new Vector2(v) };
         
         return element;
     }

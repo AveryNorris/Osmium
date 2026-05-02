@@ -48,7 +48,7 @@ public static class Radium
     }
 
     public static void SetClippingBounds(Vector2 __min, Vector2 __max) {
-        Backend.ClippingRects.Add((Backend.elementCount, new Vector4(__min.X, __min.Y, __max.X, __max.Y)));
+        //Backend.ClippingRects.Add();
     }
     
     public static void SetClippingBounds(Bounds __bounds) {

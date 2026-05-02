@@ -72,6 +72,8 @@ public struct Bounds
         }
     }
     
+    //todo: fix min max constraints and guard at draw time
+    
     
     
     /// <summary> Size of the element</summary>

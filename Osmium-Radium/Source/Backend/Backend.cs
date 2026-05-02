@@ -31,6 +31,10 @@ public static partial class Backend
     public static bool ShouldDraw = true;
     
     public static float WindowWidthHeightRatio { get; internal set; }
+
+    public static int ElementCount = 0;
+
+    public static Dictionary<int, Vector4> ClippingRects = [];
     
     internal static readonly int[] Indices = [
         3, 2, 1,
@@ -38,8 +42,6 @@ public static partial class Backend
     ];
 
     internal static int DefaultTexture;
-    
-    internal static List<(int index, System.Numerics.Vector4 clippingRect)> ClippingRects = [];
 
     internal static HashSet<RadiumElement> RetainedElements = [];
     
@@ -51,7 +53,7 @@ public static partial class Backend
     
     //todo: character limit parameter from config or something
 
-    private const int MaxCharacters = 10000;
+    public const int MaxCharacters = 10000;
     
     //todo: THIS IS SO SLOW LOLLLLLLLLL
     
@@ -241,9 +243,14 @@ public static partial class Backend
             }
         }
         
-        foreach(Element element in IMGUIElements.ToList())
+        //todo: collection was modified error?
+        for(int i = 0; i < IMGUIElements.Count; i++)
         {
-            element.Draw();
+            if (ClippingRects.TryGetValue(i, out Vector4 value)) {
+                SetClipping(value);
+            }
+            
+            IMGUIElements[i].Draw();
         }
         
         IMGUIElements.Clear();

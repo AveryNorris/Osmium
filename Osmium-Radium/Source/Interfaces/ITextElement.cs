@@ -20,7 +20,7 @@ public interface ITextElement<out TSelf> where TSelf : Element, ITextElement<TSe
     public float _textSize { get; set; }
     
     /// <summary> Anchor of the _text </summary>
-    public Anchor _anchor { get; set; }
+    public Anchor _textAnchor { get; set; }
     
     /// <summary> Color of the _text </summary>
     public Color _textColor { get; set; }
@@ -50,6 +50,12 @@ public static class ITextElementExtensions
         return element;
     }
     
+    public static T Text<T>(this T element, char c) where T : Element, ITextElement<T> {
+        element._text = c.ToString();
+
+        return element;
+    }
+    
     public static T Font<T>(this T element, Font font) where T : Element, ITextElement<T> {
         element._font = font;
 
@@ -74,8 +80,8 @@ public static class ITextElementExtensions
         return element;
     }
     
-    public static T Anchor<T>(this T element, Anchor anchor) where T : Element, ITextElement<T> {
-        element._anchor = anchor;
+    public static T TextAnchor<T>(this T element, Anchor anchor) where T : Element, ITextElement<T> {
+        element._textAnchor = anchor;
 
         return element;
     }

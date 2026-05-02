@@ -74,11 +74,24 @@ public abstract partial class RadiumElement
         
         Box(bounds, boxColor);
         
-        Text(text, bounds, textSize, font, textColor, spacing, anchor);
+        TextBox(text, bounds, textSize, font, textColor, spacing, anchor);
         
         return bounds;
     }
 
     //todo: fix syntax?
     protected void Image(Texture texture, Bounds bounds, Color? color = null) => Box(bounds, color, texture);
+    
+    public static void SetClippingRect(Vector2 __min, Vector2 __max) {
+        Vector4 value = new Vector4(__min.X, __min.Y, __max.X, __max.Y);
+        int index = Backend.IMGUIElements.Count - 1;
+        
+        if (!Backend.ClippingRects.TryAdd(index, value)) {
+            Backend.ClippingRects[index] = value;
+        }
+    }
+    
+    public static void ResetClippingRect() {
+        SetClippingRect(Vector2.Zero, new Vector2(100));
+    }
 }

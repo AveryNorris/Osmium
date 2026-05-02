@@ -10,6 +10,7 @@ using OsmiumRadium;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OsmiumRadium.Source.Interfaces;
 using Anchor = OsmiumRadium.Source.Interfaces.Anchor;
+using Color = OsmiumRadium.Color;
 using Vector2 = System.Numerics.Vector2;
 
 
@@ -25,10 +26,16 @@ public class ProjectSelectMenu : RadiumElement
     
     //todo: add back _texture caching
     private static Texture osmiumLogo;
+    
+    private static string text = "";
 
     static ProjectSelectMenu() {
         using (Stream stream = Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.Osmium.png")) {
             osmiumLogo = new Texture(stream);
+        }
+
+        for (int i = 0; i < 100_000; i++) {
+            text += "C";
         }
     }
 
@@ -68,22 +75,19 @@ public class ProjectSelectMenu : RadiumElement
         ButtonData.DefaultHoverColor = Palette.SecondaryHover;
         
         ButtonData.DefaultTextColor = Palette.White;
-
-        for(int i = 0; i < 100; i++)
-            Button().Size(10, 7).Center(50, 50).Text("Hello I am a\nbutton").Anchor(Anchor.Center).TextSize(2f).Spacing(.3f,1f);
         
         frameratesum += Osmium.DeltaTime;
         frameratecount++;
         
-        Debug.Log("Average : " + 1f / (frameratesum / frameratecount));
+        Debug.Log("FPS : " + (int) (1f / (frameratesum / frameratecount)));
 
 
 
-        //ConfigureWindow();
+        ConfigureWindow();
 
-        //DefineHeader();
+        DefineHeader();
 
-        //ProjectList();
+        ProjectList();
     }
 
     public void ConfigureWindow() {
@@ -94,53 +98,63 @@ public class ProjectSelectMenu : RadiumElement
         Osmium.Context.ClientSize = clientSize;
         Osmium.Context.ClientLocation = Osmium.Context.CurrentMonitor.ClientArea.HalfSize - clientSize / 2;
         
-        Box(new Bounds(
-                size: new Vector2(100, 100)), 
-            color: Palette.BackgroundLow);
-        
-        Box(color: Palette.BackgroundHighest, bounds: new Bounds(min: new Vector2(0, 16.75f), max: new Vector2(100, 17)));
-        Box(color: Palette.BackgroundHighest, bounds: new Bounds(min: new Vector2(2, 16.75f), max: new Vector2(2.25f, 100)));
+        Box().Size(100, 100).Color(Palette.BackgroundLow);
+
+        Box().Color(Palette.BackgroundHighest).Pos(0, 16.75f).Max(100, 17);
+        Box().Color(Palette.BackgroundHighest).Pos(2, 16.75f).Max(2.25f, 100);
     }
     
     //todo: change component map method from reload and unload to save?
 
     //todo: _bounds setter interface makes it easier to set stuff individually
     public void DefineHeader() {
-        Image(
-            osmiumLogo,
-            bounds: new Bounds(size: Vector2.One * 13, pos: new Vector2(2, 2)),
-            color: Palette.White);
         
-        Text("Osmium", 
-            font: jetbrains, 
-            bounds: new Bounds(pos: new Vector2(14.5f, 2f), size: new Vector2(100,100)),
-            color: Palette.Primary, size: 13, 
-            spacing: new Vector2(.5f,1));
+        Box().Texture(osmiumLogo).Color(Color.White).Pos(2,2).Size(13);
 
-        if(Button("X", textColor: Palette.TextLow, spacing: new Vector2(.33f, 1),
-            bounds: new Bounds(pos: new Vector2(95.5f, 0), size: new Vector2(4.5f)),
-            backgroundColor: Palette.BackgroundHighest, hoverColor: Palette.BackgroundHigh,
-            heldColor: Palette.BackgroundLow, anchor: OsmiumRadium.Anchor.Center).MouseUp(MouseButton.Left))
-            Osmium.Close();
-
-        if(Button(
-            "Create", textSize: 3, spacing: new Vector2(.6f, 1),
-            bounds: new Bounds(pos: new Vector2(2.25f, 16.75f), size: new Vector2(48.5f, 5)), anchor: OsmiumRadium.Anchor.Center).MouseUp(MouseButton.Left))
-            CreateProjectPrompt();
+        TextBox().Text("Osmium").Font(jetbrains).Pos(14.5f, 2f).Size(100).TextSize(13).Spacing(.5f, 1).TextColor(Palette.Primary);
         
-        if(Button(
-            "Open", textSize: 3, spacing: new Vector2(.6f, 1),
-            bounds: new Bounds(pos: new Vector2(51.4f, 16.75f), size: new Vector2(48.875f, 5)), anchor: OsmiumRadium.Anchor.Center).MouseUp(MouseButton.Left))
-            OpenProjectPrompt();
+        if(Button().
+            Text("X ").
+            TextColor(Palette.TextLow).
+            TextSize(3).
+            Spacing(.33f,1).Pos(95.5f, 0).
+            Size(4.5f).NormalColor(Palette.BackgroundHighest).
+            HoverColor(Palette.BackgroundHigh).
+            ActiveColor(Palette.BackgroundLow).
+            TextAnchor(Anchor.Center)
+        .Up()) Osmium.Close();
+        
+        if(Button().
+            Text("Create").
+            TextSize(3).
+            Spacing(.6f, 1).
+            Pos(2.25f, 16.75f).
+            Size(48.5f, 5).
+            TextAnchor(Anchor.Center).
+        Up()) CreateProjectPrompt();
+                
+        
+        //todo: open create buttons dif sizes?
+        
+        if(Button().
+           Text("Open").
+           TextSize(3).
+           Spacing(.6f, 1).
+           Pos(51.4f, 16.75f).
+           Size(48.875f, 5).
+           TextAnchor(Anchor.Center).
+           Up()) OpenProjectPrompt();
         
         
         //todo: make open and create button in front and fix Z
         
         //toDO OPISJGOIGIO)SJGIOSG
-        Text('V' + Osmium.Version, new Bounds(size: new Vector2(100, 16.75f)),  color: Palette.TextHigh, size: 3, spacing: new Vector2(.5f,1), anchor: OsmiumRadium.Anchor.BottomRight);
         
+        //todo: text.text
+        TextBox().Text('V' + Osmium.Version).Size(100, 16.75f).TextColor(Palette.TextHigh).TextSize(3).Spacing(.5f, 1).TextAnchor(Anchor.BottomRight);
+
         //todo: radium scrolling abstractions debug _color options
-        
+
     }
 
     public void CreateProjectPrompt() {
@@ -188,7 +202,7 @@ public class ProjectSelectMenu : RadiumElement
 
         float listSize = 0;
         
-        SetClippingBounds(new Bounds(min: new Vector2(2.5f, 22), max: new Vector2(100, 100)));
+        SetClippingRect(new Vector2(2.5f, 22), new Vector2(100, 100));
         
         int futureOffset = 0;
         for(int i = 0; i < ProjectMemory.Projects.Count; i++) {
@@ -212,25 +226,29 @@ public class ProjectSelectMenu : RadiumElement
             
             Vector2 size = new Vector2(5, 26 + futureOffset * 2.1f + (i + 1) * 11 + scroll) - pos;
 
-            if (Button(string.Empty,
-                    bounds: new Bounds(pos: new Vector2(2.5f, pos.Y - 1.5f), size: new Vector2(97.5f, size.Y)),
-                    backgroundColor: Palette.BackgroundLow, hoverColor: Palette.Primary,
-                    heldColor: Palette.SecondaryActive).MouseUp(MouseButton.Left)) {
+            if (Button().
+                Pos(2.5f, pos.Y - 1.5f).
+                Size(97.5f, size.Y).
+                NormalColor(Palette.BackgroundLow).
+                HoverColor(Palette.Primary).
+                ActiveColor(Palette.SecondaryActive).
+            Up()) {
                 Radium.Remove<ProjectSelectMenu>();
                 Context.OpenProject(path);
                 Radium.Add<EditorOverhead>();
                 return;
             }
 
-            Text(projectName, new Bounds(pos: pos, size: Vector2.One * 100), spacing: new Vector2(.55f, 1), size: 3.5f);
+            TextBox(projectName).Pos(pos).Size(100).Spacing(.55f, 1).TextSize(3.5f).TextColor(Palette.TextHigh);
 
             Vector2 linkOffset = new Vector2(.5f, 3.5f);
             
-            Text(indentedPath.ToString(), new Bounds(pos: pos + linkOffset, size: Vector2.One * 100), spacing: new Vector2(.55f, 1), size: 2.5f, color: Palette.TextLow);
+            TextBox(indentedPath.ToString()).Pos(pos + linkOffset).Size(100).Spacing(.55f, 1).TextSize(2.5f).TextColor(Palette.TextLow);
             
-            if(Button(bounds: new Bounds(center: pos + new Vector2(90, 1), size: Vector2.One * 5),
-                    text: "x", textColor: Palette.TextLow, backgroundColor: Palette.Transparent, hoverColor: Palette.Transparent, heldColor: Palette.Transparent).MouseUp(MouseButton.Left))
-            ProjectMemory.ForgetProject(path);
+            //todo: turn off file replace when making projects maybe?
+            
+            if(Button().Center(pos.X + 88.5f, pos.Y).Size(5).TextSize(3).Text('x').TextColor(Palette.TextLow).AllColors(Palette.Transparent).Up())
+                ProjectMemory.ForgetProject(path);
 
             listSize += size.Y;
 
@@ -245,7 +263,7 @@ public class ProjectSelectMenu : RadiumElement
         
         
         scroll = Math.Clamp(scroll, -listOverflowSize, 0);
-        
-        SetClippingBounds(new Bounds(size: new Vector2(100,100)));
+
+        ResetClippingRect();
     }
 }

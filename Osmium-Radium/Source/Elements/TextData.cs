@@ -58,8 +58,8 @@ public class TextData : Element, IBoundedElement<TextData>, ITextElement<TextDat
     /// <inheritdoc cref="ITextElement{TSelf}._textSize"/>
     public float _textSize { get; set; }
 
-    /// <inheritdoc cref="ITextElement{TSelf}._anchor"/>
-    public Source.Interfaces.Anchor _anchor { get; set; }
+    /// <inheritdoc cref="ITextElement{TSelf}._textAnchor"/>
+    public Source.Interfaces.Anchor _textAnchor { get; set; }
     
     
     //todo: figure out default colors
@@ -99,14 +99,15 @@ public class TextData : Element, IBoundedElement<TextData>, ITextElement<TextDat
         //todo: buffer _text a little bit? kind of on the edge
         
         Vector2 basePos = _bounds.pos 
-                          + (_bounds.size * Orientations[(int)_anchor]) 
-                          + (new Vector2(lengths[0], yBound) * BoundsOffsets[(int)_anchor]);
+                          + (_bounds.size * Orientations[(int)_textAnchor]) 
+                          + (new Vector2(lengths[0], yBound) * BoundsOffsets[(int)_textAnchor]);
         
         Vector2 currentPos = basePos;
 
-        List<float> vertexData = [];
+        List<float> vertexData = new List<float>(_text.Length);
 
-        Radium.SetClippingBounds(_bounds);
+        //todo: SUBCLIPPING! text boxes reset clipping with this commented out line, make it so that it resets the clipping bounds to what portion is shared by the two bounds
+        //Radium.SetClippingBounds(_bounds);
         
         for(int i = 0; i < _text.Length; i++) {
             
@@ -116,7 +117,7 @@ public class TextData : Element, IBoundedElement<TextData>, ITextElement<TextDat
     
                 currentPos = basePos
                              + new Vector2(
-                                 (lengths[lineBreaks] - lengths[0]) * BoundsOffsets[(int)_anchor].X,
+                                 (lengths[lineBreaks] - lengths[0]) * BoundsOffsets[(int)_textAnchor].X,
                                  lineBreaks * _spacing.Y * _textSize
                              );
                 
@@ -130,20 +131,24 @@ public class TextData : Element, IBoundedElement<TextData>, ITextElement<TextDat
                 currentPos.Y + _textSize
             );
             
-            Vector4 uv = _font[_text[i]];   
-
-            Backend.DrawElement(_font.texture.Handle, _textColor,
-                max.X, max.Y, uv.Z, uv.W,
+            Vector4 uv = _font[_text[i]];
+            
+            vertexData.AddRange(max.X, max.Y, uv.Z, uv.W,
                 currentPos.X, max.Y, uv.X, uv.W,
                 max.X, currentPos.Y, uv.Z, uv.Y,
-                currentPos.X, currentPos.Y, uv.X, uv.Y
-            );
+                currentPos.X, currentPos.Y, uv.X, uv.Y);
             
             currentPos.X += _spacing.X * _textSize;
         }
+
+        if (vertexData.Count > Backend.MaxCharacters) {
+            Debug.Error("Text's length exceeds the maximum allowed characters! It may be rendered incorrectly; you can increase the limit in the config.");
+        }
+        
+        Backend.DrawElements(_font.texture.Handle, vertexData.Count, _textColor, vertexData.ToArray());
         
         //todo: draw glyphs in bulk like so! bad though annoying to make
         
-        Radium.SetClippingBounds(new Bounds(max: new Vector2(100)));
+        //Radium.SetClippingBounds(new Bounds(max: new Vector2(100)));
     }
 }

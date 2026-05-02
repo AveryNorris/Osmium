@@ -39,11 +39,11 @@ public class ButtonData : Element, IBoundedElement<ButtonData>, ITextElement<But
     /// <inheritdoc cref="ITextElement{TSelf}._textSize"/>
     public float _textSize { get; set; }
 
-    /// <inheritdoc cref="ITextElement{TSelf}._anchor"/>
-    public Source.Interfaces.Anchor _anchor { get; set; }
+    /// <inheritdoc cref="ITextElement{TSelf}._textAnchor"/>
+    public Source.Interfaces.Anchor _textAnchor { get; set; }
     
     /// <summary> The mouse button the button should listen for</summary>
-    public MouseButton _button { get; set; }
+    public MouseButton _mouseButton { get; set; }
     
     public Color _textColor { get; set; }
 
@@ -64,6 +64,11 @@ public class ButtonData : Element, IBoundedElement<ButtonData>, ITextElement<But
     public static Color DefaultHoverColor = Color.Error;
     
     public static Color DefaultTextColor = Color.Error;
+
+    public ButtonData MouseButton(MouseButton mouseButton) {
+        _mouseButton = mouseButton;
+        return this;
+    }
 
     public static Color DefaultActiveColor {
         set {
@@ -87,11 +92,11 @@ public class ButtonData : Element, IBoundedElement<ButtonData>, ITextElement<But
         _text = string.Empty;
     }
 
-    public bool Down() => _bounds.MouseDown(_button);
+    public bool Down() => _bounds.MouseDown(_mouseButton);
 
-    public bool Up() => _bounds.MouseUp(_button);
+    public bool Up() => _bounds.MouseUp(_mouseButton);
 
-    public bool Held() => _bounds.MouseHeld(_button);
+    public bool Held() => _bounds.MouseHeld(_mouseButton);
     
     public bool Hover() => _bounds.MouseInBounds();
     
@@ -112,6 +117,6 @@ public class ButtonData : Element, IBoundedElement<ButtonData>, ITextElement<But
         //85
         
         new BoxData().Bounds(_bounds).Color(boxColor).Draw();
-        new TextData().Bounds(_bounds).Text(_text).TextColor(_textColor).Font(_font).Spacing(_spacing).Anchor(_anchor).TextSize(_textSize).Draw();
+        new TextData().Bounds(_bounds).Text(_text).TextColor(_textColor).Font(_font).Spacing(_spacing).TextAnchor(_textAnchor).TextSize(_textSize).Draw();
     }
 }
