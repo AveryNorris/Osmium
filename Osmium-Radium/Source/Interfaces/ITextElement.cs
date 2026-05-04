@@ -1,7 +1,7 @@
 using System.Numerics;
 
 
-namespace OsmiumRadium.Source.Interfaces;
+namespace OsmiumRadium;
 
 
 public interface ITextElement<out TSelf> where TSelf : Element, ITextElement<TSelf>
@@ -20,24 +20,10 @@ public interface ITextElement<out TSelf> where TSelf : Element, ITextElement<TSe
     public float _textSize { get; set; }
     
     /// <summary> Anchor of the _text </summary>
-    public Anchor _textAnchor { get; set; }
+    public TextAnchor _textAnchor { get; set; }
     
     /// <summary> Color of the _text </summary>
     public Color _textColor { get; set; }
-}
-
-
-public enum Anchor
-{
-    TopLeft,
-    TopRight,
-    BottomLeft,
-    BottomRight,
-    CenterLeft,
-    CenterRight,
-    TopCenter,
-    BottomCenter,
-    Center
 }
 
 
@@ -80,8 +66,8 @@ public static class ITextElementExtensions
         return element;
     }
     
-    public static T TextAnchor<T>(this T element, Anchor anchor) where T : Element, ITextElement<T> {
-        element._textAnchor = anchor;
+    public static T TextAnchor<T>(this T element, TextAnchor textAnchor) where T : Element, ITextElement<T> {
+        element._textAnchor = textAnchor;
 
         return element;
     }

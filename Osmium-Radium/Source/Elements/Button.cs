@@ -1,61 +1,100 @@
-using System.Drawing;
+using System.Diagnostics;
 using System.Numerics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using OsmiumNucleus;
+using Debug = System.Diagnostics.Debug;
+
 
 namespace OsmiumRadium;
 
-public class Button : ImGUI
+
+
+/// <summary> Describes a box drawn for one frame </summary>
+public class Button : Element, IBoundedElement<Button>, ITextElement<Button>, IInteractableColoredElement<Button>
 {
     
     
+    public Color _normalColor { get; set; }
+    public Color _hoverColor { get; set; }
+    public Color _heldColor { get; set; }
+    public Color _downColor { get; set; }
+    public Color _upColor { get; set; }
     
-    public Color backgroundColor;
-    public static Color DefaultBackgroundColor = Palette.Secondary;
     
-    public Color backgroundHoverColor;
-    public static Color DefaultBackgroundHoverColor = Palette.SecondaryHover;
+    
+    /// <inheritdoc cref="IBoundedElement{TSelf}._bounds"/>
+    public Bounds _bounds { get; set; }
+    
+    
+    /// <inheritdoc cref="ITextElement{TSelf}._text"/>
+    public string _text { get; set; }
+    
+    /// <inheritdoc cref="ITextElement{TSelf}._font"/>
+    public Font _font { get; set; }
 
-    public Color backgroundHeldColor;
-    public static Color DefaultBackgroundHeldColor = Palette.SecondaryActive;
+    /// <inheritdoc cref="ITextElement{TSelf}._spacing"/>
+    public Vector2 _spacing { get; set; }
     
-    public Box box;
-    
-    public Text text;
-    
-    
-    
-    public Button(Bounds? transform = null, Text? text = null, Color? backgroundColor = null, Color? backgroundHoverColor = null, Color? backgroundHeldColor = null, int z = 0) {
+    /// <inheritdoc cref="ITextElement{TSelf}._textSize"/>
+    public float _textSize { get; set; }
 
-        Bounds buttonBounds = transform ?? new Bounds();
+    /// <inheritdoc cref="ITextElement{TSelf}._textAnchor"/>
+    public TextAnchor _textAnchor { get; set; }
+    
+    /// <summary> The mouse button the button should listen for</summary>
+    public MouseButton _mouseButton { get; set; }
+    
+    public Color _textColor { get; set; }
+    
+    
 
-        this.text = text ?? new Text();
-        this.text.center = buttonBounds.center;
-        
-        this.box = new Box(buttonBounds);
-        this.box.z = z;
-        
-        //puts the _text on top of the Z stack, _text is instantiated in the constructor so it will always be behind the box unless you reset it.
-        this.text.z = z;
-        
-        this.backgroundColor = backgroundColor ?? DefaultBackgroundColor;
-        this.backgroundHoverColor = backgroundHoverColor ?? DefaultBackgroundHoverColor;
-        this.backgroundHeldColor = backgroundHeldColor ?? DefaultBackgroundHeldColor;
+    public Button MouseButton(MouseButton mouseButton) {
+        _mouseButton = mouseButton;
+        return this;
     }
+
+    internal Button() {
+        _bounds = new Bounds();
+        _font = Backend.BaseFont;
+        
+        _normalColor = Palette.Secondary;
+        _hoverColor = Palette.SecondaryHover;
+        _downColor = Palette.SecondaryActive;
+        _upColor = Palette.SecondaryActive;
+        _heldColor = Palette.SecondaryActive;
+        _textColor = Palette.TextHigh;
+        
+        //todo: find a good default spacing once code compiles
+        _spacing = new Vector2(.3f, 1);
+        
+        _textSize = 5; 
+        _text = string.Empty;
+    }
+
+    public bool Down() => _bounds.MouseDown(_mouseButton);
+
+    public bool Up() => _bounds.MouseUp(_mouseButton);
+
+    public bool Held() => _bounds.MouseHeld(_mouseButton);
+    
+    public bool Hover() => _bounds.MouseInBounds();
+    
+    public bool Active() => Down() || Up() || Held();
     
     
     
-    public bool Active() => Backend.MouseUp(box.Bounds.min, box.Bounds.max, MouseButton.Left);
-    
-    public bool Held() => Backend.MouseHeld(box.Bounds.min, box.Bounds.max, MouseButton.Left);
-    
-    public bool Hovered() => Backend.MouseInBounds(box.Bounds.min, box.Bounds.max);
-    
-    
-    
-    protected internal override void Draw()
-    {
-        if (Held()) box.color = backgroundHeldColor;
-        else if (Hovered()) box.color = backgroundHoverColor;
-        else box.color = backgroundColor;
+    protected internal override void Draw() {
+        
+        Color boxColor = _normalColor;
+        
+        if (Down()) boxColor = _downColor;
+        else if (Up()) boxColor = _upColor;
+        else if (Held()) boxColor = _heldColor;
+        else if (Hover()) boxColor = _hoverColor;
+        
+        //85
+        
+        new Box().Bounds(_bounds).Color(boxColor).Draw();
+        new Text().Bounds(_bounds).Text(_text).TextColor(_textColor).Font(_font).Spacing(_spacing).TextAnchor(_textAnchor).TextSize(_textSize).Draw();
     }
 }

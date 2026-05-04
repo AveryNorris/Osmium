@@ -1,4 +1,4 @@
-namespace OsmiumRadium.Source.Interfaces;
+namespace OsmiumRadium;
 
 
 public interface ITexturedElement<out TSelf> where TSelf : Element, ITexturedElement<TSelf>

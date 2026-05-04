@@ -8,8 +8,6 @@ using OpenTK.Windowing.Common;
 using OsmiumNucleus;
 using OsmiumRadium;
 using OpenTK.Windowing.GraphicsLibraryFramework;
-using OsmiumRadium.Source.Interfaces;
-using Anchor = OsmiumRadium.Source.Interfaces.Anchor;
 using Color = OsmiumRadium.Color;
 using Vector2 = System.Numerics.Vector2;
 
@@ -70,11 +68,11 @@ public class ProjectSelectMenu : RadiumElement
         
         //todo: make text have parameters and make interfaces more explicit? so maybe anchor is text anchor etc, same for text size!
 
-        ButtonData.DefaultNormalColor = Palette.Secondary;
-        ButtonData.DefaultActiveColor = Palette.SecondaryActive;
-        ButtonData.DefaultHoverColor = Palette.SecondaryHover;
+        OsmiumRadium.Button.DefaultNormalColor = Palette.Secondary;
+        OsmiumRadium.Button.DefaultActiveColor = Palette.SecondaryActive;
+        OsmiumRadium.Button.DefaultHoverColor = Palette.SecondaryHover;
         
-        ButtonData.DefaultTextColor = Palette.White;
+        OsmiumRadium.Button.DefaultTextColor = Palette.White;
         
         frameratesum += Osmium.DeltaTime;
         frameratecount++;
@@ -121,7 +119,7 @@ public class ProjectSelectMenu : RadiumElement
             Size(4.5f).NormalColor(Palette.BackgroundHighest).
             HoverColor(Palette.BackgroundHigh).
             ActiveColor(Palette.BackgroundLow).
-            TextAnchor(Anchor.Center)
+            TextAnchor(TextAnchor.Center)
         .Up()) Osmium.Close();
         
         if(Button().
@@ -130,7 +128,7 @@ public class ProjectSelectMenu : RadiumElement
             Spacing(.6f, 1).
             Pos(2.25f, 16.75f).
             Size(48.5f, 5).
-            TextAnchor(Anchor.Center).
+            TextAnchor(TextAnchor.Center).
         Up()) CreateProjectPrompt();
                 
         
@@ -142,7 +140,7 @@ public class ProjectSelectMenu : RadiumElement
            Spacing(.6f, 1).
            Pos(51.4f, 16.75f).
            Size(48.875f, 5).
-           TextAnchor(Anchor.Center).
+           TextAnchor(TextAnchor.Center).
            Up()) OpenProjectPrompt();
         
         
@@ -151,7 +149,7 @@ public class ProjectSelectMenu : RadiumElement
         //toDO OPISJGOIGIO)SJGIOSG
         
         //todo: text.text
-        TextBox().Text('V' + Osmium.Version).Size(100, 16.75f).TextColor(Palette.TextHigh).TextSize(3).Spacing(.5f, 1).TextAnchor(Anchor.BottomRight);
+        TextBox().Text('V' + Osmium.Version).Size(100, 16.75f).TextColor(Palette.TextHigh).TextSize(3).Spacing(.5f, 1).TextAnchor(TextAnchor.BottomRight);
 
         //todo: radium scrolling abstractions debug _color options
 
@@ -239,11 +237,11 @@ public class ProjectSelectMenu : RadiumElement
                 return;
             }
 
-            TextBox(projectName).Pos(pos).Size(100).Spacing(.55f, 1).TextSize(3.5f).TextColor(Palette.TextHigh);
+            TextBox().Text(projectName).Pos(pos).Size(100).Spacing(.55f, 1).TextSize(3.5f).TextColor(Palette.TextHigh);
 
             Vector2 linkOffset = new Vector2(.5f, 3.5f);
             
-            TextBox(indentedPath.ToString()).Pos(pos + linkOffset).Size(100).Spacing(.55f, 1).TextSize(2.5f).TextColor(Palette.TextLow);
+            TextBox().Text(indentedPath.ToString()).Pos(pos + linkOffset).Size(100).Spacing(.55f, 1).TextSize(2.5f).TextColor(Palette.TextLow);
             
             //todo: turn off file replace when making projects maybe?
             

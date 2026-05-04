@@ -1,4 +1,4 @@
-namespace OsmiumRadium.Source.Interfaces;
+namespace OsmiumRadium;
 
 
 public interface IInteractableColoredElement<out TSelf> where TSelf : Element, IInteractableColoredElement<TSelf>

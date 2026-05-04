@@ -1,7 +1,6 @@
 namespace OsmiumRadium;
 
-
-public enum Anchor
+public enum TextAnchor
 {
     TopLeft,
     TopRight,

@@ -1,47 +1,41 @@
-
-
-using OsmiumNucleus;
-
-
 namespace OsmiumRadium;
 
 
 
-/// <summary> Represents an instance of a simple box/rect! </summary>
-public class Box : ImGUI
+/// <summary> Describes an immediate mode GUI box that is drawn for one frame. </summary>
+public class Box : Element, IBoundedElement<Box>, ITexturedElement<Box>, IColoredElement<Box>
 {
     
-
-    /// <summary> Bounds of the box </summary>
-    public Bounds Bounds;
-
-
-    /// <summary> The _color of the box </summary>
-    public Color color;
-    /// <summary> The default _color of new instances of box that do not set it implicitly. </summary>
-    public static Color DefaultColor = Palette.Primary;
     
     
-    /// <summary> Creates a new box for that frame </summary>
-    /// <param name="boundsorm"> Bounds of the box, it will be invisible if this is not set</param>
-    /// <param name="color"> Color of the box </param>
-    /// <param name="z"> Z of the box </param>
-    public Box(Bounds bounds = new Bounds(), Color? color = null, int z = 0) {
-        this.Bounds = bounds;
-        this.color = color ?? DefaultColor;
-        this.z = z;
+    /// <inheritdoc cref="IBoundedElement{TSelf}._bounds"/>
+    public Bounds _bounds { get; set; }
+    
+    /// <inheritdoc cref="ITexturedElement{TSelf}._texture"/>
+    public Texture _texture { get; set; }
+    
+    /// <inheritdoc cref="IColoredElement{TSelf}._color"/>
+    public Color _color { get; set; }
+    
+    
+
+    internal Box() {
+        _bounds = new Bounds();
+        _texture = Backend.BaseTexture;
+        _color = Palette.Secondary;
     }
     
     
     
     protected internal override void Draw() {
-        Backend.DrawElement(Backend.DefaultTexture, color,
-            Bounds.max.X, Bounds.max.Y, 1, 1,
-            Bounds.min.X, Bounds.max.Y, 0, 1,
-            Bounds.max.X, Bounds.min.Y, 1, 0,
-            Bounds.min.X, Bounds.min.Y, 0, 0
+        Backend.DrawElement(_texture, _color,
+            _bounds.max.X, _bounds.max.Y, 1, 1,
+            _bounds.min.X, _bounds.max.Y, 0, 1,
+            _bounds.max.X, _bounds.min.Y, 1, 0,
+            _bounds.min.X, _bounds.min.Y, 0, 0
         );
     }
+    
     
     
 }

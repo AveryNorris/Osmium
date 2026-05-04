@@ -1,144 +1,153 @@
-using System.Drawing;
+using System.Diagnostics;
 using System.Numerics;
-using OsmiumNucleus;
+using Debug = OsmiumNucleus.Debug;
+
 
 namespace OsmiumRadium;
 
 
 
-/// <summary> Represents an instance of a simple ASCII textbox! </summary>
-public class Text : ImGUI
+/// <summary> Describes a box drawn for one frame </summary>
+public class Text : Element, IBoundedElement<Text>, ITextElement<Text>
 {
+    
+    private static readonly Vector2[] Orientations = [
+        new Vector2(0,0),
+        new Vector2(1, 0),
+        new Vector2(0, 1),
+        new Vector2(1, 1),
+        new Vector2(0, .5f),
+        new Vector2(1, .5f),
+        new Vector2(.5f, 0),
+        new Vector2(.5f, 1),
+        new Vector2(.5f, .5f),
+    ];
 
+    private static readonly Vector2[] BoundsOffsets = [
+        new Vector2(0, 0),
+        new Vector2(-1, 0),
+        new Vector2(0, -1),
+        new Vector2(-1, -1),
+        new Vector2(0, -.5f),
+        new Vector2(-1, -.5f),
+        new Vector2(-.5f, 0),
+        new Vector2(-.5f, -1),
+        new Vector2(-.5f, -.5f),
+    ];
     
     
-    /// <summary> Creates a new _text element. Allows you to control many different options </summary>
-    /// <param name="text"> Text to be written</param>
-    /// <param name="size"> _size of the _text characters</param>
-    /// <param name="pos"> Position of the _text</param>
-    /// <param name="center"> center of the _text, mutually exclusive to pos </param>
-    /// <param name="spacing"> Spacing between the chars, relative to _font _size (Not in absolute coordinates) (realWorldSpacing = fontSize * Spacing)</param>
-    /// <param name="color"> Color of the _text</param>
-    /// <param name="font"> Font of the _text</param>
-    /// <param name="z"> Font of the _text</param>
-    public Text(string? text = null, float? size = null, Vector2? pos = null, Vector2? center = null, Vector2? spacing = null, Color? color = null, Font? font = null, int z = 0) {
-        this.text = text ?? string.Empty;
-        this.size = size ?? DefaultTextSize;
-        this.pos = pos ?? Vector2.Zero;
-        this.spacing = spacing ?? DefaultSpacingFactor;
-        this.color = color ?? DefaultColor;
+    
+    /// <inheritdoc cref="IBoundedElement{TSelf}._bounds"/>
+    public Bounds _bounds { get; set; }
+    
+    /// <inheritdoc cref="IColoredElement{TSelf}._textColor"/>
+    public Color _textColor { get; set; }
+    
+    
+    
+    /// <inheritdoc cref="ITextElement{TSelf}._text"/>
+    public string _text { get; set; }
+    
+    /// <inheritdoc cref="ITextElement{TSelf}._font"/>
+    public Font _font { get; set; }
 
-        if (font != null) {
-            this.font = font;
-        }else if (DefaultFont == null) {
-            Debug.Error("A default _font does not exist! Either set one implicit or configure a default _font.");
-        }else
-            this.font = DefaultFont;
+    /// <inheritdoc cref="ITextElement{TSelf}._spacing"/>
+    public Vector2 _spacing { get; set; }
+    
+    /// <inheritdoc cref="ITextElement{TSelf}._textSize"/>
+    public float _textSize { get; set; }
 
-        this.z = z;
+    /// <inheritdoc cref="ITextElement{TSelf}._textAnchor"/>
+    public TextAnchor _textAnchor { get; set; }
+    
+    
+    //todo: figure out default colors
+    /// <summary> Default _color of the _text unless explicitly stated otherwise </summary>
+    public static Color DefaultColor = Color.Error;
+    
+    public static Font DefaultFont = Backend.BaseFont;
 
-        if (center != null) {
-            this.center = (Vector2)center;
-
-            if (pos != null)
-                Debug.Error("A given Text element has definitions of both center and pos! Which causes one of them to be overridden.");
-        }
-    }
-
-    
-    
-    /// <inheritdoc cref="Bounds.pos"/>
-    public Vector2 pos;
-    /// <inheritdoc cref="Bounds.center"/>
-    public Vector2 center {
-        get => pos + bounds / 2;
-        set => pos = value - bounds / 2;
-    }
-    
-
-    /// <summary> The _text the element will render </summary>
-    public string text;
-    
-    
-    /// <summary> The element's _text _size </summary>
-    public float size;
-    /// <summary> The default _text _size for new instances of _text that do not set it implicitly </summary>
-    public static float DefaultTextSize = 3;
-
-    
-    /// <summary> The _color of the _text </summary>
-    public Color color;
-    /// <summary> The default _color of new instances of Text, that do not set it implicitly. </summary>
-    public static Color DefaultColor = Palette.White;
-    
-    
-    /// <summary> The _spacing between consecutive characters in the _text </summary>
-    public Vector2 spacing;
-    /// <summary> The default _text _spacing for new instances of _text that do not set it implicitly;
-    /// represented as a relative factor of _text _size for relative scaling </summary>
-    public static Vector2 DefaultSpacingFactor = new Vector2(.2f, 1);
-    
-    
-    /// <summary> Position of the _text, from the top left corner</summary>
-    public Font font;
-    /// <summary> The default position of new instances of _text that do not set it implicitly. </summary>
-    public static Font DefaultFont;
-    
-    
-    /// <summary> The predicted _size of the _text element in its respective dimensions. </summary>
-    public Vector2 bounds {
-        get {
-            float Y = spacing.Y * size;
-            List<float> xSpacing = [0];
-            foreach (char c in text) {
-                if (c == '\n') {
-                    Y += spacing.Y * size;
-                    xSpacing.Add(0);
-                    continue;
-                }
-            
-                if ((int)c is < 32 or > 126) {
-                    return Vector2.Zero;
-                }
-
-                xSpacing[^1] += spacing.X * size;
-            }
-        
-            return new Vector2(xSpacing.Max(), Y);
-        }
+    internal Text() {
+        _bounds = new Bounds();
+        _font = DefaultFont;
+        _textColor = DefaultColor;
+        _spacing = Vector2.Zero;
+        _textSize = 1;
+        _text = string.Empty;
     }
     
-    
-    
+    //todo: make text spacing a ratio of text size and screen proportions relative to the ideal ratio. and optimize it
     protected internal override void Draw() {
-        Vector2 currentPos = pos;
-        currentPos.X -= spacing.X * size;
+        List<float> lengths = [_spacing.X];
+        float yBound = _spacing.Y * _textSize;
         
-        foreach(char c in text) {
+        int lineBreaks = 0;
+        for(int i = 0; i < _text.Length; i++) {
+            if (_text[i] != '\n') {
+                lengths[lineBreaks] += _spacing.X * _textSize;
+            } else {
+                lineBreaks++;
+                lengths.Add(_spacing.X);
+                yBound += _spacing.Y * _textSize;
+            }
+        }
+        
+        
+        lineBreaks = 0;
+        
+        //todo: buffer _text a little bit? kind of on the edge
+        
+        Vector2 basePos = _bounds.pos 
+                          + (_bounds.size * Orientations[(int)_textAnchor]) 
+                          + (new Vector2(lengths[0], yBound) * BoundsOffsets[(int)_textAnchor]);
+        
+        Vector2 currentPos = basePos;
 
-            if (c == '\n') {
-                currentPos.Y += spacing.Y * size;
-                currentPos.X = pos.X - spacing.X * size;
+        List<float> vertexData = new List<float>(_text.Length);
+
+        //todo: SUBCLIPPING! text boxes reset clipping with this commented out line, make it so that it resets the clipping bounds to what portion is shared by the two bounds
+        //Radium.SetClippingBounds(_bounds);
+        
+        for(int i = 0; i < _text.Length; i++) {
+            
+            if (_text[i] == '\n') {
+                
+                lineBreaks++;
+    
+                currentPos = basePos
+                             + new Vector2(
+                                 (lengths[lineBreaks] - lengths[0]) * BoundsOffsets[(int)_textAnchor].X,
+                                 lineBreaks * _spacing.Y * _textSize
+                             );
+                
                 continue;
             }
             
-            Vector4 screenPos = new Vector4(
-                currentPos.X, 
-                currentPos.Y, 
-                currentPos.X + size / Backend.WindowWidthHeightRatio, 
-                currentPos.Y + size
-            );
+            //todo: osmium.allchildren is a function not a property. same for scene
 
-            Vector4 uv = font[c];
-
-            Backend.DrawElement(font.texture.Handle, color,
-                screenPos.Z, screenPos.W, uv.Z, uv.W,
-                screenPos.X, screenPos.W, uv.X, uv.W,
-                screenPos.Z, screenPos.Y, uv.Z, uv.Y,
-                screenPos.X, screenPos.Y, uv.X, uv.Y
+            Vector2 max = new Vector2(
+                currentPos.X + _textSize / Backend.WindowWidthHeightRatio,
+                currentPos.Y + _textSize
             );
             
-            currentPos.X += spacing.X * size;
+            Vector4 uv = _font[_text[i]];
+            
+            vertexData.AddRange(max.X, max.Y, uv.Z, uv.W,
+                currentPos.X, max.Y, uv.X, uv.W,
+                max.X, currentPos.Y, uv.Z, uv.Y,
+                currentPos.X, currentPos.Y, uv.X, uv.Y);
+            
+            currentPos.X += _spacing.X * _textSize;
         }
+
+        if (vertexData.Count > Backend.MaxCharacters) {
+            Debug.Error("Text's length exceeds the maximum allowed characters! It may be rendered incorrectly; you can increase the limit in the config.");
+        }
+        
+        Backend.DrawElements(_font.texture.Handle, vertexData.Count, _textColor, vertexData.ToArray());
+        
+        //todo: draw glyphs in bulk like so! bad though annoying to make
+        
+        //Radium.SetClippingBounds(new Bounds(max: new Vector2(100)));
     }
 }
