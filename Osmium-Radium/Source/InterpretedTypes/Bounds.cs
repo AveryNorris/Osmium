@@ -59,7 +59,7 @@ public struct Bounds
             Vector2 oldMax = max;
             pos = value;
             max = oldMax;
-            ConstrainMinimumsAndMaximums();
+            //ConstrainMinimumsAndMaximums();
         }
     }
     
@@ -68,7 +68,7 @@ public struct Bounds
         get => pos + size;
         set {
             size = value - pos; 
-            ConstrainMinimumsAndMaximums();
+            //ConstrainMinimumsAndMaximums();
         }
     }
     

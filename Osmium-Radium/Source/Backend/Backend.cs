@@ -25,14 +25,10 @@ public static partial class Backend
 
     internal static int VertexArrayHandle;
 
-    internal static int XScalingFactor;
-
     public static bool ShouldUpdate = true;
     public static bool ShouldDraw = true;
     
     public static float WindowWidthHeightRatio { get; internal set; }
-
-    public static int ElementCount = 0;
 
     public static Dictionary<int, Vector4> ClippingRects = [];
     
@@ -43,13 +39,8 @@ public static partial class Backend
 
     internal static int DefaultTexture;
 
-    internal static HashSet<RadiumElement> RetainedElements = [];
+    public static HashSet<RadiumElement> RetainedElements = [];
     
-    [MarkerAttributes.UnsafeInternal] internal static readonly SortedDictionary<int, List<ImGUI>> ZSortedElements = 
-        new SortedDictionary<int, List<ImGUI>>(Comparer<int>.Create((a, b) => {
-            int result = a.CompareTo(b);
-            return result; 
-    }));
     
     //todo: character limit parameter from config or something
 
@@ -235,13 +226,6 @@ public static partial class Backend
         //resets clipping to normal; add default clipping value? todo:
         elementCount = 0;
         SetClipping(new Vector4(0,0,100,100));
-
-        foreach(KeyValuePair<int, List<ImGUI>> ElementPriorityPairs in ZSortedElements) {
-            foreach (ImGUI element in ElementPriorityPairs.Value) {
-                
-                element.Draw();
-            }
-        }
         
         //todo: collection was modified error?
         for(int i = 0; i < IMGUIElements.Count; i++)
@@ -254,7 +238,6 @@ public static partial class Backend
         }
         
         IMGUIElements.Clear();
-        ZSortedElements.Clear();
         ClippingRects.Clear();
         
         //placement doesnt make sense todo: also make sure that this becomes a method called clear state or something cool and sick and cool and sick ok bye thanks for talking make _text boxes force ascii or something so that the _font doesnt have a panic attack
@@ -264,12 +247,44 @@ public static partial class Backend
         Osmium.Context.SwapBuffers();
     }
 
+    public static Vector4 Clipping;
+
+    
+    
+    /// <summary> Immediately  </summary>
+    /// <param name="__clippingRect"></param>
     public static void SetClipping(Vector4 __clippingRect) {
+        Clipping = __clippingRect;
         GL.UseProgram(ProgramHandle);
         int clippingRectUniform = GL.GetUniformLocation(ProgramHandle, "clippingRect");
         GL.Uniform4f(clippingRectUniform, __clippingRect.X, __clippingRect.Y, __clippingRect.Z, __clippingRect.W);
         GL.UseProgram(0);
     }
+
+    public static void SetSubclip(Vector4 __subclip) {
+        Vector4 clippingRect = new Vector4(
+            MathF.Max(Clipping.X, __subclip.X), MathF.Max(Clipping.Y, __subclip.Y),
+            MathF.Min(Clipping.Z,  __subclip.Z), MathF.Min(Clipping.W, __subclip.W)
+            );
+        
+        Subclips.Add(Clipping);
+        SetClipping(clippingRect);
+    }
+    
+    private static List<Vector4> Subclips = [];
+    
+    public static void RevertSubclippingBounds() {
+        if (Subclips.Count > 0)
+        {
+            SetClipping(Subclips[^1]);
+            Subclips.RemoveAt(Subclips.Count - 1);
+        }
+        else
+        {
+            Debug.Error("Failed to revert subclipping bounds");
+        }
+    }
+    
 
     
     /// <summary>
@@ -282,8 +297,8 @@ public static partial class Backend
     /// <param name="vertexData"></param>
     public static void DrawElement(int __texture, Color color, params float[] vertexData)
     {
-        GL.BindTexture(TextureTarget.Texture2d, __texture);
         GL.ActiveTexture(TextureUnit.Texture0);
+        GL.BindTexture(TextureTarget.Texture2d, __texture);
         
         GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferHandle);
         GL.BufferData(BufferTarget.ArrayBuffer, vertexData.Length * sizeof(float), vertexData, BufferUsage.DynamicDraw);
@@ -306,8 +321,8 @@ public static partial class Backend
     
     public static void DrawElements(int __texture, int __count, Color color, params float[] vertexData)
     {
-        GL.BindTexture(TextureTarget.Texture2d, __texture);
         GL.ActiveTexture(TextureUnit.Texture0);
+        GL.BindTexture(TextureTarget.Texture2d, __texture);
         
         GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferHandle);
         GL.BufferData(BufferTarget.ArrayBuffer, vertexData.Length * sizeof(float), vertexData, BufferUsage.DynamicDraw);

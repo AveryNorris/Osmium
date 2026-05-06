@@ -53,6 +53,7 @@ public static class Context
 
     //todo: ENFORCE/DOCUMENT that actiosn that require another reload should not be tied to reload without manually calling it!
     public static void Reload() {
+        Radium.Add<EditorOverhead>();
         Debug.Clear();
         //todo: make method
         UpdateTracker.SurpressReload = true;

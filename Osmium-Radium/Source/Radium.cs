@@ -27,8 +27,11 @@ public static class Radium
         //Box
         Color.White,
     ];
+    
+    public static Vector2 BoundsMin { get; private set; }
+    public static Vector2 BoundsMax { get; private set; }
 
-    public static void DefaultColor(Palette color, Color value) {
+    public static void SetColor(Palette color, Color value) {
         ColorPalette[(int) color] = value;
     }
     
@@ -46,12 +49,38 @@ public static class Radium
     public static void Remove<T>() where T : RadiumElement, new() {
         Backend.RetainedElements.Remove(Backend.RetainedElements.First(x => x.GetType() == typeof(T)));
     }
-
-    public static void SetClippingBounds(Vector2 __min, Vector2 __max) {
-        //Backend.ClippingRects.Add();
-    }
     
     public static void SetClippingBounds(Bounds __bounds) {
-        Backend.SetClipping(new Vector4(__bounds.min.X, __bounds.min.Y, __bounds.max.X, __bounds.max.Y));
+        BoundsMin = __bounds.min;
+        BoundsMax = __bounds.max;
+        
+        Vector4 value = new Vector4(__bounds.min.X, __bounds.min.Y, __bounds.max.X, __bounds.max.Y);
+        int index = Backend.IMGUIElements.Count - 1;
+        
+        if (!Backend.ClippingRects.TryAdd(index, value)) {
+            Backend.ClippingRects[index] = value;
+        }
+    }
+
+    public static void RevertSubclippingBounds() {
+        if (Subclips.Count > 0)
+        {
+            SetClippingBounds(Subclips[^1]);
+            Subclips.RemoveAt(Subclips.Count - 1);
+        }
+    }
+
+    private static List<Bounds> Subclips = [];
+
+    public static void Subclip(Bounds __bounds) {
+        Vector2 OverlapMin = new Vector2(MathF.Max(__bounds.min.X, BoundsMin.X), MathF.Max(__bounds.min.Y, BoundsMin.Y));
+        Vector2 OverlapMax = new Vector2(MathF.Min(__bounds.max.X, BoundsMax.X), MathF.Min(__bounds.max.Y, BoundsMax.Y));
+        
+        Subclips.Add(new Bounds(min: BoundsMin, max: BoundsMax));
+        SetClippingBounds(new Bounds(min: OverlapMin, max: OverlapMax));
+    }
+
+    public static bool InsideClippingBounds(Vector2 __point) {
+        return __point.X >= BoundsMin.X && __point.X <= BoundsMax.X && __point.Y >= BoundsMin.Y && __point.Y <= BoundsMax.Y;
     }
 }

@@ -2,7 +2,7 @@ using System.Numerics;
 using System.Reflection;
 using OsmiumNucleus;
 using OsmiumRadium;
-
+/*
 
 namespace OsmiumEditor;
 
@@ -133,3 +133,4 @@ public class ComponentHierarchy : RadiumElement
         }
     }
 }
+*/

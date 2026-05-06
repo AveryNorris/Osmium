@@ -25,10 +25,10 @@ public static class Editor
         if(!OperatingSystem.IsMacOS())
             Osmium.Context.Icon = new WindowIcon(new Image(image.Width, image.Height, image.Data));
             
-        Text.DefaultFont = new Font(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.proggyBitmapASCII.png"), 75, 19, [32,136]);
-        Text.DefaultColor = Palette.TextHigh;
-        Text.DefaultSpacingFactor = new Vector2(.285f, 1);
-        Text.DefaultTextSize = 1.6f;
+        TextBox.DefaultFont = new Font(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.proggyBitmapASCII.png"), 75, 19, [32,136]);
+        TextBox.DefaultColor = Palette.TextHigh;
+        //Text.DefaultSpacingFactor = new Vector2(.285f, 1);
+        //Text.DefaultTextSize = 1.6f;
             //todo: dont use manifest resource stream
         //viewport must be 36.56 high, if it is 65 wide todo:
         
@@ -36,6 +36,7 @@ public static class Editor
 
 
         Radium.Add<ProjectSelectMenu>();
+        Radium.Add<DebugOverlay>();
         
         //todo: make osmium mapping and delete scenes and components and collect garbage before then
 

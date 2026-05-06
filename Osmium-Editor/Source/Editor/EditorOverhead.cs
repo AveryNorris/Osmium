@@ -18,10 +18,10 @@ public class EditorOverhead : RadiumElement
         Osmium.Context.WindowBorder = WindowBorder.Resizable;
 
         Radium.Add<Inspector>();
-        Radium.Add<ComponentHierarchy>();
-        Radium.Add<PlayMenu>();
-        Radium.Add<DebugConsole>();
-        Radium.Add<SceneHierarchy>();
+        //Radium.Add<ComponentHierarchy>();
+        //Radium.Add<PlayMenu>();
+        //Radium.Add<DebugConsole>();
+        //Radium.Add<SceneHierarchy>();
     }
     
     protected override void Draw() {

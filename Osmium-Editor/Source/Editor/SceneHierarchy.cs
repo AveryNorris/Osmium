@@ -4,7 +4,7 @@ using OsmiumRadium;
 
 
 namespace OsmiumEditor;
-
+/*
 public class SceneHierarchy : RadiumElement
 {
 
@@ -82,3 +82,4 @@ public class SceneHierarchy : RadiumElement
         Radium.SetClippingBounds(Vector2.Zero, Vector2.One * 100);
     }
 }
+*/

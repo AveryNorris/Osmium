@@ -95,6 +95,6 @@ public class Button : Element, IBoundedElement<Button>, ITextElement<Button>, II
         //85
         
         new Box().Bounds(_bounds).Color(boxColor).Draw();
-        new Text().Bounds(_bounds).Text(_text).TextColor(_textColor).Font(_font).Spacing(_spacing).TextAnchor(_textAnchor).TextSize(_textSize).Draw();
+        new TextBox().Bounds(_bounds).Text(_text).TextColor(_textColor).Font(_font).Spacing(_spacing).TextAnchor(_textAnchor).TextSize(_textSize).Draw();
     }
 }

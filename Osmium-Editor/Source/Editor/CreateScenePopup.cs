@@ -5,7 +5,7 @@ using OsmiumRadium;
 
 
 namespace OsmiumEditor;
-
+/*
 
 public class CreateScenePopup : RadiumElement
 {
@@ -29,3 +29,4 @@ public class CreateScenePopup : RadiumElement
         }
     }
 }
+*/

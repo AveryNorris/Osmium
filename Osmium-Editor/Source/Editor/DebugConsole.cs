@@ -4,7 +4,7 @@ using System.Numerics;
 using System.Text;
 using OsmiumNucleus;
 using OsmiumRadium;
-
+/*
 
 namespace OsmiumEditor;
 
@@ -102,3 +102,4 @@ public class DebugConsole : RadiumElement
         //var HeaderText = new Text("Hierarchy", pos: new Vector2(((100 - Size) + .5f) - Offset, 4.5f), _spacing: new Vector2(.285f, 1), _size: 1.6f)
     }
 }
+*/

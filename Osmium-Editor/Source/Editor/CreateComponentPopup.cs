@@ -5,6 +5,7 @@ using OsmiumNucleus;
 using OsmiumRadium;
 
 
+/*
 namespace OsmiumEditor;
 
 
@@ -57,4 +58,4 @@ public class CreateComponentPopup : RadiumElement
             }
         }
     }
-}
+}*/

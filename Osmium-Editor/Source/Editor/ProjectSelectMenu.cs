@@ -18,9 +18,6 @@ namespace OsmiumEditor;
 public class ProjectSelectMenu : RadiumElement
 {
     private static Font jetbrains = new Font(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.jetbrainsMonoRegular.png"), 100, 19, [32,136]);
-
-    private static float frameratesum = 0;
-    private static int frameratecount = 0;
     
     //todo: add back _texture caching
     private static Texture osmiumLogo;
@@ -42,49 +39,8 @@ public class ProjectSelectMenu : RadiumElement
     }
 
     protected override void Draw() {
-        
-        //todo: delta time float?
-        
-        //STARTING FPS IS 160
-        
-        //todo: add debug overloads
-        
-        //todo: 12770
-        //todo: 14800
-        
-        //Debug.Log("Current : " + 1 / Osmium.DeltaTime);
-        //todo: optimize _text
-        
-        //Radium.SetClippingBounds(new Bounds(size: new Vector2(100,100)));
-        
-        //for(int i = 0; i < 100; i++)
-        //    Box()
-        //        .Size(i / 200f,i / 200f)
-        //        .Pos(i / 200f * i, i / 200f * i)
-        //        .Color((100 - i) * 255, 255 * i, 0);
-
-        //todo : text KILLS performance
-        //Text().Text("Hello!\n I am Text").Size(100,100).Size(20).Spacing(.3f,1f);
-        
-        //todo: make text have parameters and make interfaces more explicit? so maybe anchor is text anchor etc, same for text size!
-
-        OsmiumRadium.Button.DefaultNormalColor = Palette.Secondary;
-        OsmiumRadium.Button.DefaultActiveColor = Palette.SecondaryActive;
-        OsmiumRadium.Button.DefaultHoverColor = Palette.SecondaryHover;
-        
-        OsmiumRadium.Button.DefaultTextColor = Palette.White;
-        
-        frameratesum += Osmium.DeltaTime;
-        frameratecount++;
-        
-        Debug.Log("FPS : " + (int) (1f / (frameratesum / frameratecount)));
-
-
-
         ConfigureWindow();
-
         DefineHeader();
-
         ProjectList();
     }
 
@@ -233,7 +189,6 @@ public class ProjectSelectMenu : RadiumElement
             Up()) {
                 Radium.Remove<ProjectSelectMenu>();
                 Context.OpenProject(path);
-                Radium.Add<EditorOverhead>();
                 return;
             }
 

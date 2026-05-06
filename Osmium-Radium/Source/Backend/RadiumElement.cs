@@ -3,7 +3,7 @@ using System.Numerics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OsmiumNucleus;
 using OsmiumRadium;
-using OsmiumRadium.Source.Interfaces;
+//using OsmiumRadium.Source.Interfaces;
 
 
 namespace OsmiumRadium;
@@ -28,8 +28,8 @@ public abstract partial class RadiumElement
         return returnValue;
     }
     
-    public Text TextBox() {
-        Text returnValue = new Text();
+    public TextBox TextBox() {
+        TextBox returnValue = new TextBox();
         returnValue.Introduce();
         return returnValue;
     }
@@ -41,12 +41,7 @@ public abstract partial class RadiumElement
     }
     
     public static void SetClippingRect(Vector2 __min, Vector2 __max) {
-        Vector4 value = new Vector4(__min.X, __min.Y, __max.X, __max.Y);
-        int index = Backend.IMGUIElements.Count - 1;
-        
-        if (!Backend.ClippingRects.TryAdd(index, value)) {
-            Backend.ClippingRects[index] = value;
-        }
+        Radium.SetClippingBounds(new Bounds(min: __min, max: __max));
     }
     
     public static void ResetClippingRect() {

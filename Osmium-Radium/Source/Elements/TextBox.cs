@@ -8,7 +8,7 @@ namespace OsmiumRadium;
 
 
 /// <summary> Describes a box drawn for one frame </summary>
-public class Text : Element, IBoundedElement<Text>, ITextElement<Text>
+public class TextBox : Element, IBoundedElement<TextBox>, ITextElement<TextBox>
 {
     
     private static readonly Vector2[] Orientations = [
@@ -67,11 +67,11 @@ public class Text : Element, IBoundedElement<Text>, ITextElement<Text>
     
     public static Font DefaultFont = Backend.BaseFont;
 
-    internal Text() {
+    internal TextBox() {
         _bounds = new Bounds();
         _font = DefaultFont;
         _textColor = DefaultColor;
-        _spacing = Vector2.Zero;
+        _spacing = new Vector2(.4f, 1);
         _textSize = 1;
         _text = string.Empty;
     }
@@ -80,6 +80,8 @@ public class Text : Element, IBoundedElement<Text>, ITextElement<Text>
     protected internal override void Draw() {
         List<float> lengths = [_spacing.X];
         float yBound = _spacing.Y * _textSize;
+
+        _spacing = _spacing with { X = _spacing.X / Backend.WindowWidthHeightRatio };
         
         int lineBreaks = 0;
         for(int i = 0; i < _text.Length; i++) {
@@ -95,6 +97,9 @@ public class Text : Element, IBoundedElement<Text>, ITextElement<Text>
         
         lineBreaks = 0;
         
+        
+        //todo: text wrap
+        
         //todo: buffer _text a little bit? kind of on the edge
         
         Vector2 basePos = _bounds.pos 
@@ -103,10 +108,12 @@ public class Text : Element, IBoundedElement<Text>, ITextElement<Text>
         
         Vector2 currentPos = basePos;
 
+        int characters = 0;
         List<float> vertexData = new List<float>(_text.Length);
 
         //todo: SUBCLIPPING! text boxes reset clipping with this commented out line, make it so that it resets the clipping bounds to what portion is shared by the two bounds
         //Radium.SetClippingBounds(_bounds);
+        Backend.SetSubclip(new Vector4(_bounds.min.X, _bounds.min.Y, _bounds.max.X, _bounds.max.Y));
         
         for(int i = 0; i < _text.Length; i++) {
             
@@ -138,13 +145,18 @@ public class Text : Element, IBoundedElement<Text>, ITextElement<Text>
                 currentPos.X, currentPos.Y, uv.X, uv.Y);
             
             currentPos.X += _spacing.X * _textSize;
+            characters++;
         }
 
         if (vertexData.Count > Backend.MaxCharacters) {
             Debug.Error("Text's length exceeds the maximum allowed characters! It may be rendered incorrectly; you can increase the limit in the config.");
         }
         
-        Backend.DrawElements(_font.texture.Handle, vertexData.Count, _textColor, vertexData.ToArray());
+        //todo: this guy is suspicious!
+        Backend.DrawElements(_font.texture.Handle, characters, _textColor, vertexData.ToArray());
+        
+        Backend.RevertSubclippingBounds();
+
         
         //todo: draw glyphs in bulk like so! bad though annoying to make
         
