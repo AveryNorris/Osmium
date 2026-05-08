@@ -3,7 +3,7 @@ namespace OsmiumRadium;
 
 
 /// <summary> Describes an immediate mode GUI box that is drawn for one frame. </summary>
-public class Box : Element, IBoundedElement<Box>, ITexturedElement<Box>, IColoredElement<Box>
+public class Box : IElement, IBoundedElement<Box>, ITexturedElement<Box>, IColoredElement<Box>, IBoundedElement
 {
     
     
@@ -27,7 +27,7 @@ public class Box : Element, IBoundedElement<Box>, ITexturedElement<Box>, IColore
     
     
     
-    protected internal override void Draw() {
+    public void Draw() {
         Backend.DrawElement(_texture, _color,
             _bounds.max.X, _bounds.max.Y, 1, 1,
             _bounds.min.X, _bounds.max.Y, 0, 1,

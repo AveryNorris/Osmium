@@ -4,6 +4,36 @@ namespace OsmiumRadium;
 
 public class Color
 {
+    
+    public static List<Color> ColorPalette = [
+        
+        Color.FromRgb(0,255,255), //unkown
+        
+        Color.FromRgb(48, 122, 255), //primary
+        Color.FromRgb(35, 68, 108), //secondary
+        Color.FromRgb(66, 150, 250), //secondary hover
+        Color.FromRgb(15, 135, 250), //secondary active
+        
+        Color.FromRgb(24, 24, 24), //background highest
+        Color.FromRgb(20, 20, 20), //background high
+        Color.FromRgb(16, 16, 16), //background medium
+        Color.FromRgb(14, 14, 14), //background low
+        
+        Color.FromRgb(255, 255, 255), //_text high
+        Color.FromRgb(50, 50, 50), //_text low
+        
+        Color.White,
+        Color.Clear,
+        
+        //Box
+        Color.White,
+    ];
+    
+    
+    public static void SetColor(Palette color, Color value) {
+        ColorPalette[(int) color] = value;
+    }
+
 
     public byte r;
     public byte g;
@@ -32,7 +62,7 @@ public class Color
     }
 
     public static implicit operator Color(Palette __palette) {
-        return Radium.ColorPalette[(int) __palette];
+        return ColorPalette[(int) __palette];
     }
 
     public static Color White => new Color(255, 255, 255, 255);

@@ -108,7 +108,8 @@ public static partial class Backend
     
     
     public static bool MouseInBounds(Vector2 __min, Vector2 __max) =>
-            MousePos.X >= __min.X && MousePos.Y >= __min.Y && MousePos.X <= __max.X && MousePos.Y <= __max.Y;
+            MousePos.X >= __min.X && MousePos.Y >= __min.Y && MousePos.X <= __max.X && MousePos.Y <= __max.Y
+            && MousePos.X >= Backend.Clipping.X && MousePos.Y >= Backend.Clipping.Y && MousePos.Y <= Backend.Clipping.Z && MousePos.Y <= Backend.Clipping.W;
 
     public static Vector2 MousePos { get; internal set; }
     

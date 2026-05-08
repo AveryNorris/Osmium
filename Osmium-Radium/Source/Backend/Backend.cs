@@ -29,8 +29,6 @@ public static partial class Backend
     public static bool ShouldDraw = true;
     
     public static float WindowWidthHeightRatio { get; internal set; }
-
-    public static Dictionary<int, Vector4> ClippingRects = [];
     
     internal static readonly int[] Indices = [
         3, 2, 1,
@@ -40,6 +38,10 @@ public static partial class Backend
     internal static int DefaultTexture;
 
     public static HashSet<RadiumElement> RetainedElements = [];
+
+    public static bool DrawingImmediate = false;
+
+    public static StableRegion BaseRegion = new StableRegion();
     
     
     //todo: character limit parameter from config or something
@@ -48,9 +50,9 @@ public static partial class Backend
     
     //todo: THIS IS SO SLOW LOLLLLLLLLL
     
-    [MarkerAttributes.UnsafeInternal] internal static List<Element> IMGUIElements = [];
-
     public static int largeIndexBuffer;
+
+    public static int elementDrawProgress = 0;
     
 
     static Backend()
@@ -210,50 +212,52 @@ public static partial class Backend
 
     public static int elementCount = 0;
 
-    public static void Draw(FrameEventArgs e)
-    {
-        GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+    public static void Draw(FrameEventArgs e) {
+        Clipping = new Vector4(0, 0, 100, 100);
         
+        GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
+        elementDrawProgress = 0;
+        
         if (ShouldDraw)
         {
-            foreach (RadiumElement element in RetainedElements.ToList())
-            {
+            foreach (RadiumElement element in RetainedElements.ToList()) {
+                if (element.Regions.Count > 0) {
+                    Debug.Error("Regions and exits are unbalanced! You have unexited regions");
+                    element.Regions = [];
+                }
+
                 element.Draw();
             }
         }
 
+        DrawingImmediate = true;
+
         //resets clipping to normal; add default clipping value? todo:
         elementCount = 0;
-        SetClipping(new Vector4(0,0,100,100));
+        UploadClippingUniform(new Vector4(0,0,100,100));
+
+        BaseRegion.Draw();
         
-        //todo: collection was modified error?
-        for(int i = 0; i < IMGUIElements.Count; i++)
-        {
-            if (ClippingRects.TryGetValue(i, out Vector4 value)) {
-                SetClipping(value);
-            }
-            
-            IMGUIElements[i].Draw();
-        }
-        
-        IMGUIElements.Clear();
-        ClippingRects.Clear();
+        BaseRegion.Clear();
         
         //placement doesnt make sense todo: also make sure that this becomes a method called clear state or something cool and sick and cool and sick ok bye thanks for talking make _text boxes force ascii or something so that the _font doesnt have a panic attack
         //todo: make _text boxes work in whatever encoding strings support so that object names in scenes/components always match C#
         TextInput = "";
         
         Osmium.Context.SwapBuffers();
+
+        DrawingImmediate = false;
     }
 
     public static Vector4 Clipping;
+        
 
     
     
     /// <summary> Immediately  </summary>
     /// <param name="__clippingRect"></param>
-    public static void SetClipping(Vector4 __clippingRect) {
+    public static void UploadClippingUniform(Vector4 __clippingRect) {
         Clipping = __clippingRect;
         GL.UseProgram(ProgramHandle);
         int clippingRectUniform = GL.GetUniformLocation(ProgramHandle, "clippingRect");
@@ -261,14 +265,14 @@ public static partial class Backend
         GL.UseProgram(0);
     }
 
-    public static void SetSubclip(Vector4 __subclip) {
+    public static void UploadSubclippingUniform(Vector4 __subclip) {
         Vector4 clippingRect = new Vector4(
             MathF.Max(Clipping.X, __subclip.X), MathF.Max(Clipping.Y, __subclip.Y),
             MathF.Min(Clipping.Z,  __subclip.Z), MathF.Min(Clipping.W, __subclip.W)
             );
         
         Subclips.Add(Clipping);
-        SetClipping(clippingRect);
+        UploadClippingUniform(clippingRect);
     }
     
     private static List<Vector4> Subclips = [];
@@ -276,7 +280,7 @@ public static partial class Backend
     public static void RevertSubclippingBounds() {
         if (Subclips.Count > 0)
         {
-            SetClipping(Subclips[^1]);
+            UploadClippingUniform(Subclips[^1]);
             Subclips.RemoveAt(Subclips.Count - 1);
         }
         else

@@ -62,9 +62,8 @@ public class ProjectSelectMenu : RadiumElement
 
     //todo: _bounds setter interface makes it easier to set stuff individually
     public void DefineHeader() {
-        
         Box().Texture(osmiumLogo).Color(Color.White).Pos(2,2).Size(13);
-
+        
         TextBox().Text("Osmium").Font(jetbrains).Pos(14.5f, 2f).Size(100).TextSize(13).Spacing(.5f, 1).TextColor(Palette.Primary);
         
         if(Button().
@@ -150,13 +149,11 @@ public class ProjectSelectMenu : RadiumElement
         ProjectMemory.RefreshProjectList();
     }
 
-    public float scroll = 0;
     
     public void ProjectList() {
-
-        float listSize = 0;
         
-        SetClippingRect(new Vector2(2.5f, 22), new Vector2(100, 100));
+        //todo : region inheritance pattern
+        Region("ProjectList").Min(2.5f, 22).Max(100).Scrolling(true);
         
         int futureOffset = 0;
         for(int i = 0; i < ProjectMemory.Projects.Count; i++) {
@@ -164,7 +161,7 @@ public class ProjectSelectMenu : RadiumElement
             string path = ProjectMemory.Projects[i];
             string projectName = Path.GetFileNameWithoutExtension(path);
 
-            Vector2 pos = new Vector2(5, 26 + futureOffset * 2.1f + i * 11 + scroll);
+            Vector2 pos = new Vector2(5, 26 + futureOffset * 2.1f + i * 11);
             
             StringBuilder indentedPath = new StringBuilder();
             for (int c = 0; c < path.Length; c++) {
@@ -178,7 +175,7 @@ public class ProjectSelectMenu : RadiumElement
                 indentedPath.Append(path[c]);
             }
             
-            Vector2 size = new Vector2(5, 26 + futureOffset * 2.1f + (i + 1) * 11 + scroll) - pos;
+            Vector2 size = new Vector2(5, 26 + futureOffset * 2.1f + (i + 1) * 11) - pos;
 
             if (Button().
                 Pos(2.5f, pos.Y - 1.5f).
@@ -187,7 +184,7 @@ public class ProjectSelectMenu : RadiumElement
                 HoverColor(Palette.Primary).
                 ActiveColor(Palette.SecondaryActive).
             Up()) {
-                Radium.Remove<ProjectSelectMenu>();
+                Remove<ProjectSelectMenu>();
                 Context.OpenProject(path);
                 return;
             }
@@ -203,20 +200,9 @@ public class ProjectSelectMenu : RadiumElement
             if(Button().Center(pos.X + 88.5f, pos.Y).Size(5).TextSize(3).Text('x').TextColor(Palette.TextLow).AllColors(Palette.Transparent).Up())
                 ProjectMemory.ForgetProject(path);
 
-            listSize += size.Y;
-
         }
         
-        scroll += Backend.ScrollDeltaY;
-        
-        //88 is the screen _size for the project list, only allow scrolling past it
-        float listOverflowSize = listSize - 72.5f;
-        
-        if(listOverflowSize < 0) listOverflowSize = 0;
-        
-        
-        scroll = Math.Clamp(scroll, -listOverflowSize, 0);
+        Exit();
 
-        ResetClippingRect();
     }
 }

@@ -10,7 +10,7 @@ namespace OsmiumRadium;
 
 
 /// <summary> Describes a box drawn for one frame </summary>
-public class Button : Element, IBoundedElement<Button>, ITextElement<Button>, IInteractableColoredElement<Button>
+public class Button : IElement, IBoundedElement, IBoundedElement<Button>, ITextElement<Button>, IInteractableColoredElement<Button>
 {
     
     
@@ -71,19 +71,19 @@ public class Button : Element, IBoundedElement<Button>, ITextElement<Button>, II
         _text = string.Empty;
     }
 
-    public bool Down() => _bounds.MouseDown(_mouseButton);
+    public bool Down() => this.MouseDown(_mouseButton);
 
-    public bool Up() => _bounds.MouseUp(_mouseButton);
+    public bool Up() => this.MouseUp(_mouseButton);
 
-    public bool Held() => _bounds.MouseHeld(_mouseButton);
+    public bool Held() => this.MouseHeld(_mouseButton);
     
-    public bool Hover() => _bounds.MouseInBounds();
+    public bool Hover() => this.MouseInBounds();
     
     public bool Active() => Down() || Up() || Held();
     
     
     
-    protected internal override void Draw() {
+    public void Draw() {
         
         Color boxColor = _normalColor;
         

@@ -8,7 +8,7 @@ namespace OsmiumRadium;
 
 
 /// <summary> Describes a box drawn for one frame </summary>
-public class TextBox : Element, IBoundedElement<TextBox>, ITextElement<TextBox>
+public class TextBox : IElement, IBoundedElement, IBoundedElement<TextBox>, ITextElement<TextBox>
 {
     
     private static readonly Vector2[] Orientations = [
@@ -77,7 +77,7 @@ public class TextBox : Element, IBoundedElement<TextBox>, ITextElement<TextBox>
     }
     
     //todo: make text spacing a ratio of text size and screen proportions relative to the ideal ratio. and optimize it
-    protected internal override void Draw() {
+    public void Draw() {
         List<float> lengths = [_spacing.X];
         float yBound = _spacing.Y * _textSize;
 
@@ -113,7 +113,7 @@ public class TextBox : Element, IBoundedElement<TextBox>, ITextElement<TextBox>
 
         //todo: SUBCLIPPING! text boxes reset clipping with this commented out line, make it so that it resets the clipping bounds to what portion is shared by the two bounds
         //Radium.SetClippingBounds(_bounds);
-        Backend.SetSubclip(new Vector4(_bounds.min.X, _bounds.min.Y, _bounds.max.X, _bounds.max.Y));
+        Backend.UploadSubclippingUniform(new Vector4(_bounds.min.X, _bounds.min.Y, _bounds.max.X, _bounds.max.Y));
         
         for(int i = 0; i < _text.Length; i++) {
             

@@ -108,20 +108,11 @@ public struct Bounds
             Debug.Error("Min and Max were incorrect!");
         }
     }
-    
-    
-    public bool MouseDown(MouseButton button) => 
-            MouseInBounds() && Osmium.Context.MouseState.IsButtonPressed(button);
-    
-    public bool MouseUp(MouseButton button) => 
-            MouseInBounds() && Osmium.Context.MouseState.IsButtonReleased(button);
 
-    public bool MouseHeld(MouseButton button) => 
-            MouseInBounds() && Osmium.Context.MouseState.IsButtonDown(button);
 
-    public bool MouseInBounds() => 
-            Backend.MousePos.X >= min.X && Backend.MousePos.Y >= min.Y && Backend.MousePos.X <= max.X && Backend.MousePos.Y <= max.Y;
-    
-    
-    
+
+
+
+
+
 }
