@@ -239,10 +239,8 @@ public static class IBoundsExtensions
             MouseInBounds(element) && Osmium.Context.MouseState.IsButtonDown(button);
 
     public static bool MouseInBounds(this IBoundedElement element) =>
-            Backend.MousePos.X >= element._bounds.min.X && Backend.MousePos.Y >= element._bounds.min.Y &&
-            Backend.MousePos.X <= element._bounds.max.X && Backend.MousePos.Y <= element._bounds.max.Y
-            && Backend.MousePos.X >= Backend.Clipping.X && Backend.MousePos.Y >= Backend.Clipping.Y &&
-            Backend.MousePos.X <= Backend.Clipping.Z && Backend.MousePos.Y <= Backend.Clipping.W &&
-            Backend.MousePos.X >= RadiumElement.BoundsMin.X && Backend.MousePos.Y >= RadiumElement.BoundsMin.Y &&
-            Backend.MousePos.X <= RadiumElement.BoundsMax.X && Backend.MousePos.Y <= RadiumElement.BoundsMax.Y;
+        Backend.MousePos.X >= element._bounds.min.X && Backend.MousePos.Y >= element._bounds.min.Y &&
+        Backend.MousePos.X <= element._bounds.max.X && Backend.MousePos.Y <= element._bounds.max.Y
+        && Backend.MousePos.X >= Backend.Clipping.X && Backend.MousePos.Y >= Backend.Clipping.Y &&
+        Backend.MousePos.X <= Backend.Clipping.Z && Backend.MousePos.Y <= Backend.Clipping.W;
 }
