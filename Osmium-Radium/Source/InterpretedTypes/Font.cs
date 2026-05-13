@@ -29,7 +29,7 @@ public class Font
         
         CharRanges = __charRanges;
         
-        texture = new Texture(__fontFile);
+        texture = Texture.LoadFromStream(__fontFile);
 
         //todo: check that char ranges 0 and ^1 are min and max respectively
         int count = 0;

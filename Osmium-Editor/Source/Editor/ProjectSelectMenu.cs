@@ -26,7 +26,7 @@ public class ProjectSelectMenu : RadiumElement
 
     static ProjectSelectMenu() {
         using (Stream stream = Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.Osmium.png")) {
-            osmiumLogo = new Texture(stream);
+            osmiumLogo = Texture.LoadFromStream(stream);
         }
 
         for (int i = 0; i < 100_000; i++) {

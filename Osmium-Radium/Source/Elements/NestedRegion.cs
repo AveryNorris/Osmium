@@ -11,7 +11,7 @@ public interface IRegion : IList<IElement>;
 public class StableRegion : List<IElement>, IRegion
 {
     public void Draw() {
-        Backend.UploadClippingUniform(new Vector4(0,0,100,100));
+        Radium.UploadClippingUniform(new Vector4(0,0,100,100));
         
         for (int i = 0; i < Count; i++) {
             this[i].Draw();
@@ -31,10 +31,10 @@ public class NestedRegion : List<IElement>, IElement, IBoundedElement, IBoundedE
     public void Clip(Bounds __bounds) => Clip(__bounds.min, __bounds.max);
     
     public void Clip(Vector2 __min, Vector2 __max) {
-        if(Backend.DrawingImmediate) { Debug.Error("You cannot set clipping while immediate elements are being drawn. Use Backend.UploadClippingUniform for temporary values!"); return; }
+        if(Radium.DrawingImmediate) { Debug.Error("You cannot set clipping while immediate elements are being drawn. Use Backend.UploadClippingUniform for temporary values!"); return; }
         
         Vector4 value = new Vector4(__min.X, __min.Y, __max.X, __max.Y);
-        int index = Backend.elementCount;
+        int index = Radium.elementCount;
 
         if (!ClippingRects.TryAdd(index, value)) {
             ClippingRects[index] = value;
@@ -81,10 +81,10 @@ public class NestedRegion : List<IElement>, IElement, IBoundedElement, IBoundedE
     }
 
     public void Draw() {
-        Backend.UploadSubclippingUniform(new Vector4(_bounds.min.X, _bounds.min.Y, _bounds.max.X, _bounds.max.Y));
+        Radium.UploadSubclippingUniform(new Vector4(_bounds.min.X, _bounds.min.Y, _bounds.max.X, _bounds.max.Y));
 
         if (scrolling) {
-            scroll -= Backend.ScrollDeltaY * 3;
+            scroll -= Radium.VerticalScroll * 3;
             if (scroll < 0) {
                 scroll = 0;
             }else if (scroll >= scrollCap) {
@@ -110,12 +110,12 @@ public class NestedRegion : List<IElement>, IElement, IBoundedElement, IBoundedE
             }
 
             if (ClippingRects.TryGetValue(i, out Vector4 value)) {
-                Backend.UploadClippingUniform(value);
+                Radium.UploadClippingUniform(value);
             }
             
             element.Draw();
         }
         
-        Backend.RevertSubclippingBounds();
+        Radium.RevertSubclippingBounds();
     }
 }

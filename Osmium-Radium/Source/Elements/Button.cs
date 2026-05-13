@@ -55,7 +55,7 @@ public class Button : IElement, IBoundedElement, IBoundedElement<Button>, ITextE
 
     internal Button() {
         _bounds = new Bounds();
-        _font = Backend.BaseFont;
+        _font = Radium.DefaultFont;
         
         _normalColor = Palette.Secondary;
         _hoverColor = Palette.SecondaryHover;

@@ -65,7 +65,7 @@ public class TextBox : IElement, IBoundedElement, IBoundedElement<TextBox>, ITex
     /// <summary> Default _color of the _text unless explicitly stated otherwise </summary>
     public static Color DefaultColor = Color.Error;
     
-    public static Font DefaultFont = Backend.BaseFont;
+    public static Font DefaultFont = Radium.DefaultFont;
 
     internal TextBox() {
         _bounds = new Bounds();
@@ -81,7 +81,7 @@ public class TextBox : IElement, IBoundedElement, IBoundedElement<TextBox>, ITex
         List<float> lengths = [_spacing.X];
         float yBound = _spacing.Y * _textSize;
 
-        _spacing = _spacing with { X = _spacing.X / Backend.WindowWidthHeightRatio };
+        _spacing = _spacing with { X = _spacing.X / Radium.WindowWidthHeightRatio };
         
         int lineBreaks = 0;
         for(int i = 0; i < _text.Length; i++) {
@@ -113,7 +113,7 @@ public class TextBox : IElement, IBoundedElement, IBoundedElement<TextBox>, ITex
 
         //todo: SUBCLIPPING! text boxes reset clipping with this commented out line, make it so that it resets the clipping bounds to what portion is shared by the two bounds
         //Radium.SetClippingBounds(_bounds);
-        Backend.UploadSubclippingUniform(new Vector4(_bounds.min.X, _bounds.min.Y, _bounds.max.X, _bounds.max.Y));
+        Radium.UploadSubclippingUniform(new Vector4(_bounds.min.X, _bounds.min.Y, _bounds.max.X, _bounds.max.Y));
         
         for(int i = 0; i < _text.Length; i++) {
             
@@ -133,7 +133,7 @@ public class TextBox : IElement, IBoundedElement, IBoundedElement<TextBox>, ITex
             //todo: osmium.allchildren is a function not a property. same for scene
 
             Vector2 max = new Vector2(
-                currentPos.X + _textSize / Backend.WindowWidthHeightRatio,
+                currentPos.X + _textSize / Radium.WindowWidthHeightRatio,
                 currentPos.Y + _textSize
             );
             
@@ -148,14 +148,14 @@ public class TextBox : IElement, IBoundedElement, IBoundedElement<TextBox>, ITex
             characters++;
         }
 
-        if (vertexData.Count > Backend.MaxCharacters) {
+        if (vertexData.Count > Radium.MaxElementsPerDraw) {
             Debug.Error("Text's length exceeds the maximum allowed characters! It may be rendered incorrectly; you can increase the limit in the config.");
         }
         
         //todo: this guy is suspicious!
-        Backend.DrawElements(_font.texture.Handle, characters, _textColor, vertexData.ToArray());
+        Radium.DrawElements(_font.texture, characters, _textColor, vertexData.ToArray());
         
-        Backend.RevertSubclippingBounds();
+        Radium.RevertSubclippingBounds();
 
         
         //todo: draw glyphs in bulk like so! bad though annoying to make

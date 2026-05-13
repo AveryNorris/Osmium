@@ -37,9 +37,9 @@ public class DebugOverlay : RadiumElement
             TextBox().Text(" < " + FrameRates.Max()).Pos(26,10).TextSize(5).Spacing(.45f, 1).Size(100).TextColor(Color.FromRgb(0,255,255));
 
             
-            TextBox().Text("Elements : " + Backend.RetainedElements.Count).TextSize(5).Pos(62,0).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255));
+            TextBox().Text("Elements : " + OsmiumRadium.Radium.RetainedElements.Count).TextSize(5).Pos(62,0).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255));
             
-            TextBox().Text("Screen Size : (" + Backend.WindowWidth + ',' + Backend.WindowHeight + ") : " + Backend.WindowWidthHeightRatio).TextSize(5).Pos(0,95).Size(100).Spacing(.45f, 1).TextAnchor(TextAnchor.TopLeft).TextColor(Color.FromRgb(0,255,0));
+            TextBox().Text("Screen Size : (" + OsmiumRadium.Radium.WindowWidth + ',' + OsmiumRadium.Radium.WindowHeight + ") : " + OsmiumRadium.Radium.WindowWidthHeightRatio).TextSize(5).Pos(0,95).Size(100).Spacing(.45f, 1).TextAnchor(TextAnchor.TopLeft).TextColor(Color.FromRgb(0,255,0));
         }
         else
         {

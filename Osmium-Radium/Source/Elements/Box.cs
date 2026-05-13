@@ -21,14 +21,14 @@ public class Box : IElement, IBoundedElement<Box>, ITexturedElement<Box>, IColor
 
     internal Box() {
         _bounds = new Bounds();
-        _texture = Backend.BaseTexture;
+        _texture = Radium.DefaultTexture;
         _color = Palette.Secondary;
     }
     
     
     
     public void Draw() {
-        Backend.DrawElement(_texture, _color,
+        Radium.DrawElement(_texture, _color,
             _bounds.max.X, _bounds.max.Y, 1, 1,
             _bounds.min.X, _bounds.max.Y, 0, 1,
             _bounds.max.X, _bounds.min.Y, 1, 0,

@@ -8,7 +8,7 @@ using OsmiumRadium;
 
 namespace OsmiumRadium;
 
-public abstract partial class RadiumElement
+public abstract class RadiumElement
 {
 
     protected internal virtual void Update() {}
@@ -61,10 +61,10 @@ public abstract partial class RadiumElement
         if (Regions.Count > 0) {
             Regions[^1].Add(iElement);
         } else {
-            Backend.BaseRegion.Add(iElement);
+            Radium.BaseRegion.Add(iElement);
         }
 
-        Backend.elementCount++;
+        Radium.elementCount++;
     }
     
     public static Vector2 BoundsMin { get; private set; }

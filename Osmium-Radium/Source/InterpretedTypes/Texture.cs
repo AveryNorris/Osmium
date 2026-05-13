@@ -1,4 +1,3 @@
-using System.Numerics;
 using OpenTK.Graphics.OpenGL;
 using OsmiumNucleus;
 using StbImageSharp;
@@ -7,39 +6,30 @@ using StbImageSharp;
 namespace OsmiumRadium;
 
 
-/// <summary> Represents an OpenGL _texture which can be drawn; textures loaded from the same path twice will be recognized, and will not create duplicates; in other words
-/// it is ok to make a new _texture of a file every frame; it will not reload the file</summary>
-/// <remarks> You can call Dispose() to free up the GL resources, but this will cause the image to have to be reloaded the next time you use it so call this carefully. </remarks>
+/// <summary> Represents a texture loaded inside OpenGL. </summary>
+[GLHandle]
 public class Texture : IDisposable
 {
     
     
     
     /// <summary> OpenGL handle of the _texture</summary>
-    public int Handle;
+    public readonly int Handle;
     
     
     /// <summary> Width of the image</summary>
-    public int Width;
+    public readonly int Width;
     /// <summary> Height of the image</summary>
-    public int Height;
+    public readonly int Height;
 
 
     /// <summary> Original path of the image! </summary>
     public readonly string Path;
     
     
-    //easy _texture syntax
-    public static implicit operator int(Texture __texture) => __texture.Handle;
-    
-    /// <summary> Contains stored memory of textures so that they don't need to be reloaded if they are inside openGL</summary>
-    private static Dictionary<string, (int Handle, int Width, int Height)> TextureMemory = [];
-
-    
-    
     /// <summary> Creates a _texture from the contents of a given file </summary>
     /// <param name="__path"> Path of the file </param>
-    public Texture(string __path)
+    private Texture(string __path)
     {
 
         if (__path == null) {
@@ -48,13 +38,6 @@ public class Texture : IDisposable
         }
         
         Path = __path;
-        
-        if (TextureMemory.TryGetValue(__path, out (int Handle, int Width, int Height) TextureInformation)) {
-            Handle = TextureInformation.Handle;
-            Width = TextureInformation.Width;
-            Height = TextureInformation.Height;
-            return;
-        }
         
         ImageResult image;
         
@@ -77,17 +60,11 @@ public class Texture : IDisposable
         
         GL.Enable(EnableCap.Blend);
         GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
-        
-        
-        TextureMemory.Add(__path, (Handle, Width, Height));
     }
 
-    public Texture(Stream __bitmapStream) {
-        //todo: bye bye _texture memory
-        
+    private Texture(Stream __bitmapStream) {
         ImageResult image;
         
-        //opens the _font, todo: dont hardcode
         using (Stream fileStream = __bitmapStream)
         {
             image = ImageResult.FromStream(fileStream, ColorComponents.RedGreenBlueAlpha);
@@ -108,11 +85,17 @@ public class Texture : IDisposable
         GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
     }
 
-    /// <summary> Frees up GL resources </summary>
+    public static Texture LoadFromFile(string __path) {
+        return new Texture(__path);
+    }
+
+    public static Texture LoadFromStream(Stream __bitmapStream) {
+        return new Texture(__bitmapStream);
+    }
+
     public void Dispose() {
         GL.BindTexture(TextureTarget.Texture2d, Handle);
         
-        TextureMemory.Remove(Path);
         GL.DeleteTexture(Handle);
         
         GL.BindTexture(TextureTarget.Texture2d, 0);

@@ -2,8 +2,9 @@ using System.Numerics;
 using OsmiumNucleus;
 using OsmiumRadium;
 
+namespace OsmiumRadium;
 
-public static class Radium
+public static partial class Radium
 {
     
 
@@ -11,14 +12,14 @@ public static class Radium
 
     public static RadiumElement Add<T>() where T : RadiumElement, new() {
         T newElement = new T();
-        Backend.RetainedElements.Add(newElement);
+        _retainedElements.Add(newElement);
         
         return newElement;
     }
 
-    public static void RemoveElement(RadiumElement __element) => Backend.RetainedElements.Remove(__element);
+    public static void RemoveElement(RadiumElement __element) => _retainedElements.Remove(__element);
     
     public static void Remove<T>() where T : RadiumElement, new() {
-        Backend.RetainedElements.Remove(Backend.RetainedElements.First(x => x.GetType() == typeof(T)));
+        _retainedElements.Remove(_retainedElements.First(x => x.GetType() == typeof(T)));
     }
 }
