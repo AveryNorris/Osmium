@@ -1,4 +1,4 @@
-using System.Numerics;
+
 using System.Reflection;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Common.Input;
@@ -35,8 +35,8 @@ public static class Editor
         Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.Personal));
 
 
-        Radium.Add<ProjectSelectMenu>();
-        Radium.Add<DebugOverlay>();
+        Backend.Add<ProjectSelectMenu>();
+        Backend.Add<DebugOverlay>();
         
         //todo: make osmium mapping and delete scenes and components and collect garbage before then
 

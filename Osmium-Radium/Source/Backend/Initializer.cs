@@ -4,7 +4,7 @@ using OsmiumNucleus;
 
 namespace OsmiumRadium;
 
-public static partial class Radium
+public static partial class Backend
 {
     
     
@@ -34,8 +34,8 @@ public static partial class Radium
     
     
     
-    private static readonly HashSet<RadiumElement> _retainedElements = [];
-    public static IReadOnlyCollection<RadiumElement> RetainedElements => _retainedElements;
+    private static readonly HashSet<RetainedElement> _retainedElements = [];
+    public static IReadOnlyCollection<RetainedElement> RetainedElements => _retainedElements;
     
     
     
@@ -46,7 +46,7 @@ public static partial class Radium
     
     
     
-    static Radium()
+    static Backend()
     {
         #region Shader
         _programHandle = GL.CreateProgram();
@@ -54,12 +54,12 @@ public static partial class Radium
         int VertexShader = GL.CreateShader(ShaderType.VertexShader);
         int FragmentShader = GL.CreateShader(ShaderType.FragmentShader);
         
-        using (StreamReader vertexReader = new(typeof(Radium).Assembly.GetManifestResourceStream("OsmiumRadium.Source.Backend.Vertex.glsl")!))
+        using (StreamReader vertexReader = new(typeof(Backend).Assembly.GetManifestResourceStream("OsmiumRadium.Source.Backend.Vertex.glsl")!))
             GL.ShaderSource(VertexShader, vertexReader.ReadToEnd());
         
         GL.CompileShader(VertexShader);
 
-        using (StreamReader fragmentReader = new(typeof(Radium).Assembly.GetManifestResourceStream("OsmiumRadium.Source.Backend.Fragment.glsl")!)) 
+        using (StreamReader fragmentReader = new(typeof(Backend).Assembly.GetManifestResourceStream("OsmiumRadium.Source.Backend.Fragment.glsl")!)) 
             GL.ShaderSource(FragmentShader, fragmentReader.ReadToEnd());
 
         GL.CompileShader(FragmentShader);
@@ -106,11 +106,11 @@ public static partial class Radium
         
         GL.UseProgram(0);
         
-        using (Stream stream = Assembly.GetAssembly(typeof(Radium))!.GetManifestResourceStream("OsmiumRadium.DefaultTexture.png")!) {
+        using (Stream stream = Assembly.GetAssembly(typeof(Backend))!.GetManifestResourceStream("OsmiumRadium.DefaultTexture.png")!) {
             DefaultTexture = Texture.LoadFromStream(stream);
         }
         
-        using (Stream stream = Assembly.GetAssembly(typeof(Radium))!.GetManifestResourceStream("OsmiumRadium.proggyBitmapASCII.png")!) {
+        using (Stream stream = Assembly.GetAssembly(typeof(Backend))!.GetManifestResourceStream("OsmiumRadium.proggyBitmapASCII.png")!) {
             DefaultFont = new Font(stream, 75, 19, [32,136]);
         }
         
@@ -157,8 +157,6 @@ public static partial class Radium
         Osmium.Context.Resize += Resize;
         Osmium.Context.UpdateFrame += Update;
         Osmium.Context.RenderFrame += Draw;
-
-        Osmium.Context.TextInput += OnTextInput;
         
         #endregion
     }

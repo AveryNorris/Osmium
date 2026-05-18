@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Numerics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OsmiumNucleus;
 using Debug = System.Diagnostics.Debug;
@@ -9,9 +8,10 @@ namespace OsmiumRadium;
 
 
 
-/// <summary> Describes a box drawn for one frame </summary>
-public class Button : IElement, IBoundedElement, IBoundedElement<Button>, ITextElement<Button>, IInteractableColoredElement<Button>
+/// <summary> Describes a button drawn for one frame, that comprises a Box and a Textbox inside </summary>
+public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>, ITextElement<Button>, IInteractableColoredElement<Button>, ITextElement, IInteractableColoredElement
 {
+    
     
     
     public Color _normalColor { get; set; }
@@ -22,9 +22,8 @@ public class Button : IElement, IBoundedElement, IBoundedElement<Button>, ITextE
     
     
     
-    /// <inheritdoc cref="IBoundedElement{TSelf}._bounds"/>
+    /// <inheritdoc cref="IBoundedElement._bounds"/>
     public Bounds _bounds { get; set; }
-    
     
     /// <inheritdoc cref="ITextElement{TSelf}._text"/>
     public string _text { get; set; }
@@ -44,6 +43,7 @@ public class Button : IElement, IBoundedElement, IBoundedElement<Button>, ITextE
     /// <summary> The mouse button the button should listen for</summary>
     public MouseButton _mouseButton { get; set; }
     
+    /// <inheritdoc cref="ITextElement{TSelf}._textColor"/>
     public Color _textColor { get; set; }
     
     
@@ -55,7 +55,7 @@ public class Button : IElement, IBoundedElement, IBoundedElement<Button>, ITextE
 
     internal Button() {
         _bounds = new Bounds();
-        _font = Radium.DefaultFont;
+        _font = Backend.DefaultFont;
         
         _normalColor = Palette.Secondary;
         _hoverColor = Palette.SecondaryHover;
@@ -80,10 +80,9 @@ public class Button : IElement, IBoundedElement, IBoundedElement<Button>, ITextE
     public bool Hover() => this.MouseInBounds();
     
     public bool Active() => Down() || Up() || Held();
-    
-    
-    
-    public void Draw() {
+
+
+    protected internal override void Draw() {
         
         Color boxColor = _normalColor;
         

@@ -1,5 +1,5 @@
 using System.Collections.Immutable;
-using System.Numerics;
+
 using OpenTK.Graphics.OpenGL;
 using OsmiumNucleus;
 using StbImageSharp;

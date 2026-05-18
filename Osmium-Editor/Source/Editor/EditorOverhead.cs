@@ -7,7 +7,7 @@ using Vector2 = System.Numerics.Vector2;
 
 namespace OsmiumEditor;
 
-public class EditorOverhead : RadiumElement
+public class EditorOverhead : RetainedElement
 {
 
     public EditorOverhead() {
@@ -17,7 +17,7 @@ public class EditorOverhead : RadiumElement
         
         Osmium.Context.WindowBorder = WindowBorder.Resizable;
 
-        Radium.Add<Inspector>();
+        Backend.Add<Inspector>();
         //Radium.Add<ComponentHierarchy>();
         //Radium.Add<PlayMenu>();
         //Radium.Add<DebugConsole>();

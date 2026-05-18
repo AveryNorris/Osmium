@@ -6,6 +6,11 @@ public enum Palette : uint
     Unknown,
     
     Primary,
+    PrimaryHover,
+    PrimaryActive,
+    PrimaryDisabled,
+    PrimarySelected,
+    
     Secondary,
     SecondaryHover,
     SecondaryActive,

@@ -1,11 +1,11 @@
-using System.Numerics;
+
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Windowing.Common;
 using OsmiumNucleus;
 
 namespace OsmiumRadium;
 
-public static partial class Radium
+public static partial class Backend
 {
     
     
@@ -22,17 +22,14 @@ public static partial class Radium
     /// <summary> Draws all the retained elements and immediate elements</summary>
     /// <param name="e"></param>
     public static void Draw(FrameEventArgs e) {
-        UploadClippingUniform(new Vector4(0, 0, 100, 100));
+        UploadClippingUniform(new Bounds(size: new Vector2(100,100)));
         
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
         
         if (ShouldDraw) {
-            foreach (RadiumElement element in _retainedElements.ToList()) {
-                if (element.Regions.Count > 0) {
-                    Debug.Error("Regions and exits are unbalanced! You have unexited regions");
-                    element.Regions = [];
-                }
-
+            foreach (RetainedElement element in _retainedElements.ToList()) {
+                RegionState.ResetFocus();
+                
                 element.Draw();
             }
         }
@@ -41,15 +38,14 @@ public static partial class Radium
 
         //resets clipping to normal; add default clipping value? todo:
         elementCount = 0;
-        UploadClippingUniform(new Vector4(0,0,100,100));
+        UploadClippingUniform(new Bounds(size: new Vector2(100,100)));
 
         BaseRegion.Draw();
-        
+
         BaseRegion.Clear();
         
         //placement doesnt make sense todo: also make sure that this becomes a method called clear state or something cool and sick and cool and sick ok bye thanks for talking make _text boxes force ascii or something so that the _font doesnt have a panic attack
         //todo: make _text boxes work in whatever encoding strings support so that object names in scenes/components always match C#
-        TextInput = "";
         
         Osmium.Context.SwapBuffers();
 

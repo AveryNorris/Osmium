@@ -1,4 +1,4 @@
-using System.Numerics;
+
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OsmiumNucleus;
 
@@ -89,16 +89,16 @@ public struct Bounds
         
         bool swapped = false;
         
-        if(min.X > max.X) {
+        if(min.x > max.x) {
             swapped = true;
-            newMin.X = max.X;
-            newMax.X = min.X;
+            newMin.x = max.x;
+            newMax.x = min.x;
         }
         
-        if(min.Y > max.Y) {
+        if(min.y > max.y) {
             swapped = true;
-            newMin.Y = max.Y;
-            newMax.Y = min.Y;
+            newMin.y = max.y;
+            newMax.y = min.y;
         }
 
         if (swapped) {

@@ -1,5 +1,4 @@
 using System.Drawing;
-using System.Numerics;
 using System.Reflection;
 using System.Text;
 using NativeFileDialogNET;
@@ -9,13 +8,13 @@ using OsmiumNucleus;
 using OsmiumRadium;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using Color = OsmiumRadium.Color;
-using Vector2 = System.Numerics.Vector2;
+using Vector2 = OsmiumRadium.Vector2;
 
 
 namespace OsmiumEditor;
 
 
-public class ProjectSelectMenu : RadiumElement
+public class ProjectSelectMenu : RetainedElement
 {
     private static Font jetbrains = new Font(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.jetbrainsMonoRegular.png"), 100, 19, [32,136]);
     
@@ -178,13 +177,13 @@ public class ProjectSelectMenu : RadiumElement
             Vector2 size = new Vector2(5, 26 + futureOffset * 2.1f + (i + 1) * 11) - pos;
 
             if (Button().
-                Pos(2.5f, pos.Y - 1.5f).
-                Size(97.5f, size.Y).
+                Pos(2.5f, pos.y - 1.5f).
+                Size(97.5f, size.y).
                 NormalColor(Palette.BackgroundLow).
                 HoverColor(Palette.Primary).
                 ActiveColor(Palette.SecondaryActive).
             Up()) {
-                Remove<ProjectSelectMenu>();
+                Backend.Remove<ProjectSelectMenu>();
                 Context.OpenProject(path);
                 return;
             }
@@ -197,7 +196,7 @@ public class ProjectSelectMenu : RadiumElement
             
             //todo: turn off file replace when making projects maybe?
             
-            if(Button().Center(pos.X + 88.5f, pos.Y).Size(5).TextSize(3).Text('x').TextColor(Palette.TextLow).AllColors(Palette.Transparent).Up())
+            if(Button().Center(pos.x + 88.5f, pos.y).Size(5).TextSize(3).Text('x').TextColor(Palette.TextLow).AllColors(Palette.Transparent).Up())
                 ProjectMemory.ForgetProject(path);
 
         }

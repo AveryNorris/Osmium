@@ -1,10 +1,10 @@
-using System.Numerics;
+
 using OsmiumRadium;
 
 
 namespace OsmiumEditor;
 
-public class Inspector : RadiumElement
+public class Inspector : RetainedElement
 {
 
     public const int Size = 20;

@@ -1,4 +1,4 @@
-using System.Numerics;
+
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OsmiumNucleus;
 using OsmiumRadium;
