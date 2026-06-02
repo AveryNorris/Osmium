@@ -109,6 +109,23 @@ public struct Bounds
         }
     }
 
+    
+    public bool MouseDown(MouseButton button) => 
+        MouseInBounds() && Osmium.Context.MouseState.IsButtonPressed(button);
+    
+    public bool MouseUp(MouseButton button) => 
+        MouseInBounds() && Osmium.Context.MouseState.IsButtonReleased(button);
+
+    public bool MouseHeld(MouseButton button) => 
+        MouseInBounds() && Osmium.Context.MouseState.IsButtonDown(button);
+
+    public bool MouseInBounds() =>
+        Input.MousePos.x >= min.x && Input.MousePos.y >= min.y &&
+        Input.MousePos.x <= max.x && Input.MousePos.y <= max.y
+        && ((Input.MousePos.x >= Backend.Clipping.min.x && Input.MousePos.y >= Backend.Clipping.min.y &&
+             Input.MousePos.x <= Backend.Clipping.max.x && Input.MousePos.y <= Backend.Clipping.max.y) || 
+            (Input.MousePos.x >= RegionState.CurrentRegionBounds.min.x && Input.MousePos.y >= RegionState.CurrentRegionBounds.min.y &&
+             Input.MousePos.x <= RegionState.CurrentRegionBounds.max.x && Input.MousePos.y <= RegionState.CurrentRegionBounds.max.y));
 
 
 

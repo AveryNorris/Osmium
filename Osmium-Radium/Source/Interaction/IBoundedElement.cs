@@ -224,22 +224,15 @@ public static class IBoundsExtensions
         
         return element;
     }
-    
-    
-    
-    
-    public static bool MouseDown(this IBoundedElement element, MouseButton button) => 
-            MouseInBounds(element) && Osmium.Context.MouseState.IsButtonPressed(button);
-    
-    public static bool MouseUp(this IBoundedElement element, MouseButton button) => 
-            MouseInBounds(element) && Osmium.Context.MouseState.IsButtonReleased(button);
 
-    public static bool MouseHeld(this IBoundedElement element, MouseButton button) => 
-            MouseInBounds(element) && Osmium.Context.MouseState.IsButtonDown(button);
 
-    public static bool MouseInBounds(this IBoundedElement element) =>
-        Input.MousePos.x >= element._bounds.min.x && Input.MousePos.y >= element._bounds.min.y &&
-        Input.MousePos.x <= element._bounds.max.x && Input.MousePos.y <= element._bounds.max.y
-        && Input.MousePos.x >= Backend.Clipping.min.x && Input.MousePos.y >= Backend.Clipping.min.y &&
-        Input.MousePos.x <= Backend.Clipping.max.x && Input.MousePos.y <= Backend.Clipping.max.y;
+
+
+    public static bool MouseDown(this IBoundedElement element, MouseButton button) => element._bounds.MouseDown(button);
+    
+    public static bool MouseUp(this IBoundedElement element, MouseButton button) => element._bounds.MouseUp(button);
+
+    public static bool MouseHeld(this IBoundedElement element, MouseButton button) => element._bounds.MouseHeld(button);
+
+    public static bool MouseInBounds(this IBoundedElement element) => element._bounds.MouseInBounds();
 }

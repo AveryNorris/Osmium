@@ -5,7 +5,7 @@ namespace OsmiumRadium;
 /// <summary> Describes an element which can be a parent to other elements. It must hold a list of children elements </summary>
 public abstract class Region : ImmediateElement
 {
-    
+
     
     
     /// <summary> All  the children elements belonging to the region, including further nested regions </summary>

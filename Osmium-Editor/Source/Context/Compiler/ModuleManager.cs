@@ -21,7 +21,8 @@ public static class ModuleManager
     
     public static void AppendModules() {
 
-        foreach (string __modulePath in Directory.GetFiles(Project.ModulesPath, "*.dll", SearchOption.TopDirectoryOnly)) {
+        //todo: discriminate against editor and runtime modules, and make modules folders not .dlls
+        foreach (string __modulePath in Directory.GetFiles(Project.RuntimeModulesPath, "*.dll", SearchOption.AllDirectories)) {
             Debug.Action("Found and appending module type! " + __modulePath);
             
             Context.LoadedProgram!.LoadFromAssemblyPath(__modulePath);

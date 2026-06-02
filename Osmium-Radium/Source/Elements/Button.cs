@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using OpenTK.Windowing.Common.Input;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OsmiumNucleus;
 using Debug = System.Diagnostics.Debug;
@@ -9,7 +10,7 @@ namespace OsmiumRadium;
 
 
 /// <summary> Describes a button drawn for one frame, that comprises a Box and a Textbox inside </summary>
-public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>, ITextElement<Button>, IInteractableColoredElement<Button>, ITextElement, IInteractableColoredElement
+public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>, ITextElement<Button>, IInteractableColoredElement<Button>, ITextElement, IInteractableColoredElement, IDepthElement, IDepthElement<Button>
 {
     
     
@@ -43,8 +44,11 @@ public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>
     /// <summary> The mouse button the button should listen for</summary>
     public MouseButton _mouseButton { get; set; }
     
-    /// <inheritdoc cref="ITextElement{TSelf}._textColor"/>
+    /// <inheritdoc cref="ITextElement._textColor"/>
     public Color _textColor { get; set; }
+    
+    public float _depth { get; set; }
+
     
     
 
@@ -58,14 +62,14 @@ public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>
         _font = Backend.DefaultFont;
         
         _normalColor = Palette.Secondary;
-        _hoverColor = Palette.SecondaryHover;
-        _downColor = Palette.SecondaryActive;
-        _upColor = Palette.SecondaryActive;
-        _heldColor = Palette.SecondaryActive;
-        _textColor = Palette.TextHigh;
+        _hoverColor = Palette.Secondary | Palette.Selected;
+        _downColor = Palette.Secondary | Palette.Active;
+        _upColor = Palette.Secondary | Palette.Active;
+        _heldColor = Palette.Secondary | Palette.Active;
+        _textColor = Palette.Text;
         
         //todo: find a good default spacing once code compiles
-        _spacing = new Vector2(.3f, 1);
+        _spacing = new Vector2(.4f, 1);
         
         _textSize = 5; 
         _text = string.Empty;
@@ -86,14 +90,27 @@ public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>
         
         Color boxColor = _normalColor;
         
-        if (Down()) boxColor = _downColor;
-        else if (Up()) boxColor = _upColor;
-        else if (Held()) boxColor = _heldColor;
-        else if (Hover()) boxColor = _hoverColor;
+        //todo: make cursor manager class and increase API
+
+        if (Down()) {
+            Osmium.Context.Cursor = MouseCursor.Default;
+            boxColor = _downColor;
+        }
+        else if (Up()) {
+            boxColor = _upColor;
+        }
+        else if (Held()) {
+            boxColor = _heldColor;
+        }
+        else if (Hover())
+        {
+            Osmium.Context.Cursor = MouseCursor.Default;
+            boxColor = _hoverColor;
+        }
         
-        //85
+        new Box().Bounds(_bounds).Color(boxColor).Depth(_depth).Draw();
+        new TextBox().Bounds(_bounds).Text(_text).TextColor(_textColor).Font(_font).Spacing(_spacing).TextAnchor(_textAnchor).TextSize(_textSize).Depth(_depth).Draw();
         
-        new Box().Bounds(_bounds).Color(boxColor).Draw();
-        new TextBox().Bounds(_bounds).Text(_text).TextColor(_textColor).Font(_font).Spacing(_spacing).TextAnchor(_textAnchor).TextSize(_textSize).Draw();
+        //todo: put unit tests in seperate projects for each core library, in a solution folder NOT a normal directory but a solution folder!
     }
 }

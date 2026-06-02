@@ -19,13 +19,13 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
 
 
     /// <summary> Core of the Docker, holds all the Components.</summary>
-    [MarkerAttributes.UnsafeInternal] internal readonly List<Component> _components = [];
+    [MarkerAttributes.UnsafeInternal] protected readonly List<Component> _components = [];
     /// <summary> Holds all the Components sorted by priority. This optimizes priority changes</summary>
-    [MarkerAttributes.UnsafeInternal] internal readonly SortedDictionary<int, HashSet<Component>> _componentPriorityDictionary = new SortedDictionary<int, HashSet<Component>>(_prioritySorter);
+    [MarkerAttributes.UnsafeInternal] protected readonly SortedDictionary<int, HashSet<Component>> _componentPriorityDictionary = new SortedDictionary<int, HashSet<Component>>(_prioritySorter);
     /// <summary> Holds a list of Components at each of their types. This optimizes Get&lt;Type&gt; to O(1) </summary>
-    [MarkerAttributes.UnsafeInternal] internal readonly Dictionary<Type, HashSet<Component>> _componentTypeDictionary = new();
+    [MarkerAttributes.UnsafeInternal] protected readonly Dictionary<Type, HashSet<Component>> _componentTypeDictionary = new();
     /// <summary> Stores a Component in a list at each of their tags. This optimizes Get(string tag) to O(1)</summary>
-    [MarkerAttributes.UnsafeInternal] internal readonly Dictionary<string, HashSet<Component>> _componentTagDictionary = new();
+    [MarkerAttributes.UnsafeInternal] protected readonly Dictionary<string, HashSet<Component>> _componentTagDictionary = new();
     
     
     

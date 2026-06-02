@@ -21,7 +21,7 @@ public class Font
 
     public Dictionary<string, (IReadOnlyList<int> CharRanges, int GlyphSize, int CharsPerRow)> FontMemory = [];
     
-    public Font(Stream __fontFile, int __glyphSize, int __charsPerRow, List<int> __charRanges)
+    private Font(Stream __fontFile, int __glyphSize, int __charsPerRow, List<int> __charRanges)
     {
         
         GlyphSize = __glyphSize;
@@ -60,6 +60,8 @@ public class Font
         
         //TODO: PRECOMPUTE LOOKUP TABLES!!!
     }
+    
+    public static Font FromBitmapStream(Stream __bitMapFontFile, int __glyphSize, int __charsPerRow, List<int> __charRanges) => new Font(__bitMapFontFile, __glyphSize, __charsPerRow, __charRanges);
 
     //returns the UV rect for a given char stored in the _font
     public Vector4 this[char __c] {

@@ -8,7 +8,7 @@ namespace OsmiumRadium;
 
 
 /// <summary> Describes a box drawn for one frame </summary>
-public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBox>, ITextElement<TextBox>, ITextElement
+public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBox>, ITextElement<TextBox>, ITextElement, IDepthElement<TextBox>, IDepthElement
 {
     
     private static readonly Vector2[] Orientations = [
@@ -59,6 +59,9 @@ public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBo
 
     /// <inheritdoc cref="ITextElement{TSelf}._textAnchor"/>
     public TextAnchor _textAnchor { get; set; }
+    
+    /// <inheritdoc cref="IDepthElement._depth"/>
+    public float _depth { get; set; }
     
     
     //todo: figure out default colors
@@ -152,7 +155,7 @@ public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBo
         }
         
         //todo: this guy is suspicious!
-        Backend.DrawElements(_font.texture, characters, _textColor, vertexData.ToArray());
+        Backend.DrawElements(_font.texture, characters, _textColor, _depth, vertexData.ToArray());
         
 
         

@@ -21,7 +21,7 @@ public abstract partial class ComponentDocker
     
     
     /// <summary> Adds a custom component type and does not call any create events. This is for the editor!</summary>
-    [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1), MarkerAttributes.EditorPipeline]
+    [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1), MarkerAttributes.UnsafePipeline]
     public void Add(Component __component) {
         __component.Parent = this; 
         AddComponentToLists(__component);

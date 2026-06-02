@@ -33,11 +33,13 @@ public static class Osmium
 
     
     /// <summary> Displays if Osmium has Started or not. </summary>
-    public static bool IsInitialized { get; internal set; }
+    public static bool IsInitialized { get; private set; }
     /// <summary> Displays if the update loop is active.</summary>
-    public static bool IsRunning { get; internal set; }
+    public static bool IsRunning { get; private set; }
     /// <summary> Displays if Osmium has closed or not. </summary>
-    public static bool IsClosed { get; internal set; }
+    public static bool IsClosed { get; private set; }
+    /// <summary> Displays if Osmium is running virtually </summary>
+    public static bool IsVirtualized { get; private set; }
     
     
     
@@ -62,6 +64,8 @@ public static class Osmium
 
         EventManager.ResolveAllModules();
         
+        foreach (IModule module in EventManager._LeadingModuleReferences) module.Initialize();
+        
         Debug.Action("Successfully Initialized Osmium!");
     }
     
@@ -77,6 +81,8 @@ public static class Osmium
         IsRunning = true;
         
         Debug.Action("Beginning Update Loop!");
+
+        foreach (IModule module in EventManager._LeadingModuleReferences) module.Run();
         Context!.Run();
     }
     
@@ -91,6 +97,9 @@ public static class Osmium
         IsRunning = false;
         IsInitialized = false;
         
+        Debug.Log("Closing Osmium!");
+        
+        foreach (IModule module in EventManager._LeadingModuleReferences) module.Close();
         Context!.Close();
     }
     
@@ -99,7 +108,7 @@ public static class Osmium
     /// <summary> Initializes the Context and marks Osmium as initialized; but does not Resolve types </summary>
     /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for Radium! So don't use it unless you know what you are doing.
     /// These methods are made required in order to use Virtualization! Use Editor Methods instead of normal ones for Virtualization to work.</remarks>
-    [MarkerAttributes.EditorPipeline]
+    [MarkerAttributes.UnsafePipeline]
     public static void EditorInitialize() {
         if (IsRunning) { Debug.Error("Osmium is already Running!"); return; }
         if (IsInitialized) { Debug.Error("Osmium has already Started!"); return; }
@@ -116,7 +125,7 @@ public static class Osmium
     /// <summary> Starts OpenTK but doesn't let the update loop run! </summary>
     /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for Radium! So don't use it unless you know what you are doing.
     /// These methods are made required in order to use Virtualization! Use Editor Methods instead of normal ones for Virtualization to work.</remarks>
-    [MarkerAttributes.EditorPipeline]
+    [MarkerAttributes.UnsafePipeline]
     public static void EditorRun() {
         if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return; }
         if(IsRunning) { Debug.Error("Osmium is already Running!"); return; }
@@ -129,12 +138,16 @@ public static class Osmium
     /// <summary> Pretends to initialize Osmium, and makes the Components think that the Game has just been initialized. </summary>
     /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for Radium! So don't use it unless you know what you are doing.
     /// If you do want to use it, use the EditorInitialize() EditorRun() and EditorClose() instead of the traditional methods!</remarks>
-    [MarkerAttributes.EditorPipeline]
+    [MarkerAttributes.UnsafePipeline]
     public static void VirtualInitialize(IEnumerable<Assembly> __assemblies) {
-        EventManager._TypeAssociatedTimeEvents = FrozenDictionary<Type, Action<Component>[]>.Empty;
+        EventManager._TypeAssociatedTimeEvents = FrozenDictionary<Type, EventManager.EventProfile>.Empty;
+        EventManager._LeadingModuleReferences.Clear();
         IsInitialized = true;
+        IsVirtualized = true;
         
         EventManager.ResolveAllModules(__assemblies);
+        
+        foreach (IModule module in EventManager._LeadingModuleReferences) module.Initialize();
     }
     
     
@@ -142,12 +155,12 @@ public static class Osmium
     /// <summary> Pretends to run Osmium virtually, and makes the Components think it has Started. </summary>
     /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for Radium! So don't use it unless you know what you are doing.
     /// If you do want to use it, use the EditorInitialize() EditorRun() and EditorClose() instead of the traditional methods!</remarks>
-    [MarkerAttributes.EditorPipeline]
+    [MarkerAttributes.UnsafePipeline]
     public static void VirtualRun() {
         
         IsRunning = true;
         
-        //send a fake load call to simulate loading
+        foreach (IModule module in EventManager._LeadingModuleReferences) module.Run();
         foreach (Scene scene in Scenes) scene.ChainEvent(0); 
     }
     
@@ -156,12 +169,15 @@ public static class Osmium
     /// <summary> Pretends to close Osmium, and makes the Components think that the Game has ended. </summary>
     /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for Radium! So don't use it unless you know what you are doing.
     /// If you do want to use it, use the EditorInitialize() EditorRun() and EditorClose() instead of the traditional methods!</remarks>
-    [MarkerAttributes.EditorPipeline]
+    [MarkerAttributes.UnsafePipeline]
     public static void VirtualClose() {
         
         foreach (Scene scene in Scenes) scene.ChainEvent(1); 
         
         IsRunning = false;
+        IsVirtualized = false;
+        
+        foreach (IModule module in EventManager._LeadingModuleReferences) module.Close();
     }
     
     

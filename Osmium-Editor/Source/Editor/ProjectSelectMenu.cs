@@ -1,4 +1,3 @@
-using System.Drawing;
 using System.Reflection;
 using System.Text;
 using NativeFileDialogNET;
@@ -6,9 +5,8 @@ using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OsmiumNucleus;
 using OsmiumRadium;
-using OpenTK.Windowing.GraphicsLibraryFramework;
-using Color = OsmiumRadium.Color;
 using Vector2 = OsmiumRadium.Vector2;
+
 
 
 namespace OsmiumEditor;
@@ -16,20 +14,20 @@ namespace OsmiumEditor;
 
 public class ProjectSelectMenu : RetainedElement
 {
-    private static Font jetbrains = new Font(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.jetbrainsMonoRegular.png"), 100, 19, [32,136]);
     
-    //todo: add back _texture caching
-    private static Texture osmiumLogo;
     
-    private static string text = "";
+    
+    private static Font jetbrains = Font.FromBitmapStream(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.jetbrainsMonoRegular.png"), 100, 19, [32,136]);
+    
 
+    
+    private static Texture osmiumLogo;
+
+    
+    
     static ProjectSelectMenu() {
         using (Stream stream = Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.Osmium.png")) {
             osmiumLogo = Texture.LoadFromStream(stream);
-        }
-
-        for (int i = 0; i < 100_000; i++) {
-            text += "C";
         }
     }
 
@@ -46,33 +44,30 @@ public class ProjectSelectMenu : RetainedElement
     public void ConfigureWindow() {
         Osmium.Context.WindowBorder = WindowBorder.Hidden;
 
-        Vector2i clientSize = new Vector2i((int) (Osmium.Context.CurrentMonitor.ClientArea.Height * .4f));
+        Vector2i targetSize = new Vector2i((int) (Osmium.Context.CurrentMonitor.ClientArea.Height * .4f));
         
-        Osmium.Context.ClientSize = clientSize;
-        Osmium.Context.ClientLocation = Osmium.Context.CurrentMonitor.ClientArea.HalfSize - clientSize / 2;
+        Osmium.Context.ClientSize = targetSize;
+        Osmium.Context.ClientLocation = Osmium.Context.CurrentMonitor.ClientArea.HalfSize - targetSize / 2;
         
-        Box().Size(100, 100).Color(Palette.BackgroundLow);
+        Box().Size(100, 100).Color(Palette.Background);
 
-        Box().Color(Palette.BackgroundHighest).Pos(0, 16.75f).Max(100, 17);
-        Box().Color(Palette.BackgroundHighest).Pos(2, 16.75f).Max(2.25f, 100);
+        Box().Color(Palette.Border).Pos(0, 16.75f).Max(100, 17);
+        Box().Color(Palette.Border).Pos(2, 16.75f).Max(2.25f, 100);
     }
     
-    //todo: change component map method from reload and unload to save?
-
-    //todo: _bounds setter interface makes it easier to set stuff individually
     public void DefineHeader() {
-        Box().Texture(osmiumLogo).Color(Color.White).Pos(2,2).Size(13);
+        Box().Texture(osmiumLogo).Color(Palette.White).Pos(2,2).Size(13);
         
         TextBox().Text("Osmium").Font(jetbrains).Pos(14.5f, 2f).Size(100).TextSize(13).Spacing(.5f, 1).TextColor(Palette.Primary);
         
         if(Button().
             Text("X ").
-            TextColor(Palette.TextLow).
+            TextColor(Palette.Text | Palette.Low).
             TextSize(3).
             Spacing(.33f,1).Pos(95.5f, 0).
-            Size(4.5f).NormalColor(Palette.BackgroundHighest).
-            HoverColor(Palette.BackgroundHigh).
-            ActiveColor(Palette.BackgroundLow).
+            Size(4.5f).NormalColor(Palette.Background | Palette.High).
+            HoverColor(Palette.Background | Palette.Medium).
+            ActiveColor(Palette.Background).
             TextAnchor(TextAnchor.Center)
         .Up()) Osmium.Close();
         
@@ -97,16 +92,7 @@ public class ProjectSelectMenu : RetainedElement
            TextAnchor(TextAnchor.Center).
            Up()) OpenProjectPrompt();
         
-        
-        //todo: make open and create button in front and fix Z
-        
-        //toDO OPISJGOIGIO)SJGIOSG
-        
-        //todo: text.text
-        TextBox().Text('V' + Osmium.Version).Size(100, 16.75f).TextColor(Palette.TextHigh).TextSize(3).Spacing(.5f, 1).TextAnchor(TextAnchor.BottomRight);
-
-        //todo: radium scrolling abstractions debug _color options
-
+        TextBox().Text('V' + Osmium.Version).Size(100, 16.75f).TextColor(Palette.Text).TextSize(3).Spacing(.5f, 1).TextAnchor(TextAnchor.BottomRight);
     }
 
     public void CreateProjectPrompt() {
@@ -155,7 +141,10 @@ public class ProjectSelectMenu : RetainedElement
         Region("ProjectList").Min(2.5f, 22).Max(100).Scrolling(true);
         
         int futureOffset = 0;
-        for(int i = 0; i < ProjectMemory.Projects.Count; i++) {
+        for(int i = 0; i < ProjectMemory.Projects.Count; i++)
+        {
+
+            bool forgetting = false;
             
             string path = ProjectMemory.Projects[i];
             string projectName = Path.GetFileNameWithoutExtension(path);
@@ -176,28 +165,28 @@ public class ProjectSelectMenu : RetainedElement
             
             Vector2 size = new Vector2(5, 26 + futureOffset * 2.1f + (i + 1) * 11) - pos;
 
-            if (Button().
-                Pos(2.5f, pos.y - 1.5f).
-                Size(97.5f, size.y).
-                NormalColor(Palette.BackgroundLow).
-                HoverColor(Palette.Primary).
-                ActiveColor(Palette.SecondaryActive).
-            Up()) {
-                Backend.Remove<ProjectSelectMenu>();
-                Context.OpenProject(path);
-                return;
-            }
+            Button projectButton = Button().Pos(2.5f, pos.y - 1.5f).Size(97.5f, size.y).NormalColor(Palette.Background)
+                .HoverColor(Palette.Primary).ActiveColor(Palette.Secondary | Palette.Active);
 
-            TextBox().Text(projectName).Pos(pos).Size(100).Spacing(.55f, 1).TextSize(3.5f).TextColor(Palette.TextHigh);
+            TextBox().Text(projectName).Pos(pos).Size(100).Spacing(.55f, 1).TextSize(3.5f).TextColor(Palette.Text);
 
             Vector2 linkOffset = new Vector2(.5f, 3.5f);
             
-            TextBox().Text(indentedPath.ToString()).Pos(pos + linkOffset).Size(100).Spacing(.55f, 1).TextSize(2.5f).TextColor(Palette.TextLow);
+            TextBox().Text(indentedPath.ToString()).Pos(pos + linkOffset).Size(100).Spacing(.55f, 1).TextSize(2.5f).TextColor(Palette.Text | Palette.Low);
             
             //todo: turn off file replace when making projects maybe?
             
-            if(Button().Center(pos.x + 88.5f, pos.y).Size(5).TextSize(3).Text('x').TextColor(Palette.TextLow).AllColors(Palette.Transparent).Up())
-                ProjectMemory.ForgetProject(path);
+            if(Button().Center(pos.x + 88.5f, pos.y).Size(5).TextSize(3).Text('x').TextColor(Palette.Text | Palette.Low).AllColors(Palette.Transparent).Up())
+            { ProjectMemory.ForgetProject(path); forgetting = true; }
+            
+            if(projectButton.Up() && !forgetting)
+            {
+                Backend.RemoveElement(this);
+                Backend.Add<EditorOverhead>();
+                Context.OpenProject(path);
+                Exit();
+                return;
+            }
 
         }
         

@@ -68,19 +68,19 @@ public static class MarkerAttributes
 
     /// <summary> Shows that the given method does not actually belong to the object, but instead just calls a lambda to another method. </summary>
     [AttributeUsage(AttributeTargets.All)]
-    public class MethodPointer : Attribute;
+    public class MethodLambda : Attribute;
 
 
 
     /// <summary> Shows that the given variable does not actually belong to the object, but instead just calls a lambda to another method. </summary>
     [AttributeUsage(AttributeTargets.All)]
-    public class VariablePointer : Attribute;
+    public class VariableLambda : Attribute;
 
 
 
-    /// <summary> Shows that the given variable or function is required for the editor pipeline </summary>
+    /// <summary> The given function is missing many guiderails, and it should be used carefully. </summary>
     [AttributeUsage(AttributeTargets.All)]
-    public class EditorPipeline : Attribute;
+    public class UnsafePipeline : Attribute;
 
 
 

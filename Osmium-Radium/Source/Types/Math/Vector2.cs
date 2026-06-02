@@ -33,7 +33,7 @@ public struct Vector2
     
     public static Vector2 operator /(Vector2 a, Vector2 b) => new Vector2(a.x / b.x, a.y / b.y);
 
-
-
-
+    public override string ToString() {
+        return '<' + x.ToString() + ',' + y.ToString() + '>';
+    }
 }

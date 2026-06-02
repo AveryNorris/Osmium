@@ -51,7 +51,9 @@ public static class RegionState
     
     /// <summary> The current region that Radium is drawing to </summary>
     public static Region Current => RegionScope.Count > 0 ? RegionScope[^1] : Backend.BaseRegion;
-    
-    
-    
+
+
+
+    /// <summary> The current region that Radium is drawing to </summary>
+    public static Bounds CurrentRegionBounds => (Current is NestedRegion region) ? region._bounds : new Bounds(size: new Vector2(100, 100));
 }

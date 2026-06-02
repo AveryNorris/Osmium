@@ -16,8 +16,14 @@ public class EditorOverhead : RetainedElement
         Osmium.Context.WindowState = WindowState.Maximized;
         
         Osmium.Context.WindowBorder = WindowBorder.Resizable;
+        
+        Debug.Log("RETAINED ELEMENTS : " + string.Join(',', Backend.RetainedElements));
 
+        //todo: make sure that windows are all static and support multiple of them!, and make Osmium Multithreaded
         Backend.Add<Inspector>();
+        //Backend.Add<CompileTesting>();
+        
+        //todo: change backend.add to just add through retained element and make backend radium
         //Radium.Add<ComponentHierarchy>();
         //Radium.Add<PlayMenu>();
         //Radium.Add<DebugConsole>();

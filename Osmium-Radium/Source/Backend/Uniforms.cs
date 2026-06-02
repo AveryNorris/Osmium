@@ -9,12 +9,15 @@ public static partial class Backend
 {
     public static Bounds Clipping;
     
+    /// <summary> Since radium exists at retained draw time and realtime draw time, it is important
+    /// to have an additional field which shows what the clipping should be at that time</summary>
+    public static Bounds PredictedClipping;
+    
     public static float WindowWidth;
 
     public static float WindowHeight;
     
     public static float WindowWidthHeightRatio { get; private set; }
-    
     
     
     /// <summary> Uploads a new clipping rect to the graphics card  </summary>
@@ -46,12 +49,13 @@ public static partial class Backend
         UploadClippingUniform(clippingRect);
     }
     
-    
-    
     public static void Resize(ResizeEventArgs e) {
         GL.Viewport(0, 0, Osmium.Context.FramebufferSize.X, Osmium.Context.FramebufferSize.Y);
         WindowWidth = Osmium.Context.Size.X;
         WindowHeight = Osmium.Context.Size.Y;
         WindowWidthHeightRatio = WindowWidth / WindowHeight;
     }
+    
+    
+    
 }

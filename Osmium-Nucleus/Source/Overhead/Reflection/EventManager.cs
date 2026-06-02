@@ -14,17 +14,18 @@ internal static class EventManager
     
     
     
-    /// <summary> Holds an associated action for each component and a time event. Is built with ResolveTypeEvents() during Initialize().
-    /// There is little to no error checking; it is assumed that any Component trying to index this dictionary, at least has null at a key/value! There cannot be empty
-    /// entries even if a Component receives no events. </summary>
+    /// <summary> Holds an index of each Component Type and their respective Event Profile,
+    /// which contains a callback to all the Components events and information and rules on how to update
+    /// the Component </summary>
     [MarkerAttributes.UnsafeInternal]
-    internal static FrozenDictionary<Type, Action<Component>[]> _TypeAssociatedTimeEvents;
+    internal static FrozenDictionary<Type, EventProfile> _TypeAssociatedTimeEvents = FrozenDictionary<Type, EventProfile>.Empty;
     
     
-    
-    /// <summary> Holds an associated bool for each Component type, which tells whether they are allowed to receive events, even if Osmium is runnning virtually </summary>
-    [MarkerAttributes.UnsafeInternal]
-    internal static FrozenDictionary<Type, bool> _TypeAssociatedVirtualEventPrivileges;
+    /// <summary> Represents a Component's event callbacks and flags/capabilities </summary>
+    internal record EventProfile(Action<Component>[] callbacks, bool __alwaysUpdate) {
+        public readonly Action<Component>?[] Callbacks = callbacks;
+        public readonly bool AlwaysUpdate = __alwaysUpdate;
+    }
     
     
     
@@ -32,6 +33,12 @@ internal static class EventManager
     internal static readonly ImmutableArray<string> Events = [
         "Load", "Unload", "Update", "Draw", "Create", "Remove"
     ];
+
+    
+    
+    /// <summary> Contains an instance of an IModule for all unique IModules found </summary>
+    [MarkerAttributes.UnsafeInternal]
+    internal static readonly List<IModule> _LeadingModuleReferences = [];
     
     
     
@@ -46,14 +53,21 @@ internal static class EventManager
     
     
     /// <summary> Resolves all the components from only the given assemblies</summary>
-    [MarkerAttributes.EditorPipeline]
+    [MarkerAttributes.UnsafePipeline]
     internal static void ResolveAllModules(IEnumerable<Assembly> __sources) {
         
-        Dictionary<Type, Action<Component>[]> _newAssociatedTimeEvents = [];
-        Dictionary<Type, bool> _newAssociatedVirtualEventPrivileges = [];
+        Dictionary<Type, EventProfile> _newAssociatedTimeEvents = [];
         
         foreach (Assembly assembly in __sources) {
             foreach (Type type in assembly.GetTypes()) {
+                
+                Debug.Log(type.FullName);
+                if (typeof(IModule).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
+                {
+                    IModule module = (IModule) Activator.CreateInstance(type);
+                    if(module != null) _LeadingModuleReferences.Add(module);
+                }
+                
                 if (!type.IsSubclassOf(typeof(Component))) continue;
 
                 List<Action<Component>> timeEvents = [];
@@ -65,26 +79,22 @@ internal static class EventManager
                     }
 
                     //create a new delegate expression that calls the Components associated method.
-                    ParameterExpression ComponentInstanceParameter =
-                            Expression.Parameter(typeof(Component), "__component");
+                    ParameterExpression ComponentInstanceParameter = Expression.Parameter(typeof(Component), "__component");
                     UnaryExpression Casting = Expression.Convert(ComponentInstanceParameter, type);
                     MethodCallExpression Call = Expression.Call(Casting, eventMethod);
-                    Expression<Action<Component>> Lambda =
-                            Expression.Lambda<Action<Component>>(Call, ComponentInstanceParameter);
+                    Expression<Action<Component>> Lambda = Expression.Lambda<Action<Component>>(Call, ComponentInstanceParameter);
                     timeEvents.Add(Lambda.Compile());
                 }
-
-
-
+                
+                bool alwaysUpdate = type.IsDefined(typeof(AlwaysUpdate), true);
+                
                 Debug.Action("Found and Resolved events attached to : " + type.Name + " In " + type.Namespace);
 
-                _newAssociatedTimeEvents.Add(type, timeEvents.ToArray());
-                _newAssociatedVirtualEventPrivileges.Add(type, type.GetCustomAttribute<NonVirtual>() != null);
+                _newAssociatedTimeEvents.Add(type, new EventProfile(timeEvents.ToArray(), alwaysUpdate));
             }
         }
         
         _TypeAssociatedTimeEvents = _newAssociatedTimeEvents.ToFrozenDictionary();
-        _TypeAssociatedVirtualEventPrivileges = _newAssociatedVirtualEventPrivileges.ToFrozenDictionary();
     }
     
     

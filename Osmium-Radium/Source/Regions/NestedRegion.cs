@@ -46,6 +46,9 @@ public class NestedRegion : Region, IBoundedElement, IBoundedElement<NestedRegio
     }
 
     public NestedRegion(string __name) {
+
+        this.Size(100);
+        
         name = __name;
         if (ScrollingValues.TryGetValue(name, out float value)) {
             scroll = value;

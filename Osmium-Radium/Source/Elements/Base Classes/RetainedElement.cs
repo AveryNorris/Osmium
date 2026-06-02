@@ -61,9 +61,5 @@ public abstract class RetainedElement : Element
 
     protected void Exit() => RegionState.Exit();
 
-    private static void IntroduceElement(ImmediateElement __element) {
-        RegionState.Current.Add(__element);
-
-        Backend.elementCount++;
-    }
+    private static void IntroduceElement(ImmediateElement __element) => RegionState.Current.Add(__element);
 }

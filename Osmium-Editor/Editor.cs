@@ -25,8 +25,8 @@ public static class Editor
         if(!OperatingSystem.IsMacOS())
             Osmium.Context.Icon = new WindowIcon(new Image(image.Width, image.Height, image.Data));
             
-        TextBox.DefaultFont = new Font(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.proggyBitmapASCII.png"), 75, 19, [32,136]);
-        TextBox.DefaultColor = Palette.TextHigh;
+        TextBox.DefaultFont = Font.FromBitmapStream(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.proggyBitmapASCII.png"), 75, 19, [32,136]);
+        TextBox.DefaultColor = Palette.Text;
         //Text.DefaultSpacingFactor = new Vector2(.285f, 1);
         //Text.DefaultTextSize = 1.6f;
             //todo: dont use manifest resource stream

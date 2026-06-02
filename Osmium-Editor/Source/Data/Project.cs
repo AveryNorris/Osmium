@@ -6,12 +6,13 @@ public static class Project
 {
     public static string ProjectPath;
 
-    public static string ModulesPath => GetProjectSubdirectory("Modules", true);
+    public static string RuntimeModulesPath => GetProjectSubdirectory("Modules", true);
     
     public static string SourcePath => GetProjectSubdirectory("Source", true);
         
         
 
+    //todo: enforce that editor modules cannot define components, and runtime cannot use the editor etc
     public static string GetProjectSubdirectory(string subdirectoryPath, bool regenerate = false)
     {
         string path = Path.Combine(ProjectPath, subdirectoryPath);

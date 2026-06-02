@@ -1,10 +1,8 @@
-
 using System.Diagnostics;
 
 using System.Reflection;
 using System.Runtime.Loader;
 using OsmiumEditor.ComponentMap;
-using OsmiumEditor.Source.Analyzers;
 using OsmiumNucleus;
 using OsmiumRadium;
 using Debug = OsmiumNucleus.Debug;
@@ -19,7 +17,6 @@ public static class Context
     
 
     public static AssemblyLoadContext? LoadedProgram;
-    
     
     
     //tracking events required! Everything must be able to change at runtime!
@@ -53,8 +50,12 @@ public static class Context
 
     //todo: ENFORCE/DOCUMENT that actiosn that require another reload should not be tied to reload without manually calling it!
     public static void Reload() {
-        Backend.Add<EditorOverhead>();
+
         Debug.Clear();
+        
+        if(Osmium.IsVirtualized)
+            Osmium.VirtualClose();
+        
         //todo: make method
         UpdateTracker.SurpressReload = true;
         MemoryStream assemblyStream = ScriptCompiler.CompileScripts();
@@ -82,7 +83,7 @@ public static class Context
 
         //keep old scripts if new ones do not compiles
 
-
+    //todo: clear old reflection types in event manager in osmium? 
 
 
         //unload old program
@@ -108,6 +109,8 @@ public static class Context
         List<Assembly> usedAssemblies = LoadedProgram.Assemblies.ToList();
         usedAssemblies.Add(typeof(Package).Assembly);
         
+        Debug.Log("Assemblies! " + string.Join(", ", usedAssemblies.ToArray()));
+        
         Osmium.VirtualInitialize(usedAssemblies);
         
 
@@ -122,14 +125,6 @@ public static class Context
         
         //todo: make system for editor scripting classes to store data across
 
-        foreach (Assembly assembly in Context.LoadedProgram.Assemblies) {
-            foreach (Type type in assembly.DefinedTypes) {
-                if (type.IsSubclassOf(typeof(EditorScripting))) {
-                    Debug.Log("Found subclass of EditorScripting!" + type.Name);
-                    Activator.CreateInstance(type);
-                }
-            }
-        }
         
         timer.Stop();
         Debug.Action("Reload finished in: " + timer.Elapsed.Milliseconds + "ms!");

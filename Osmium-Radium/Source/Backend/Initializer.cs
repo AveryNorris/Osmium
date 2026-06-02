@@ -4,51 +4,65 @@ using OsmiumNucleus;
 
 namespace OsmiumRadium;
 
+
+
+/// <summary> The backend of Radium! Manages rendering through draw and update calls,
+/// and orders retained and immediate UI events at the appropriate times </summary>
 public static partial class Backend
 {
+ 
     
     
-    
+    /// <summary> Points to the color uniform in the fragment shader </summary>
     [GLHandle] private static readonly int _colorUniformHandle;
+    /// <summary> Points to the clipping rect uniform in the fragment shader </summary>
     [GLHandle] private static readonly int _clippingRectUniformHandle;
+    /// <summary> Points to the z uniform in the vertex shader </summary>
+    [GLHandle] private static readonly int _zUniformHandle;
+    /// <summary> Points to the shader program used to draw everything </summary>
     [GLHandle] private static readonly int _programHandle;
     
+    
+    
+    /// <summary> Points to the vertex buffer which stores temporary vertex data</summary>
     [GLHandle] private static readonly int _vertexBufferHandle;
+    /// <summary> Points to the index buffer which stores temporary index data</summary>
     [GLHandle] private static readonly int _indexBufferHandle;
+    /// <summary> Points to the vertex array buffer used to draw </summary>
     [GLHandle] private static readonly int _vertexArrayHandle;
     
+    
+    
+    /// <summary> Points to a large static index buffer, used to batch large draw calls, size of the buffer is controlled
+    /// by the max elements per draw parameter </summary>
     [GLHandle] private static readonly int _largeIndexBuffer;
+    /// <summary> The max amount of elements that can be used in a DrawElements call,
+    /// this is an arbitrary value, but increasing this more uses up VRAM so use it wisely. </summary>
+    public const int MaxElementsPerDraw = 4096;
     
-    public const int MaxElementsPerDraw = 10000;
     
     
-    
+    /// <summary> A default white 1x1 texture </summary>
     public static readonly Texture DefaultTexture;
+    /// <summary> The default proggyclean font</summary>
     public static readonly Font DefaultFont;
     
     
     
-    public static bool ShouldUpdate = true;
-    public static bool ShouldClear = false;
-    public static bool ShouldDraw = true;
-    
-    
-    
-    private static readonly HashSet<RetainedElement> _retainedElements = [];
-    public static IReadOnlyCollection<RetainedElement> RetainedElements => _retainedElements;
-    
-    
-    
-    private static readonly int[] Indices = [
+    /// <summary> The correct index buffer for a single quad </summary>
+    private static readonly int[] _quadIndexLayout = [
         3, 2, 1,
         1, 0, 2
     ];
     
     
+    //todo : layers
     
+    /// <summary> Initializes the backend completely </summary>
     static Backend()
     {
         #region Shader
+        
         _programHandle = GL.CreateProgram();
 
         int VertexShader = GL.CreateShader(ShaderType.VertexShader);
@@ -90,7 +104,7 @@ public static partial class Backend
         GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferHandle);
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _indexBufferHandle);
         
-        GL.BufferData(BufferTarget.ElementArrayBuffer, Indices.Length * sizeof(int), Indices, BufferUsage.DynamicDraw);
+        GL.BufferData(BufferTarget.ElementArrayBuffer, _quadIndexLayout.Length * sizeof(int), _quadIndexLayout, BufferUsage.DynamicDraw);
         
         GL.VertexAttribPointer(0, 2, VertexAttribPointerType.Float, false, 4 * sizeof(float), 0);
         GL.EnableVertexAttribArray(0);
@@ -111,7 +125,7 @@ public static partial class Backend
         }
         
         using (Stream stream = Assembly.GetAssembly(typeof(Backend))!.GetManifestResourceStream("OsmiumRadium.proggyBitmapASCII.png")!) {
-            DefaultFont = new Font(stream, 75, 19, [32,136]);
+            DefaultFont = Font.FromBitmapStream(stream, 75, 19, [32,136]);
         }
         
         #endregion
@@ -148,6 +162,8 @@ public static partial class Backend
         
         _clippingRectUniformHandle = GL.GetUniformLocation(_programHandle, "clippingRect");
         
+        _zUniformHandle = GL.GetUniformLocation(_programHandle, "z");
+        
         GL.Uniform1f(GL.GetUniformLocation(_programHandle, "tex"), 0);
 
         #endregion
@@ -159,6 +175,19 @@ public static partial class Backend
         Osmium.Context.RenderFrame += Draw;
         
         #endregion
+        
+        GL.Enable(EnableCap.DepthTest);
+        GL.ClearDepth(1);
+        GL.DepthFunc(DepthFunction.Lequal);
+        
+        GL.Enable(EnableCap.Blend);
+        GL.BlendFunc(BlendingFactor.SrcColor, BlendingFactor.OneMinusSrcAlpha);
+        
+        GL.DepthMask(true);
+        
+        //todo: add a debug that uses object and turns it into a string and a few ones that have int and whatnot
+        //and they use preferrable tostring params, add some tostring params to my pretty types as well, like component
+        Debug.Log(GL.GetInteger(GetPName.DepthBits).ToString());
     }
     
     

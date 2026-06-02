@@ -4,14 +4,13 @@ namespace OsmiumNucleus;
 /// <summary> The backing class for all Components in Osmium. Inherit this to become one. </summary>
 /// <author> Avery Norris </author>
 #nullable enable
-public abstract partial class Component : ComponentDocker
+public abstract partial class Component : ComponentDocker   
 {
     
 
 
     /// <summary> Current parent of the Component. Can be either a Scene or another Component.</summary>
     [MarkerAttributes.UnsafeInternal] public ComponentDocker Parent { get; internal set; }
-    
     
     #region Component Information
     
@@ -104,12 +103,11 @@ public abstract partial class Component : ComponentDocker
     /// <summary> Attempts to send an event to the component, and quietly exits if not.</summary>
     [MarkerAttributes.UnsafeInternal]
     internal void TryEvent(int __timeEvent) {
-        if (!Enabled) return;
-
-        Type type = GetType();
-        if (EventManager._TypeAssociatedVirtualEventPrivileges[type] || Osmium.IsRunning) {
-            EventManager._TypeAssociatedTimeEvents[type][__timeEvent]?.Invoke(this);
-        }
+        EventManager.EventProfile profile = EventManager._TypeAssociatedTimeEvents[GetType()];
+        
+        if ((!Enabled || !Osmium.IsRunning) && !profile.AlwaysUpdate) return;
+        
+        profile.Callbacks[__timeEvent]?.Invoke(this);
     }
     
 
