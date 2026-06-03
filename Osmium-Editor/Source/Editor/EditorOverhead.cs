@@ -1,6 +1,5 @@
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
-using OsmiumEditor.Source;
 using OsmiumNucleus;
 using OsmiumRadium;
 using Vector2 = System.Numerics.Vector2;
@@ -20,7 +19,10 @@ public class EditorOverhead : RetainedElement
         Debug.Log("RETAINED ELEMENTS : " + string.Join(',', Backend.RetainedElements));
 
         //todo: make sure that windows are all static and support multiple of them!, and make Osmium Multithreaded
-        Backend.Add<Inspector>();
+        Backend.Add<Inspector>().bounds = new Bounds(pos: new OsmiumRadium.Vector2(85,0), size: new OsmiumRadium.Vector2(15, 100));
+        Backend.Add<ComponentHierarchy>().bounds = new Bounds(pos: new OsmiumRadium.Vector2(65,0), size: new OsmiumRadium.Vector2(20, 75));
+        Backend.Add<SceneHierarchy>().bounds = new Bounds(pos: new OsmiumRadium.Vector2(65,75), size: new OsmiumRadium.Vector2(20, 25));
+
         //Backend.Add<CompileTesting>();
         
         //todo: change backend.add to just add through retained element and make backend radium

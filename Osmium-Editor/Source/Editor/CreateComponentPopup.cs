@@ -1,6 +1,5 @@
 
 using OpenTK.Windowing.GraphicsLibraryFramework;
-using OsmiumEditor.Source;
 using OsmiumNucleus;
 using OsmiumRadium;
 

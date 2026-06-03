@@ -22,6 +22,8 @@ public sealed class Context() : GameWindow(GameWindowSettings.Default, new Nativ
     /// <summary> An event that is raised after all load calls, this is meant to be used for libraries that require overhead </summary>
     public event Action? LoadFinalizer;
 
+    
+    
     /// <summary> OnLoad() is called by OpenTK when the program starts; Calls an event called Load() in Components</summary>
     /// <remarks> It is recommended to load content during Load()</remarks>
     protected override void OnLoad() {
@@ -71,6 +73,8 @@ public sealed class Context() : GameWindow(GameWindowSettings.Default, new Nativ
         
         Osmium.DeltaTime = (float) __args.Time;
         foreach(Scene scene in Osmium._scenes) if(scene.Enabled) scene.ChainEvent(2);
+        
+        CoroutineRunner.Advance();
         
         UpdateFinalizer?.Invoke();
         

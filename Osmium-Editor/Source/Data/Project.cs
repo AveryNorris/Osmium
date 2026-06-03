@@ -11,6 +11,7 @@ public static class Project
     public static string SourcePath => GetProjectSubdirectory("Source", true);
         
         
+    //todo: add global usage implciitly not in a file
 
     //todo: enforce that editor modules cannot define components, and runtime cannot use the editor etc
     public static string GetProjectSubdirectory(string subdirectoryPath, bool regenerate = false)

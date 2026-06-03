@@ -30,6 +30,17 @@ public static class Context
     private static bool ReloadScheduled;
 
     public static string ComponentMapPath;
+
+    //yuck
+    public const string CsProj = "<Project Sdk=\"Microsoft.NET.Sdk\">\n\n    <PropertyGroup>\n        <TargetFramework>net10.0</TargetFramework>\n        <ImplicitUsings>enable</ImplicitUsings>\n        <Nullable>disable</Nullable>\n    </PropertyGroup>\n\n    <ItemGroup>\n      <Reference Include=\"Osmium-Nucleus\">\n        <HintPath>/Users/averynorris/Osmium/Osmium-Nucleus/bin/Debug/net10.0/Osmium-Nucleus.dll</HintPath>\n      </Reference>\n    </ItemGroup>";
+
+    public static Assembly[] GetAssemblies() {
+        List<Assembly> assemblies = [];
+        assemblies.AddRange(LoadedProgram.Assemblies);
+        assemblies.AddRange(typeof(Context).Assembly, typeof(Component).Assembly, typeof(Backend).Assembly);
+        
+        return assemblies.ToArray();
+    }
     
     //todo: osmium isnt made to exit out of a project or anything so dont worry about that
 
@@ -63,6 +74,15 @@ public static class Context
         if (!ScriptCompiler.Success)  { Debug.Error("Source did not compile! "); return; }
         
         OnUnload?.Invoke();
+        
+        string csProjAppenditures = "\n\n";
+
+        foreach (string file in Directory.GetFiles(Project.RuntimeModulesPath, "*.dll", SearchOption.AllDirectories))
+        {
+            csProjAppenditures += "<ItemGroup>\n        <Reference Include=\"" + Path.GetFileNameWithoutExtension(file) + "\"><HintPath>" + file + "</HintPath></Reference>\n    </ItemGroup>";
+        }
+        
+        File.WriteAllText(Path.Combine(Project.ProjectPath, "project.csproj"), CsProj + csProjAppenditures + "</Project>\n");
 
 
         List<string> Scenes = [];
@@ -80,15 +100,18 @@ public static class Context
         
         Debug.Action("Reloading Osmium!");
         
+        Backend.Clear();
+
+        Backend.Add<EditorOverhead>();
+        Backend.Add<DebugOverlay>();
+        
 
         //keep old scripts if new ones do not compiles
 
     //todo: clear old reflection types in event manager in osmium? 
-
-
+    
         //unload old program
         LoadedProgram?.Unload();
-
 
         LoadedProgram = null;
 
@@ -119,15 +142,17 @@ public static class Context
         }
         
         OnReload?.Invoke();
-
-        UpdateTracker.SurpressReload = false;
         
+        
+        UpdateTracker.SurpressReload = false;
+
         
         //todo: make system for editor scripting classes to store data across
 
         
         timer.Stop();
         Debug.Action("Reload finished in: " + timer.Elapsed.Milliseconds + "ms!");
+        
 
         //todo: wait to reload if a game is running
     }

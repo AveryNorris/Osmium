@@ -41,19 +41,19 @@ public class DebugOverlay : RetainedElement
             frameratesum += Osmium.DeltaTime;
             frameratecount++;
             
-            TextBox().Text("AFPS : " + (int)(1f / (frameratesum / frameratecount))).TextSize(5).Spacing(.45f, 1).Size(100).TextColor(Color.FromRgb(255,255,0)).Depth(1);
+            TextBox().Text("AFPS : " + (int)(1f / (frameratesum / frameratecount))).TextSize(5).Spacing(.45f, 1).Size(100).TextColor(Color.FromRgb(255,255,0)).Depth(-1);
             
-            TextBox().Text("IFPS : " + (1f / Osmium.DeltaTime)).Pos(26,0).Size(100).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,255)).Depth(1);
-            TextBox().Text(" > " + FrameRates.Min()).Pos(26,5).TextSize(5).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,255)).Depth(1);
-            TextBox().Text(" < " + FrameRates.Max()).Pos(26,10).TextSize(5).Spacing(.45f, 1).Size(100).TextColor(Color.FromRgb(0,255,255)).Depth(1);
+            TextBox().Text("IFPS : " + (1f / Osmium.DeltaTime)).Pos(26,0).Size(100).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,255)).Depth(-1);
+            TextBox().Text(" > " + FrameRates.Min()).Pos(26,5).TextSize(5).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,255)).Depth(-1);
+            TextBox().Text(" < " + FrameRates.Max()).Pos(26,10).TextSize(5).Spacing(.45f, 1).Size(100).TextColor(Color.FromRgb(0,255,255)).Depth(-1);
 
             
-            TextBox().Text("RElements : " + OsmiumRadium.Backend.RetainedElements.Count).TextSize(5).Pos(62,0).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255)).Depth(1);
-            TextBox().Text("IElements : " + OsmiumRadium.Backend.immediateElementCount).TextSize(5).Pos(62,6).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255)).Depth(1);
+            TextBox().Text("RElements : " + OsmiumRadium.Backend.RetainedElements.Count).TextSize(5).Pos(62,0).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255)).Depth(-1);
+            TextBox().Text("IElements : " + OsmiumRadium.Backend.immediateElementCount).TextSize(5).Pos(62,6).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255)).Depth(-1);
             
-            TextBox().Text("Screen Size : (" + OsmiumRadium.Backend.WindowWidth + ',' + OsmiumRadium.Backend.WindowHeight + ") : " + OsmiumRadium.Backend.WindowWidthHeightRatio).TextSize(5).Pos(0,95).Size(100).Spacing(.45f, 1).TextAnchor(TextAnchor.TopLeft).TextColor(Color.FromRgb(0,255,0)).Depth(1);
+            TextBox().Text("Screen Size : (" + OsmiumRadium.Backend.WindowWidth + ',' + OsmiumRadium.Backend.WindowHeight + ") : " + OsmiumRadium.Backend.WindowWidthHeightRatio).TextSize(5).Pos(0,95).Size(100).Spacing(.45f, 1).TextAnchor(TextAnchor.TopLeft).TextColor(Color.FromRgb(0,255,0)).Depth(-1);
             
-            TextBox().Pos(0).TextAnchor(TextAnchor.Center).TextSize(5).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,255,0)).Text("_> " + CommandText).Depth(1);
+            TextBox().Pos(0).TextAnchor(TextAnchor.Center).TextSize(5).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,255,0)).Text("_> " + CommandText).Depth(-1);
 
             CommandText += Input.TextInput;
             
@@ -127,7 +127,7 @@ public class DebugOverlay : RetainedElement
         if (Context.LoadedProgram == null)
         {
             //todo: make vector have implicit conversion from int so i dont have so many bounds overloads?
-            TextBox().Size(100).Center(50).TextAnchor(TextAnchor.Center).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(255,255,0)).Text("Loaded program does not exist \n press rightshift to return").Depth(1);
+            TextBox().Size(100).Center(50).TextAnchor(TextAnchor.Center).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(255,255,0)).Text("Loaded program does not exist \n press rightshift to return").Depth(-1);
             return;
         }
 
@@ -144,7 +144,7 @@ public class DebugOverlay : RetainedElement
                     //todo: error for adding things during update
                     if (offset == count)
                     {
-                        Box().Size(new Vector2(100, 5)).Center(50, 20 + 5 * count).Color(Palette.Primary).Depth(1);
+                        Box().Size(new Vector2(100, 5)).Center(50, 20 + 5 * count).Color(Palette.Primary).Depth(-1);
 
                         if (Input.GetKeyDown(Keys.Enter))
                         {
@@ -160,7 +160,7 @@ public class DebugOverlay : RetainedElement
                         //todo sick debug menu that can mess with windows and expand the open window command and set object values with commands
                     }
                     //todo: make sorting layers or Z or something? for retained elements
-                    TextBox().Size(100).Center(50, 20 + 5 * count).TextAnchor(TextAnchor.Center).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,0)).Text(type.FullName).Depth(1);
+                    TextBox().Size(100).Center(50, 20 + 5 * count).TextAnchor(TextAnchor.Center).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,0)).Text(type.FullName).Depth(-1);
                     
                     count++;
                 }
@@ -186,15 +186,18 @@ public class DebugOverlay : RetainedElement
         if (Context.LoadedProgram == null)
         {
             //todo: make vector have implicit conversion from int so i dont have so many bounds overloads?
-            TextBox().Size(100).Center(50).TextAnchor(TextAnchor.Center).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255)).Text("Loaded program does not exist \n press rightshift to return").Depth(1);
+            TextBox().Size(100).Center(50).TextAnchor(TextAnchor.Center).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255)).Text("Loaded program does not exist \n press rightshift to return").Depth(-1);
             return;
         }
 
         //todo: region default size is 100
         Region("componentCreater").Scrolling(true);
+        
+        //todo: make the math library not dumb, and maybe make am attribute for a global usage appenditure
+        //todo: add GL vec3.xy and whatnot
 
         int count = 0;
-        foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+        foreach (Assembly assembly in Context.GetAssemblies())
         {//todo: change osmium editor window name in the os to the project opened
             foreach (Type type in assembly.GetTypes())
             {
@@ -203,7 +206,7 @@ public class DebugOverlay : RetainedElement
                     //todo: error for adding things during update
                     if (offset == count)
                     {
-                        Box().Size(new Vector2(100, 5)).Center(50, 20 + 5 * count).Color(Palette.Primary).Depth(1);
+                        Box().Size(new Vector2(100, 5)).Center(50, 20 + 5 * count).Color(Palette.Primary).Depth(-1);
 
                         if (Input.GetKeyDown(Keys.Enter))
                         {
@@ -221,7 +224,7 @@ public class DebugOverlay : RetainedElement
                         //todo sick debug menu that can mess with windows and expand the open window command and set object values with commands
                     }
                     //todo: make sorting layers or Z or something? for retained elements
-                    TextBox().Size(100).Center(50, 20 + 5 * count).TextAnchor(TextAnchor.Center).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,0)).Text(type.FullName).Depth(1);
+                    TextBox().Size(100).Center(50, 20 + 5 * count).TextAnchor(TextAnchor.Center).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,0)).Text(type.FullName).Depth(-1);
                     
                     count++;
                 }

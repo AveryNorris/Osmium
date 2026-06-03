@@ -37,6 +37,8 @@ public static partial class Backend
     /// <summary> Removes an instance of a retained element </summary>
     public static void RemoveElement(RetainedElement retainedElement) => _retainedElements.Remove(retainedElement);
     
-    
+
+    public static void Clear() => _retainedElements.Clear();
+
     
 }

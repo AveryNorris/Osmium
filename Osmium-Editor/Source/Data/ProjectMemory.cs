@@ -8,6 +8,7 @@ namespace OsmiumEditor;
 public static class ProjectMemory
 {
 
+    //todo: ban the use of app domain?
     public static string ProjectRefPath = Appdata.Path + "/projectRef";
 
 

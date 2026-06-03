@@ -64,4 +64,13 @@ public abstract partial class Component
     /// <summary> Makes the Component destroy itself </summary>
     [MarkerAttributes.MethodLambda]
     public void Destroy() => Parent.Destroy(this);
+
+
+
+    /// <inheritdoc cref="CoroutineRunner.Start"/>
+    [MarkerAttributes.MethodLambda]
+    public void Start(IEnumerator<ICoroutineAction> __coroutine) => CoroutineRunner.Start(__coroutine);
+    
+    
+    
 }
