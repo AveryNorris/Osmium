@@ -42,12 +42,12 @@ public class ProjectSelectMenu : RetainedElement
     }
 
     public void ConfigureWindow() {
-        Osmium.Context.WindowBorder = WindowBorder.Hidden;
+        Osmium.Window.WindowBorder = WindowBorder.Hidden;
 
-        Vector2i targetSize = new Vector2i((int) (Osmium.Context.CurrentMonitor.ClientArea.Height * .4f));
+        Vector2i targetSize = new Vector2i((int) (Osmium.Window.CurrentMonitor.ClientArea.Size.Y * .4f));
         
-        Osmium.Context.ClientSize = targetSize;
-        Osmium.Context.ClientLocation = Osmium.Context.CurrentMonitor.ClientArea.HalfSize - targetSize / 2;
+        Osmium.Window.ClientSize = targetSize;
+        Osmium.Window.ClientLocation = Osmium.Window.CurrentMonitor.ClientArea.HalfSize - targetSize / 2;
         
         Box().Size(100, 100).Color(Palette.Background);
 

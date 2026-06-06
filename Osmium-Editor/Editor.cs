@@ -1,5 +1,6 @@
 
 using System.Reflection;
+using Dear_ImGui_Sample.Backends;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Common.Input;
 using OsmiumNucleus;
@@ -12,7 +13,9 @@ namespace OsmiumEditor;
 public static class Editor
 {
     public static int Main(string[] __args) {
+        BedrockImGUICompatability.Incorporate();
         Osmium.EditorInitialize();
+        Bedrock.Run();
 
         Console.WriteLine("Manifest Names " + string.Join('\n', Assembly.GetAssembly(typeof(Editor))!.GetManifestResourceNames()));
         
@@ -23,7 +26,7 @@ public static class Editor
         }
         
         if(!OperatingSystem.IsMacOS())
-            Osmium.Context.Icon = new WindowIcon(new Image(image.Width, image.Height, image.Data));
+            Osmium.Window.Icon = new WindowIcon(new Image(image.Width, image.Height, image.Data));
             
         TextBox.DefaultFont = Font.FromBitmapStream(Assembly.GetAssembly(typeof(Editor)).GetManifestResourceStream("OsmiumEditor.Assets.proggyBitmapASCII.png"), 75, 19, [32,136]);
         TextBox.DefaultColor = Palette.Text;
@@ -35,7 +38,7 @@ public static class Editor
         Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.Personal));
 
 
-        Backend.Add<ProjectSelectMenu>();
+        //Backend.Add<ProjectSelectMenu>();
         Backend.Add<DebugOverlay>();
         
         //todo: make osmium mapping and delete scenes and components and collect garbage before then
@@ -43,7 +46,7 @@ public static class Editor
         Context.OnUnload += ComponentMap.ComponentMap.Unload;
         Context.OnReload += ComponentMap.ComponentMap.Reload;
 
-        Osmium.Context.UpdateFrame += (FrameEventArgs e) => Context.Update();
+        Osmium.Window.UpdateFrame += (FrameEventArgs e) => Context.Update();
         
         Osmium.EditorRun();
         

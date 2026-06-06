@@ -1,4 +1,4 @@
-using OpenTK.Graphics.OpenGL;
+using OpenTK.Graphics.OpenGL4;
 using OsmiumNucleus;
 using StbImageSharp;
 
@@ -51,12 +51,12 @@ public class Texture : IDisposable
         Height = image.Height;
         
         Handle = GL.GenTexture();
-        GL.BindTexture(TextureTarget.Texture2d, Handle);
-        GL.TexImage2D(TextureTarget.Texture2d, 0, InternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, image.Data);
+        GL.BindTexture(TextureTarget.Texture2D, Handle);
+        GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, image.Data);
         
-        GL.TexParameteri(TextureTarget.Texture2d, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
-        GL.TexParameteri(TextureTarget.Texture2d, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
-        GL.BindTexture(TextureTarget.Texture2d, 0);
+        GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
+        GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
+        GL.BindTexture(TextureTarget.Texture2D, 0);
         
         GL.Enable(EnableCap.Blend);
         GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
@@ -74,12 +74,12 @@ public class Texture : IDisposable
         Height = image.Height;
         
         Handle = GL.GenTexture();
-        GL.BindTexture(TextureTarget.Texture2d, Handle);
-        GL.TexImage2D(TextureTarget.Texture2d, 0, InternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, image.Data);
+        GL.BindTexture(TextureTarget.Texture2D, Handle);
+        GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, image.Data);
         
-        GL.TexParameteri(TextureTarget.Texture2d, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
-        GL.TexParameteri(TextureTarget.Texture2d, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
-        GL.BindTexture(TextureTarget.Texture2d, 0);
+        GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
+        GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
+        GL.BindTexture(TextureTarget.Texture2D, 0);
         
         GL.Enable(EnableCap.Blend);
         GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
@@ -94,10 +94,10 @@ public class Texture : IDisposable
     }
 
     public void Dispose() {
-        GL.BindTexture(TextureTarget.Texture2d, Handle);
+        GL.BindTexture(TextureTarget.Texture2D, Handle);
         
         GL.DeleteTexture(Handle);
         
-        GL.BindTexture(TextureTarget.Texture2d, 0);
+        GL.BindTexture(TextureTarget.Texture2D, 0);
     }
 }

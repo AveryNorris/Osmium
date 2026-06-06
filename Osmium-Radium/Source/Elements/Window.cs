@@ -117,28 +117,28 @@ public abstract class Window : RetainedElement
         if (rightBar.MouseDown(MouseButton.Left)) resizingRight = true;
         
         if(setCursor) { 
-            Osmium.Context.Cursor = MouseCursor.Default;
+            Osmium.Window.Cursor = MouseCursor.Default;
             setCursor = false;
         }
 
         if (bottomLeft.MouseInBounds() || topRight.MouseInBounds()) {
             setCursor = true;
-            Osmium.Context.Cursor = MouseCursor.ResizeNESW;
+            Osmium.Window.Cursor = MouseCursor.ResizeNESW;
          } else if (minRect.MouseInBounds() || maxRect.MouseInBounds()) {
             setCursor = true;
-            Osmium.Context.Cursor = MouseCursor.ResizeNWSE;
+            Osmium.Window.Cursor = MouseCursor.ResizeNWSE;
         }
         else if (topBar.MouseInBounds() || bottomBar.MouseInBounds())
         {
             setCursor = true;
-            Osmium.Context.Cursor = MouseCursor.ResizeNS;
+            Osmium.Window.Cursor = MouseCursor.ResizeNS;
         } else if (leftBar.MouseInBounds() || rightBar.MouseInBounds()) {
             setCursor = true;
-            Osmium.Context.Cursor = MouseCursor.ResizeEW;
+            Osmium.Window.Cursor = MouseCursor.ResizeEW;
         } else if (innerDragBar.MouseInBounds() && !innerDrawBarMask.MouseInBounds())
         {
             setCursor = true;
-            Osmium.Context.Cursor = MouseCursor.Crosshair;
+            Osmium.Window.Cursor = MouseCursor.Crosshair;
         }
         
 

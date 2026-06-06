@@ -1,5 +1,4 @@
-
-using OpenTK.Graphics.OpenGL.Compatibility;
+using OpenTK.Graphics.OpenGL4;
 using OpenTK.Windowing.Common;
 using OsmiumNucleus;
 
@@ -25,7 +24,7 @@ public static partial class Backend
     public static void UploadClippingUniform(Rect __clippingRect) {
         Clipping = __clippingRect;
         GL.UseProgram(_programHandle);
-        GL.Uniform4f(_clippingRectUniformHandle, __clippingRect.min.x, __clippingRect.min.y, __clippingRect.max.x, __clippingRect.max.y);
+        GL.Uniform4(_clippingRectUniformHandle, __clippingRect.min.x, __clippingRect.min.y, __clippingRect.max.x, __clippingRect.max.y);
         GL.UseProgram(0);
     }
 
@@ -52,9 +51,9 @@ public static partial class Backend
     }
     
     public static void Resize(ResizeEventArgs e) {
-        GL.Viewport(0, 0, Osmium.Context.FramebufferSize.X, Osmium.Context.FramebufferSize.Y);
-        WindowWidth = Osmium.Context.Size.X;
-        WindowHeight = Osmium.Context.Size.Y;
+        GL.Viewport(0, 0, Osmium.Window.FramebufferSize.X, Osmium.Window.FramebufferSize.Y);
+        WindowWidth = Osmium.Window.Size.X;
+        WindowHeight = Osmium.Window.Size.Y;
         WindowWidthHeightRatio = WindowWidth / WindowHeight;
     }
     

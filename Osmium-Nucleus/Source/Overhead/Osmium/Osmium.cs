@@ -11,7 +11,7 @@ namespace OsmiumNucleus;
 /// <summary> Main class of Osmium, allows you to Create() scenes and Initialize() the game </summary>
 /// <author> Avery Norris </author>
 #nullable enable
-public static class Osmium
+public static partial class Osmium
 {
     
     
@@ -22,7 +22,7 @@ public static class Osmium
 
 
     /// <summary> Bottom class of Osmium. Contains the OpenTK Instance. </summary>
-    public static Context Context { get; internal set; }
+    public static Window Window => Bedrock.window;
 
     
     
@@ -45,7 +45,7 @@ public static class Osmium
     
     /// <summary> The seconds since the last type of frame event. For instance if Draw was just called, DeltaTime would currently reflect the time since the
     /// last DRAW call, even though there was an Update call in between. Use this for framerate independent logic!</summary>
-    public static float DeltaTime { get; internal set; } = 0;
+    public static float DeltaTime => Bedrock.DeltaTime;
     
     
     
@@ -59,9 +59,8 @@ public static class Osmium
         
         IsInitialized = true;
         
-        //initialize here to allow any required access before Run()
-        Context = new Context();
-
+        Bedrock.Run();
+        
         EventManager.ResolveAllModules();
         
         foreach (IModule module in EventManager._LeadingModuleReferences) module.Initialize();
@@ -83,7 +82,7 @@ public static class Osmium
         Debug.Action("Beginning Update Loop!");
 
         foreach (IModule module in EventManager._LeadingModuleReferences) module.Run();
-        Context!.Run();
+        Window!.Run();
     }
     
     
@@ -100,7 +99,7 @@ public static class Osmium
         Debug.Log("Closing Osmium!");
         
         foreach (IModule module in EventManager._LeadingModuleReferences) module.Close();
-        Context!.Close();
+        Window!.Close();
     }
     
     
@@ -115,8 +114,6 @@ public static class Osmium
         
         IsInitialized = true;
         
-        Context = new Context();
-        
         Debug.Action("Successfully Initialized Osmium!");
     }
     
@@ -130,7 +127,7 @@ public static class Osmium
         if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return; }
         if(IsRunning) { Debug.Error("Osmium is already Running!"); return; }
         
-        Context!.Run();
+        Window!.Run();
     }
     
     

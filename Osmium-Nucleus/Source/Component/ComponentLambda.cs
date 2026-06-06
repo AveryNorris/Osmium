@@ -7,8 +7,8 @@ public abstract partial class Component
     
     
     
-    /// <inheritdoc cref="Osmium.Context"/>
-    protected static Context OsmiumContext => Osmium.Context;
+    /// <inheritdoc cref="Osmium.Window"/>
+    protected static Window OsmiumWindow => Osmium.Window;
     
     
     

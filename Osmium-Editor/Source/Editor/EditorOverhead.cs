@@ -10,11 +10,11 @@ public class EditorOverhead : RetainedElement
 {
 
     public EditorOverhead() {
-        Osmium.Context.ClientSize = Osmium.Context.CurrentMonitor.ClientArea.Size;
-        Osmium.Context.ClientLocation = Vector2i.Zero;
-        Osmium.Context.WindowState = WindowState.Maximized;
+        Osmium.Window.ClientSize = Osmium.Window.CurrentMonitor.ClientArea.Size;
+        Osmium.Window.ClientLocation = Vector2i.Zero;
+        Osmium.Window.WindowState = WindowState.Maximized;
         
-        Osmium.Context.WindowBorder = WindowBorder.Resizable;
+        Osmium.Window.WindowBorder = WindowBorder.Resizable;
         
         Debug.Log("RETAINED ELEMENTS : " + string.Join(',', Backend.RetainedElements));
 

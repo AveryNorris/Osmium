@@ -1,5 +1,5 @@
 using System.Reflection;
-using OpenTK.Graphics.OpenGL.Compatibility;
+using OpenTK.Graphics.OpenGL4;
 using OsmiumNucleus;
 
 namespace OsmiumRadium;
@@ -104,7 +104,7 @@ public static partial class Backend
         GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferHandle);
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _indexBufferHandle);
         
-        GL.BufferData(BufferTarget.ElementArrayBuffer, _quadIndexLayout.Length * sizeof(int), _quadIndexLayout, BufferUsage.DynamicDraw);
+        GL.BufferData(BufferTarget.ElementArrayBuffer, _quadIndexLayout.Length * sizeof(int), _quadIndexLayout, BufferUsageHint.DynamicDraw);
         
         GL.VertexAttribPointer(0, 2, VertexAttribPointerType.Float, false, 4 * sizeof(float), 0);
         GL.EnableVertexAttribArray(0);
@@ -150,7 +150,7 @@ public static partial class Backend
         _largeIndexBuffer = GL.GenBuffer();
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _largeIndexBuffer);
         
-        GL.BufferData(BufferTarget.ElementArrayBuffer, indices.Length * sizeof(int), indices, BufferUsage.StaticRead);
+        GL.BufferData(BufferTarget.ElementArrayBuffer, indices.Length * sizeof(int), indices, BufferUsageHint.StaticRead);
         
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
         
@@ -164,15 +164,15 @@ public static partial class Backend
         
         _zUniformHandle = GL.GetUniformLocation(_programHandle, "z");
         
-        GL.Uniform1f(GL.GetUniformLocation(_programHandle, "tex"), 0);
+        GL.Uniform1(GL.GetUniformLocation(_programHandle, "tex"), 0);
 
         #endregion
         
         #region Events
         
-        Osmium.Context.Resize += Resize;
-        Osmium.Context.UpdateFrame += Update;
-        Osmium.Context.RenderFrame += Draw;
+        Osmium.Window.Resize += Resize;
+        Osmium.Window.UpdateFrame += Update;
+        Osmium.Window.RenderFrame += Draw;
         
         #endregion
         
@@ -189,7 +189,6 @@ public static partial class Backend
         
         //todo: add a debug that uses object and turns it into a string and a few ones that have int and whatnot
         //and they use preferrable tostring params, add some tostring params to my pretty types as well, like component
-        Debug.Log(GL.GetInteger(GetPName.DepthBits).ToString());
     }
     
     

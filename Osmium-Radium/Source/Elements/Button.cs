@@ -91,7 +91,7 @@ public class Button : ImmediateElement, IBoundedElement, ITextElement, IInteract
         //todo: make cursor manager class and increase API
 
         if (Down()) {
-            Osmium.Context.Cursor = MouseCursor.Default;
+            Osmium.Window.Cursor = MouseCursor.Default;
             boxColor = _downColor;
         }
         else if (Up()) {
@@ -102,7 +102,7 @@ public class Button : ImmediateElement, IBoundedElement, ITextElement, IInteract
         }
         else if (Hover())
         {
-            Osmium.Context.Cursor = MouseCursor.Default;
+            Osmium.Window.Cursor = MouseCursor.Default;
             boxColor = _hoverColor;
         }
         

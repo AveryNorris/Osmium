@@ -108,13 +108,13 @@ public struct Rect
 
 
     public bool MouseDown(MouseButton button) => 
-        MouseInBounds() && Osmium.Context.MouseState.IsButtonPressed(button);
+        MouseInBounds() && Osmium.Window.MouseState.IsButtonPressed(button);
     
     public bool MouseUp(MouseButton button) => 
-        MouseInBounds() && Osmium.Context.MouseState.IsButtonReleased(button);
+        MouseInBounds() && Osmium.Window.MouseState.IsButtonReleased(button);
 
     public bool MouseHeld(MouseButton button) => 
-        MouseInBounds() && Osmium.Context.MouseState.IsButtonDown(button);
+        MouseInBounds() && Osmium.Window.MouseState.IsButtonDown(button);
 
     public bool MouseInBounds() =>
         Input.MousePos.x >= min.x && Input.MousePos.y >= min.y &&

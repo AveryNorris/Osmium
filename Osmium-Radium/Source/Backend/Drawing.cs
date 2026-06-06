@@ -1,4 +1,4 @@
-using OpenTK.Graphics.OpenGL.Compatibility;
+using OpenTK.Graphics.OpenGL4;
 using OpenTK.Windowing.Common;
 using OsmiumNucleus;
 
@@ -66,18 +66,18 @@ public static partial class Backend
     public static void DrawElement(Texture __texture, Color color, float __z, params float[] vertexData)
     {
         GL.ActiveTexture(TextureUnit.Texture0);
-        GL.BindTexture(TextureTarget.Texture2d, __texture.Handle);
+        GL.BindTexture(TextureTarget.Texture2D, __texture.Handle);
         
         GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferHandle);
-        GL.BufferData(BufferTarget.ArrayBuffer, vertexData.Length * sizeof(float), vertexData, BufferUsage.DynamicDraw);
+        GL.BufferData(BufferTarget.ArrayBuffer, vertexData.Length * sizeof(float), vertexData, BufferUsageHint.DynamicDraw);
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _indexBufferHandle);
         
         GL.BindVertexArray(_vertexArrayHandle);
 
         GL.UseProgram(_programHandle);
         
-        GL.Uniform4f(_colorUniformHandle, color.r / 255f, color.g / 255f, color.b / 255f, color.a / 255f);
-        GL.Uniform1f(_zUniformHandle, __z);
+        GL.Uniform4(_colorUniformHandle, color.r / 255f, color.g / 255f, color.b / 255f, color.a / 255f);
+        GL.Uniform1(_zUniformHandle, __z);
         
         GL.DrawElements(PrimitiveType.Triangles, _quadIndexLayout.Length, DrawElementsType.UnsignedInt, 0);
     }
@@ -98,18 +98,18 @@ public static partial class Backend
     public static void DrawElements(Texture __texture, int __count, Color color, float __z, params float[] vertexData)
     {
         GL.ActiveTexture(TextureUnit.Texture0);
-        GL.BindTexture(TextureTarget.Texture2d, __texture.Handle);
+        GL.BindTexture(TextureTarget.Texture2D, __texture.Handle);
         
         GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferHandle);
-        GL.BufferData(BufferTarget.ArrayBuffer, vertexData.Length * sizeof(float), vertexData, BufferUsage.DynamicDraw);
+        GL.BufferData(BufferTarget.ArrayBuffer, vertexData.Length * sizeof(float), vertexData, BufferUsageHint.DynamicDraw);
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _largeIndexBuffer);
         
         GL.BindVertexArray(_vertexArrayHandle);
 
         GL.UseProgram(_programHandle);
         
-        GL.Uniform4f(_colorUniformHandle, color.r / 255f, color.g / 255f, color.b / 255f, color.a / 255f);
-        GL.Uniform1f(_zUniformHandle, __z);
+        GL.Uniform4(_colorUniformHandle, color.r / 255f, color.g / 255f, color.b / 255f, color.a / 255f);
+        GL.Uniform1(_zUniformHandle, __z);
         
         GL.DrawElements(PrimitiveType.Triangles, __count * 6, DrawElementsType.UnsignedInt, 0);
     }
