@@ -181,8 +181,10 @@ public static partial class Backend
         GL.DepthFunc(DepthFunction.Lequal);
         
         GL.Enable(EnableCap.Blend);
-        GL.BlendFunc(BlendingFactor.SrcColor, BlendingFactor.OneMinusSrcAlpha);
-        
+        GL.BlendFunc(
+            BlendingFactor.SrcAlpha,
+            BlendingFactor.OneMinusSrcAlpha
+        );        
         GL.DepthMask(true);
         
         //todo: add a debug that uses object and turns it into a string and a few ones that have int and whatnot

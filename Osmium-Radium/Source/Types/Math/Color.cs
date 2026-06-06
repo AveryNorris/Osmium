@@ -11,7 +11,7 @@ public struct Color
     public byte g;
     public byte b;
     public byte a;
-
+    
     
     
     private Color(byte __r, byte __g, byte __b, byte __a) { a = __a; r = __r; g = __g; b = __b; }
@@ -46,7 +46,7 @@ public struct Color
     public static implicit operator Color(Palette __palette) => FromPalette(__palette);
 
     public static Color Error => FromRgb(255, 0, 255);
-
+    
     public override string ToString() => "<R:" + r + ",G:" + g + ",B:" + b + ",A:" + a + ">";
 
 }

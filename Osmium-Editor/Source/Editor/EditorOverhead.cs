@@ -19,9 +19,12 @@ public class EditorOverhead : RetainedElement
         Debug.Log("RETAINED ELEMENTS : " + string.Join(',', Backend.RetainedElements));
 
         //todo: make sure that windows are all static and support multiple of them!, and make Osmium Multithreaded
-        Backend.Add<Inspector>().bounds = new Bounds(pos: new OsmiumRadium.Vector2(85,0), size: new OsmiumRadium.Vector2(15, 100));
-        Backend.Add<ComponentHierarchy>().bounds = new Bounds(pos: new OsmiumRadium.Vector2(65,0), size: new OsmiumRadium.Vector2(20, 75));
-        Backend.Add<SceneHierarchy>().bounds = new Bounds(pos: new OsmiumRadium.Vector2(65,75), size: new OsmiumRadium.Vector2(20, 25));
+        Backend.Add<Inspector>().Rect = Rect.FromPosSize(85, 0, 15, 100);
+        Backend.Add<ComponentHierarchy>().Rect = Rect.FromPosSize(65, 0, 20, 100 - 36.5625f);
+        Backend.Add<SceneHierarchy>().Rect = Rect.FromPosSize(65,100 - 36.5625f, size: new OsmiumRadium.Vector2(20, 36.5625f));
+        Backend.Add<DebugConsole>().Rect = Rect.FromPosSize(0,100 - 36.5625f, 65,36.5625f);
+        
+        //renderer should be 65 x 36.5625
 
         //Backend.Add<CompileTesting>();
         

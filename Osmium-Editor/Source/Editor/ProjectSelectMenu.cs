@@ -35,7 +35,7 @@ public class ProjectSelectMenu : RetainedElement
         ProjectMemory.RefreshProjectList();
     }
 
-    protected override void Draw() {
+    protected override void Draw() { 
         ConfigureWindow();
         DefineHeader();
         ProjectList();
@@ -51,11 +51,26 @@ public class ProjectSelectMenu : RetainedElement
         
         Box().Size(100, 100).Color(Palette.Background);
 
-        Box().Color(Palette.Border).Pos(0, 16.75f).Max(100, 17);
-        Box().Color(Palette.Border).Pos(2, 16.75f).Max(2.25f, 100);
-    }
+        Box().Color(Palette.Border).Corners(0, 16.75f, 100, 17);
+        Box().Color(Palette.Border).Corners(2, 16.75f, 2.25f, 100);
+
+        const float lineSize = .125f;
+
+        //todo: use a window with draggable set to false
+        
+        Region(() =>
+        {
+            Box().Corners(0, 0, 100, lineSize);
+            Box().Corners(0, 0, lineSize, 100);
+            Box().Corners(0, 100 - lineSize, 100, 100);
+            Box().Corners(0, 100 - lineSize, 100, 100);
+        }).Depth(IDepthElementExtensions.Header);
+        
+        
+    }   
     
     public void DefineHeader() {
+        
         Box().Texture(osmiumLogo).Color(Palette.White).Pos(2,2).Size(13);
         
         TextBox().Text("Osmium").Font(jetbrains).Pos(14.5f, 2f).Size(100).TextSize(13).Spacing(.5f, 1).TextColor(Palette.Primary);
@@ -134,36 +149,41 @@ public class ProjectSelectMenu : RetainedElement
         ProjectMemory.RefreshProjectList();
     }
 
+    private float scroll = 0;
     
     public void ProjectList() {
         
         //todo : region inheritance pattern
-        Region("ProjectList").Min(2.5f, 22).Max(100).Scrolling(true);
+
+        const float horizontalStart = 5;
+        const float verticalStart = 26;
+
+        const float lineBreakHeight = 2.1f;
+        const float projectHeight = 11;
+
+        const int pathLineBreakCharacters = 65;
         
-        int futureOffset = 0;
-        for(int i = 0; i < ProjectMemory.Projects.Count; i++)
-        {
+        int lineBreaks = 0;
+        Group(ProjectMemory.Projects, (count, element) => {
 
             bool forgetting = false;
-            
-            string path = ProjectMemory.Projects[i];
+
+            string path = element;
             string projectName = Path.GetFileNameWithoutExtension(path);
 
-            Vector2 pos = new Vector2(5, 26 + futureOffset * 2.1f + i * 11);
+            Vector2 pos = new Vector2(horizontalStart, verticalStart + lineBreaks * lineBreakHeight + count * projectHeight);
+            Vector2 size = new Vector2(0, projectHeight);
             
             StringBuilder indentedPath = new StringBuilder();
             for (int c = 0; c < path.Length; c++) {
-                
-                //wrap _text if it is too many characters
-                if (c % 65 == 0) {
+                if (c % pathLineBreakCharacters == 0) {
                     indentedPath.Append('\n');
-                    futureOffset++;
+                    lineBreaks++;
                 }
 
                 indentedPath.Append(path[c]);
             }
             
-            Vector2 size = new Vector2(5, 26 + futureOffset * 2.1f + (i + 1) * 11) - pos;
 
             Button projectButton = Button().Pos(2.5f, pos.y - 1.5f).Size(97.5f, size.y).NormalColor(Palette.Background)
                 .HoverColor(Palette.Primary).ActiveColor(Palette.Secondary | Palette.Active);
@@ -184,13 +204,8 @@ public class ProjectSelectMenu : RetainedElement
                 Backend.RemoveElement(this);
                 Backend.Add<EditorOverhead>();
                 Context.OpenProject(path);
-                Exit();
-                return;
             }
 
-        }
-        
-        Exit();
-
+        }).Corners(2.5f, 22, 100, 100).Depth(0).Scrollable(ref scroll, verticalStart + lineBreaks * lineBreakHeight + ProjectMemory.Projects.Count * projectHeight);
     }
 }

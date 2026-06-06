@@ -8,7 +8,7 @@ namespace OsmiumRadium;
 
 
 /// <summary> Describes a box drawn for one frame </summary>
-public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBox>, ITextElement<TextBox>, ITextElement, IDepthElement<TextBox>, IDepthElement
+public class TextBox : ImmediateElement, IBoundedElement, ITextElement
 {
     
     private static readonly Vector2[] Orientations = [
@@ -37,8 +37,8 @@ public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBo
     
     
     
-    /// <inheritdoc cref="IBoundedElement{TSelf}._bounds"/>
-    public Bounds _bounds { get; set; }
+    /// <inheritdoc cref="IBoundedElement.Rect"/>
+    public Rect Rect { get; set; }
     
     /// <inheritdoc cref="IColoredElement{TSelf}._textColor"/>
     public Color _textColor { get; set; }
@@ -60,9 +60,6 @@ public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBo
     /// <inheritdoc cref="ITextElement{TSelf}._textAnchor"/>
     public TextAnchor _textAnchor { get; set; }
     
-    /// <inheritdoc cref="IDepthElement._depth"/>
-    public float _depth { get; set; }
-    
     
     //todo: figure out default colors
     /// <summary> Default _color of the _text unless explicitly stated otherwise </summary>
@@ -71,7 +68,7 @@ public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBo
     public static Font DefaultFont = Backend.DefaultFont;
 
     internal TextBox() {
-        _bounds = new Bounds();
+        Rect = new Rect();
         _font = DefaultFont;
         _textColor = DefaultColor;
         _spacing = new Vector2(.4f, 1);
@@ -81,6 +78,10 @@ public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBo
     
     //todo: make text spacing a ratio of text size and screen proportions relative to the ideal ratio. and optimize it
     protected internal override void Draw() {
+        if (_text.Length > Backend.MaxElementsPerDraw) {
+            Debug.Error("Text's length exceeds the maximum allowed characters! It may be rendered incorrectly; you can increase the limit in the config.");
+        }
+        
         List<float> lengths = [_spacing.x];
         float yBound = _spacing.y * _textSize;
 
@@ -105,8 +106,8 @@ public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBo
         
         //todo: buffer _text a little bit? kind of on the edge
         
-        Vector2 basePos = _bounds.pos 
-                          + (_bounds.size * Orientations[(int)_textAnchor]) 
+        Vector2 basePos = Rect.pos 
+                          + (Rect.size * Orientations[(int)_textAnchor]) 
                           + (new Vector2(lengths[0], yBound) * BoundsOffsets[(int)_textAnchor]);
         
         Vector2 currentPos = basePos;
@@ -115,7 +116,8 @@ public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBo
         List<float> vertexData = new List<float>(_text.Length);
 
         //todo: SUBCLIPPING! text boxes reset clipping with this commented out line, make it so that it resets the clipping bounds to what portion is shared by the two bounds
-        Backend.UploadSubclippingUniform(_bounds);
+        Rect preexistingClipping = Backend.Clipping;
+        Backend.UploadSubclippingUniform(Rect);
         
         for(int i = 0; i < _text.Length; i++) {
             
@@ -149,13 +151,11 @@ public class TextBox : ImmediateElement, IBoundedElement, IBoundedElement<TextBo
             currentPos.x += _spacing.x * _textSize;
             characters++;
         }
-
-        if (vertexData.Count > Backend.MaxElementsPerDraw) {
-            Debug.Error("Text's length exceeds the maximum allowed characters! It may be rendered incorrectly; you can increase the limit in the config.");
-        }
         
         //todo: this guy is suspicious!
         Backend.DrawElements(_font.texture, characters, _textColor, _depth, vertexData.ToArray());
+        
+        Backend.UploadClippingUniform(preexistingClipping);
         
 
         

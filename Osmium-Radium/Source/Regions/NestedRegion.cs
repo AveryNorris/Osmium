@@ -2,117 +2,69 @@
 
 
 
+using OsmiumNucleus;
+
 namespace OsmiumRadium;
 
 
-public class NestedRegion : Region, IBoundedElement, IBoundedElement<NestedRegion>, IColoredElement<NestedRegion>, IColoredElement
+
+/// <summary> Represents a region of elements that is nested within the stable region </summary>
+public class NestedRegion(Region parent) : Region, IBoundedElement
 {
     
-    //todo: be careful with many names, add a dispose or something maybe
+
+    /// <inheritdoc cref="IBoundedElement.Rect"/>
+    public Rect Rect { get; set; } = Rect.FullScreen;
+
+
+
+    /// <summary> The value of the scroll, equal to -1 if there is no scroll </summary>
+    private float scroll = -1;
     
-    //todo: ADD a custom identifier for each region or something; so scrolling values are saved.
     
-    //todo: make all element types have a backing type! like ibounded element and Iboundedelement<> 
-    public Bounds _bounds { get; set; }
-    
-    public bool clipping = true;
-    public bool scrolling = false;
-
-    public bool coloring = false;
-
-    //todo: make a permanent solution
-    public static float scroll;
-
-    public static float scrollCap = float.PositiveInfinity;
-
-    private string name;
-
-    public static Dictionary<string, float> ScrollingValues = [];
-
-    public NestedRegion Coloring() {
-        coloring = true;
-        return this;
-    }
-
-    public NestedRegion Scrolling(bool __scrolling) {
-        scrolling = __scrolling;
-        return this;
-    }
-
-    public NestedRegion ScrollCap(int __scrollCap) {
-        scrollCap = __scrollCap;
-
-        return this;
-    }
-
-    public NestedRegion(string __name) {
-
-        this.Size(100);
+    /// <summary> Lets the user scroll through everything in the region </summary>
+    /// <param name="__scroll"> The value of the scroll, to use scrolling regions you must save this and insert it back in whenever you use scrollable</param>
+    /// <param name="__scrollCap"> The maximum size the scroll can go down </param>
+    public void Scrollable(ref float __scroll, float __scrollCap) {
+        __scroll -= Input.Scroll.y;
         
-        name = __name;
-        if (ScrollingValues.TryGetValue(name, out float value)) {
-            scroll = value;
-        } else {
-            ScrollingValues.Add(name, scroll);
-        }
+        float trueScrollCap = __scrollCap - Rect.size.y;
+        if (__scroll > trueScrollCap) __scroll = trueScrollCap;
+        if (__scroll < 0) __scroll = 0;
+        
+        scroll = __scroll;
     }
-
+    
+    
+    
     protected internal override void Draw() {
-        if (scrolling) {
-            scroll -= Input.Scroll.y * 3;
-            if (scroll < 0) {
-                scroll = 0;
-            }else if (scroll >= scrollCap) {
-                scroll = scrollCap;
-            }
-            
-            ScrollingValues[name] = scroll;
-        }
-        
-        //todo: error for setting clipping inside of a region, nested regions? virtual regions
 
-        Bounds ParentClipping = Backend.Clipping;
+        foreach (ImmediateElement element in _children) {
 
-        for(int i = 0; i < _children.Count; i++) {
-            Backend.UploadSubclippingUniform(ParentClipping, _bounds);
-            
-            ImmediateElement immediateElement = _children[i];
-            
-            if (scrolling) {
-                if (immediateElement is IBoundedElement boundedElement) {
-                    Bounds bounds = boundedElement._bounds;
+            if (!float.IsNaN(_depth) && element._overrideDepth)
+                element._depth = _depth;
 
-                    bounds.pos = bounds.pos with { y = bounds.pos.y - scroll };
-
-                    boundedElement._bounds = bounds;
+            if (scroll > 0 && element is IBoundedElement bounded) {
+                if (element is NestedRegion region) region.Scrollable(ref scroll, float.PositiveInfinity);
+                else {
+                    bounded.Rect = bounded.Rect with {
+                        pos = new Vector2(bounded.Rect.pos.x, bounded.Rect.pos.y - scroll)
+                    };
                 }
             }
-
-            if (coloring)
-            {
-                if (immediateElement is IColoredElement coloredElement)
-                {
-                    float er = coloredElement._color.r / 255f;
-                    float eg = coloredElement._color.g / 255f;
-                    float eb = coloredElement._color.b / 255f;
-                    float ea = coloredElement._color.a / 255f;
-
-                    float mr = _color.r / 255f;
-                    float mg = _color.g / 255f;
-                    float mb = _color.b / 255f;
-                    float ma = _color.a / 255f;
-                    
-                    coloredElement._color = Color.FromArgb(er * mr, eg * mg, eb * mb, ea * ma);
-                }
-                
-                //todo: trash???
-            }
-            
-            immediateElement.Draw();
         }
         
+        base.Draw();
     }
 
-    public Color _color { get; set; }
-    public List<NestedRegion> Regions { get; set; } = [];
+    
+    //todo: make sure these are immutable at immediate time, and make that documented
+    //todo: ALWAYS think about Immediate vs Retained time when debugging, 9 times / 10 it is the issue 
+
+    
+    
+    protected internal override void SetClipping() {
+        parent.SetClipping();
+        Backend.UploadSubclippingUniform( Rect);
+    }
 }

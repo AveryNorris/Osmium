@@ -33,6 +33,16 @@ public struct Vector2
     
     public static Vector2 operator /(Vector2 a, Vector2 b) => new Vector2(a.x / b.x, a.y / b.y);
 
+    public static Vector2 Min(Vector2 a, Vector2 b) {
+        return new Vector2(float.Min(a.x, b.x), float.Min(a.y, b.y));
+    }
+    
+    public static Vector2 Max(Vector2 a, Vector2 b) {
+        return new Vector2(float.Max(a.x, b.x), float.Max(a.y, b.y));
+    }
+
+    public static implicit operator Vector2(float v) => new Vector2(v);
+    
     public override string ToString() {
         return '<' + x.ToString() + ',' + y.ToString() + '>';
     }

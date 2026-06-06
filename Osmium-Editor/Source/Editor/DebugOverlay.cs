@@ -32,6 +32,8 @@ public class DebugOverlay : RetainedElement
     }
 
     protected override void Draw() {
+        Region().Depth(-1);
+        
         if (menuState == 0) {
             FrameRates.Add(1f / Osmium.DeltaTime);
             if (FrameRates.Count > 1000) {
@@ -41,19 +43,18 @@ public class DebugOverlay : RetainedElement
             frameratesum += Osmium.DeltaTime;
             frameratecount++;
             
-            TextBox().Text("AFPS : " + (int)(1f / (frameratesum / frameratecount))).TextSize(5).Spacing(.45f, 1).Size(100).TextColor(Color.FromRgb(255,255,0)).Depth(-1);
+            TextBox().Text("AFPS : " + (int)(1f / (frameratesum / frameratecount))).TextSize(5).Spacing(.45f, 1).Size(100).TextColor(Color.FromRgb(255,255,0));
             
-            TextBox().Text("IFPS : " + (1f / Osmium.DeltaTime)).Pos(26,0).Size(100).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,255)).Depth(-1);
-            TextBox().Text(" > " + FrameRates.Min()).Pos(26,5).TextSize(5).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,255)).Depth(-1);
-            TextBox().Text(" < " + FrameRates.Max()).Pos(26,10).TextSize(5).Spacing(.45f, 1).Size(100).TextColor(Color.FromRgb(0,255,255)).Depth(-1);
-
+            TextBox().Text("IFPS : " + (1f / Osmium.DeltaTime)).Pos(26,0).Size(100).TextSize(5).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,255));
+            TextBox().Text(" > " + FrameRates.Min()).Pos(26,5).TextSize(5).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(0,255,255));
+            TextBox().Text(" < " + FrameRates.Max()).Pos(26,10).TextSize(5).Spacing(.45f, 1).Size(100).TextColor(Color.FromRgb(0,255,255));
             
-            TextBox().Text("RElements : " + OsmiumRadium.Backend.RetainedElements.Count).TextSize(5).Pos(62,0).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255)).Depth(-1);
-            TextBox().Text("IElements : " + OsmiumRadium.Backend.immediateElementCount).TextSize(5).Pos(62,6).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255)).Depth(-1);
+            TextBox().Text("RElements : " + OsmiumRadium.Backend.RetainedElements.Count).TextSize(5).Pos(62,0).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255));
+            TextBox().Text("IElements : " + OsmiumRadium.Backend.immediateElementCount).TextSize(5).Pos(62,6).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,0,255));
             
-            TextBox().Text("Screen Size : (" + OsmiumRadium.Backend.WindowWidth + ',' + OsmiumRadium.Backend.WindowHeight + ") : " + OsmiumRadium.Backend.WindowWidthHeightRatio).TextSize(5).Pos(0,95).Size(100).Spacing(.45f, 1).TextAnchor(TextAnchor.TopLeft).TextColor(Color.FromRgb(0,255,0)).Depth(-1);
+            TextBox().Text("Screen Size : (" + OsmiumRadium.Backend.WindowWidth + ',' + OsmiumRadium.Backend.WindowHeight + ") : " + OsmiumRadium.Backend.WindowWidthHeightRatio).TextSize(5).Pos(0,95).Size(100).Spacing(.45f, 1).TextAnchor(TextAnchor.TopLeft).TextColor(Color.FromRgb(0,255,0));
             
-            TextBox().Pos(0).TextAnchor(TextAnchor.Center).TextSize(5).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,255,0)).Text("_> " + CommandText).Depth(-1);
+            TextBox().Pos(0).TextAnchor(TextAnchor.Center).TextSize(5).Size(100).Spacing(.45f, 1).TextColor(Color.FromRgb(255,255,0)).Text("_> " + CommandText);
 
             CommandText += Input.TextInput;
             
@@ -77,6 +78,8 @@ public class DebugOverlay : RetainedElement
             targetScene = null;
             FrameRates.Clear();
         }
+        
+        Exit();
     }
 
     public void EnactCommand() {
@@ -132,7 +135,7 @@ public class DebugOverlay : RetainedElement
         }
 
         //todo: region default size is 100
-        Region("windowOpener").Scrolling(true);
+        Region();
 
         int count = 0;
         foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
@@ -149,7 +152,7 @@ public class DebugOverlay : RetainedElement
                         if (Input.GetKeyDown(Keys.Enter))
                         {
                             Window window = Activator.CreateInstance(type) as Window;
-                            window.bounds = new Bounds(size: new Vector2(50), center: new Vector2(50));
+                            window.Rect = Rect.FromCenterSize(50, 50);
                             Backend.Add(window);
                             menuState = 0;
                             offset = 0;
@@ -191,7 +194,7 @@ public class DebugOverlay : RetainedElement
         }
 
         //todo: region default size is 100
-        Region("componentCreater").Scrolling(true);
+        Region();
         
         //todo: make the math library not dumb, and maybe make am attribute for a global usage appenditure
         //todo: add GL vec3.xy and whatnot

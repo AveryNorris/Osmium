@@ -1,7 +1,6 @@
 using OsmiumNucleus;
 
 
-
 namespace OsmiumRadium;
 
 
@@ -50,12 +49,37 @@ public abstract class RetainedElement : Element
         IntroduceElement(returnValue);
         return returnValue;
     }
-
-    protected NestedRegion Region(string name) {
-        NestedRegion returnValue = new NestedRegion(name);
+    
+    protected NestedRegion Region() {
+        NestedRegion returnValue = new NestedRegion(RegionState.Current);
         IntroduceElement(returnValue);
         
         RegionState.Focus(returnValue);
+        return returnValue;
+    }
+
+    protected NestedRegion Group<T>(IEnumerable<T> __collection, Action<uint, T> __action) {
+        NestedRegion returnValue = Region();
+        
+        uint count = 0;
+        
+        foreach(T item in __collection) {
+            __action(count, item);
+            count++;
+        }
+        
+        Exit();
+        
+        return returnValue;
+    }
+    
+    protected NestedRegion Region(Action __action) {
+        NestedRegion returnValue = Region();
+        
+        __action();
+        
+        Exit();
+        
         return returnValue;
     }
 

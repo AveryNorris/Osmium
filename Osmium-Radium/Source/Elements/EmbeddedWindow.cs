@@ -13,23 +13,27 @@ public abstract class EmbeddedWindow(string name, Color? background = null) : Wi
     public Color background = background ?? Palette.Background;
 
     protected override void DrawWindow() {
-        
-        //todo: window element?
-        Box().Pos(bounds.min).Size(bounds.size).Color(background).Depth(1);
 
-        //todo: bounds.width and bounds.height
-        
-        //todo: a depth class that organizes stuff
-        //vertical lines
-        Box().Pos(bounds.min).Size(LineSize, bounds.size.y).Color(Palette.Border);
-        Box().Pos(bounds.max.x,bounds.min.y).Size(LineSize, bounds.size.y).Color(Palette.Border);
-        //horizontal
-        Box().Pos(bounds.min).Size(bounds.size.x, LineSize).Color(Palette.Border);
-        Box().Pos(bounds.min.x, bounds.max.y).Size(bounds.size.x, LineSize).Color(Palette.Border);
+            //todo: window element?
+            Box().Pos(Rect.min).Size(Rect.size).Color(background).Depth(IDepthElementExtensions.BackgroundDepth);
 
-        Box().Pos(bounds.min).Size(bounds.size.x, HeaderSize).Color(Palette.Secondary);
-        TextBox().Pos(bounds.min).Size(bounds.size.x, HeaderSize).TextSize(HeaderSize).Text(name);
-        
+            //todo: bounds.width and bounds.height
+
+            //todo: a depth class that organizes stuff
+            //vertical lines
+            Box().Pos(Rect.min).Size(LineSize, Rect.size.y).Color(Palette.Border).Depth(IDepthElementExtensions.Header);
+            Box().Pos(Rect.max.x, Rect.min.y).Size(LineSize, Rect.size.y).Color(Palette.Border)
+                .Depth(IDepthElementExtensions.Header);
+            //horizontal
+            Box().Pos(Rect.min).Size(Rect.size.x, LineSize).Color(Palette.Border).Depth(IDepthElementExtensions.Header);
+            Box().Pos(Rect.min.x, Rect.max.y).Size(Rect.size.x, LineSize).Color(Palette.Border)
+                .Depth(IDepthElementExtensions.Header);
+
+            Box().Pos(Rect.min).Size(Rect.size.x, HeaderSize).Color(Palette.Secondary)
+                .Depth(IDepthElementExtensions.Header);
+            TextBox().Pos(Rect.min).Size(Rect.size.x, HeaderSize).TextSize(HeaderSize).Text(name)
+                .Depth(IDepthElementExtensions.Header);
+
         DrawEmbeddedWindow();
     }
 

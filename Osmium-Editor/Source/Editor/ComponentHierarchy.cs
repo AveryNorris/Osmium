@@ -19,8 +19,8 @@ public class ComponentHierarchy() : EmbeddedWindow("Hierarchy")
         int count = 0;
         foreach (Component component in SceneHierarchy.selectedScene)
         {
-            if (Button().Pos(bounds.pos.x, bounds.pos.y + 7.5f + componentTextSize * count)
-                .Size(bounds.size.x, componentTextSize).TextSize(componentTextSize).Text(component.GetType().Name).Down())
+            if (Button().Pos(Rect.pos.x, Rect.pos.y + 7.5f + componentTextSize * count)
+                .Size(Rect.size.x, componentTextSize).TextSize(componentTextSize).Text(component.GetType().Name).Down())
             {
                 selectedComponent = component;
             }

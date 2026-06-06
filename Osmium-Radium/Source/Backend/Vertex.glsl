@@ -5,6 +5,7 @@ layout (location = 1) in vec2 uv;
 //layout (location = 1) in vec2 uv; todo: UV might be needed, but if i can i would like to merge that in with pos.
 
 uniform float z;
+//todo: organize Z from 0 to 100
 
 out vec2 pos_out;
 out vec2 uvcoord;

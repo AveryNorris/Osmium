@@ -21,7 +21,23 @@ public abstract class Region : ImmediateElement
     /// <summary> Returns the enumerator for all the elements at that time
     /// You can modify the regions list during this enumerator without errors </summary>
     public IEnumerator<ImmediateElement> GetEnumerator() => _children.ToList().GetEnumerator();
+
     
+    
+    protected internal override void Draw() {
+        Rect previousClipping = Backend.Clipping;
+        SetClipping();
+        
+        for(int i = 0; i < _children.Count; i++) {
+            ImmediateElement immediateElement = _children[i];
+            
+            immediateElement.Draw();
+        }
+        
+        Backend.UploadClippingUniform(previousClipping);
+    }
+
+    protected internal abstract void SetClipping();
     
     
 }

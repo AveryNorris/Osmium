@@ -21,8 +21,8 @@ public class SceneHierarchy() : EmbeddedWindow("Scenes")
         int count = 0;
         foreach (Scene scene in Osmium.Scenes)
         {
-            if (Button().Pos(bounds.pos.x, bounds.pos.y + 7.5f + sceneTextSize * count)
-                .Size(bounds.size.x, sceneTextSize).Text(scene.Name).TextSize(sceneTextSize).Down())
+            if (Button().Pos(Rect.pos.x, Rect.pos.y + 7.5f + sceneTextSize * count)
+                .Size(Rect.size.x, sceneTextSize).Text(scene.Name).TextSize(sceneTextSize).Down())
             {
                 selectedScene = scene;
             }

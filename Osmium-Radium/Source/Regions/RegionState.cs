@@ -45,15 +45,30 @@ public static class RegionState
     /// region scope it will throw </summary>
     public static void Exit() {
         if (RegionScope.Count == 0) Debug.Error("No region to exit! You are already in the base region.");
-        else RegionScope.RemoveAt(RegionScope.Count - 1);
+        else {
+            RegionScope.RemoveAt(RegionScope.Count - 1);
+            Current.SetClipping();
+        }
     }
 
     
     /// <summary> The current region that Radium is drawing to </summary>
     public static Region Current => RegionScope.Count > 0 ? RegionScope[^1] : Backend.BaseRegion;
+    
+    /// <summary> The current region that Radium is drawing to </summary>
+    public static Region Parent => RegionScope.Count > 1 ? RegionScope[^2] : Backend.BaseRegion;
 
 
 
     /// <summary> The current region that Radium is drawing to </summary>
-    public static Bounds CurrentRegionBounds => (Current is NestedRegion region) ? region._bounds : new Bounds(size: new Vector2(100, 100));
+    public static Rect CurrentRegionRect => (Current is NestedRegion region) ? region.Rect : Rect.FullScreen;
+    
+    public static void UpdateClipping() {
+        Current.SetClipping();
+    }
+
+    public static void RecursivelySetClipping() {
+        foreach (NestedRegion region in RegionScope)
+            region.SetClipping();
+    }
 }

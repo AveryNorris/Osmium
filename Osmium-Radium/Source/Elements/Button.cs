@@ -10,7 +10,7 @@ namespace OsmiumRadium;
 
 
 /// <summary> Describes a button drawn for one frame, that comprises a Box and a Textbox inside </summary>
-public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>, ITextElement<Button>, IInteractableColoredElement<Button>, ITextElement, IInteractableColoredElement, IDepthElement, IDepthElement<Button>
+public class Button : ImmediateElement, IBoundedElement, ITextElement, IInteractableColoredElement
 {
     
     
@@ -23,8 +23,8 @@ public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>
     
     
     
-    /// <inheritdoc cref="IBoundedElement._bounds"/>
-    public Bounds _bounds { get; set; }
+    /// <inheritdoc cref="IBoundedElement.Rect"/>
+    public Rect Rect { get; set; }
     
     /// <inheritdoc cref="ITextElement{TSelf}._text"/>
     public string _text { get; set; }
@@ -46,8 +46,6 @@ public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>
     
     /// <inheritdoc cref="ITextElement._textColor"/>
     public Color _textColor { get; set; }
-    
-    public float _depth { get; set; }
 
     
     
@@ -58,7 +56,7 @@ public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>
     }
 
     internal Button() {
-        _bounds = new Bounds();
+        Rect = new Rect();
         _font = Backend.DefaultFont;
         
         _normalColor = Palette.Secondary;
@@ -108,8 +106,8 @@ public class Button : ImmediateElement, IBoundedElement, IBoundedElement<Button>
             boxColor = _hoverColor;
         }
         
-        new Box().Bounds(_bounds).Color(boxColor).Depth(_depth).Draw();
-        new TextBox().Bounds(_bounds).Text(_text).TextColor(_textColor).Font(_font).Spacing(_spacing).TextAnchor(_textAnchor).TextSize(_textSize).Depth(_depth).Draw();
+        new Box().Rect(Rect).Color(boxColor).Depth(_depth).Draw();
+        new TextBox().Rect(Rect).Text(_text).TextColor(_textColor).Font(_font).Spacing(_spacing).TextAnchor(_textAnchor).TextSize(_textSize).Depth(_depth).Draw();
         
         //todo: put unit tests in seperate projects for each core library, in a solution folder NOT a normal directory but a solution folder!
     }

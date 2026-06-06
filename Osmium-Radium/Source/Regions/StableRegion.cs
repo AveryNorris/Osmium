@@ -9,11 +9,6 @@ public class StableRegion : Region
         _children.Clear();
     }
     
-    protected internal override void Draw() {
-        for (int i = 0; i < _children.Count; i++) {
-            Backend.UploadClippingUniform(new Bounds(size: new Vector2(100,100)));
-            
-            _children[i].Draw();
-        }
-    }
+    protected internal override void SetClipping() => Backend.UploadClippingUniform(Rect.FullScreen);
+
 }

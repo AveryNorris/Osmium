@@ -18,7 +18,7 @@ public static partial class Input
     }
     
     public static Vector2 Scroll;
-
+    
     public static Vector2 MousePos { get; internal set; }
     
     public static Vector2 MouseDelta { get; internal set; }
@@ -27,6 +27,7 @@ public static partial class Input
     
 
     private static void Draw() {
+        Scroll = new Vector2(0);
         MouseDelta = new Vector2(0);
         TextInput = "";
     }
