@@ -622,7 +622,6 @@ namespace Dear_ImGui_Sample.Backends
         {
             if (viewport.Flags.HasFlag(ImGuiViewportFlags.NoRendererClear))
             {
-                GL.ClearColor(Color4.Black);
                 GL.Clear(ClearBufferMask.ColorBufferBit);
             }
             RenderDrawData(viewport.DrawData);

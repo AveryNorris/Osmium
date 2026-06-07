@@ -3,9 +3,12 @@ using System.Reflection;
 using Dear_ImGui_Sample.Backends;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Common.Input;
+using OsmiumEditor.Source.DearImGUINET.Structure;
+using OsmiumEditor.Source.NewEditor;
 using OsmiumNucleus;
 using OsmiumRadium;
 using StbImageSharp;
+using Debug = OsmiumEditor.Source.NewEditor.Debug;
 using Image = OpenTK.Windowing.Common.Input.Image;
 
 namespace OsmiumEditor;
@@ -16,7 +19,10 @@ public static class Editor
         BedrockImGUICompatability.Incorporate();
         Osmium.EditorInitialize();
         Bedrock.Run();
+        
+        EditorWindowHierarchy.Add<Debug>();
 
+        /*
         Console.WriteLine("Manifest Names " + string.Join('\n', Assembly.GetAssembly(typeof(Editor))!.GetManifestResourceNames()));
         
         ImageResult image;
@@ -47,6 +53,8 @@ public static class Editor
         Context.OnReload += ComponentMap.ComponentMap.Reload;
 
         Osmium.Window.UpdateFrame += (FrameEventArgs e) => Context.Update();
+        
+        */
         
         Osmium.EditorRun();
         

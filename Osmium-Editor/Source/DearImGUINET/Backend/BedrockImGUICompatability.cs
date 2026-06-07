@@ -10,8 +10,9 @@ public static class BedrockImGUICompatability
     public static void Incorporate() {
         Bedrock.Load += Load;
         Bedrock.Unload += Unload;
-        Bedrock.Update += Update;
-        Bedrock.Draw += Draw;
+            
+        Bedrock.DrawInitializer += DrawInitializer;
+        Bedrock.DrawFinalizer += DrawFinalizer;
     }
 
     private static void Load() {
@@ -24,7 +25,7 @@ public static class BedrockImGUICompatability
         io.ConfigFlags |= ImGuiConfigFlags.NavEnableKeyboard;
         io.ConfigFlags |= ImGuiConfigFlags.NavEnableGamepad;
         io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
-        io.ConfigFlags |= ImGuiConfigFlags.ViewportsEnable;
+        //io.ConfigFlags |= ImGuiConfigFlags.ViewportsEnable;
 
         ImGui.StyleColorsDark();
 
@@ -32,7 +33,7 @@ public static class BedrockImGUICompatability
         if ((io.ConfigFlags & ImGuiConfigFlags.ViewportsEnable) != 0)
         {
             style.WindowRounding = 0.0f;
-            style.Colors[(int)ImGuiCol.WindowBg].W = 1.0f;
+            style.Colors[(int)ImGuiCol.WindowBg].W = 0.0f;
         }
 
         ImguiImplOpenTK4.Init(Bedrock.window);
@@ -44,11 +45,7 @@ public static class BedrockImGUICompatability
         ImguiImplOpenTK4.Shutdown();
     }
 
-    private static void Update() {
-        
-    }
-
-    private static void Draw() {
+    private static void DrawInitializer() {
         var io = ImGui.GetIO();
         
         ImguiImplOpenGL3.NewFrame();
@@ -57,8 +54,10 @@ public static class BedrockImGUICompatability
 
         ImGui.DockSpaceOverViewport();
 
-        ImGui.ShowDemoWindow();
+        //ImGui.ShowDemoWindow();
+    }
 
+    private static void DrawFinalizer() {
         ImGui.Render();
         ImguiImplOpenGL3.RenderDrawData(ImGui.GetDrawData());
 
