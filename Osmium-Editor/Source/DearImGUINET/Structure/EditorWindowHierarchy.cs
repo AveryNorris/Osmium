@@ -37,11 +37,15 @@ public static class EditorWindowHierarchy
         
         Remove(window);
     }
-    
-    public static void Unload() { foreach (EditorWindow window in CurrentWindows) window.Unload(); }
 
-    public static void Update() { foreach (EditorWindow window in CurrentWindows) window.Update(); }
-    public static void Draw() { foreach (EditorWindow window in CurrentWindows) window.Draw(); }
+    public static void Unload() {
+        foreach (EditorWindow window in CurrentWindows.ToArray()) {
+            window.Unload();
+        }
+    }
+
+    public static void Update() { foreach (EditorWindow window in CurrentWindows.ToArray()) window.Update(); }
+    public static void Draw() { foreach (EditorWindow window in CurrentWindows.ToArray()) window.Draw(); }
     
     
 }

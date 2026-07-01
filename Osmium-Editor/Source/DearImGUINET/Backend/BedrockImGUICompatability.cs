@@ -1,25 +1,31 @@
 using ImGuiNET;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
+using OsmiumEditor.Source.DearImGUINET.Structure;
 using OsmiumNucleus;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Dear_ImGui_Sample.Backends;
 
 public static class BedrockImGUICompatability
 {
+
+    public static Vector2 ScreenSize;
+    
     public static void Incorporate() {
         Bedrock.Load += Load;
         Bedrock.Unload += Unload;
             
         Bedrock.DrawInitializer += DrawInitializer;
         Bedrock.DrawFinalizer += DrawFinalizer;
+
+        Bedrock.window.Resize += (args => ScreenSize = new Vector2(Bedrock.window.ClientSize.X, Bedrock.window.ClientSize.Y));
     }
 
     private static void Load() {
         GL.Enable(EnableCap.DebugOutput);
         GL.Enable(EnableCap.DebugOutputSynchronous);
 
-            
         ImGui.CreateContext();
         ImGuiIOPtr io = ImGui.GetIO();
         io.ConfigFlags |= ImGuiConfigFlags.NavEnableKeyboard;

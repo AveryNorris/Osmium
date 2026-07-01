@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.Loader;
 using OsmiumEditor.ComponentMap;
+using OsmiumEditor.Source.NewEditor.Serialization;
 using OsmiumNucleus;
 using OsmiumRadium;
 using Debug = OsmiumNucleus.Debug;
@@ -102,7 +103,7 @@ public static class Context
         
         Backend.Clear();
 
-        Backend.Add<EditorOverhead>();
+        //Backend.Add<EditorOverhead>();
         Backend.Add<DebugOverlay>();
         
 
@@ -179,6 +180,8 @@ public static class Context
         UpdateTracker.BlacklistedPaths.Add(ComponentMapPath);
         
         Reload();
+        
+        Map.Load();
         
         //post reload so the assemblies exist
         

@@ -11,12 +11,23 @@ public class Scene(string __name) : ComponentDocker
     
     /// <summary> Whether the Scene is capturing events or not </summary>
     public bool Enabled = true;
-    
-    
-    
+
+
+
     /// <summary> Unique identifier of the Scene</summary>
-    public readonly string Name = __name;
+    public string Name
+    {
+        get;
+        set
+        {
+            if (value == field) return;
+            if (!Osmium.ContainsScene(value)) field = value;
+            else Debug.Error("A scene with this name already exists!", ["Name"], [value]);
+        }
+    } = __name;
 
     
+    
 
+    
 }

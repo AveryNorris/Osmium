@@ -3,8 +3,17 @@ namespace OsmiumNucleus;
 
 public abstract partial class ComponentDocker
 {
+    
+    
+    
+    /// <summary> Is called when a new <see cref="Component"/> is added!
+    /// The first parameter is the parent, and the second is the component that was added </summary>
+    public static event Action<ComponentDocker, Component>? ComponentAdded;
+    /// <summary> Is called when a new <see cref="Component"/> is removed!
+    /// The first parameter is the parent, and the second is the component that was removed </summary>
+    public static event Action<ComponentDocker, Component>? ComponentRemoved;
 
-
+    
     
     /// <summary> Creates a new instance of that type of component and attaches it to the docker, then returns a reference to it.</summary>
     [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
@@ -15,6 +24,7 @@ public abstract partial class ComponentDocker
         tags ??= [];
 
         InitiateComponent(newComponent, name, tags.ToHashSet(), priority, enabled);
+        
         return (__Type)newComponent;
     }
     
@@ -28,6 +38,8 @@ public abstract partial class ComponentDocker
         
         __component.TryEvent(4);
         __component.ChainEvent(4);
+        
+        ComponentAdded?.Invoke(this, __component);
     }
 
     
@@ -47,6 +59,8 @@ public abstract partial class ComponentDocker
         //create event
         __component.TryEvent(4);
         __component.ChainEvent(4);
+        
+        ComponentAdded?.Invoke(this, __component);
     }
 
 
@@ -64,6 +78,8 @@ public abstract partial class ComponentDocker
 
         RemoveComponentFromLists(__component);
         __component.Parent = null;
+        
+        ComponentRemoved?.Invoke(this, __component);
     }
 
 

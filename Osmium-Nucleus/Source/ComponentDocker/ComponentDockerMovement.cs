@@ -6,6 +6,13 @@ public abstract partial class ComponentDocker
 
     
     
+    /// <summary> Is called when a new <see cref="Component"/> is moved!
+    /// The first parameter is the original parent, the second is the new parent after being moved,
+    /// and the third is the component that was moved </summary>
+    public static event Action<ComponentDocker, ComponentDocker, Component>? ComponentMoved;
+    
+    
+    
     /// <summary> Moves a component belonging to the docker to another docker</summary>
     public void Move(Component __component, ComponentDocker __componentDocker) {
         if(__component == null) { Debug.Error("Component cannot be null!"); return; }
@@ -19,6 +26,8 @@ public abstract partial class ComponentDocker
         __componentDocker.AddComponentToLists(__component);
         
         __component.Parent = __componentDocker;
+        
+        ComponentMoved?.Invoke(this, __componentDocker, __component);
     }
         
 

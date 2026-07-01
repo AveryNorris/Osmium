@@ -45,33 +45,33 @@ public static class Debug
 
 
     /// <summary> Sends an action message! </summary>
-    public static void Action(string __message) => LogGeneric(new DebugMessage(__message, "ACT", [], [], false));
+    public static void Action(object __message) => LogGeneric(new DebugMessage(__message, "ACT", [], [], false));
     /// <summary> Sends an action message! Also sends extra information in the form of objects; the first list is the names of objects to send, and the second
     /// is the actual information at each index.</summary>
-    public static void Action(string __message, string[] __params, string[] __values) => LogGeneric(new DebugMessage(__message, "ACT", __params, __values, false));
+    public static void Action(object __message, string[] __params, object[] __values) => LogGeneric(new DebugMessage(__message, "ACT", __params, __values, false));
         
         
     
     /// <summary> Sends a warning message! </summary>
-    public static void Warning(string __message) => LogGeneric(new DebugMessage(__message, "WRN", [], [], false));
+    public static void Warning(object __message) => LogGeneric(new DebugMessage(__message, "WRN", [], [], false));
     /// <summary> Sends a warning message! Also sends extra information in the form of objects; the first list is the names of objects to send, and the second
     /// is the actual information at each index.</summary>
-    public static void Warning(string __message, string[] __params, string[] __values) => LogGeneric(new DebugMessage(__message, "WRN", __params, __values, false));
+    public static void Warning(object __message, string[] __params, object[] __values) => LogGeneric(new DebugMessage(__message, "WRN", __params, __values, false));
         
         
     
     /// <summary> Sends an error message! </summary>
-    public static void Error(string __message) => LogGeneric(new DebugMessage(__message, "ERR", [], [], true));
+    public static void Error(object __message) => LogGeneric(new DebugMessage(__message, "ERR", [], [], true));
     /// <summary> Sends an error message! Also sends extra information in the form of objects; the first list is the names of objects to send, and the second
     /// is the actual information at each index.</summary>
-    public static void Error(string __message, string[] __params, string[] __values) => LogGeneric(new DebugMessage(__message, "ERR", __params, __values, true));
+    public static void Error(object __message, string[] __params, object[] __values) => LogGeneric(new DebugMessage(__message, "ERR", __params, __values, true));
     
     
     
     /// <summary> Sends a message to the Console. </summary>
-    public static void Log(string __message, string __callSign = "LOG") => LogGeneric(new DebugMessage(__message, __callSign, [],[], false));
+    public static void Log(object __message, string __callSign = "LOG") => LogGeneric(new DebugMessage(__message, __callSign, [],[], false));
     /// <summary> Sends a message to the Console </summary>
-    public static void Log(string __message, string[] __params, string[] __values, string __callSign = "LOG") => LogGeneric(new DebugMessage(__message, __callSign, __params,__values, false));
+    public static void Log(object __message, string[] __params, object[] __values, string __callSign = "LOG") => LogGeneric(new DebugMessage(__message, __callSign, __params,__values, false));
 
         
     /// <summary>Writes the current message to the log file. With any given call sign.</summary>
@@ -110,13 +110,13 @@ public static class Debug
     }
 }
 
-public struct DebugMessage(string __message, string __callSign, string[] __parameters, string[] __values, bool __error)
+public struct DebugMessage(object? __message, string __callSign, string[] __parameters, object[] __values, bool __error)
 {
-    public string Message = __message;
+    public string Message = __message?.ToString() ?? string.Empty;
     public string CallSign = __callSign;
     
     public string[] Parameters = __parameters;
-    public string[] Values = __values;
+    public string[] Values = __values.Select(x => x.ToString() ?? string.Empty).ToArray();
     
     public bool Error = __error;
 }

@@ -61,7 +61,6 @@ internal static class EventManager
         foreach (Assembly assembly in __sources) {
             foreach (Type type in assembly.GetTypes()) {
                 
-                Debug.Log(type.FullName);
                 if (typeof(IModule).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
                 {
                     IModule module = (IModule) Activator.CreateInstance(type);
