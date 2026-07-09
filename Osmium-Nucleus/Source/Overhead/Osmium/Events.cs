@@ -27,11 +27,15 @@ public static partial class Osmium
     /// <summary> OnLoad() is called by OpenTK when the program starts; Calls an event called Load() in Components</summary>
     /// <remarks> It is recommended to load content during Load()</remarks>
     private static void OnLoad() {
-        LoadInitializer?.Invoke();
-        
-        foreach(Scene scene in Osmium._scenes) if(scene.Enabled) scene.ChainEvent(0);
-        
-        LoadFinalizer?.Invoke();
+        try {
+            LoadInitializer?.Invoke();
+
+            foreach (Scene scene in Osmium._scenes) if (scene.Enabled) scene.ChainEvent(0);
+
+            LoadFinalizer?.Invoke();
+        }catch (Exception e) {
+            TrySafeEscape(e);
+        }
     }
 
 
@@ -48,7 +52,7 @@ public static partial class Osmium
     private static void OnClosing(CancelEventArgs __args) {
         UnloadInitializer?.Invoke();
         
-        foreach(Scene scene in Osmium._scenes) if(scene.Enabled) scene.ChainEvent(1);
+        foreach(Scene scene in Osmium._scenes) if(scene.Enabled) scene.ChainEvent(Event.Unload);
         
         UnloadFinalizer?.Invoke();
     }
@@ -65,13 +69,17 @@ public static partial class Osmium
     /// <summary> OnUpdateFrame() is called by OpenTK every frame before Drawing; Calls an event called Update() in Components</summary>
     /// <remarks> This is where you put your main logic!</remarks>
     private static void OnUpdateFrame(FrameEventArgs __args) {
-        UpdateInitializer?.Invoke();
-        
-        foreach(Scene scene in Osmium._scenes) if(scene.Enabled) scene.ChainEvent(2);
-        
-        CoroutineRunner.Advance();
-        
-        UpdateFinalizer?.Invoke();
+        try {
+            UpdateInitializer?.Invoke();
+
+            foreach (Scene scene in Osmium._scenes) if (scene.Enabled) scene.ChainEvent(Event.Update);
+
+            CoroutineRunner.Advance();
+
+            UpdateFinalizer?.Invoke();
+        }catch(Exception e) {
+            TrySafeEscape(e);
+        }
     }
     
     
@@ -86,11 +94,33 @@ public static partial class Osmium
     /// <summary> OnRenderFrame() is called by OpenTK every frame after Update; Calls an event called Draw() in Components</summary>
     /// <remarks> If you have Drawing logic you should put it in here!</remarks>
     private static void OnRenderFrame(FrameEventArgs __args) {
-        DrawInitializer?.Invoke();
-        
-        foreach(Scene scene in Osmium._scenes) if(scene.Enabled) scene.ChainEvent(3);
-        
-        DrawFinalizer?.Invoke();
+        try {
+            DrawInitializer?.Invoke();
+
+            foreach (Scene scene in Osmium._scenes) if (scene.Enabled) scene.ChainEvent(Event.Draw);
+
+            DrawFinalizer?.Invoke();
+        }catch(Exception e) {
+            TrySafeEscape(e);
+        }
+    }
+
+
+
+
+    
+    /// <summary> Attempts to safely close Osmium in the event of an Exception. So that
+    /// finalizing statements may run, or so the entire Editor does not crash. </summary>
+    /// <param name="e">The exception caught at runtime</param>
+    private static void TrySafeEscape(Exception e) {
+        Debug.Error("OSMIUM SAFE ESCAPE TRIGGERED!");
+        Debug.Error("EXCEPTION THROWN : "  + e);
+
+        if (IsVirtualized) {
+            VirtualClose();
+        }else {
+            Close();
+        }
     }
     
     

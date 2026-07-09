@@ -20,7 +20,6 @@
     <ItemGroup>
       <ProjectReference Include="..\Osmium-Bedrock\Osmium-Bedrock.csproj" />
       <ProjectReference Include="..\Osmium-Nucleus\Osmium-Nucleus.csproj" />
-      <ProjectReference Include="..\Osmium-Radium\Osmium-Radium.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -42,6 +41,10 @@
       <None Remove="Assets\Component.png" />
       <EmbeddedResource Include="Assets\Component.png" />
       <None Remove="Assets\DefaultTexture.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Source\Compiler\ExportCompiler\" />
     </ItemGroup>
 
 </Project>

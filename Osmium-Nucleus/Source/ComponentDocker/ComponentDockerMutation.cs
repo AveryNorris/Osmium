@@ -36,8 +36,8 @@ public abstract partial class ComponentDocker
         __component.Parent = this; 
         AddComponentToLists(__component);
         
-        __component.TryEvent(4);
-        __component.ChainEvent(4);
+        __component.TryEvent(Event.Create);
+        __component.ChainEvent(Event.Create);
         
         ComponentAdded?.Invoke(this, __component);
     }
@@ -57,8 +57,8 @@ public abstract partial class ComponentDocker
         __component._tags = __tags;
         
         //create event
-        __component.TryEvent(4);
-        __component.ChainEvent(4);
+        __component.TryEvent(Event.Create);
+        __component.ChainEvent(Event.Create);
         
         ComponentAdded?.Invoke(this, __component);
     }
@@ -73,8 +73,8 @@ public abstract partial class ComponentDocker
         if(__component == null) { Debug.Error("A given Component cannot be null!"); return; }
         if(!Contains(__component)) { Debug.Error("This Docker does not own the given Component"); return; }
         
-        __component.TryEvent(5);
-        __component.ChainEvent(5);
+        __component.TryEvent(Event.Destroy);
+        __component.ChainEvent(Event.Destroy);
 
         RemoveComponentFromLists(__component);
         __component.Parent = null;

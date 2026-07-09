@@ -102,12 +102,12 @@ public abstract partial class Component : ComponentDocker
     
     /// <summary> Attempts to send an event to the component, and quietly exits if not.</summary>
     [MarkerAttributes.UnsafeInternal]
-    internal void TryEvent(int __timeEvent) {
+    internal void TryEvent(Event __timeEvent) {
         EventManager.EventProfile profile = EventManager._TypeAssociatedTimeEvents[GetType()];
         
         if ((!Enabled || !Osmium.IsRunning) && !profile.AlwaysUpdate) return;
         
-        profile.Callbacks[__timeEvent]?.Invoke(this);
+        profile.Callbacks[(int) __timeEvent]?.Invoke(this);
     }
     
 

@@ -106,7 +106,7 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
     /// <summary> Sends an event to all Children and tells them to continue it. Will stop if this is a Component, and it is not enabled</summary>
     /// <param name="__timeEvent"> Integer ID of the event to send. </param>
     [MarkerAttributes.UnsafeInternal]
-    internal void ChainEvent(int __timeEvent) {
+    internal void ChainEvent(Event __timeEvent) {
         if(this is Component { Enabled: false }) return;
 
         foreach(KeyValuePair<int, HashSet<Component>> ComponentPriorityValues in _componentPriorityDictionary) {

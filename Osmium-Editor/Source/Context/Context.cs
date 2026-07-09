@@ -2,10 +2,8 @@ using System.Diagnostics;
 
 using System.Reflection;
 using System.Runtime.Loader;
-using OsmiumEditor.ComponentMap;
 using OsmiumEditor.Source.NewEditor.Serialization;
 using OsmiumNucleus;
-using OsmiumRadium;
 using Debug = OsmiumNucleus.Debug;
 
 namespace OsmiumEditor;
@@ -38,7 +36,7 @@ public static class Context
     public static Assembly[] GetAssemblies() {
         List<Assembly> assemblies = [];
         assemblies.AddRange(LoadedProgram.Assemblies);
-        assemblies.AddRange(typeof(Context).Assembly, typeof(Component).Assembly, typeof(Backend).Assembly);
+        assemblies.AddRange(typeof(Context).Assembly, typeof(Component).Assembly);
         
         return assemblies.ToArray();
     }
@@ -88,7 +86,7 @@ public static class Context
 
         List<string> Scenes = [];
 
-        foreach (Scene scene in Osmium.Scenes) {
+        foreach (OsmiumNucleus.Scene scene in Osmium.Scenes) {
 
             Scenes.Add(scene.Name);
 
@@ -101,10 +99,8 @@ public static class Context
         
         Debug.Action("Reloading Osmium!");
         
-        Backend.Clear();
-
         //Backend.Add<EditorOverhead>();
-        Backend.Add<DebugOverlay>();
+        //Backend.Add<DebugOverlay>();
         
 
         //keep old scripts if new ones do not compiles
@@ -131,9 +127,7 @@ public static class Context
 
 
         List<Assembly> usedAssemblies = LoadedProgram.Assemblies.ToList();
-        usedAssemblies.Add(typeof(Package).Assembly);
-        
-        Debug.Log("Assemblies! " + string.Join(", ", usedAssemblies.ToArray()));
+        usedAssemblies.Add(typeof(Context).Assembly);
         
         Osmium.VirtualInitialize(usedAssemblies);
         
@@ -181,7 +175,7 @@ public static class Context
         
         Reload();
         
-        Map.Load();
+        DockerMap.Load();
         
         //post reload so the assemblies exist
         

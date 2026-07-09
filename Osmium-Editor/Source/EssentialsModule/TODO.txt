@@ -1,0 +1,2 @@
+This is good UI! And it should be built theoretically as if it is not separable from the editor, but
+once this is done, future me should really make this into a module, and just have it installed by default.

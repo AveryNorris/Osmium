@@ -85,7 +85,10 @@ public static class Debug
         }
 
         string output = "\n\n" + __message.CallSign + "- \"" + __message.Message + '\"';
-        if (__message.Error) output += "\n         STK-" + new StackTrace();
+        StackFrame[] stackFrames = (new StackTrace()).GetFrames();
+        StackTrace trimmedTrace = new StackTrace(stackFrames.TakeLast(stackFrames.Length - 2));
+
+        if (__message.Error) output += "\n         STK-" + trimmedTrace;
 
         for (int i = 0; i < __message.Parameters.Length; i++)
             output += "\n         " + __message.Parameters[i] + "- " + __message.Values.ElementAt(i);

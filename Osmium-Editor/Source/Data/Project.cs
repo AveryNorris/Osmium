@@ -6,17 +6,17 @@ public static class Project
 {
     public static string ProjectPath;
 
-    public static string RuntimeModulesPath => GetProjectSubdirectory("Modules", true);
+    public static string RuntimeModulesPath => GetProjectSubdirectory(true, "Modules");
     
-    public static string SourcePath => GetProjectSubdirectory("Source", true);
-        
+    public static string SourcePath => GetProjectSubdirectory(true, "Source");
+    
         
     //todo: add global usage implciitly not in a file
 
     //todo: enforce that editor modules cannot define components, and runtime cannot use the editor etc
-    public static string GetProjectSubdirectory(string subdirectoryPath, bool regenerate = false)
+    public static string GetProjectSubdirectory(bool regenerate, params string[] subdirectoryPath)
     {
-        string path = Path.Combine(ProjectPath, subdirectoryPath);
+        string path = Path.Combine(ProjectPath,Path.Combine(subdirectoryPath));
 
             if (!Path.Exists(path))
             {

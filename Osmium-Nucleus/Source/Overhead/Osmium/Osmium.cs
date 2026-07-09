@@ -40,6 +40,10 @@ public static partial class Osmium
     public static bool IsClosed { get; private set; }
     /// <summary> Displays if Osmium is running virtually </summary>
     public static bool IsVirtualized { get; private set; }
+
+
+    /// <summary> If Osmium crashes, with SafeEscape enabled, it will still allow exiting statements to be run </summary>
+    public static bool SafeEscape = true;
     
     
     
@@ -176,7 +180,7 @@ public static partial class Osmium
     [MarkerAttributes.UnsafePipeline]
     public static void VirtualClose() {
         
-        foreach (Scene scene in Scenes) scene.ChainEvent(1); 
+        foreach (Scene scene in Scenes) scene.ChainEvent(Event.Unload); 
         
         IsRunning = false;
         IsVirtualized = false;
