@@ -38,7 +38,7 @@ internal static class EventManager
     
     /// <summary> Contains an instance of an IModule for all unique IModules found </summary>
     [MarkerAttributes.UnsafeInternal]
-    internal static readonly List<IModule> _LeadingModuleReferences = [];
+    internal static readonly List<IRuntimeModule> _LeadingModuleReferences = [];
     
     
     
@@ -61,10 +61,10 @@ internal static class EventManager
         foreach (Assembly assembly in __sources) {
             foreach (Type type in assembly.GetTypes()) {
                 
-                if (typeof(IModule).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
+                if (typeof(IRuntimeModule).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
                 {
-                    IModule module = (IModule) Activator.CreateInstance(type);
-                    if(module != null) _LeadingModuleReferences.Add(module);
+                    IRuntimeModule runtimeModule = (IRuntimeModule) Activator.CreateInstance(type);
+                    if(runtimeModule != null) _LeadingModuleReferences.Add(runtimeModule);
                 }
                 
                 if (!type.IsSubclassOf(typeof(Component))) continue;

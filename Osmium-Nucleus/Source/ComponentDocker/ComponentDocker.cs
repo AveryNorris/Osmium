@@ -17,6 +17,16 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
     internal ComponentDocker() {}
 
 
+    
+    /// <summary> Cleans existing events after closing so that Modules can be collected </summary>
+    /// <errors> Do not call this unless you have already closed the Nucleus </errors>
+    public static void CleanVirtualRuntime() {
+        ComponentAdded = null;
+        ComponentMoved = null;
+        ComponentRemoved = null;
+    }
+
+
 
     /// <summary> Core of the Docker, holds all the Components.</summary>
     [MarkerAttributes.UnsafeInternal] protected readonly List<Component> _components = [];

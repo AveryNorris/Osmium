@@ -21,8 +21,9 @@ public static partial class DockerMap
     public static readonly List<SerializedScene> Scenes = [];
 
     
-    
-    static DockerMap() {
+    /// <summary> Registers all the events Component map requires to function </summary>
+    [ModuleLoad]
+    public static void RegisterEvents() {
         Osmium.SceneAdded += OnSceneAdded;
         Osmium.SceneRemoved += OnSceneRemoved;
         
@@ -41,6 +42,27 @@ public static partial class DockerMap
         Osmium.UnloadFinalizer += ReconstructMapReferences;
     }
 
+    /// <summary> Leaves all the events so that it does not block</summary>
+    [ModuleUnload]
+    public static void UnregisterEvents() {
+        Osmium.SceneAdded -= OnSceneAdded;
+        Osmium.SceneRemoved -= OnSceneRemoved;
+        
+        ComponentDocker.ComponentAdded -= OnComponentAdded;
+        ComponentDocker.ComponentRemoved -= OnComponentRemoved;
+        ComponentDocker.ComponentMoved -= OnComponentMoved;
+
+        Context.OnUnload -= UnloadMapReferences;
+        Context.OnReload -= ReconstructMapReferences;
+
+        Editor.OnSave -= Save;
+        
+        Osmium.LoadInitializer -= UnloadMapReferences;
+        Osmium.UnloadFinalizer -= ReconstructMapReferences;
+    }
+
+    
+    
     public static SerializedDocker? FindMappedDocker(ComponentDocker __targetDocker) {
         List<SerializedDocker> TargetDockers = [];
         TargetDockers.AddRange(Scenes.Select(x => (SerializedDocker) x));

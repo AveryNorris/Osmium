@@ -74,7 +74,7 @@ public static partial class Osmium
         
         EventManager.ResolveAllModules();
         
-        foreach (IModule module in EventManager._LeadingModuleReferences) module.Initialize();
+        foreach (IRuntimeModule module in EventManager._LeadingModuleReferences) module.Initialize();
         
         Debug.Action("Successfully Initialized Osmium!");
     }
@@ -92,7 +92,6 @@ public static partial class Osmium
         
         Debug.Action("Beginning Update Loop!");
 
-        foreach (IModule module in EventManager._LeadingModuleReferences) module.Run();
         Window!.Run();
     }
     
@@ -109,7 +108,6 @@ public static partial class Osmium
         
         Debug.Log("Closing Osmium!");
         
-        foreach (IModule module in EventManager._LeadingModuleReferences) module.Close();
         Window!.Close();
     }
     
@@ -155,7 +153,7 @@ public static partial class Osmium
         
         EventManager.ResolveAllModules(__assemblies);
         
-        foreach (IModule module in EventManager._LeadingModuleReferences) module.Initialize();
+        foreach (IRuntimeModule module in EventManager._LeadingModuleReferences) module.Initialize();
     }
     
     
@@ -168,14 +166,13 @@ public static partial class Osmium
         
         IsRunning = true;
         
-        foreach (IModule module in EventManager._LeadingModuleReferences) module.Run();
         foreach (Scene scene in Scenes) scene.ChainEvent(0); 
     }
     
     
     
     /// <summary> Pretends to close Osmium, and makes the Components think that the Game has ended. </summary>
-    /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for Radium! So don't use it unless you know what you are doing.
+    /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for the Editor! So don't use it unless you know what you are doing.
     /// If you do want to use it, use the EditorInitialize() EditorRun() and EditorClose() instead of the traditional methods!</remarks>
     [MarkerAttributes.UnsafePipeline]
     public static void VirtualClose() {
@@ -185,7 +182,7 @@ public static partial class Osmium
         IsRunning = false;
         IsVirtualized = false;
         
-        foreach (IModule module in EventManager._LeadingModuleReferences) module.Close();
+        CleanVirtualRuntime();
     }
     
     
@@ -305,6 +302,29 @@ public static partial class Osmium
     /// <inheritdoc cref="CoroutineRunner.Start"/>
     [MarkerAttributes.MethodLambda]
     public static void StartCoroutine(IEnumerator<ICoroutineAction> __coroutine) => CoroutineRunner.Start(__coroutine);
+    
+    
+    
+    /// <summary> Cleans all runtime modules and events so Modules and Components can be safely collected </summary>
+    /// <errors> Do not call this unless you have already closed the Nucleus </errors>
+    [MarkerAttributes.UnsafePipeline]
+    public static void CleanVirtualRuntime() {
+        EventManager._LeadingModuleReferences.Clear();
+
+        SceneAdded = null;
+        SceneRemoved = null;
+
+        LoadInitializer = null;
+        LoadFinalizer = null;
+        UnloadInitializer = null;
+        UnloadFinalizer = null;
+        UpdateInitializer = null;
+        UpdateFinalizer = null;
+        DrawInitializer = null;
+        DrawFinalizer = null;
+        
+        ComponentDocker.CleanVirtualRuntime();
+    }
     
     
     
