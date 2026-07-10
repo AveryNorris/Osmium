@@ -6,7 +6,7 @@ namespace OsmiumEditor;
 public abstract class SerializedDocker(ComponentDocker docker)
 {
     
-    public ComponentDocker docker = docker;
+    public ComponentDocker? docker = docker;
     public List<ComponentMapNode> Children = docker.Children.Select(x => new ComponentMapNode(x)).ToList();
     
     public List<SerializedVariable> SerializedFields = [];

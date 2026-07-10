@@ -61,6 +61,7 @@ public class ComponentHierarchy : EditorWindow
             }
 
             IDCount = 0;
+            
             foreach (Component component in DockerMap.FindMappedScene(SceneHierarchy.SelectedScene).Children.ToArray())
             {
                 DisplayComponent(component, 0);
