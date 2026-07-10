@@ -4,13 +4,13 @@ using OsmiumNucleus;
 
 namespace OsmiumEditor;
 
-public static class Startup
+public static partial class Editor
 {
     public static int Main(string[] __args) {
         BedrockImGUICompatability.Incorporate();
         Osmium.EditorInitialize();
 
-        Bedrock.Load += Load;
+        Bedrock.Load += BedrockLoad;
         
         Bedrock.Run();
         
@@ -19,7 +19,7 @@ public static class Startup
         return 0;
     }
 
-    public static void Load() {
+    private static void BedrockLoad() {
         EditorWindowHierarchy.Add<ProjectMenu>();
     }
 }

@@ -23,40 +23,8 @@ public static class Appdata
     }           
 
 
-    
-    public static string GetFileAt(string __localPath) {
-        string realPath = Path + '/' + __localPath;
-        
-        AssureExistence(__localPath);
-        
-        return File.ReadAllText(realPath);
-    }
-
-
-
-    public static void SaveText(string __localPath, string __text) {
-        string realPath = Path + '/' + __localPath;
-        
-        AssureExistence(__localPath);
-        
-        File.WriteAllText(realPath, __text);
-    }
-
-
-
-    public static void AppendText(string __localPath, string __text) {
-        string realPath = Path + '/' + __localPath;
-        
-        AssureExistence(__localPath);
-        
-        File.AppendAllText(realPath, __text);
-    }
-
-
 
     public static void AssureExistence(string __path) {
-        
-        //todo: make resistant to false middle directories
         if (!File.Exists(__path)) {
             Debug.Action("Failed to find a config file! Creating a new one...", ["File Path"], [__path]);
             File.Create(__path).Close();

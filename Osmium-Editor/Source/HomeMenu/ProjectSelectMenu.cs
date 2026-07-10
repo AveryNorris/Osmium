@@ -5,11 +5,9 @@
     using OpenTK.Windowing.Common;
     using OsmiumEditor.Source.DearImGUINET;
     using OsmiumEditor.Source.DearImGUINET.Structure;
-    using OsmiumEditor.Source.NewEditor;
     using OsmiumNucleus;
     using Texture = Dear_ImGui_Sample.Backends.Types.Texture;
     using Vector2 = System.Numerics.Vector2;
-    using Vector4 = System.Numerics.Vector4;
 
     namespace OsmiumEditor;
 
@@ -111,10 +109,9 @@
 
                 if (clicked)
                 {
-                    Context.OpenProject(ProjectMemory.Projects[i]);
+                    Editor.OpenProject(ProjectMemory.Projects[i]);
                     
                     EditorWindowHierarchy.Remove(this);
-                    EditorWindowHierarchy.Add<NewEditorOverhead>();
                 }
             }
             ImGui.EndChild();

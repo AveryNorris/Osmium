@@ -118,11 +118,6 @@ public static partial class Osmium
     /// These methods are made required in order to use Virtualization! Use Editor Methods instead of normal ones for Virtualization to work.</remarks>
     [MarkerAttributes.UnsafePipeline]
     public static void EditorInitialize() {
-        if (IsRunning) { Debug.Error("Osmium is already Running!"); return; }
-        if (IsInitialized) { Debug.Error("Osmium has already Started!"); return; }
-        
-        IsInitialized = true;
-        
         Debug.Action("Successfully Initialized Osmium!");
     }
     
@@ -133,9 +128,6 @@ public static partial class Osmium
     /// These methods are made required in order to use Virtualization! Use Editor Methods instead of normal ones for Virtualization to work.</remarks>
     [MarkerAttributes.UnsafePipeline]
     public static void EditorRun() {
-        if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return; }
-        if(IsRunning) { Debug.Error("Osmium is already Running!"); return; }
-        
         Window!.Run();
     }
     
@@ -176,10 +168,12 @@ public static partial class Osmium
     /// If you do want to use it, use the EditorInitialize() EditorRun() and EditorClose() instead of the traditional methods!</remarks>
     [MarkerAttributes.UnsafePipeline]
     public static void VirtualClose() {
+
+        if (IsRunning) {
+            foreach (Scene scene in Scenes) scene.ChainEvent(Event.Unload);
+            IsRunning = false;
+        }
         
-        foreach (Scene scene in Scenes) scene.ChainEvent(Event.Unload); 
-        
-        IsRunning = false;
         IsVirtualized = false;
         
         CleanVirtualRuntime();
@@ -322,6 +316,8 @@ public static partial class Osmium
         UpdateFinalizer = null;
         DrawInitializer = null;
         DrawFinalizer = null;
+        
+        _scenes.Clear();
         
         ComponentDocker.CleanVirtualRuntime();
     }

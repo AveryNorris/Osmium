@@ -26,9 +26,7 @@ public static class Project
                 {
                     Debug.Error("Regenerating Project Subdirectory...", ["Path"], [path]);
                     
-                    UpdateTracker.SurpressReload = true;
                     Directory.CreateDirectory(path);
-                    UpdateTracker.SurpressReload = false;
                 }
             }
 
@@ -46,13 +44,10 @@ public static class Project
             {
                 Debug.Action("Regenerating Project Subdirectory...", ["Path"], [path]);
                     
-                UpdateTracker.SurpressReload = true;
                 Directory.CreateDirectory(Path.GetDirectoryName(path));
                 
                 if(!File.Exists(path))
                     File.Create(path);
-                
-                UpdateTracker.SurpressReload = false;
             }
         }
 
