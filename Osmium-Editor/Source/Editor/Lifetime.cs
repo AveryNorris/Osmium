@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Runtime.Loader;
+using OpenTK.Windowing.Common;
 using OsmiumNucleus;
 
 namespace OsmiumEditor;
@@ -17,8 +18,8 @@ public static partial class Editor
         
         string parentDirectory = Path.GetDirectoryName(__path);
         Project.ProjectPath = parentDirectory;
-        
-        
+
+        Bedrock.window.WindowBorder = WindowBorder.Resizable;
 
         foreach (string editorModule in Directory.GetFiles(Project.GetProjectSubdirectory(true, "Modules", "Editor"), "*.dll", SearchOption.AllDirectories))
             _EditorModules.LoadFromAssemblyPath(editorModule);

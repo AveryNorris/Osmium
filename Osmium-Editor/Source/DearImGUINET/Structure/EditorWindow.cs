@@ -2,7 +2,7 @@ using System.Numerics;
 using Dear_ImGui_Sample.Backends;
 using ImGuiNET;
 
-namespace OsmiumEditor.Source.DearImGUINET.Structure;
+namespace OsmiumEditor;
 
 public abstract class EditorWindow
 {

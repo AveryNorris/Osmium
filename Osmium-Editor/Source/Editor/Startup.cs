@@ -1,5 +1,4 @@
 using Dear_ImGui_Sample.Backends;
-using OsmiumEditor.Source.DearImGUINET.Structure;
 using OsmiumNucleus;
 
 namespace OsmiumEditor;

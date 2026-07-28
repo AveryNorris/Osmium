@@ -1,11 +1,5 @@
-﻿using System.ComponentModel;
-using OpenTK.Graphics.OpenGL4;
-using OpenTK.Windowing.Common;
-using OpenTK.Windowing.Desktop;
+﻿namespace OsmiumNucleus;
 
-
-
-namespace OsmiumNucleus;
 
 
 /// <summary> Bottom class of Osmium. Carries events from MonoGame into Scenes, and provides OpenTK context.</summary>
@@ -18,9 +12,11 @@ public static partial class Osmium
     
     
     /// <summary> An event that is raised before all load calls, this is meant to be used for libraries that require overhead </summary>
-    public static event Action? LoadInitializer;
+    public static event Action? FirstLoad;
+
+    public static event Action? Load;
     /// <summary> An event that is raised after all load calls, this is meant to be used for libraries that require overhead </summary>
-    public static event Action? LoadFinalizer;
+    public static event Action? FinalLoad;
 
     
     
@@ -28,11 +24,12 @@ public static partial class Osmium
     /// <remarks> It is recommended to load content during Load()</remarks>
     private static void OnLoad() {
         try {
-            LoadInitializer?.Invoke();
+            FirstLoad?.Invoke();
 
-            foreach (Scene scene in Osmium._scenes) if (scene.Enabled) scene.ChainEvent(0);
+            foreach (Scene scene in _scenes) if (scene.Enabled) scene.ChainEvent(0);
+            Load?.Invoke();
 
-            LoadFinalizer?.Invoke();
+            FinalLoad?.Invoke();
         }catch (Exception e) {
             TrySafeEscape(e);
         }
@@ -43,18 +40,21 @@ public static partial class Osmium
     
     
     /// <summary> An event that is raised before all unload calls, this is meant to be used for libraries that require overhead </summary>
-    public static event Action? UnloadInitializer;
+    public static event Action? FirstUnload;
+    
+    public static event Action? Unload;
     /// <summary> An event that is raised after all unload calls, this is meant to be used for libraries that require overhead </summary>
-    public static event Action? UnloadFinalizer;
+    public static event Action? FinalUnload;
     
     /// <summary> OnClosing() is called by OpenTK when the program closes; Calls an event called Unload() in Components</summary>
     /// <remarks> Sometimes Unload() may not call due to a force-close!</remarks>
-    private static void OnClosing(CancelEventArgs __args) {
-        UnloadInitializer?.Invoke();
+    private static void OnUnload() {
+        FirstUnload?.Invoke();
         
         foreach(Scene scene in Osmium._scenes) if(scene.Enabled) scene.ChainEvent(Event.Unload);
+        Unload?.Invoke();
         
-        UnloadFinalizer?.Invoke();
+        FinalUnload?.Invoke();
     }
 
 
@@ -62,21 +62,24 @@ public static partial class Osmium
 
 
     /// <summary> An event that is raised before all update calls, this is meant to be used for libraries that require overhead </summary>
-    public static event Action? UpdateInitializer;
+    public static event Action? FirstUpdate;
+    
+    public static event Action? Update;
     /// <summary> An event that is raised after all update calls, this is meant to be used for libraries that require overhead </summary>
-    public static event Action? UpdateFinalizer;
+    public static event Action? FinalUpdate;
 
     /// <summary> OnUpdateFrame() is called by OpenTK every frame before Drawing; Calls an event called Update() in Components</summary>
     /// <remarks> This is where you put your main logic!</remarks>
-    private static void OnUpdateFrame(FrameEventArgs __args) {
+    private static void OnUpdate() {
         try {
-            UpdateInitializer?.Invoke();
+            FirstUpdate?.Invoke();
 
             foreach (Scene scene in Osmium._scenes) if (scene.Enabled) scene.ChainEvent(Event.Update);
+            Update?.Invoke();
 
             CoroutineRunner.Advance();
 
-            UpdateFinalizer?.Invoke();
+            FinalUpdate?.Invoke();
         }catch(Exception e) {
             TrySafeEscape(e);
         }
@@ -87,19 +90,22 @@ public static partial class Osmium
     
     
     /// <summary> An event that is raised before all draw calls, this is meant to be used for libraries that require overhead </summary>
-    public static event Action? DrawInitializer;
+    public static event Action? FirstDraw;
+    
+    public static event Action? Draw;
     /// <summary> An event that is raised after all draw calls, this is meant to be used for libraries that require overhead </summary>
-    public static event Action? DrawFinalizer;
+    public static event Action? FinalDraw;
     
     /// <summary> OnRenderFrame() is called by OpenTK every frame after Update; Calls an event called Draw() in Components</summary>
     /// <remarks> If you have Drawing logic you should put it in here!</remarks>
-    private static void OnRenderFrame(FrameEventArgs __args) {
+    private static void OnDraw() {
         try {
-            DrawInitializer?.Invoke();
+            FirstDraw?.Invoke();
 
             foreach (Scene scene in Osmium._scenes) if (scene.Enabled) scene.ChainEvent(Event.Draw);
+            Draw?.Invoke();
 
-            DrawFinalizer?.Invoke();
+            FinalDraw?.Invoke();
         }catch(Exception e) {
             TrySafeEscape(e);
         }
@@ -116,11 +122,8 @@ public static partial class Osmium
         Debug.Error("OSMIUM SAFE ESCAPE TRIGGERED!");
         Debug.Error("EXCEPTION THROWN : "  + e);
 
-        if (IsVirtualized) {
-            VirtualClose();
-        }else {
-            Close();
-        }
+        if (IsVirtualized) VirtualClose();
+        else Close();
     }
     
     

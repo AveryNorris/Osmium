@@ -1,7 +1,7 @@
 using Dear_ImGui_Sample.Backends;
 using OsmiumNucleus;
 
-namespace OsmiumEditor.Source.DearImGUINET.Structure;
+namespace OsmiumEditor;
 
 public static class EditorWindowHierarchy
 {

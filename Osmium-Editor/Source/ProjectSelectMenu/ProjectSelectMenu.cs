@@ -3,8 +3,6 @@
     using NativeFileDialogNET;
     using OpenTK.Mathematics;
     using OpenTK.Windowing.Common;
-    using OsmiumEditor.Source.DearImGUINET;
-    using OsmiumEditor.Source.DearImGUINET.Structure;
     using OsmiumNucleus;
     using Texture = Dear_ImGui_Sample.Backends.Types.Texture;
     using Vector2 = System.Numerics.Vector2;
@@ -47,7 +45,7 @@
 
             ImGui.SameLine();
 
-            ImGui.PushStyleColor(ImGuiCol.Text, NewPalette.Primary);
+            ImGui.PushStyleColor(ImGuiCol.Text, new System.Numerics.Vector4(0 / 255f, 124 / 255f, 255 / 255f, 1));
             ImGui.PushFont(Jetbrains);
             ImGui.Text("Osmium");
             ImGui.PopFont();

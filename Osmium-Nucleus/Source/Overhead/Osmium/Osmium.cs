@@ -71,6 +71,11 @@ public static partial class Osmium
         IsInitialized = true;
         
         Bedrock.Run();
+
+        Bedrock.Load += OnLoad;
+        Bedrock.Update += OnUpdate;
+        Bedrock.Draw += OnDraw;
+        Bedrock.Unload += OnUnload;
         
         EventManager.ResolveAllModules();
         
@@ -128,6 +133,9 @@ public static partial class Osmium
     /// These methods are made required in order to use Virtualization! Use Editor Methods instead of normal ones for Virtualization to work.</remarks>
     [MarkerAttributes.UnsafePipeline]
     public static void EditorRun() {
+        Bedrock.Update += OnUpdate;
+        Bedrock.Draw += OnDraw;
+        
         Window!.Run();
     }
     
@@ -155,10 +163,9 @@ public static partial class Osmium
     /// If you do want to use it, use the EditorInitialize() EditorRun() and EditorClose() instead of the traditional methods!</remarks>
     [MarkerAttributes.UnsafePipeline]
     public static void VirtualRun() {
-        
         IsRunning = true;
         
-        foreach (Scene scene in Scenes) scene.ChainEvent(0); 
+        foreach (Scene scene in Scenes) scene.ChainEvent(Event.Load); 
     }
     
     
@@ -168,7 +175,6 @@ public static partial class Osmium
     /// If you do want to use it, use the EditorInitialize() EditorRun() and EditorClose() instead of the traditional methods!</remarks>
     [MarkerAttributes.UnsafePipeline]
     public static void VirtualClose() {
-
         if (IsRunning) {
             foreach (Scene scene in Scenes) scene.ChainEvent(Event.Unload);
             IsRunning = false;
@@ -308,14 +314,21 @@ public static partial class Osmium
         SceneAdded = null;
         SceneRemoved = null;
 
-        LoadInitializer = null;
-        LoadFinalizer = null;
-        UnloadInitializer = null;
-        UnloadFinalizer = null;
-        UpdateInitializer = null;
-        UpdateFinalizer = null;
-        DrawInitializer = null;
-        DrawFinalizer = null;
+        FirstLoad = null;
+        Load = null;
+        FinalLoad = null;
+        
+        FirstUnload = null;
+        Unload = null;
+        FinalUnload = null;
+        
+        FirstUpdate = null;
+        Update = null;
+        FinalUpdate = null;
+        
+        FirstDraw = null;
+        Draw = null;
+        FinalDraw = null;
         
         _scenes.Clear();
         

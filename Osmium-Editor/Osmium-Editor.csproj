@@ -43,8 +43,4 @@
       <None Remove="Assets\DefaultTexture.png" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Source\Compiler\ExportCompiler\" />
-    </ItemGroup>
-
 </Project>
