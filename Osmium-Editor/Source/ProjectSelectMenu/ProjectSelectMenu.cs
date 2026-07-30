@@ -9,7 +9,7 @@
 
     namespace OsmiumEditor;
 
-    public class ProjectMenu : EditorWindow
+    public static class ProjectMenu
     {
 
         private const ImGuiWindowFlags flags =
@@ -30,7 +30,11 @@
             ProjectMemory.RefreshProjectList();
         }
 
-        protected internal override void Draw() {
+        public static void Initialize() {
+            Bedrock.Draw += Draw;
+        }
+
+        private static void Draw() {
             int sizeFactor = (int)(Bedrock.window.CurrentMonitor.ClientArea.Size.Y * .4f);
             Bedrock.window.ClientSize = new Vector2i(sizeFactor, sizeFactor);
             Bedrock.window.CenterWindow();
@@ -38,7 +42,7 @@
             Bedrock.window.WindowBorder = WindowBorder.Hidden;
 
             ImGui.SetNextWindowPos(Vector2.Zero);
-            ImGui.SetNextWindowSize(ScreenSize);
+            ImGui.SetNextWindowSize(new Vector2(Osmium.Window.ClientSize.X, Osmium.Window.ClientSize.Y));
             ImGui.Begin("ProjectSelectMenu", flags);
 
             ImGui.Image(OsmiumLogo, new Vector2(55));
@@ -56,7 +60,7 @@
             float margin = 10f;
             float gap = 2.5f;
 
-            float availableWidth = ScreenSize.X - (margin * 2) - gap;
+            float availableWidth = Osmium.Window.ClientSize.X - (margin * 2) - gap;
             float buttonWidth = availableWidth / 2f;
 
             ImGui.SetCursorPosX(margin);
@@ -78,7 +82,7 @@
             {
                 string name = Path.GetFileNameWithoutExtension(ProjectMemory.Projects[i]);
 
-                Vector2 size = new Vector2(ScreenSize.X, 55);
+                Vector2 size = new Vector2(Osmium.Window.ClientSize.X, 55);
 
                 Vector2 start = ImGui.GetCursorScreenPos();
 
@@ -108,15 +112,15 @@
                 if (clicked)
                 {
                     Editor.OpenProject(ProjectMemory.Projects[i]);
-                    
-                    EditorWindowHierarchy.Remove(this);
+
+                    Bedrock.Draw -= Draw;
                 }
             }
             ImGui.EndChild();
             ImGui.End();
         }
         
-        public void CreateProjectPrompt() {
+        public static void CreateProjectPrompt() {
             using NativeFileDialog Dialog = new NativeFileDialog();
             Dialog.SaveFile().AddFilter("Osmium Projects", "osproj");
         
@@ -142,7 +146,7 @@
             ProjectMemory.RefreshProjectList();
         }
 
-        public void OpenProjectPrompt() {
+        public static void OpenProjectPrompt() {
             using NativeFileDialog Dialog = new NativeFileDialog();
             Dialog.SelectFile().AddFilter("Osmium Projects", "osproj");
         

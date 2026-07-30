@@ -33,6 +33,25 @@ public static class Project
         return path;
     }
 
+    public static string GetProjectSubPath(bool regenerate, params string[] subdirectoryPath) {
+        string path = Path.Combine(ProjectPath, Path.Combine(subdirectoryPath));
+        
+        if (!Path.Exists(path))
+        {
+            Debug.Error("Requested Path Does Not Exist! ", ["Path"], [path]);
+
+            if (regenerate)
+            {
+                Debug.Error("Regenerating Project Subdirectory...", ["Path"], [path]);
+                    
+                Directory.CreateDirectory(Path.GetDirectoryName(path));
+                File.WriteAllText(path, "");
+            }
+        }
+        
+        return path;
+    }
+
     public static string GetProjectSubPath(string subpath, bool regenerate = false) {
         string path = Path.Combine(ProjectPath, subpath);
 

@@ -19,6 +19,6 @@ public static partial class Editor
     }
 
     private static void BedrockLoad() {
-        EditorWindowHierarchy.Add<ProjectMenu>();
+        ProjectMenu.Initialize();
     }
 }

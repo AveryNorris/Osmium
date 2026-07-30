@@ -32,8 +32,5 @@ public static partial class Editor
             editorModule.EditorOpen();
         
         Reload();
-        
-        //post reload so the assemblies exist
-
     }
 }
