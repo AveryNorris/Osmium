@@ -24,8 +24,10 @@
         private static readonly ImFontPtr Jetbrains;
         
         static ProjectMenu() {
-            Jetbrains = AssetLoader.Font("/Users/averynorris/Osmium/Osmium-Editor/Assets/JetBrainsMonoNL-Regular.ttf", 55);
-            OsmiumLogo = AssetLoader.Image("/Users/averynorris/Osmium/Osmium-Editor/Assets/Osmium.png");
+            
+            //todo: TERRIBLE HORRIBLE AWFUL!
+            Jetbrains = AssetLoader.Font("/home/averynorris/Osmium/Osmium-Editor/Assets/JetBrainsMonoNL-Regular.ttf", 55);
+            OsmiumLogo = AssetLoader.Image("/home/averynorris/Osmium/Osmium-Editor/Assets/Osmium.png");
             
             ProjectMemory.RefreshProjectList();
         }
@@ -35,11 +37,17 @@
         }
 
         private static void Draw() {
-            int sizeFactor = (int)(Bedrock.window.CurrentMonitor.ClientArea.Size.Y * .4f);
-            Bedrock.window.ClientSize = new Vector2i(sizeFactor, sizeFactor);
-            Bedrock.window.CenterWindow();
 
-            Bedrock.window.WindowBorder = WindowBorder.Hidden;
+            //linux ;(
+
+            if (OperatingSystem.IsWindows() || OperatingSystem.IsMacOS())
+            {
+                int sizeFactor = (int)(Bedrock.window.CurrentMonitor.ClientArea.Size.Y * .4f);
+                
+                Bedrock.window.ClientSize = new Vector2i(sizeFactor, sizeFactor);
+                Bedrock.window.CenterWindow();
+                Bedrock.window.WindowBorder = WindowBorder.Hidden;
+            }
 
             ImGui.SetNextWindowPos(Vector2.Zero);
             ImGui.SetNextWindowSize(new Vector2(Osmium.Window.ClientSize.X, Osmium.Window.ClientSize.Y));

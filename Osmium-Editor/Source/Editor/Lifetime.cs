@@ -8,8 +8,6 @@ namespace OsmiumEditor;
 public static partial class Editor
 {
     
-    private static readonly List<IEditorModule> _LeadingEditorModules = [];
-    
     public static void OpenProject(string __path) {
             
         Debug.Action("Opening project! ", ["Path"], [__path]);
@@ -20,17 +18,31 @@ public static partial class Editor
         Project.ProjectPath = parentDirectory;
 
         Bedrock.window.WindowBorder = WindowBorder.Resizable;
+        
+        Reload();
+        
+        _EditorModules.Resolving += (context, assemblyName) =>
+        {
+            return _RuntimeModules.Assemblies
+                .FirstOrDefault(a =>
+                    AssemblyName.ReferenceMatchesDefinition(
+                        a.GetName(),
+                        assemblyName));
+        };
 
         foreach (string editorModule in Directory.GetFiles(Project.GetProjectSubdirectory(true, "Modules", "Editor"), "*.dll", SearchOption.AllDirectories))
             _EditorModules.LoadFromAssemblyPath(editorModule);
 
-        foreach (Assembly assembly in _EditorModules.Assemblies) foreach (Type type in assembly.GetTypes())
-            if (typeof(IEditorModule).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract) 
-                _LeadingEditorModules.Add((IEditorModule)Activator.CreateInstance(type));
-
-        foreach (IEditorModule editorModule in _LeadingEditorModules) 
-            editorModule.EditorOpen();
+        List<MethodInfo> OnEditorOpenEvents = [];
         
-        Reload();
+        foreach (Assembly assembly in _EditorModules.Assemblies) foreach (Type type in assembly.GetTypes()) foreach (MethodInfo eventMethod in type.GetMethods()) {
+            if (eventMethod.IsStatic && eventMethod.GetCustomAttributes(typeof(OnEditorOpen), true).Length > 0 && eventMethod.GetParameters().Length == 0) {
+                OnEditorOpenEvents.Add(eventMethod);
+            }
+        }
+
+        foreach (MethodInfo method in OnEditorOpenEvents) {
+            method.Invoke(null, null);
+        }
     }
 }

@@ -78,8 +78,7 @@ public static partial class Osmium
         Bedrock.Unload += OnUnload;
         
         EventManager.ResolveAllModules();
-        
-        foreach (IRuntimeModule module in EventManager._LeadingModuleReferences) module.Initialize();
+        EventManager.InvokeModulesInitializeEvent();
         
         Debug.Action("Successfully Initialized Osmium!");
     }
@@ -147,13 +146,12 @@ public static partial class Osmium
     [MarkerAttributes.UnsafePipeline]
     public static void VirtualInitialize(IEnumerable<Assembly> __assemblies) {
         EventManager._TypeAssociatedTimeEvents = FrozenDictionary<Type, EventManager.EventProfile>.Empty;
-        EventManager._LeadingModuleReferences.Clear();
+        EventManager.OnInitializeEvents.Clear();
         IsInitialized = true;
         IsVirtualized = true;
         
         EventManager.ResolveAllModules(__assemblies);
-        
-        foreach (IRuntimeModule module in EventManager._LeadingModuleReferences) module.Initialize();
+        EventManager.InvokeModulesInitializeEvent();
     }
     
     
@@ -309,7 +307,7 @@ public static partial class Osmium
     /// <errors> Do not call this unless you have already closed the Nucleus </errors>
     [MarkerAttributes.UnsafePipeline]
     public static void CleanVirtualRuntime() {
-        EventManager._LeadingModuleReferences.Clear();
+        EventManager.OnInitializeEvents.Clear();
 
         SceneAdded = null;
         SceneRemoved = null;

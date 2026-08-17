@@ -15,6 +15,7 @@ public static class Project
 
     //todo: enforce that editor modules cannot define components, and runtime cannot use the editor etc
     public static string GetProjectSubdirectory(bool regenerate, params string[] subdirectoryPath)
+    
     {
         string path = Path.Combine(ProjectPath,Path.Combine(subdirectoryPath));
 

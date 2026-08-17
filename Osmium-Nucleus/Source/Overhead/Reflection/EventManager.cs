@@ -34,11 +34,10 @@ internal static class EventManager
         "Load", "Unload", "Update", "Draw", "Create", "Remove"
     ];
 
-    
-    
-    /// <summary> Contains an instance of an IModule for all unique IModules found </summary>
-    [MarkerAttributes.UnsafeInternal]
-    internal static readonly List<IRuntimeModule> _LeadingModuleReferences = [];
+
+
+    /// <summary> All Runtime module methods that are using OnInitialize to track startup </summary>
+    internal static List<MethodInfo> OnInitializeEvents = [];
     
     
     
@@ -60,11 +59,11 @@ internal static class EventManager
         
         foreach (Assembly assembly in __sources) {
             foreach (Type type in assembly.GetTypes()) {
-                
-                if (typeof(IRuntimeModule).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
-                {
-                    IRuntimeModule runtimeModule = (IRuntimeModule) Activator.CreateInstance(type);
-                    if(runtimeModule != null) _LeadingModuleReferences.Add(runtimeModule);
+
+                foreach (MethodInfo eventMethod in type.GetMethods()) {
+                    if (eventMethod.IsStatic && eventMethod.GetCustomAttributes(typeof(OnInitialize), true).Length > 0 && eventMethod.GetParameters().Length == 0) {
+                        OnInitializeEvents.Add(eventMethod);
+                    }
                 }
                 
                 if (!type.IsSubclassOf(typeof(Component))) continue;
@@ -95,7 +94,15 @@ internal static class EventManager
         
         _TypeAssociatedTimeEvents = _newAssociatedTimeEvents.ToFrozenDictionary();
     }
-    
-    
-    
+
+
+
+    /// <summary> Resolves all the components from only the given assemblies</summary>
+    [MarkerAttributes.UnsafePipeline]
+    internal static void InvokeModulesInitializeEvent()
+    {
+        foreach (MethodInfo method in OnInitializeEvents) {
+            method.Invoke(null, null);
+        }
+    }
 }
