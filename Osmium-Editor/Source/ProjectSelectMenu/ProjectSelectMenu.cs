@@ -26,8 +26,8 @@
         static ProjectMenu() {
             
             //todo: TERRIBLE HORRIBLE AWFUL!
-            Jetbrains = AssetLoader.Font("/home/averynorris/Osmium/Osmium-Editor/Assets/JetBrainsMonoNL-Regular.ttf", 55);
-            OsmiumLogo = AssetLoader.Image("/home/averynorris/Osmium/Osmium-Editor/Assets/Osmium.png");
+            Jetbrains = AssetLoader.Font("/Users/averynorris/Osmium/Osmium-Editor/Assets/JetBrainsMonoNL-Regular.ttf", 55);
+            OsmiumLogo = AssetLoader.Image("/Users/averynorris/Osmium/Osmium-Editor/Assets/Osmium.png");
             
             ProjectMemory.RefreshProjectList();
         }

@@ -65,9 +65,12 @@ public static partial class Editor
 
         OnUnload?.Invoke();
         _RuntimeModules.Unload();
+        RuntimeModuleEventInvoker.OnUnload();
+        RuntimeModuleCheckInvoker.OnUnload();
         _RuntimeModules = new AssemblyLoadContext(null, true);
         GC.Collect();
         GC.WaitForPendingFinalizers();
+        //todo: should this be before?
         OnUnloadFinalizer?.Invoke();
         
         
@@ -84,6 +87,8 @@ public static partial class Editor
         foreach (string runtimeModule in Directory.GetFiles(Project.GetProjectSubdirectory(true, "Modules", "Runtime"), "*.dll", SearchOption.AllDirectories))
             _RuntimeModules.LoadFromAssemblyPath(runtimeModule);
         Osmium.VirtualInitialize(_RuntimeModules.Assemblies);
+        RuntimeModuleEventInvoker.OnLoad();
+        RuntimeModuleCheckInvoker.OnLoad();
         OnLoad?.Invoke();
 
         

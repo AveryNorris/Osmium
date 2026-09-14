@@ -41,6 +41,8 @@
       <None Remove="Assets\Component.png" />
       <EmbeddedResource Include="Assets\Component.png" />
       <None Remove="Assets\DefaultTexture.png" />
+      <None Remove="Assets\JetBrainsMonoNL-Regular.ttf" />
+      <EmbeddedResource Include="Assets\JetBrainsMonoNL-Regular.ttf" />
     </ItemGroup>
 
 </Project>
