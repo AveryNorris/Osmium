@@ -4,7 +4,7 @@ using OpenTK.Windowing.Desktop;
 
 
 
-namespace OsmiumNucleus;
+namespace OsmiumBedrock;
 
 
 

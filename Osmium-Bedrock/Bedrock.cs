@@ -1,7 +1,7 @@
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Windowing.Common;
 
-namespace OsmiumNucleus;
+namespace OsmiumBedrock;
 
 public static class Bedrock
 {

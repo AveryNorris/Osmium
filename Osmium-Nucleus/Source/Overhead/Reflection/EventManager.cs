@@ -45,7 +45,10 @@ internal static class EventManager
     /// and part of the reason why Initialize() must be called so early.</summary>
     [MarkerAttributes.UnsafeInternal]
     internal static void ResolveAllModules() {
-        ResolveAllModules(AppDomain.CurrentDomain.GetAssemblies());
+        HashSet<Assembly> FoundAssemblies = AppDomain.CurrentDomain.GetAssemblies().ToHashSet();
+        foreach (AssemblyName assembly in Assembly.GetEntryAssembly().GetReferencedAssemblies()) FoundAssemblies.Add(Assembly.Load(assembly));
+        
+        ResolveAllModules(FoundAssemblies);
         Debug.Action("Finished Resolving!");
     }
     

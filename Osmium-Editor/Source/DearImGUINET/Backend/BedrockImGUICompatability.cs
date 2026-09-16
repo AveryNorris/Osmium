@@ -1,6 +1,7 @@
 using ImGuiNET;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
+using OsmiumBedrock;
 using OsmiumNucleus;
 using Vector2 = System.Numerics.Vector2;
 

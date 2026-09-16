@@ -1,7 +1,7 @@
 using System.Collections.Frozen;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-
+using OsmiumBedrock;
 
 
 namespace OsmiumNucleus;
@@ -184,7 +184,7 @@ public static partial class Osmium
     }
     
     
-    
+
     
 
     /// <summary> Creates a new <see cref="Scene"/> with the given name, returns null if creating it fails </summary>

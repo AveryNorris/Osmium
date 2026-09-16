@@ -1,3 +1,5 @@
+using OsmiumBedrock;
+
 namespace OsmiumNucleus;
 
 

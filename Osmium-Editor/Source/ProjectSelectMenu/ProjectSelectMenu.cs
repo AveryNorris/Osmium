@@ -3,6 +3,7 @@
     using NativeFileDialogNET;
     using OpenTK.Mathematics;
     using OpenTK.Windowing.Common;
+    using OsmiumBedrock;
     using OsmiumNucleus;
     using Texture = Dear_ImGui_Sample.Backends.Types.Texture;
     using Vector2 = System.Numerics.Vector2;
