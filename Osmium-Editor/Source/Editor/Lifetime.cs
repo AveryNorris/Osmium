@@ -25,6 +25,8 @@ public static partial class Editor
 
     public const string CSProjModuleReferenceEnd = "</HintPath>\n      </Reference>\n    </ItemGroup>";
 
+    public static List<Assembly> RuntimeAssemblies = [];
+
     public static void OpenProject(string __path) {
         Debug.Action("Opening project! ", ["Path"], [__path]);
         
@@ -32,27 +34,20 @@ public static partial class Editor
         Project.ProjectPath = Path.GetDirectoryName(__path);
         File.WriteAllText(Path.Combine(Project.GetProjectSubdirectory(true, "Editor"), "GlobalUsage.cs"), GlobalUsage);
         
-        //todo: use strign builder, and use relative paths so the csproj is valid across git repositories
-        string csProj = CSProjFront;
-
-        foreach (string file in Directory.GetFiles(Project.GetProjectSubdirectory(true, "Modules"), "*.dll", SearchOption.AllDirectories))
-        {
-            //todo: gross and somewhat temporary,
-            //todo: once I start supporting module development, there should be a toggle setting to add editor modules as well so that your IDE doesnt flip the math out
-            csProj += CSProjModuleReferenceStart + Assembly.LoadFile(file).GetName().Name + CSProjModuleReferenceMiddle + file + CSProjModuleReferenceEnd;
-        }
+        BuildDirectory = Project.GetProjectSubdirectory(true, "Build", "net10.0");
         
-        csProj += CSProjModuleReferenceStart + typeof(Osmium).Assembly.GetName().Name + CSProjModuleReferenceMiddle + typeof(Osmium).Assembly.Location + CSProjModuleReferenceEnd;
-        csProj += CSProjModuleReferenceStart + typeof(Bedrock).Assembly.GetName().Name + CSProjModuleReferenceMiddle + typeof(Bedrock).Assembly.Location + CSProjModuleReferenceEnd;
-        csProj += "<ItemGroup>\n      <PackageReference Include=\"ImGui.NET\" Version=\"1.91.6.1\" />\n      <PackageReference Include=\"Microsoft.CodeAnalysis.CSharp\" Version=\"5.9.0\" />\n      <PackageReference Include=\"NativeFileDialogNET\" Version=\"2.0.2\" />\n      <PackageReference Include=\"OpenTK\" Version=\"4.9.4\" />\n      <PackageReference Include=\"StbImageSharp\" Version=\"2.30.15\" />\n      <PackageReference Include=\"System.IO.Compression\" Version=\"4.3.0\" />\n    </ItemGroup>";
-
-        csProj += CSProjEnd;
         
-        File.WriteAllText(Path.Combine(Project.ProjectPath, "Project.csproj"), csProj);
+        
+        File.WriteAllText(Path.Combine(Project.ProjectPath, "Project.csproj"), GenerateCSProj([], false));
         
         Bedrock.window.WindowBorder = WindowBorder.Resizable;
 
         foreach (string module in Directory.GetFiles(Project.GetProjectSubdirectory(true, "Modules"), "*.dll", SearchOption.AllDirectories)) _Modules.LoadFromAssemblyPath(module);
+
+        foreach (string file in Directory.GetFiles(Project.GetProjectSubdirectory(true, "Modules", "Runtime"), "*.dll", SearchOption.AllDirectories))
+        {
+            RuntimeAssemblies.Add(Assembly.LoadFile(file));
+        }
 
         //todo: reinitialize after compiling the program
         Osmium.VirtualInitialize(_Modules.Assemblies);
@@ -69,6 +64,44 @@ public static partial class Editor
             method.Invoke(null, null);
         }
         
-        Compile();
+        Debug.Log("TEMPORARY TESTING COMPILE AND RUN");
+        //RuntimeCompile();
+        //RunGame();
+
+        Bedrock.Unload += Save;
+    }
+
+    public static string GenerateCSProj(string[] extraDependencies, bool __ignoreCSFiles) {
+        //todo: use strign builder, and use relative paths so the csproj is valid across git repositories
+        string csProj = CSProjFront;
+
+        if (__ignoreCSFiles)
+        {
+            csProj +=
+                "<PropertyGroup>\n        <EnableDefaultCompileItems>false</EnableDefaultCompileItems>\n    </PropertyGroup>";
+        }
+
+        //todo: modules runtime? error point possibly
+        foreach (string file in Directory.GetFiles(Project.GetProjectSubdirectory(true, "Modules", "Runtime"), "*.dll", SearchOption.AllDirectories))
+        {
+            //todo: gross and somewhat temporary,
+            //todo: once I start supporting module development, there should be a toggle setting to add editor modules as well so that your IDE doesnt flip the math out
+            csProj += CSProjModuleReferenceStart + Assembly.LoadFile(file).GetName().Name + CSProjModuleReferenceMiddle + file + CSProjModuleReferenceEnd;
+        }
+
+        foreach (string extra in extraDependencies)
+        {
+            csProj += CSProjModuleReferenceStart + "Program" + CSProjModuleReferenceMiddle + extra + CSProjModuleReferenceEnd;
+            csProj += "<ItemGroup>\n        <Compile Include=\".compilationTopNugget.cs\" />\n    </ItemGroup>";
+            csProj += "<ItemGroup>\n        <Compile Include=\"Editor/GlobalUsage.cs\" />\n    </ItemGroup>";
+        }
+        
+        csProj += CSProjModuleReferenceStart + typeof(Osmium).Assembly.GetName().Name + CSProjModuleReferenceMiddle + typeof(Osmium).Assembly.Location + CSProjModuleReferenceEnd;
+        csProj += CSProjModuleReferenceStart + typeof(Bedrock).Assembly.GetName().Name + CSProjModuleReferenceMiddle + typeof(Bedrock).Assembly.Location + CSProjModuleReferenceEnd;
+        csProj += "<ItemGroup>\n      <PackageReference Include=\"ImGui.NET\" Version=\"1.91.6.1\" />\n      <PackageReference Include=\"Microsoft.CodeAnalysis.CSharp\" Version=\"5.9.0\" />\n      <PackageReference Include=\"NativeFileDialogNET\" Version=\"2.0.2\" />\n      <PackageReference Include=\"OpenTK\" Version=\"4.9.4\" />\n      <PackageReference Include=\"StbImageSharp\" Version=\"2.30.15\" />\n      <PackageReference Include=\"System.IO.Compression\" Version=\"4.3.0\" />\n    </ItemGroup>";
+
+        csProj += CSProjEnd;
+        
+        return csProj;
     }
 }

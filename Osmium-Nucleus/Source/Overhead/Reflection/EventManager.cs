@@ -48,6 +48,30 @@ internal static class EventManager
         HashSet<Assembly> FoundAssemblies = AppDomain.CurrentDomain.GetAssemblies().ToHashSet();
         foreach (AssemblyName assembly in Assembly.GetEntryAssembly().GetReferencedAssemblies()) FoundAssemblies.Add(Assembly.Load(assembly));
         
+        string UserCodePath = Path.Combine(
+                AppContext.BaseDirectory,
+                ".compilationUserCode.dll"
+            );
+        
+        Debug.Log(UserCodePath);
+        
+        if (File.Exists(UserCodePath)) {
+            FoundAssemblies.Add(Assembly.LoadFile(UserCodePath));
+        }
+
+        foreach (Assembly assembly in FoundAssemblies)
+        {
+            if (assembly.GetName().Name == ".compilationCSProj")
+            {
+                Debug.Log(string.Join(',' , assembly.GetTypes()));
+                foreach (Type type in assembly.GetTypes())
+                {
+                    Debug.Log(string.Join(',' , type.GetNestedTypes()));
+                    Debug.Log("NAME " + type.FullName);
+                }
+            }
+        }
+        
         ResolveAllModules(FoundAssemblies);
         Debug.Action("Finished Resolving!");
     }
