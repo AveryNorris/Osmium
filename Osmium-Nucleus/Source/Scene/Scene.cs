@@ -22,7 +22,7 @@ public class Scene(string __name) : ComponentDocker
         {
             if (value == field) return;
             if (!Osmium.ContainsScene(value)) field = value;
-            else Debug.Error("A scene with this name already exists!", ["Name"], [value]);
+            else Debug.Error($"A scene with the name \"{value}\" already exists!");
         }
     } = __name;
 

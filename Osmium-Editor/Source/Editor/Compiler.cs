@@ -83,6 +83,10 @@ public static partial class Editor
     
     /// <summary> Builds just the scripts in source, and loads them temporarily </summary>
     public static void EditorCompile() {
+
+        if (Osmium.IsInitialized) {
+            Osmium.VirtualClose();
+        }
         
         List<SyntaxTree> Trees = [];
         foreach (string file in Directory.GetFiles(Project.ProjectPath, "*.cs", SearchOption.AllDirectories)) {
@@ -106,6 +110,8 @@ public static partial class Editor
         compiledEditorCode.Position = 0;
         
         EditorLoadContext.LoadFromStream(compiledEditorCode);
+        
+        Osmium.VirtualInitialize(AppDomain.CurrentDomain.GetAssemblies());
         
         compiledEditorCode.Close();
         
@@ -145,7 +151,7 @@ public static partial class Editor
     public static string[] GetExternalModulePaths() =>
         Directory.GetFiles(Project.RuntimeModulesPath, "*.dll", SearchOption.AllDirectories);
 
-    public static string[] GetCoreDependenciesPath() => [typeof(Osmium).Assembly.Location, typeof(Bedrock).Assembly.Location];
+    public static string[] GetCoreDependenciesPath() => [typeof(Osmium).Assembly.Location, typeof(Bedrock).Assembly.Location, typeof(OpenTK.Audio.OpenAL.AL).Assembly.Location, typeof(OpenTK.Compute.Native.CLBase).Assembly.Location, typeof(OpenTK.Core.Utils).Assembly.Location, typeof(OpenTK.Graphics.OpenGL4.GL).Assembly.Location, typeof(OpenTK.Input.Hid.HidConsumerUsage).Assembly.Location, typeof(OpenTK.Mathematics.BezierCurve).Assembly.Location, typeof(OpenTK.Platform.Windows.All).Assembly.Location, typeof(OpenTK.Windowing.Common.ContextAPI).Assembly.Location];
 
     //todo: add extension checks to prevent compiling txt lol
 

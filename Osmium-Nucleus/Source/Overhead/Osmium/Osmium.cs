@@ -1,6 +1,5 @@
 using System.Collections.Frozen;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using OsmiumBedrock;
 
 
@@ -29,6 +28,10 @@ public static partial class Osmium
     /// <summary> List of all scenes currently loaded in the kernel. </summary>
     public static IReadOnlySet<Scene> Scenes => _scenes;
     [MarkerAttributes.UnsafeInternal] internal static readonly HashSet<Scene> _scenes = [];
+    
+    
+    /// <summary> All assemblies loaded by Osmium </summary>
+    public static IReadOnlyList<Assembly> Assemblies => AppDomain.CurrentDomain.GetAssemblies();
 
 
     
@@ -40,6 +43,8 @@ public static partial class Osmium
     public static bool IsClosed { get; private set; }
     /// <summary> Displays if Osmium is running virtually </summary>
     public static bool IsVirtualized { get; private set; }
+
+    public static event Action? Collect;
 
 
     /// <summary> If Osmium crashes, with SafeEscape enabled, it will still allow exiting statements to be run </summary>
@@ -80,7 +85,7 @@ public static partial class Osmium
         EventManager.ResolveAllModules();
         EventManager.InvokeModulesInitializeEvent();
         
-        Debug.Action("Successfully Initialized Osmium!");
+        Debug.Log("Successfully Initialized Osmium!", [], []);
     }
     
     
@@ -94,7 +99,7 @@ public static partial class Osmium
         
         IsRunning = true;
         
-        Debug.Action("Beginning Update Loop!");
+        Debug.Log("Beginning Update Loop!");
 
         Window!.Run();
     }
@@ -117,71 +122,7 @@ public static partial class Osmium
     
     
     
-    /// <summary> Initializes the Context and marks Osmium as initialized; but does not Resolve types </summary>
-    /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for Radium! So don't use it unless you know what you are doing.
-    /// These methods are made required in order to use Virtualization! Use Editor Methods instead of normal ones for Virtualization to work.</remarks>
-    [MarkerAttributes.UnsafePipeline]
-    public static void EditorInitialize() {
-        Debug.Action("Successfully Initialized Osmium!");
-    }
     
-    
-    
-    /// <summary> Starts OpenTK but doesn't let the update loop run! </summary>
-    /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for Radium! So don't use it unless you know what you are doing.
-    /// These methods are made required in order to use Virtualization! Use Editor Methods instead of normal ones for Virtualization to work.</remarks>
-    [MarkerAttributes.UnsafePipeline]
-    public static void EditorRun() {
-        Bedrock.Update += OnUpdate;
-        Bedrock.Draw += OnDraw;
-        
-        Window!.Run();
-    }
-    
-    
-    
-    /// <summary> Pretends to initialize Osmium, and makes the Components think that the Game has just been initialized. </summary>
-    /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for Radium! So don't use it unless you know what you are doing.
-    /// If you do want to use it, use the EditorInitialize() EditorRun() and EditorClose() instead of the traditional methods!</remarks>
-    [MarkerAttributes.UnsafePipeline]
-    public static void VirtualInitialize(IEnumerable<Assembly> __assemblies) {
-        EventManager._TypeAssociatedTimeEvents = FrozenDictionary<Type, EventManager.EventProfile>.Empty;
-        EventManager.OnInitializeEvents.Clear();
-        IsInitialized = true;
-        IsVirtualized = true;
-        
-        EventManager.ResolveAllModules(__assemblies);
-        EventManager.InvokeModulesInitializeEvent();
-    }
-    
-    
-    
-    /// <summary> Pretends to run Osmium virtually, and makes the Components think it has Started. </summary>
-    /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for Radium! So don't use it unless you know what you are doing.
-    /// If you do want to use it, use the EditorInitialize() EditorRun() and EditorClose() instead of the traditional methods!</remarks>
-    [MarkerAttributes.UnsafePipeline]
-    public static void VirtualRun() {
-        IsRunning = true;
-        
-        foreach (Scene scene in Scenes) scene.ChainEvent(Event.Load); 
-    }
-    
-    
-    
-    /// <summary> Pretends to close Osmium, and makes the Components think that the Game has ended. </summary>
-    /// <remarks> This is part of the Editor pipeline! It has no error checking, and it is made explicitly for the Editor! So don't use it unless you know what you are doing.
-    /// If you do want to use it, use the EditorInitialize() EditorRun() and EditorClose() instead of the traditional methods!</remarks>
-    [MarkerAttributes.UnsafePipeline]
-    public static void VirtualClose() {
-        if (IsRunning) {
-            foreach (Scene scene in Scenes) scene.ChainEvent(Event.Unload);
-            IsRunning = false;
-        }
-        
-        IsVirtualized = false;
-        
-        CleanVirtualRuntime();
-    }
     
     
 
@@ -299,39 +240,7 @@ public static partial class Osmium
     /// <summary> Starts a coroutine </summary>
     /// <inheritdoc cref="CoroutineRunner.Start"/>
     [MarkerAttributes.MethodLambda]
-    public static void StartCoroutine(IEnumerator<ICoroutineAction> __coroutine) => CoroutineRunner.Start(__coroutine);
-    
-    
-    
-    /// <summary> Cleans all runtime modules and events so Modules and Components can be safely collected </summary>
-    /// <errors> Do not call this unless you have already closed the Nucleus </errors>
-    [MarkerAttributes.UnsafePipeline]
-    public static void CleanVirtualRuntime() {
-        EventManager.OnInitializeEvents.Clear();
-
-        SceneAdded = null;
-        SceneRemoved = null;
-
-        FirstLoad = null;
-        Load = null;
-        FinalLoad = null;
-        
-        FirstUnload = null;
-        Unload = null;
-        FinalUnload = null;
-        
-        FirstUpdate = null;
-        Update = null;
-        FinalUpdate = null;
-        
-        FirstDraw = null;
-        Draw = null;
-        FinalDraw = null;
-        
-        _scenes.Clear();
-        
-        ComponentDocker.CleanVirtualRuntime();
-    }
+    public static void StartCoroutine(IEnumerator<ICoroutineAction> __coroutine) => CoroutineRunner.Start(__coroutine); 
     
     
     

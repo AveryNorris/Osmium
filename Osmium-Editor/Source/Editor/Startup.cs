@@ -14,6 +14,7 @@ public static partial class Editor
         
         Bedrock.Run();
         
+        Debug.RegisterCategory("EDITOR");
         Osmium.EditorRun();
         
         return 0;

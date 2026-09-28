@@ -73,7 +73,7 @@ internal static class EventManager
         }
         
         ResolveAllModules(FoundAssemblies);
-        Debug.Action("Finished Resolving!");
+        Debug.Log("Finished Resolving!");
     }
     
     
@@ -113,7 +113,7 @@ internal static class EventManager
                 
                 bool alwaysUpdate = type.IsDefined(typeof(AlwaysUpdate), true);
                 
-                Debug.Action("Found and Resolved events attached to : " + type.Name + " In " + type.Namespace);
+                Debug.Log("Found and Resolved events attached to : " + type.Name + " In " + type.Namespace);
 
                 _newAssociatedTimeEvents.Add(type, new EventProfile(timeEvents.ToArray(), alwaysUpdate));
             }

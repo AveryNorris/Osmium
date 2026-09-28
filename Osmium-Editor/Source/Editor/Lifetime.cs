@@ -24,11 +24,12 @@ public static partial class Editor
     public const string CSProjModuleReferenceMiddle = "\">\n        <HintPath>";
 
     public const string CSProjModuleReferenceEnd = "</HintPath>\n      </Reference>\n    </ItemGroup>";
-
+    
     public static List<Assembly> RuntimeAssemblies = [];
 
+    
     public static void OpenProject(string __path) {
-        Debug.Action("Opening project! ", ["Path"], [__path]);
+        Debug.Log("Opening project! ", ["Path"], [__path]);
         
         ProjectMemory.RefreshProjectTime(__path);
         Project.ProjectPath = Path.GetDirectoryName(__path);
@@ -65,8 +66,8 @@ public static partial class Editor
         }
         
         Debug.Log("TEMPORARY TESTING COMPILE AND RUN");
-        //RuntimeCompile();
-        //RunGame();
+        RuntimeCompile();
+        RunGame();
 
         Bedrock.Unload += Save;
     }
