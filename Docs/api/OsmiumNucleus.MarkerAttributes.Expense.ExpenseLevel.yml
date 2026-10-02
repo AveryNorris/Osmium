@@ -1,0 +1,228 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  commentId: T:OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  id: MarkerAttributes.Expense.ExpenseLevel
+  parent: OsmiumNucleus
+  children:
+  - OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.High
+  - OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.Low
+  - OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.Medium
+  - OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.None
+  - OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.VeryHigh
+  - OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.VeryLow
+  langs:
+  - csharp
+  - vb
+  name: MarkerAttributes.Expense.ExpenseLevel
+  nameWithType: MarkerAttributes.Expense.ExpenseLevel
+  fullName: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  type: Enum
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ExpenseLevel
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 33
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public enum MarkerAttributes.Expense.ExpenseLevel
+    content.vb: Public Enum MarkerAttributes.Expense.ExpenseLevel
+- uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.None
+  commentId: F:OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.None
+  id: None
+  parent: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: MarkerAttributes.Expense.ExpenseLevel.None
+  fullName: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.None
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: None
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 34
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: None = 0
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+- uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.VeryLow
+  commentId: F:OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.VeryLow
+  id: VeryLow
+  parent: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  langs:
+  - csharp
+  - vb
+  name: VeryLow
+  nameWithType: MarkerAttributes.Expense.ExpenseLevel.VeryLow
+  fullName: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.VeryLow
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: VeryLow
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 35
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: VeryLow = 1
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+- uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.Low
+  commentId: F:OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.Low
+  id: Low
+  parent: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  langs:
+  - csharp
+  - vb
+  name: Low
+  nameWithType: MarkerAttributes.Expense.ExpenseLevel.Low
+  fullName: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.Low
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Low
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 36
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Low = 2
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+- uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.Medium
+  commentId: F:OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.Medium
+  id: Medium
+  parent: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  langs:
+  - csharp
+  - vb
+  name: Medium
+  nameWithType: MarkerAttributes.Expense.ExpenseLevel.Medium
+  fullName: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.Medium
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Medium
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 37
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Medium = 3
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+- uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.High
+  commentId: F:OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.High
+  id: High
+  parent: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  langs:
+  - csharp
+  - vb
+  name: High
+  nameWithType: MarkerAttributes.Expense.ExpenseLevel.High
+  fullName: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.High
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: High
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 38
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: High = 4
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+- uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.VeryHigh
+  commentId: F:OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.VeryHigh
+  id: VeryHigh
+  parent: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  langs:
+  - csharp
+  - vb
+  name: VeryHigh
+  nameWithType: MarkerAttributes.Expense.ExpenseLevel.VeryHigh
+  fullName: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.VeryHigh
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: VeryHigh
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 39
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: VeryHigh = 5
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+references:
+- uid: OsmiumNucleus
+  commentId: N:OsmiumNucleus
+  href: OsmiumNucleus.html
+  name: OsmiumNucleus
+  nameWithType: OsmiumNucleus
+  fullName: OsmiumNucleus
+- uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  commentId: T:OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.Expense.ExpenseLevel
+  nameWithType: MarkerAttributes.Expense.ExpenseLevel
+  fullName: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Expense
+    name: Expense
+    href: OsmiumNucleus.MarkerAttributes.Expense.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+    name: ExpenseLevel
+    href: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Expense
+    name: Expense
+    href: OsmiumNucleus.MarkerAttributes.Expense.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+    name: ExpenseLevel
+    href: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.html

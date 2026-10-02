@@ -1,0 +1,454 @@
+### YamlMime:ManagedReference
+items:
+- uid: Dear_ImGui_Sample.Backends.AssetLoader
+  commentId: T:Dear_ImGui_Sample.Backends.AssetLoader
+  id: AssetLoader
+  parent: Dear_ImGui_Sample.Backends
+  children:
+  - Dear_ImGui_Sample.Backends.AssetLoader.Font(System.String,System.Single)
+  - Dear_ImGui_Sample.Backends.AssetLoader.Image(System.String)
+  langs:
+  - csharp
+  - vb
+  name: AssetLoader
+  nameWithType: AssetLoader
+  fullName: Dear_ImGui_Sample.Backends.AssetLoader
+  type: Class
+  source:
+    remote:
+      path: Osmium-Editor/Source/DearImGUINET/Backend/AssetLoader.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: AssetLoader
+    path: ../Osmium-Editor/Source/DearImGUINET/Backend/AssetLoader.cs
+    startLine: 7
+  assemblies:
+  - Osmium-Editor
+  namespace: Dear_ImGui_Sample.Backends
+  syntax:
+    content: public static class AssetLoader
+    content.vb: Public Module AssetLoader
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Dear_ImGui_Sample.Backends.AssetLoader.Font(System.String,System.Single)
+  commentId: M:Dear_ImGui_Sample.Backends.AssetLoader.Font(System.String,System.Single)
+  id: Font(System.String,System.Single)
+  parent: Dear_ImGui_Sample.Backends.AssetLoader
+  langs:
+  - csharp
+  - vb
+  name: Font(string, float)
+  nameWithType: AssetLoader.Font(string, float)
+  fullName: Dear_ImGui_Sample.Backends.AssetLoader.Font(string, float)
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/DearImGUINET/Backend/AssetLoader.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Font
+    path: ../Osmium-Editor/Source/DearImGUINET/Backend/AssetLoader.cs
+    startLine: 9
+  assemblies:
+  - Osmium-Editor
+  namespace: Dear_ImGui_Sample.Backends
+  syntax:
+    content: public static ImFontPtr Font(string path, float size)
+    parameters:
+    - id: path
+      type: System.String
+    - id: size
+      type: System.Single
+    return:
+      type: ImGuiNET.ImFontPtr
+    content.vb: Public Shared Function Font(path As String, size As Single) As ImFontPtr
+  overload: Dear_ImGui_Sample.Backends.AssetLoader.Font*
+  nameWithType.vb: AssetLoader.Font(String, Single)
+  fullName.vb: Dear_ImGui_Sample.Backends.AssetLoader.Font(String, Single)
+  name.vb: Font(String, Single)
+- uid: Dear_ImGui_Sample.Backends.AssetLoader.Image(System.String)
+  commentId: M:Dear_ImGui_Sample.Backends.AssetLoader.Image(System.String)
+  id: Image(System.String)
+  parent: Dear_ImGui_Sample.Backends.AssetLoader
+  langs:
+  - csharp
+  - vb
+  name: Image(string)
+  nameWithType: AssetLoader.Image(string)
+  fullName: Dear_ImGui_Sample.Backends.AssetLoader.Image(string)
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/DearImGUINET/Backend/AssetLoader.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Image
+    path: ../Osmium-Editor/Source/DearImGUINET/Backend/AssetLoader.cs
+    startLine: 18
+  assemblies:
+  - Osmium-Editor
+  namespace: Dear_ImGui_Sample.Backends
+  syntax:
+    content: public static Texture Image(string path)
+    parameters:
+    - id: path
+      type: System.String
+    return:
+      type: Dear_ImGui_Sample.Backends.Types.Texture
+    content.vb: Public Shared Function Image(path As String) As Texture
+  overload: Dear_ImGui_Sample.Backends.AssetLoader.Image*
+  nameWithType.vb: AssetLoader.Image(String)
+  fullName.vb: Dear_ImGui_Sample.Backends.AssetLoader.Image(String)
+  name.vb: Image(String)
+references:
+- uid: Dear_ImGui_Sample.Backends
+  commentId: N:Dear_ImGui_Sample.Backends
+  href: Dear_ImGui_Sample.html
+  name: Dear_ImGui_Sample.Backends
+  nameWithType: Dear_ImGui_Sample.Backends
+  fullName: Dear_ImGui_Sample.Backends
+  spec.csharp:
+  - uid: Dear_ImGui_Sample
+    name: Dear_ImGui_Sample
+    href: Dear_ImGui_Sample.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends
+    name: Backends
+    href: Dear_ImGui_Sample.Backends.html
+  spec.vb:
+  - uid: Dear_ImGui_Sample
+    name: Dear_ImGui_Sample
+    href: Dear_ImGui_Sample.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends
+    name: Backends
+    href: Dear_ImGui_Sample.Backends.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Dear_ImGui_Sample.Backends.AssetLoader.Font*
+  commentId: Overload:Dear_ImGui_Sample.Backends.AssetLoader.Font
+  href: Dear_ImGui_Sample.Backends.AssetLoader.html#Dear_ImGui_Sample_Backends_AssetLoader_Font_System_String_System_Single_
+  name: Font
+  nameWithType: AssetLoader.Font
+  fullName: Dear_ImGui_Sample.Backends.AssetLoader.Font
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ImGuiNET.ImFontPtr
+  commentId: T:ImGuiNET.ImFontPtr
+  parent: ImGuiNET
+  isExternal: true
+  name: ImFontPtr
+  nameWithType: ImFontPtr
+  fullName: ImGuiNET.ImFontPtr
+- uid: ImGuiNET
+  commentId: N:ImGuiNET
+  isExternal: true
+  name: ImGuiNET
+  nameWithType: ImGuiNET
+  fullName: ImGuiNET
+- uid: Dear_ImGui_Sample.Backends.AssetLoader.Image*
+  commentId: Overload:Dear_ImGui_Sample.Backends.AssetLoader.Image
+  href: Dear_ImGui_Sample.Backends.AssetLoader.html#Dear_ImGui_Sample_Backends_AssetLoader_Image_System_String_
+  name: Image
+  nameWithType: AssetLoader.Image
+  fullName: Dear_ImGui_Sample.Backends.AssetLoader.Image
+- uid: Dear_ImGui_Sample.Backends.Types.Texture
+  commentId: T:Dear_ImGui_Sample.Backends.Types.Texture
+  parent: Dear_ImGui_Sample.Backends.Types
+  href: Dear_ImGui_Sample.Backends.Types.Texture.html
+  name: Texture
+  nameWithType: Texture
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture
+- uid: Dear_ImGui_Sample.Backends.Types
+  commentId: N:Dear_ImGui_Sample.Backends.Types
+  href: Dear_ImGui_Sample.html
+  name: Dear_ImGui_Sample.Backends.Types
+  nameWithType: Dear_ImGui_Sample.Backends.Types
+  fullName: Dear_ImGui_Sample.Backends.Types
+  spec.csharp:
+  - uid: Dear_ImGui_Sample
+    name: Dear_ImGui_Sample
+    href: Dear_ImGui_Sample.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends
+    name: Backends
+    href: Dear_ImGui_Sample.Backends.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends.Types
+    name: Types
+    href: Dear_ImGui_Sample.Backends.Types.html
+  spec.vb:
+  - uid: Dear_ImGui_Sample
+    name: Dear_ImGui_Sample
+    href: Dear_ImGui_Sample.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends
+    name: Backends
+    href: Dear_ImGui_Sample.Backends.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends.Types
+    name: Types
+    href: Dear_ImGui_Sample.Backends.Types.html

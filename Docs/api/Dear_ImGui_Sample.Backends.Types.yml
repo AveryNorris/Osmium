@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: Dear_ImGui_Sample.Backends.Types
+  commentId: N:Dear_ImGui_Sample.Backends.Types
+  id: Dear_ImGui_Sample.Backends.Types
+  children:
+  - Dear_ImGui_Sample.Backends.Types.Texture
+  langs:
+  - csharp
+  - vb
+  name: Dear_ImGui_Sample.Backends.Types
+  nameWithType: Dear_ImGui_Sample.Backends.Types
+  fullName: Dear_ImGui_Sample.Backends.Types
+  type: Namespace
+  assemblies:
+  - Osmium-Editor
+references:
+- uid: Dear_ImGui_Sample.Backends.Types.Texture
+  commentId: T:Dear_ImGui_Sample.Backends.Types.Texture
+  parent: Dear_ImGui_Sample.Backends.Types
+  href: Dear_ImGui_Sample.Backends.Types.Texture.html
+  name: Texture
+  nameWithType: Texture
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture
+- uid: Dear_ImGui_Sample.Backends.Types
+  commentId: N:Dear_ImGui_Sample.Backends.Types
+  href: Dear_ImGui_Sample.html
+  name: Dear_ImGui_Sample.Backends.Types
+  nameWithType: Dear_ImGui_Sample.Backends.Types
+  fullName: Dear_ImGui_Sample.Backends.Types
+  spec.csharp:
+  - uid: Dear_ImGui_Sample
+    name: Dear_ImGui_Sample
+    href: Dear_ImGui_Sample.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends
+    name: Backends
+    href: Dear_ImGui_Sample.Backends.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends.Types
+    name: Types
+    href: Dear_ImGui_Sample.Backends.Types.html
+  spec.vb:
+  - uid: Dear_ImGui_Sample
+    name: Dear_ImGui_Sample
+    href: Dear_ImGui_Sample.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends
+    name: Backends
+    href: Dear_ImGui_Sample.Backends.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends.Types
+    name: Types
+    href: Dear_ImGui_Sample.Backends.Types.html

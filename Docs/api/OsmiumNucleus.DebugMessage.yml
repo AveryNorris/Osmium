@@ -1,0 +1,957 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumNucleus.DebugMessage
+  commentId: T:OsmiumNucleus.DebugMessage
+  id: DebugMessage
+  parent: OsmiumNucleus
+  children:
+  - OsmiumNucleus.DebugMessage.#ctor(System.String,System.String,System.String[],System.Object[],OsmiumNucleus.MessageType)
+  - OsmiumNucleus.DebugMessage.CallStack
+  - OsmiumNucleus.DebugMessage.Category
+  - OsmiumNucleus.DebugMessage.DetailInfo
+  - OsmiumNucleus.DebugMessage.Details
+  - OsmiumNucleus.DebugMessage.IsError
+  - OsmiumNucleus.DebugMessage.IsFatal
+  - OsmiumNucleus.DebugMessage.IsInfo
+  - OsmiumNucleus.DebugMessage.IsWarning
+  - OsmiumNucleus.DebugMessage.Message
+  - OsmiumNucleus.DebugMessage.MessageType
+  - OsmiumNucleus.DebugMessage.Time
+  - OsmiumNucleus.DebugMessage.ToFullString
+  - OsmiumNucleus.DebugMessage.ToSimpleString
+  - OsmiumNucleus.DebugMessage.ToString
+  langs:
+  - csharp
+  - vb
+  name: DebugMessage
+  nameWithType: DebugMessage
+  fullName: OsmiumNucleus.DebugMessage
+  type: Class
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: DebugMessage
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 6
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public class DebugMessage
+    content.vb: Public Class DebugMessage
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: OsmiumNucleus.DebugMessage.#ctor(System.String,System.String,System.String[],System.Object[],OsmiumNucleus.MessageType)
+  commentId: M:OsmiumNucleus.DebugMessage.#ctor(System.String,System.String,System.String[],System.Object[],OsmiumNucleus.MessageType)
+  id: '#ctor(System.String,System.String,System.String[],System.Object[],OsmiumNucleus.MessageType)'
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: DebugMessage(string, string, string[], object[], MessageType)
+  nameWithType: DebugMessage.DebugMessage(string, string, string[], object[], MessageType)
+  fullName: OsmiumNucleus.DebugMessage.DebugMessage(string, string, string[], object[], OsmiumNucleus.MessageType)
+  type: Constructor
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: .ctor
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 6
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public DebugMessage(string category, string message, string[] detailInfo, object[] details, MessageType __type)
+    parameters:
+    - id: category
+      type: System.String
+    - id: message
+      type: System.String
+    - id: detailInfo
+      type: System.String[]
+    - id: details
+      type: System.Object[]
+    - id: __type
+      type: OsmiumNucleus.MessageType
+    content.vb: Public Sub New(category As String, message As String, detailInfo As String(), details As Object(), __type As MessageType)
+  overload: OsmiumNucleus.DebugMessage.#ctor*
+  nameWithType.vb: DebugMessage.New(String, String, String(), Object(), MessageType)
+  fullName.vb: OsmiumNucleus.DebugMessage.New(String, String, String(), Object(), OsmiumNucleus.MessageType)
+  name.vb: New(String, String, String(), Object(), MessageType)
+- uid: OsmiumNucleus.DebugMessage.MessageType
+  commentId: P:OsmiumNucleus.DebugMessage.MessageType
+  id: MessageType
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: MessageType
+  nameWithType: DebugMessage.MessageType
+  fullName: OsmiumNucleus.DebugMessage.MessageType
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: MessageType
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 9
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual MessageType MessageType { get; }
+    parameters: []
+    return:
+      type: OsmiumNucleus.MessageType
+    content.vb: Public Overridable ReadOnly Property MessageType As MessageType
+  overload: OsmiumNucleus.DebugMessage.MessageType*
+- uid: OsmiumNucleus.DebugMessage.IsFatal
+  commentId: P:OsmiumNucleus.DebugMessage.IsFatal
+  id: IsFatal
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: IsFatal
+  nameWithType: DebugMessage.IsFatal
+  fullName: OsmiumNucleus.DebugMessage.IsFatal
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: IsFatal
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 11
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual bool IsFatal { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property IsFatal As Boolean
+  overload: OsmiumNucleus.DebugMessage.IsFatal*
+- uid: OsmiumNucleus.DebugMessage.IsError
+  commentId: P:OsmiumNucleus.DebugMessage.IsError
+  id: IsError
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: IsError
+  nameWithType: DebugMessage.IsError
+  fullName: OsmiumNucleus.DebugMessage.IsError
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: IsError
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 12
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual bool IsError { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property IsError As Boolean
+  overload: OsmiumNucleus.DebugMessage.IsError*
+- uid: OsmiumNucleus.DebugMessage.IsWarning
+  commentId: P:OsmiumNucleus.DebugMessage.IsWarning
+  id: IsWarning
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: IsWarning
+  nameWithType: DebugMessage.IsWarning
+  fullName: OsmiumNucleus.DebugMessage.IsWarning
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: IsWarning
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 13
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual bool IsWarning { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property IsWarning As Boolean
+  overload: OsmiumNucleus.DebugMessage.IsWarning*
+- uid: OsmiumNucleus.DebugMessage.IsInfo
+  commentId: P:OsmiumNucleus.DebugMessage.IsInfo
+  id: IsInfo
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: IsInfo
+  nameWithType: DebugMessage.IsInfo
+  fullName: OsmiumNucleus.DebugMessage.IsInfo
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: IsInfo
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 14
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual bool IsInfo { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property IsInfo As Boolean
+  overload: OsmiumNucleus.DebugMessage.IsInfo*
+- uid: OsmiumNucleus.DebugMessage.DetailInfo
+  commentId: P:OsmiumNucleus.DebugMessage.DetailInfo
+  id: DetailInfo
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: DetailInfo
+  nameWithType: DebugMessage.DetailInfo
+  fullName: OsmiumNucleus.DebugMessage.DetailInfo
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: DetailInfo
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 16
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual string[] DetailInfo { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Overridable ReadOnly Property DetailInfo As String()
+  overload: OsmiumNucleus.DebugMessage.DetailInfo*
+- uid: OsmiumNucleus.DebugMessage.Details
+  commentId: P:OsmiumNucleus.DebugMessage.Details
+  id: Details
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: Details
+  nameWithType: DebugMessage.Details
+  fullName: OsmiumNucleus.DebugMessage.Details
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Details
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 17
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual object[] Details { get; }
+    parameters: []
+    return:
+      type: System.Object[]
+    content.vb: Public Overridable ReadOnly Property Details As Object()
+  overload: OsmiumNucleus.DebugMessage.Details*
+- uid: OsmiumNucleus.DebugMessage.Category
+  commentId: P:OsmiumNucleus.DebugMessage.Category
+  id: Category
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: Category
+  nameWithType: DebugMessage.Category
+  fullName: OsmiumNucleus.DebugMessage.Category
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Category
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 19
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual string Category { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Overridable ReadOnly Property Category As String
+  overload: OsmiumNucleus.DebugMessage.Category*
+- uid: OsmiumNucleus.DebugMessage.Message
+  commentId: P:OsmiumNucleus.DebugMessage.Message
+  id: Message
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: DebugMessage.Message
+  fullName: OsmiumNucleus.DebugMessage.Message
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Message
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 20
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual string Message { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Overridable ReadOnly Property Message As String
+  overload: OsmiumNucleus.DebugMessage.Message*
+- uid: OsmiumNucleus.DebugMessage.Time
+  commentId: P:OsmiumNucleus.DebugMessage.Time
+  id: Time
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: Time
+  nameWithType: DebugMessage.Time
+  fullName: OsmiumNucleus.DebugMessage.Time
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Time
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 22
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual DateTime Time { get; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Overridable ReadOnly Property Time As Date
+  overload: OsmiumNucleus.DebugMessage.Time*
+- uid: OsmiumNucleus.DebugMessage.CallStack
+  commentId: P:OsmiumNucleus.DebugMessage.CallStack
+  id: CallStack
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: CallStack
+  nameWithType: DebugMessage.CallStack
+  fullName: OsmiumNucleus.DebugMessage.CallStack
+  type: Property
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: CallStack
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 23
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual StackTrace CallStack { get; }
+    parameters: []
+    return:
+      type: System.Diagnostics.StackTrace
+    content.vb: Public Overridable ReadOnly Property CallStack As StackTrace
+  overload: OsmiumNucleus.DebugMessage.CallStack*
+- uid: OsmiumNucleus.DebugMessage.ToFullString
+  commentId: M:OsmiumNucleus.DebugMessage.ToFullString
+  id: ToFullString
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: ToFullString()
+  nameWithType: DebugMessage.ToFullString()
+  fullName: OsmiumNucleus.DebugMessage.ToFullString()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ToFullString
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 25
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual string ToFullString()
+    return:
+      type: System.String
+    content.vb: Public Overridable Function ToFullString() As String
+  overload: OsmiumNucleus.DebugMessage.ToFullString*
+- uid: OsmiumNucleus.DebugMessage.ToSimpleString
+  commentId: M:OsmiumNucleus.DebugMessage.ToSimpleString
+  id: ToSimpleString
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: ToSimpleString()
+  nameWithType: DebugMessage.ToSimpleString()
+  fullName: OsmiumNucleus.DebugMessage.ToSimpleString()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ToSimpleString
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 46
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public virtual string ToSimpleString()
+    return:
+      type: System.String
+    content.vb: Public Overridable Function ToSimpleString() As String
+  overload: OsmiumNucleus.DebugMessage.ToSimpleString*
+- uid: OsmiumNucleus.DebugMessage.ToString
+  commentId: M:OsmiumNucleus.DebugMessage.ToString
+  id: ToString
+  parent: OsmiumNucleus.DebugMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: DebugMessage.ToString()
+  fullName: OsmiumNucleus.DebugMessage.ToString()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/MessageType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ToString
+    path: ../Osmium-Nucleus/Source/Debug/MessageType.cs
+    startLine: 65
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: OsmiumNucleus.DebugMessage.ToString*
+references:
+- uid: OsmiumNucleus
+  commentId: N:OsmiumNucleus
+  href: OsmiumNucleus.html
+  name: OsmiumNucleus
+  nameWithType: OsmiumNucleus
+  fullName: OsmiumNucleus
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OsmiumNucleus.DebugMessage.#ctor*
+  commentId: Overload:OsmiumNucleus.DebugMessage.#ctor
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage__ctor_System_String_System_String_System_String___System_Object___OsmiumNucleus_MessageType_
+  name: DebugMessage
+  nameWithType: DebugMessage.DebugMessage
+  fullName: OsmiumNucleus.DebugMessage.DebugMessage
+  nameWithType.vb: DebugMessage.New
+  fullName.vb: OsmiumNucleus.DebugMessage.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.MessageType
+  commentId: T:OsmiumNucleus.MessageType
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.MessageType.html
+  name: MessageType
+  nameWithType: MessageType
+  fullName: OsmiumNucleus.MessageType
+- uid: OsmiumNucleus.DebugMessage.MessageType*
+  commentId: Overload:OsmiumNucleus.DebugMessage.MessageType
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_MessageType
+  name: MessageType
+  nameWithType: DebugMessage.MessageType
+  fullName: OsmiumNucleus.DebugMessage.MessageType
+- uid: OsmiumNucleus.DebugMessage.IsFatal*
+  commentId: Overload:OsmiumNucleus.DebugMessage.IsFatal
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_IsFatal
+  name: IsFatal
+  nameWithType: DebugMessage.IsFatal
+  fullName: OsmiumNucleus.DebugMessage.IsFatal
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OsmiumNucleus.DebugMessage.IsError*
+  commentId: Overload:OsmiumNucleus.DebugMessage.IsError
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_IsError
+  name: IsError
+  nameWithType: DebugMessage.IsError
+  fullName: OsmiumNucleus.DebugMessage.IsError
+- uid: OsmiumNucleus.DebugMessage.IsWarning*
+  commentId: Overload:OsmiumNucleus.DebugMessage.IsWarning
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_IsWarning
+  name: IsWarning
+  nameWithType: DebugMessage.IsWarning
+  fullName: OsmiumNucleus.DebugMessage.IsWarning
+- uid: OsmiumNucleus.DebugMessage.IsInfo*
+  commentId: Overload:OsmiumNucleus.DebugMessage.IsInfo
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_IsInfo
+  name: IsInfo
+  nameWithType: DebugMessage.IsInfo
+  fullName: OsmiumNucleus.DebugMessage.IsInfo
+- uid: OsmiumNucleus.DebugMessage.DetailInfo*
+  commentId: Overload:OsmiumNucleus.DebugMessage.DetailInfo
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_DetailInfo
+  name: DetailInfo
+  nameWithType: DebugMessage.DetailInfo
+  fullName: OsmiumNucleus.DebugMessage.DetailInfo
+- uid: OsmiumNucleus.DebugMessage.Details*
+  commentId: Overload:OsmiumNucleus.DebugMessage.Details
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_Details
+  name: Details
+  nameWithType: DebugMessage.Details
+  fullName: OsmiumNucleus.DebugMessage.Details
+- uid: OsmiumNucleus.DebugMessage.Category*
+  commentId: Overload:OsmiumNucleus.DebugMessage.Category
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_Category
+  name: Category
+  nameWithType: DebugMessage.Category
+  fullName: OsmiumNucleus.DebugMessage.Category
+- uid: OsmiumNucleus.DebugMessage.Message*
+  commentId: Overload:OsmiumNucleus.DebugMessage.Message
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_Message
+  name: Message
+  nameWithType: DebugMessage.Message
+  fullName: OsmiumNucleus.DebugMessage.Message
+- uid: OsmiumNucleus.DebugMessage.Time*
+  commentId: Overload:OsmiumNucleus.DebugMessage.Time
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_Time
+  name: Time
+  nameWithType: DebugMessage.Time
+  fullName: OsmiumNucleus.DebugMessage.Time
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: OsmiumNucleus.DebugMessage.CallStack*
+  commentId: Overload:OsmiumNucleus.DebugMessage.CallStack
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_CallStack
+  name: CallStack
+  nameWithType: DebugMessage.CallStack
+  fullName: OsmiumNucleus.DebugMessage.CallStack
+- uid: System.Diagnostics.StackTrace
+  commentId: T:System.Diagnostics.StackTrace
+  parent: System.Diagnostics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.diagnostics.stacktrace
+  name: StackTrace
+  nameWithType: StackTrace
+  fullName: System.Diagnostics.StackTrace
+- uid: System.Diagnostics
+  commentId: N:System.Diagnostics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Diagnostics
+  nameWithType: System.Diagnostics
+  fullName: System.Diagnostics
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Diagnostics
+    name: Diagnostics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.diagnostics
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Diagnostics
+    name: Diagnostics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.diagnostics
+- uid: OsmiumNucleus.DebugMessage.ToFullString*
+  commentId: Overload:OsmiumNucleus.DebugMessage.ToFullString
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_ToFullString
+  name: ToFullString
+  nameWithType: DebugMessage.ToFullString
+  fullName: OsmiumNucleus.DebugMessage.ToFullString
+- uid: OsmiumNucleus.DebugMessage.ToSimpleString*
+  commentId: Overload:OsmiumNucleus.DebugMessage.ToSimpleString
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_ToSimpleString
+  name: ToSimpleString
+  nameWithType: DebugMessage.ToSimpleString
+  fullName: OsmiumNucleus.DebugMessage.ToSimpleString
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.DebugMessage.ToString*
+  commentId: Overload:OsmiumNucleus.DebugMessage.ToString
+  href: OsmiumNucleus.DebugMessage.html#OsmiumNucleus_DebugMessage_ToString
+  name: ToString
+  nameWithType: DebugMessage.ToString
+  fullName: OsmiumNucleus.DebugMessage.ToString

@@ -3,6 +3,7 @@ using System.Runtime.Loader;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Windowing.Common;
 using OsmiumBedrock;
+using OsmiumEditor.Source.NewEditor;
 using OsmiumNucleus;
 
 namespace OsmiumEditor;
@@ -70,6 +71,8 @@ public static partial class Editor
         RunGame();
 
         Bedrock.Unload += Save;
+        
+        NewEditor.RefreshEditor();
     }
 
     public static string GenerateCSProj(string[] extraDependencies, bool __ignoreCSFiles) {

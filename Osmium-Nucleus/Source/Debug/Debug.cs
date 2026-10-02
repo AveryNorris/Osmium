@@ -11,7 +11,6 @@ public static class Debug
 
     static Debug() {
         RegisterCategory("NUCLEUS");
-        Osmium.Collect += CollectVirtualization;
     }
     
     
@@ -82,6 +81,8 @@ public static class Debug
 
         if (OnMessage != null) foreach (Action<DebugMessage> subscriber in OnMessage.GetInvocationList()) { if (subscriber.GetMethodInfo().IsCollectible) OnMessage -= subscriber; }
         if (OnClear != null) foreach (Action subscriber in OnClear.GetInvocationList()) { if (subscriber.GetMethodInfo().IsCollectible) OnClear -= subscriber; }
+        
+        
     }
     
     

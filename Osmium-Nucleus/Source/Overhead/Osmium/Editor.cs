@@ -67,6 +67,28 @@ public static partial class Osmium
             IsRunning = false;
         }
         
-        IsVirtualized = false;
+        IsInitialized = false;
+        
+        EventManager._TypeAssociatedTimeEvents = FrozenDictionary<Type, EventManager.EventProfile>.Empty;
+        EventManager.OnInitializeEvents.Clear();
+        
+        Debug.CollectVirtualization();
+        ComponentDocker.ClearCollectibleAssemblies();
+        
+        if(FirstLoad != null) foreach (Action listener in FirstLoad.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) FirstLoad -= listener;
+        if(FinalLoad != null) foreach (Action listener in FinalLoad.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) FinalLoad -= listener;
+        
+        if(FirstUnload != null) foreach (Action listener in FirstUnload.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) FirstUnload -= listener;
+        if(FinalUnload != null) foreach (Action listener in FinalUnload.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) FinalUnload -= listener;
+        
+        if(FirstDraw != null) foreach (Action listener in FirstDraw.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) FirstDraw -= listener;
+        if(FinalDraw != null) foreach (Action listener in FinalDraw.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) FinalDraw -= listener;
+        
+        if(FirstUpdate != null) foreach (Action listener in FirstUpdate.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) FirstUpdate -= listener;
+        if(FinalUpdate != null) foreach (Action listener in FinalUpdate.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) FinalUpdate -= listener;
+        
+        if(SceneAdded != null) foreach (Action<Scene> listener in SceneAdded.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) SceneAdded -= listener;
+        if(SceneRemoved != null) foreach (Action<Scene> listener in SceneRemoved.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) SceneRemoved -= listener;
+
     }
 }

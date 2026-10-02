@@ -1,0 +1,255 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  commentId: T:OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  id: MarkerAttributes.Complexity.TimeComplexity
+  parent: OsmiumNucleus
+  children:
+  - OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.O1
+  - OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.OLogN
+  - OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON
+  - OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON2
+  - OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON3
+  - OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ONK
+  - OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ONLogN
+  langs:
+  - csharp
+  - vb
+  name: MarkerAttributes.Complexity.TimeComplexity
+  nameWithType: MarkerAttributes.Complexity.TimeComplexity
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  type: Enum
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: TimeComplexity
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 52
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public enum MarkerAttributes.Complexity.TimeComplexity
+    content.vb: Public Enum MarkerAttributes.Complexity.TimeComplexity
+- uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.O1
+  commentId: F:OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.O1
+  id: O1
+  parent: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  langs:
+  - csharp
+  - vb
+  name: O1
+  nameWithType: MarkerAttributes.Complexity.TimeComplexity.O1
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.O1
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: O1
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 54
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: O1 = 0
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+- uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.OLogN
+  commentId: F:OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.OLogN
+  id: OLogN
+  parent: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  langs:
+  - csharp
+  - vb
+  name: OLogN
+  nameWithType: MarkerAttributes.Complexity.TimeComplexity.OLogN
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.OLogN
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: OLogN
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 55
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: OLogN = 1
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+- uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON
+  commentId: F:OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON
+  id: ON
+  parent: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  langs:
+  - csharp
+  - vb
+  name: ON
+  nameWithType: MarkerAttributes.Complexity.TimeComplexity.ON
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ON
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 56
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: ON = 2
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+- uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ONLogN
+  commentId: F:OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ONLogN
+  id: ONLogN
+  parent: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  langs:
+  - csharp
+  - vb
+  name: ONLogN
+  nameWithType: MarkerAttributes.Complexity.TimeComplexity.ONLogN
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ONLogN
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ONLogN
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 57
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: ONLogN = 3
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+- uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON2
+  commentId: F:OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON2
+  id: ON2
+  parent: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  langs:
+  - csharp
+  - vb
+  name: ON2
+  nameWithType: MarkerAttributes.Complexity.TimeComplexity.ON2
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON2
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ON2
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 58
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: ON2 = 4
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+- uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON3
+  commentId: F:OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON3
+  id: ON3
+  parent: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  langs:
+  - csharp
+  - vb
+  name: ON3
+  nameWithType: MarkerAttributes.Complexity.TimeComplexity.ON3
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ON3
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ON3
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 59
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: ON3 = 5
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+- uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ONK
+  commentId: F:OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ONK
+  id: ONK
+  parent: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  langs:
+  - csharp
+  - vb
+  name: ONK
+  nameWithType: MarkerAttributes.Complexity.TimeComplexity.ONK
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.ONK
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ONK
+    path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
+    startLine: 60
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: ONK = 6
+    return:
+      type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+references:
+- uid: OsmiumNucleus
+  commentId: N:OsmiumNucleus
+  href: OsmiumNucleus.html
+  name: OsmiumNucleus
+  nameWithType: OsmiumNucleus
+  fullName: OsmiumNucleus
+- uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  commentId: T:OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.Complexity.TimeComplexity
+  nameWithType: MarkerAttributes.Complexity.TimeComplexity
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Complexity
+    name: Complexity
+    href: OsmiumNucleus.MarkerAttributes.Complexity.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+    name: TimeComplexity
+    href: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Complexity
+    name: Complexity
+    href: OsmiumNucleus.MarkerAttributes.Complexity.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+    name: TimeComplexity
+    href: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.html

@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumTests
+  commentId: N:OsmiumTests
+  id: OsmiumTests
+  children:
+  - OsmiumTests.DockerTests
+  - OsmiumTests.Tests
+  langs:
+  - csharp
+  - vb
+  name: OsmiumTests
+  nameWithType: OsmiumTests
+  fullName: OsmiumTests
+  type: Namespace
+  assemblies:
+  - Osmium-Tests
+references:
+- uid: OsmiumTests.DockerTests
+  commentId: T:OsmiumTests.DockerTests
+  href: OsmiumTests.DockerTests.html
+  name: DockerTests
+  nameWithType: DockerTests
+  fullName: OsmiumTests.DockerTests
+- uid: OsmiumTests.Tests
+  commentId: T:OsmiumTests.Tests
+  href: OsmiumTests.Tests.html
+  name: Tests
+  nameWithType: Tests
+  fullName: OsmiumTests.Tests

@@ -1,0 +1,599 @@
+### YamlMime:ManagedReference
+items:
+- uid: Dear_ImGui_Sample.Backends.Types.Texture
+  commentId: T:Dear_ImGui_Sample.Backends.Types.Texture
+  id: Texture
+  parent: Dear_ImGui_Sample.Backends.Types
+  children:
+  - Dear_ImGui_Sample.Backends.Types.Texture.#ctor(System.IntPtr,System.Int32,System.Int32)
+  - Dear_ImGui_Sample.Backends.Types.Texture.Handle
+  - Dear_ImGui_Sample.Backends.Types.Texture.Height
+  - Dear_ImGui_Sample.Backends.Types.Texture.Width
+  - Dear_ImGui_Sample.Backends.Types.Texture.op_Implicit(Dear_ImGui_Sample.Backends.Types.Texture)~System.IntPtr
+  langs:
+  - csharp
+  - vb
+  name: Texture
+  nameWithType: Texture
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture
+  type: Class
+  source:
+    remote:
+      path: Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Texture
+    path: ../Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+    startLine: 2
+  assemblies:
+  - Osmium-Editor
+  namespace: Dear_ImGui_Sample.Backends.Types
+  syntax:
+    content: 'public record Texture : IEquatable<Texture>'
+    content.vb: Public Class Texture Implements IEquatable(Of Texture)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{Dear_ImGui_Sample.Backends.Types.Texture}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Dear_ImGui_Sample.Backends.Types.Texture.#ctor(System.IntPtr,System.Int32,System.Int32)
+  commentId: M:Dear_ImGui_Sample.Backends.Types.Texture.#ctor(System.IntPtr,System.Int32,System.Int32)
+  id: '#ctor(System.IntPtr,System.Int32,System.Int32)'
+  parent: Dear_ImGui_Sample.Backends.Types.Texture
+  langs:
+  - csharp
+  - vb
+  name: Texture(nint, int, int)
+  nameWithType: Texture.Texture(nint, int, int)
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture.Texture(nint, int, int)
+  type: Constructor
+  source:
+    remote:
+      path: Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: .ctor
+    path: ../Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+    startLine: 2
+  assemblies:
+  - Osmium-Editor
+  namespace: Dear_ImGui_Sample.Backends.Types
+  syntax:
+    content: public Texture(nint Handle, int Width, int Height)
+    parameters:
+    - id: Handle
+      type: System.IntPtr
+    - id: Width
+      type: System.Int32
+    - id: Height
+      type: System.Int32
+    content.vb: Public Sub New(Handle As IntPtr, Width As Integer, Height As Integer)
+  overload: Dear_ImGui_Sample.Backends.Types.Texture.#ctor*
+  nameWithType.vb: Texture.New(IntPtr, Integer, Integer)
+  fullName.vb: Dear_ImGui_Sample.Backends.Types.Texture.New(System.IntPtr, Integer, Integer)
+  name.vb: New(IntPtr, Integer, Integer)
+- uid: Dear_ImGui_Sample.Backends.Types.Texture.Handle
+  commentId: P:Dear_ImGui_Sample.Backends.Types.Texture.Handle
+  id: Handle
+  parent: Dear_ImGui_Sample.Backends.Types.Texture
+  langs:
+  - csharp
+  - vb
+  name: Handle
+  nameWithType: Texture.Handle
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture.Handle
+  type: Property
+  source:
+    remote:
+      path: Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Handle
+    path: ../Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+    startLine: 2
+  assemblies:
+  - Osmium-Editor
+  namespace: Dear_ImGui_Sample.Backends.Types
+  syntax:
+    content: public nint Handle { get; init; }
+    parameters: []
+    return:
+      type: System.IntPtr
+    content.vb: Public Property Handle As IntPtr
+  overload: Dear_ImGui_Sample.Backends.Types.Texture.Handle*
+- uid: Dear_ImGui_Sample.Backends.Types.Texture.Width
+  commentId: P:Dear_ImGui_Sample.Backends.Types.Texture.Width
+  id: Width
+  parent: Dear_ImGui_Sample.Backends.Types.Texture
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: Texture.Width
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture.Width
+  type: Property
+  source:
+    remote:
+      path: Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Width
+    path: ../Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+    startLine: 2
+  assemblies:
+  - Osmium-Editor
+  namespace: Dear_ImGui_Sample.Backends.Types
+  syntax:
+    content: public int Width { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Width As Integer
+  overload: Dear_ImGui_Sample.Backends.Types.Texture.Width*
+- uid: Dear_ImGui_Sample.Backends.Types.Texture.Height
+  commentId: P:Dear_ImGui_Sample.Backends.Types.Texture.Height
+  id: Height
+  parent: Dear_ImGui_Sample.Backends.Types.Texture
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: Texture.Height
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture.Height
+  type: Property
+  source:
+    remote:
+      path: Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Height
+    path: ../Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+    startLine: 2
+  assemblies:
+  - Osmium-Editor
+  namespace: Dear_ImGui_Sample.Backends.Types
+  syntax:
+    content: public int Height { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Height As Integer
+  overload: Dear_ImGui_Sample.Backends.Types.Texture.Height*
+- uid: Dear_ImGui_Sample.Backends.Types.Texture.op_Implicit(Dear_ImGui_Sample.Backends.Types.Texture)~System.IntPtr
+  commentId: M:Dear_ImGui_Sample.Backends.Types.Texture.op_Implicit(Dear_ImGui_Sample.Backends.Types.Texture)~System.IntPtr
+  id: op_Implicit(Dear_ImGui_Sample.Backends.Types.Texture)~System.IntPtr
+  parent: Dear_ImGui_Sample.Backends.Types.Texture
+  langs:
+  - csharp
+  - vb
+  name: implicit operator nint(Texture)
+  nameWithType: Texture.implicit operator nint(Texture)
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture.implicit operator nint(Dear_ImGui_Sample.Backends.Types.Texture)
+  type: Operator
+  source:
+    remote:
+      path: Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: op_Implicit
+    path: ../Osmium-Editor/Source/DearImGUINET/Backend/Types/Texture.cs
+    startLine: 5
+  assemblies:
+  - Osmium-Editor
+  namespace: Dear_ImGui_Sample.Backends.Types
+  syntax:
+    content: public static implicit operator nint(Texture texture)
+    parameters:
+    - id: texture
+      type: Dear_ImGui_Sample.Backends.Types.Texture
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared Widening Operator CType(texture As Texture) As IntPtr
+  overload: Dear_ImGui_Sample.Backends.Types.Texture.op_Implicit*
+  nameWithType.vb: Texture.CType(Texture)
+  fullName.vb: Dear_ImGui_Sample.Backends.Types.Texture.CType(Dear_ImGui_Sample.Backends.Types.Texture)
+  name.vb: CType(Texture)
+references:
+- uid: Dear_ImGui_Sample.Backends.Types
+  commentId: N:Dear_ImGui_Sample.Backends.Types
+  href: Dear_ImGui_Sample.html
+  name: Dear_ImGui_Sample.Backends.Types
+  nameWithType: Dear_ImGui_Sample.Backends.Types
+  fullName: Dear_ImGui_Sample.Backends.Types
+  spec.csharp:
+  - uid: Dear_ImGui_Sample
+    name: Dear_ImGui_Sample
+    href: Dear_ImGui_Sample.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends
+    name: Backends
+    href: Dear_ImGui_Sample.Backends.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends.Types
+    name: Types
+    href: Dear_ImGui_Sample.Backends.Types.html
+  spec.vb:
+  - uid: Dear_ImGui_Sample
+    name: Dear_ImGui_Sample
+    href: Dear_ImGui_Sample.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends
+    name: Backends
+    href: Dear_ImGui_Sample.Backends.html
+  - name: .
+  - uid: Dear_ImGui_Sample.Backends.Types
+    name: Types
+    href: Dear_ImGui_Sample.Backends.Types.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{Dear_ImGui_Sample.Backends.Types.Texture}
+  commentId: T:System.IEquatable{Dear_ImGui_Sample.Backends.Types.Texture}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Texture>
+  nameWithType: IEquatable<Texture>
+  fullName: System.IEquatable<Dear_ImGui_Sample.Backends.Types.Texture>
+  nameWithType.vb: IEquatable(Of Texture)
+  fullName.vb: System.IEquatable(Of Dear_ImGui_Sample.Backends.Types.Texture)
+  name.vb: IEquatable(Of Texture)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Dear_ImGui_Sample.Backends.Types.Texture
+    name: Texture
+    href: Dear_ImGui_Sample.Backends.Types.Texture.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Dear_ImGui_Sample.Backends.Types.Texture
+    name: Texture
+    href: Dear_ImGui_Sample.Backends.Types.Texture.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Dear_ImGui_Sample.Backends.Types.Texture.#ctor*
+  commentId: Overload:Dear_ImGui_Sample.Backends.Types.Texture.#ctor
+  href: Dear_ImGui_Sample.Backends.Types.Texture.html#Dear_ImGui_Sample_Backends_Types_Texture__ctor_System_IntPtr_System_Int32_System_Int32_
+  name: Texture
+  nameWithType: Texture.Texture
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture.Texture
+  nameWithType.vb: Texture.New
+  fullName.vb: Dear_ImGui_Sample.Backends.Types.Texture.New
+  name.vb: New
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Dear_ImGui_Sample.Backends.Types.Texture.Handle*
+  commentId: Overload:Dear_ImGui_Sample.Backends.Types.Texture.Handle
+  href: Dear_ImGui_Sample.Backends.Types.Texture.html#Dear_ImGui_Sample_Backends_Types_Texture_Handle
+  name: Handle
+  nameWithType: Texture.Handle
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture.Handle
+- uid: Dear_ImGui_Sample.Backends.Types.Texture.Width*
+  commentId: Overload:Dear_ImGui_Sample.Backends.Types.Texture.Width
+  href: Dear_ImGui_Sample.Backends.Types.Texture.html#Dear_ImGui_Sample_Backends_Types_Texture_Width
+  name: Width
+  nameWithType: Texture.Width
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture.Width
+- uid: Dear_ImGui_Sample.Backends.Types.Texture.Height*
+  commentId: Overload:Dear_ImGui_Sample.Backends.Types.Texture.Height
+  href: Dear_ImGui_Sample.Backends.Types.Texture.html#Dear_ImGui_Sample_Backends_Types_Texture_Height
+  name: Height
+  nameWithType: Texture.Height
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture.Height
+- uid: Dear_ImGui_Sample.Backends.Types.Texture.op_Implicit*
+  commentId: Overload:Dear_ImGui_Sample.Backends.Types.Texture.op_Implicit
+  name: implicit operator
+  nameWithType: Texture.implicit operator
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture.implicit operator
+  nameWithType.vb: Texture.CType
+  fullName.vb: Dear_ImGui_Sample.Backends.Types.Texture.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: Dear_ImGui_Sample.Backends.Types.Texture
+  commentId: T:Dear_ImGui_Sample.Backends.Types.Texture
+  parent: Dear_ImGui_Sample.Backends.Types
+  href: Dear_ImGui_Sample.Backends.Types.Texture.html
+  name: Texture
+  nameWithType: Texture
+  fullName: Dear_ImGui_Sample.Backends.Types.Texture

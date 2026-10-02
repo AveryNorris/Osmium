@@ -1,0 +1,649 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumNucleus.Delay
+  commentId: T:OsmiumNucleus.Delay
+  id: Delay
+  parent: OsmiumNucleus
+  children:
+  - OsmiumNucleus.Delay.#ctor(System.TimeSpan)
+  - OsmiumNucleus.Delay.Continue
+  - OsmiumNucleus.Delay.FromDays(System.Single)
+  - OsmiumNucleus.Delay.FromHours(System.Single)
+  - OsmiumNucleus.Delay.FromMilliseconds(System.Single)
+  - OsmiumNucleus.Delay.FromMinutes(System.Single)
+  - OsmiumNucleus.Delay.FromSeconds(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: Delay
+  nameWithType: Delay
+  fullName: OsmiumNucleus.Delay
+  type: Class
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Coroutines/Delay.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Delay
+    path: ../Osmium-Nucleus/Source/Coroutines/Delay.cs
+    startLine: 6
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Represents a timed delay in a coroutine, which can be used with yield return.
+  example: []
+  syntax:
+    content: 'public class Delay : ICoroutineAction'
+    content.vb: Public Class Delay Implements ICoroutineAction
+  inheritance:
+  - System.Object
+  implements:
+  - OsmiumNucleus.ICoroutineAction
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: OsmiumNucleus.Delay.#ctor(System.TimeSpan)
+  commentId: M:OsmiumNucleus.Delay.#ctor(System.TimeSpan)
+  id: '#ctor(System.TimeSpan)'
+  parent: OsmiumNucleus.Delay
+  langs:
+  - csharp
+  - vb
+  name: Delay(TimeSpan)
+  nameWithType: Delay.Delay(TimeSpan)
+  fullName: OsmiumNucleus.Delay.Delay(System.TimeSpan)
+  type: Constructor
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Coroutines/Delay.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: .ctor
+    path: ../Osmium-Nucleus/Source/Coroutines/Delay.cs
+    startLine: 6
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Represents a timed delay in a coroutine, which can be used with yield return.
+  example: []
+  syntax:
+    content: public Delay(TimeSpan duration)
+    parameters:
+    - id: duration
+      type: System.TimeSpan
+      description: The amount of time before the delay ends
+    content.vb: Public Sub New(duration As TimeSpan)
+  overload: OsmiumNucleus.Delay.#ctor*
+  nameWithType.vb: Delay.New(TimeSpan)
+  fullName.vb: OsmiumNucleus.Delay.New(System.TimeSpan)
+  name.vb: New(TimeSpan)
+- uid: OsmiumNucleus.Delay.Continue
+  commentId: M:OsmiumNucleus.Delay.Continue
+  id: Continue
+  parent: OsmiumNucleus.Delay
+  langs:
+  - csharp
+  - vb
+  name: Continue()
+  nameWithType: Delay.Continue()
+  fullName: OsmiumNucleus.Delay.Continue()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Coroutines/Delay.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Continue
+    path: ../Osmium-Nucleus/Source/Coroutines/Delay.cs
+    startLine: 15
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Processes the current Action in the coroutine
+  example: []
+  syntax:
+    content: public bool Continue()
+    return:
+      type: System.Boolean
+      description: Returns false if the coroutine should exit from this action.
+    content.vb: Public Function [Continue]() As Boolean
+  overload: OsmiumNucleus.Delay.Continue*
+  implements:
+  - OsmiumNucleus.ICoroutineAction.Continue
+- uid: OsmiumNucleus.Delay.FromMilliseconds(System.Single)
+  commentId: M:OsmiumNucleus.Delay.FromMilliseconds(System.Single)
+  id: FromMilliseconds(System.Single)
+  parent: OsmiumNucleus.Delay
+  langs:
+  - csharp
+  - vb
+  name: FromMilliseconds(float)
+  nameWithType: Delay.FromMilliseconds(float)
+  fullName: OsmiumNucleus.Delay.FromMilliseconds(float)
+  type: Method
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Coroutines/Delay.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: FromMilliseconds
+    path: ../Osmium-Nucleus/Source/Coroutines/Delay.cs
+    startLine: 24
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Creates a new delay from the given time in milliseconds
+  example: []
+  syntax:
+    content: public static Delay FromMilliseconds(float __milliseconds)
+    parameters:
+    - id: __milliseconds
+      type: System.Single
+    return:
+      type: OsmiumNucleus.Delay
+    content.vb: Public Shared Function FromMilliseconds(__milliseconds As Single) As Delay
+  overload: OsmiumNucleus.Delay.FromMilliseconds*
+  nameWithType.vb: Delay.FromMilliseconds(Single)
+  fullName.vb: OsmiumNucleus.Delay.FromMilliseconds(Single)
+  name.vb: FromMilliseconds(Single)
+- uid: OsmiumNucleus.Delay.FromSeconds(System.Single)
+  commentId: M:OsmiumNucleus.Delay.FromSeconds(System.Single)
+  id: FromSeconds(System.Single)
+  parent: OsmiumNucleus.Delay
+  langs:
+  - csharp
+  - vb
+  name: FromSeconds(float)
+  nameWithType: Delay.FromSeconds(float)
+  fullName: OsmiumNucleus.Delay.FromSeconds(float)
+  type: Method
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Coroutines/Delay.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: FromSeconds
+    path: ../Osmium-Nucleus/Source/Coroutines/Delay.cs
+    startLine: 27
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Creates a new delay from the given time in seconds
+  example: []
+  syntax:
+    content: public static Delay FromSeconds(float __seconds)
+    parameters:
+    - id: __seconds
+      type: System.Single
+    return:
+      type: OsmiumNucleus.Delay
+    content.vb: Public Shared Function FromSeconds(__seconds As Single) As Delay
+  overload: OsmiumNucleus.Delay.FromSeconds*
+  nameWithType.vb: Delay.FromSeconds(Single)
+  fullName.vb: OsmiumNucleus.Delay.FromSeconds(Single)
+  name.vb: FromSeconds(Single)
+- uid: OsmiumNucleus.Delay.FromMinutes(System.Single)
+  commentId: M:OsmiumNucleus.Delay.FromMinutes(System.Single)
+  id: FromMinutes(System.Single)
+  parent: OsmiumNucleus.Delay
+  langs:
+  - csharp
+  - vb
+  name: FromMinutes(float)
+  nameWithType: Delay.FromMinutes(float)
+  fullName: OsmiumNucleus.Delay.FromMinutes(float)
+  type: Method
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Coroutines/Delay.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: FromMinutes
+    path: ../Osmium-Nucleus/Source/Coroutines/Delay.cs
+    startLine: 30
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Creates a new delay from the given time in minutes
+  example: []
+  syntax:
+    content: public static Delay FromMinutes(float __minutes)
+    parameters:
+    - id: __minutes
+      type: System.Single
+    return:
+      type: OsmiumNucleus.Delay
+    content.vb: Public Shared Function FromMinutes(__minutes As Single) As Delay
+  overload: OsmiumNucleus.Delay.FromMinutes*
+  nameWithType.vb: Delay.FromMinutes(Single)
+  fullName.vb: OsmiumNucleus.Delay.FromMinutes(Single)
+  name.vb: FromMinutes(Single)
+- uid: OsmiumNucleus.Delay.FromHours(System.Single)
+  commentId: M:OsmiumNucleus.Delay.FromHours(System.Single)
+  id: FromHours(System.Single)
+  parent: OsmiumNucleus.Delay
+  langs:
+  - csharp
+  - vb
+  name: FromHours(float)
+  nameWithType: Delay.FromHours(float)
+  fullName: OsmiumNucleus.Delay.FromHours(float)
+  type: Method
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Coroutines/Delay.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: FromHours
+    path: ../Osmium-Nucleus/Source/Coroutines/Delay.cs
+    startLine: 33
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Creates a new delay from the given time in hours
+  example: []
+  syntax:
+    content: public static Delay FromHours(float __hours)
+    parameters:
+    - id: __hours
+      type: System.Single
+    return:
+      type: OsmiumNucleus.Delay
+    content.vb: Public Shared Function FromHours(__hours As Single) As Delay
+  overload: OsmiumNucleus.Delay.FromHours*
+  nameWithType.vb: Delay.FromHours(Single)
+  fullName.vb: OsmiumNucleus.Delay.FromHours(Single)
+  name.vb: FromHours(Single)
+- uid: OsmiumNucleus.Delay.FromDays(System.Single)
+  commentId: M:OsmiumNucleus.Delay.FromDays(System.Single)
+  id: FromDays(System.Single)
+  parent: OsmiumNucleus.Delay
+  langs:
+  - csharp
+  - vb
+  name: FromDays(float)
+  nameWithType: Delay.FromDays(float)
+  fullName: OsmiumNucleus.Delay.FromDays(float)
+  type: Method
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Coroutines/Delay.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: FromDays
+    path: ../Osmium-Nucleus/Source/Coroutines/Delay.cs
+    startLine: 36
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Creates a new delay from the given time in days
+  example: []
+  syntax:
+    content: public static Delay FromDays(float __days)
+    parameters:
+    - id: __days
+      type: System.Single
+    return:
+      type: OsmiumNucleus.Delay
+    content.vb: Public Shared Function FromDays(__days As Single) As Delay
+  overload: OsmiumNucleus.Delay.FromDays*
+  nameWithType.vb: Delay.FromDays(Single)
+  fullName.vb: OsmiumNucleus.Delay.FromDays(Single)
+  name.vb: FromDays(Single)
+references:
+- uid: OsmiumNucleus
+  commentId: N:OsmiumNucleus
+  href: OsmiumNucleus.html
+  name: OsmiumNucleus
+  nameWithType: OsmiumNucleus
+  fullName: OsmiumNucleus
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: OsmiumNucleus.ICoroutineAction
+  commentId: T:OsmiumNucleus.ICoroutineAction
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.ICoroutineAction.html
+  name: ICoroutineAction
+  nameWithType: ICoroutineAction
+  fullName: OsmiumNucleus.ICoroutineAction
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OsmiumNucleus.Delay.#ctor*
+  commentId: Overload:OsmiumNucleus.Delay.#ctor
+  href: OsmiumNucleus.Delay.html#OsmiumNucleus_Delay__ctor_System_TimeSpan_
+  name: Delay
+  nameWithType: Delay.Delay
+  fullName: OsmiumNucleus.Delay.Delay
+  nameWithType.vb: Delay.New
+  fullName.vb: OsmiumNucleus.Delay.New
+  name.vb: New
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: OsmiumNucleus.Delay.Continue*
+  commentId: Overload:OsmiumNucleus.Delay.Continue
+  href: OsmiumNucleus.Delay.html#OsmiumNucleus_Delay_Continue
+  name: Continue
+  nameWithType: Delay.Continue
+  fullName: OsmiumNucleus.Delay.Continue
+- uid: OsmiumNucleus.ICoroutineAction.Continue
+  commentId: M:OsmiumNucleus.ICoroutineAction.Continue
+  parent: OsmiumNucleus.ICoroutineAction
+  href: OsmiumNucleus.ICoroutineAction.html#OsmiumNucleus_ICoroutineAction_Continue
+  name: Continue()
+  nameWithType: ICoroutineAction.Continue()
+  fullName: OsmiumNucleus.ICoroutineAction.Continue()
+  spec.csharp:
+  - uid: OsmiumNucleus.ICoroutineAction.Continue
+    name: Continue
+    href: OsmiumNucleus.ICoroutineAction.html#OsmiumNucleus_ICoroutineAction_Continue
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.ICoroutineAction.Continue
+    name: Continue
+    href: OsmiumNucleus.ICoroutineAction.html#OsmiumNucleus_ICoroutineAction_Continue
+  - name: (
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OsmiumNucleus.Delay.FromMilliseconds*
+  commentId: Overload:OsmiumNucleus.Delay.FromMilliseconds
+  href: OsmiumNucleus.Delay.html#OsmiumNucleus_Delay_FromMilliseconds_System_Single_
+  name: FromMilliseconds
+  nameWithType: Delay.FromMilliseconds
+  fullName: OsmiumNucleus.Delay.FromMilliseconds
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: OsmiumNucleus.Delay
+  commentId: T:OsmiumNucleus.Delay
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.Delay.html
+  name: Delay
+  nameWithType: Delay
+  fullName: OsmiumNucleus.Delay
+- uid: OsmiumNucleus.Delay.FromSeconds*
+  commentId: Overload:OsmiumNucleus.Delay.FromSeconds
+  href: OsmiumNucleus.Delay.html#OsmiumNucleus_Delay_FromSeconds_System_Single_
+  name: FromSeconds
+  nameWithType: Delay.FromSeconds
+  fullName: OsmiumNucleus.Delay.FromSeconds
+- uid: OsmiumNucleus.Delay.FromMinutes*
+  commentId: Overload:OsmiumNucleus.Delay.FromMinutes
+  href: OsmiumNucleus.Delay.html#OsmiumNucleus_Delay_FromMinutes_System_Single_
+  name: FromMinutes
+  nameWithType: Delay.FromMinutes
+  fullName: OsmiumNucleus.Delay.FromMinutes
+- uid: OsmiumNucleus.Delay.FromHours*
+  commentId: Overload:OsmiumNucleus.Delay.FromHours
+  href: OsmiumNucleus.Delay.html#OsmiumNucleus_Delay_FromHours_System_Single_
+  name: FromHours
+  nameWithType: Delay.FromHours
+  fullName: OsmiumNucleus.Delay.FromHours
+- uid: OsmiumNucleus.Delay.FromDays*
+  commentId: Overload:OsmiumNucleus.Delay.FromDays
+  href: OsmiumNucleus.Delay.html#OsmiumNucleus_Delay_FromDays_System_Single_
+  name: FromDays
+  nameWithType: Delay.FromDays
+  fullName: OsmiumNucleus.Delay.FromDays

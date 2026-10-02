@@ -1,0 +1,362 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumNucleus
+  commentId: N:OsmiumNucleus
+  id: OsmiumNucleus
+  children:
+  - OsmiumNucleus.AlwaysUpdate
+  - OsmiumNucleus.Component
+  - OsmiumNucleus.ComponentDocker
+  - OsmiumNucleus.Debug
+  - OsmiumNucleus.DebugMessage
+  - OsmiumNucleus.Delay
+  - OsmiumNucleus.EditorOnly
+  - OsmiumNucleus.Event
+  - OsmiumNucleus.ICoroutineAction
+  - OsmiumNucleus.MarkerAttributes
+  - OsmiumNucleus.MarkerAttributes.CalculatedProperty
+  - OsmiumNucleus.MarkerAttributes.Complexity
+  - OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  - OsmiumNucleus.MarkerAttributes.Expense
+  - OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  - OsmiumNucleus.MarkerAttributes.MethodLambda
+  - OsmiumNucleus.MarkerAttributes.UnsafeInternal
+  - OsmiumNucleus.MarkerAttributes.UnsafePipeline
+  - OsmiumNucleus.MarkerAttributes.VariableLambda
+  - OsmiumNucleus.MessageType
+  - OsmiumNucleus.OnEditorOpen
+  - OsmiumNucleus.OnInitialize
+  - OsmiumNucleus.Osmium
+  - OsmiumNucleus.Scene
+  langs:
+  - csharp
+  - vb
+  name: OsmiumNucleus
+  nameWithType: OsmiumNucleus
+  fullName: OsmiumNucleus
+  type: Namespace
+  assemblies:
+  - Osmium-Editor
+references:
+- uid: OsmiumNucleus.EditorOnly
+  commentId: T:OsmiumNucleus.EditorOnly
+  href: OsmiumNucleus.EditorOnly.html
+  name: EditorOnly
+  nameWithType: EditorOnly
+  fullName: OsmiumNucleus.EditorOnly
+- uid: OsmiumNucleus.OnEditorOpen
+  commentId: T:OsmiumNucleus.OnEditorOpen
+  href: OsmiumNucleus.OnEditorOpen.html
+  name: OnEditorOpen
+  nameWithType: OnEditorOpen
+  fullName: OsmiumNucleus.OnEditorOpen
+- uid: OsmiumNucleus.MarkerAttributes
+  commentId: T:OsmiumNucleus.MarkerAttributes
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes
+  nameWithType: MarkerAttributes
+  fullName: OsmiumNucleus.MarkerAttributes
+- uid: OsmiumNucleus.MarkerAttributes.UnsafeInternal
+  commentId: T:OsmiumNucleus.MarkerAttributes.UnsafeInternal
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.UnsafeInternal
+  nameWithType: MarkerAttributes.UnsafeInternal
+  fullName: OsmiumNucleus.MarkerAttributes.UnsafeInternal
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.UnsafeInternal
+    name: UnsafeInternal
+    href: OsmiumNucleus.MarkerAttributes.UnsafeInternal.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.UnsafeInternal
+    name: UnsafeInternal
+    href: OsmiumNucleus.MarkerAttributes.UnsafeInternal.html
+- uid: OsmiumNucleus.MarkerAttributes.CalculatedProperty
+  commentId: T:OsmiumNucleus.MarkerAttributes.CalculatedProperty
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.CalculatedProperty
+  nameWithType: MarkerAttributes.CalculatedProperty
+  fullName: OsmiumNucleus.MarkerAttributes.CalculatedProperty
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.CalculatedProperty
+    name: CalculatedProperty
+    href: OsmiumNucleus.MarkerAttributes.CalculatedProperty.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.CalculatedProperty
+    name: CalculatedProperty
+    href: OsmiumNucleus.MarkerAttributes.CalculatedProperty.html
+- uid: OsmiumNucleus.MarkerAttributes.Expense
+  commentId: T:OsmiumNucleus.MarkerAttributes.Expense
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.Expense
+  nameWithType: MarkerAttributes.Expense
+  fullName: OsmiumNucleus.MarkerAttributes.Expense
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Expense
+    name: Expense
+    href: OsmiumNucleus.MarkerAttributes.Expense.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Expense
+    name: Expense
+    href: OsmiumNucleus.MarkerAttributes.Expense.html
+- uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  commentId: T:OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.Expense.ExpenseLevel
+  nameWithType: MarkerAttributes.Expense.ExpenseLevel
+  fullName: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Expense
+    name: Expense
+    href: OsmiumNucleus.MarkerAttributes.Expense.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+    name: ExpenseLevel
+    href: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Expense
+    name: Expense
+    href: OsmiumNucleus.MarkerAttributes.Expense.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
+    name: ExpenseLevel
+    href: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.html
+- uid: OsmiumNucleus.MarkerAttributes.Complexity
+  commentId: T:OsmiumNucleus.MarkerAttributes.Complexity
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.Complexity
+  nameWithType: MarkerAttributes.Complexity
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Complexity
+    name: Complexity
+    href: OsmiumNucleus.MarkerAttributes.Complexity.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Complexity
+    name: Complexity
+    href: OsmiumNucleus.MarkerAttributes.Complexity.html
+- uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  commentId: T:OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.Complexity.TimeComplexity
+  nameWithType: MarkerAttributes.Complexity.TimeComplexity
+  fullName: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Complexity
+    name: Complexity
+    href: OsmiumNucleus.MarkerAttributes.Complexity.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+    name: TimeComplexity
+    href: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Complexity
+    name: Complexity
+    href: OsmiumNucleus.MarkerAttributes.Complexity.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+    name: TimeComplexity
+    href: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.html
+- uid: OsmiumNucleus.MarkerAttributes.MethodLambda
+  commentId: T:OsmiumNucleus.MarkerAttributes.MethodLambda
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.MethodLambda
+  nameWithType: MarkerAttributes.MethodLambda
+  fullName: OsmiumNucleus.MarkerAttributes.MethodLambda
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.MethodLambda
+    name: MethodLambda
+    href: OsmiumNucleus.MarkerAttributes.MethodLambda.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.MethodLambda
+    name: MethodLambda
+    href: OsmiumNucleus.MarkerAttributes.MethodLambda.html
+- uid: OsmiumNucleus.MarkerAttributes.VariableLambda
+  commentId: T:OsmiumNucleus.MarkerAttributes.VariableLambda
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.VariableLambda
+  nameWithType: MarkerAttributes.VariableLambda
+  fullName: OsmiumNucleus.MarkerAttributes.VariableLambda
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.VariableLambda
+    name: VariableLambda
+    href: OsmiumNucleus.MarkerAttributes.VariableLambda.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.VariableLambda
+    name: VariableLambda
+    href: OsmiumNucleus.MarkerAttributes.VariableLambda.html
+- uid: OsmiumNucleus.MarkerAttributes.UnsafePipeline
+  commentId: T:OsmiumNucleus.MarkerAttributes.UnsafePipeline
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.UnsafePipeline
+  nameWithType: MarkerAttributes.UnsafePipeline
+  fullName: OsmiumNucleus.MarkerAttributes.UnsafePipeline
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.UnsafePipeline
+    name: UnsafePipeline
+    href: OsmiumNucleus.MarkerAttributes.UnsafePipeline.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.UnsafePipeline
+    name: UnsafePipeline
+    href: OsmiumNucleus.MarkerAttributes.UnsafePipeline.html
+- uid: OsmiumNucleus.Component
+  commentId: T:OsmiumNucleus.Component
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.Component.html
+  name: Component
+  nameWithType: Component
+  fullName: OsmiumNucleus.Component
+- uid: OsmiumNucleus.ComponentDocker
+  commentId: T:OsmiumNucleus.ComponentDocker
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.ComponentDocker.html
+  name: ComponentDocker
+  nameWithType: ComponentDocker
+  fullName: OsmiumNucleus.ComponentDocker
+- uid: OsmiumNucleus.Delay
+  commentId: T:OsmiumNucleus.Delay
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.Delay.html
+  name: Delay
+  nameWithType: Delay
+  fullName: OsmiumNucleus.Delay
+- uid: OsmiumNucleus.ICoroutineAction
+  commentId: T:OsmiumNucleus.ICoroutineAction
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.ICoroutineAction.html
+  name: ICoroutineAction
+  nameWithType: ICoroutineAction
+  fullName: OsmiumNucleus.ICoroutineAction
+- uid: OsmiumNucleus.Debug
+  commentId: T:OsmiumNucleus.Debug
+  href: OsmiumNucleus.Debug.html
+  name: Debug
+  nameWithType: Debug
+  fullName: OsmiumNucleus.Debug
+- uid: OsmiumNucleus.MessageType
+  commentId: T:OsmiumNucleus.MessageType
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.MessageType.html
+  name: MessageType
+  nameWithType: MessageType
+  fullName: OsmiumNucleus.MessageType
+- uid: OsmiumNucleus.DebugMessage
+  commentId: T:OsmiumNucleus.DebugMessage
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.DebugMessage.html
+  name: DebugMessage
+  nameWithType: DebugMessage
+  fullName: OsmiumNucleus.DebugMessage
+- uid: OsmiumNucleus.Osmium
+  commentId: T:OsmiumNucleus.Osmium
+  href: OsmiumNucleus.Osmium.html
+  name: Osmium
+  nameWithType: Osmium
+  fullName: OsmiumNucleus.Osmium
+- uid: OsmiumNucleus.AlwaysUpdate
+  commentId: T:OsmiumNucleus.AlwaysUpdate
+  href: OsmiumNucleus.AlwaysUpdate.html
+  name: AlwaysUpdate
+  nameWithType: AlwaysUpdate
+  fullName: OsmiumNucleus.AlwaysUpdate
+- uid: OsmiumNucleus.Event
+  commentId: T:OsmiumNucleus.Event
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.Event.html
+  name: Event
+  nameWithType: Event
+  fullName: OsmiumNucleus.Event
+- uid: OsmiumNucleus.OnInitialize
+  commentId: T:OsmiumNucleus.OnInitialize
+  href: OsmiumNucleus.OnInitialize.html
+  name: OnInitialize
+  nameWithType: OnInitialize
+  fullName: OsmiumNucleus.OnInitialize
+- uid: OsmiumNucleus.Scene
+  commentId: T:OsmiumNucleus.Scene
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.Scene.html
+  name: Scene
+  nameWithType: Scene
+  fullName: OsmiumNucleus.Scene
+- uid: OsmiumNucleus
+  commentId: N:OsmiumNucleus
+  href: OsmiumNucleus.html
+  name: OsmiumNucleus
+  nameWithType: OsmiumNucleus
+  fullName: OsmiumNucleus

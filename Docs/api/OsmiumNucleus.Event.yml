@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumNucleus.Event
+  commentId: T:OsmiumNucleus.Event
+  id: Event
+  parent: OsmiumNucleus
+  children:
+  - OsmiumNucleus.Event.Create
+  - OsmiumNucleus.Event.Destroy
+  - OsmiumNucleus.Event.Draw
+  - OsmiumNucleus.Event.Load
+  - OsmiumNucleus.Event.Unload
+  - OsmiumNucleus.Event.Update
+  langs:
+  - csharp
+  - vb
+  name: Event
+  nameWithType: Event
+  fullName: OsmiumNucleus.Event
+  type: Enum
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Event
+    path: ../Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+    startLine: 5
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Represents an Event in Osmium.
+  example: []
+  syntax:
+    content: public enum Event
+    content.vb: Public Enum [Event]
+- uid: OsmiumNucleus.Event.Load
+  commentId: F:OsmiumNucleus.Event.Load
+  id: Load
+  parent: OsmiumNucleus.Event
+  langs:
+  - csharp
+  - vb
+  name: Load
+  nameWithType: Event.Load
+  fullName: OsmiumNucleus.Event.Load
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Load
+    path: ../Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+    startLine: 6
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Load = 0
+    return:
+      type: OsmiumNucleus.Event
+- uid: OsmiumNucleus.Event.Unload
+  commentId: F:OsmiumNucleus.Event.Unload
+  id: Unload
+  parent: OsmiumNucleus.Event
+  langs:
+  - csharp
+  - vb
+  name: Unload
+  nameWithType: Event.Unload
+  fullName: OsmiumNucleus.Event.Unload
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Unload
+    path: ../Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+    startLine: 7
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Unload = 1
+    return:
+      type: OsmiumNucleus.Event
+- uid: OsmiumNucleus.Event.Update
+  commentId: F:OsmiumNucleus.Event.Update
+  id: Update
+  parent: OsmiumNucleus.Event
+  langs:
+  - csharp
+  - vb
+  name: Update
+  nameWithType: Event.Update
+  fullName: OsmiumNucleus.Event.Update
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Update
+    path: ../Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+    startLine: 8
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Update = 2
+    return:
+      type: OsmiumNucleus.Event
+- uid: OsmiumNucleus.Event.Draw
+  commentId: F:OsmiumNucleus.Event.Draw
+  id: Draw
+  parent: OsmiumNucleus.Event
+  langs:
+  - csharp
+  - vb
+  name: Draw
+  nameWithType: Event.Draw
+  fullName: OsmiumNucleus.Event.Draw
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Draw
+    path: ../Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+    startLine: 9
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Draw = 3
+    return:
+      type: OsmiumNucleus.Event
+- uid: OsmiumNucleus.Event.Create
+  commentId: F:OsmiumNucleus.Event.Create
+  id: Create
+  parent: OsmiumNucleus.Event
+  langs:
+  - csharp
+  - vb
+  name: Create
+  nameWithType: Event.Create
+  fullName: OsmiumNucleus.Event.Create
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Create
+    path: ../Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+    startLine: 10
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Create = 4
+    return:
+      type: OsmiumNucleus.Event
+- uid: OsmiumNucleus.Event.Destroy
+  commentId: F:OsmiumNucleus.Event.Destroy
+  id: Destroy
+  parent: OsmiumNucleus.Event
+  langs:
+  - csharp
+  - vb
+  name: Destroy
+  nameWithType: Event.Destroy
+  fullName: OsmiumNucleus.Event.Destroy
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Destroy
+    path: ../Osmium-Nucleus/Source/Overhead/Reflection/Event.cs
+    startLine: 11
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Destroy = 5
+    return:
+      type: OsmiumNucleus.Event
+references:
+- uid: OsmiumNucleus
+  commentId: N:OsmiumNucleus
+  href: OsmiumNucleus.html
+  name: OsmiumNucleus
+  nameWithType: OsmiumNucleus
+  fullName: OsmiumNucleus
+- uid: OsmiumNucleus.Event
+  commentId: T:OsmiumNucleus.Event
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.Event.html
+  name: Event
+  nameWithType: Event
+  fullName: OsmiumNucleus.Event

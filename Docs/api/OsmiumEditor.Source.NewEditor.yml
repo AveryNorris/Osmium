@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumEditor.Source.NewEditor
+  commentId: N:OsmiumEditor.Source.NewEditor
+  id: OsmiumEditor.Source.NewEditor
+  children:
+  - OsmiumEditor.Source.NewEditor.NewEditor
+  langs:
+  - csharp
+  - vb
+  name: OsmiumEditor.Source.NewEditor
+  nameWithType: OsmiumEditor.Source.NewEditor
+  fullName: OsmiumEditor.Source.NewEditor
+  type: Namespace
+  assemblies:
+  - Osmium-Editor
+references:
+- uid: OsmiumEditor.Source.NewEditor.NewEditor
+  commentId: T:OsmiumEditor.Source.NewEditor.NewEditor
+  href: OsmiumEditor.Source.NewEditor.NewEditor.html
+  name: NewEditor
+  nameWithType: NewEditor
+  fullName: OsmiumEditor.Source.NewEditor.NewEditor

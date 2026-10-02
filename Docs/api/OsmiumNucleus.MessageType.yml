@@ -1,0 +1,160 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumNucleus.MessageType
+  commentId: T:OsmiumNucleus.MessageType
+  id: MessageType
+  parent: OsmiumNucleus
+  children:
+  - OsmiumNucleus.MessageType.Error
+  - OsmiumNucleus.MessageType.Fatal
+  - OsmiumNucleus.MessageType.Info
+  - OsmiumNucleus.MessageType.Warning
+  langs:
+  - csharp
+  - vb
+  name: MessageType
+  nameWithType: MessageType
+  fullName: OsmiumNucleus.MessageType
+  type: Enum
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/ErrorType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: MessageType
+    path: ../Osmium-Nucleus/Source/Debug/ErrorType.cs
+    startLine: 2
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum MessageType : byte
+    content.vb: >-
+      <Flags>
+
+      Public Enum MessageType As Byte
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: OsmiumNucleus.MessageType.Info
+  commentId: F:OsmiumNucleus.MessageType.Info
+  id: Info
+  parent: OsmiumNucleus.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Info
+  nameWithType: MessageType.Info
+  fullName: OsmiumNucleus.MessageType.Info
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/ErrorType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Info
+    path: ../Osmium-Nucleus/Source/Debug/ErrorType.cs
+    startLine: 5
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Info = 1
+    return:
+      type: OsmiumNucleus.MessageType
+- uid: OsmiumNucleus.MessageType.Warning
+  commentId: F:OsmiumNucleus.MessageType.Warning
+  id: Warning
+  parent: OsmiumNucleus.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: MessageType.Warning
+  fullName: OsmiumNucleus.MessageType.Warning
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/ErrorType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Warning
+    path: ../Osmium-Nucleus/Source/Debug/ErrorType.cs
+    startLine: 6
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Warning = 2
+    return:
+      type: OsmiumNucleus.MessageType
+- uid: OsmiumNucleus.MessageType.Error
+  commentId: F:OsmiumNucleus.MessageType.Error
+  id: Error
+  parent: OsmiumNucleus.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: MessageType.Error
+  fullName: OsmiumNucleus.MessageType.Error
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/ErrorType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Error
+    path: ../Osmium-Nucleus/Source/Debug/ErrorType.cs
+    startLine: 7
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Error = 4
+    return:
+      type: OsmiumNucleus.MessageType
+- uid: OsmiumNucleus.MessageType.Fatal
+  commentId: F:OsmiumNucleus.MessageType.Fatal
+  id: Fatal
+  parent: OsmiumNucleus.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Fatal
+  nameWithType: MessageType.Fatal
+  fullName: OsmiumNucleus.MessageType.Fatal
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Debug/ErrorType.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Fatal
+    path: ../Osmium-Nucleus/Source/Debug/ErrorType.cs
+    startLine: 8
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: Fatal = 8
+    return:
+      type: OsmiumNucleus.MessageType
+references:
+- uid: OsmiumNucleus
+  commentId: N:OsmiumNucleus
+  href: OsmiumNucleus.html
+  name: OsmiumNucleus
+  nameWithType: OsmiumNucleus
+  fullName: OsmiumNucleus
+- uid: OsmiumNucleus.MessageType
+  commentId: T:OsmiumNucleus.MessageType
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.MessageType.html
+  name: MessageType
+  nameWithType: MessageType
+  fullName: OsmiumNucleus.MessageType

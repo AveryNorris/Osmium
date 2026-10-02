@@ -43,9 +43,7 @@ public static partial class Osmium
     public static bool IsClosed { get; private set; }
     /// <summary> Displays if Osmium is running virtually </summary>
     public static bool IsVirtualized { get; private set; }
-
-    public static event Action? Collect;
-
+    
 
     /// <summary> If Osmium crashes, with SafeEscape enabled, it will still allow exiting statements to be run </summary>
     public static bool SafeEscape = true;

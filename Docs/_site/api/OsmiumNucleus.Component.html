@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Component | Osmium </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Component | Osmium ">
+      
+      <meta name="description" content="The backing class for all Components in Osmium. Inherit this to become one.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/AveryNorris/Osmium/new/main/apiSpec/new?filename=OsmiumNucleus_Component.md&amp;value=---%0Auid%3A%20OsmiumNucleus.Component%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Osmium">
+            Osmium
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="OsmiumNucleus.Component">
+
+
+
+  <h1 id="OsmiumNucleus_Component" data-uid="OsmiumNucleus.Component" class="text-break">
+Class Component  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="OsmiumNucleus.html">OsmiumNucleus</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Osmium-Nucleus.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The backing class for all Components in Osmium. Inherit this to become one.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Component : ComponentDocker, IEnumerable&lt;Component&gt;, IEnumerable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="OsmiumNucleus.ComponentDocker.html">ComponentDocker</a></div>
+      <div><span class="xref">Component</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OsmiumNucleus.Component.html">Component</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_CleanVirtualRuntime">ComponentDocker.CleanVirtualRuntime()</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__components">ComponentDocker._components</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__componentPriorityDictionary">ComponentDocker._componentPriorityDictionary</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__componentTypeDictionary">ComponentDocker._componentTypeDictionary</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__componentTagDictionary">ComponentDocker._componentTagDictionary</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Children">ComponentDocker.Children</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_AllChildren">ComponentDocker.AllChildren</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAllChildren">ComponentDocker.GetAllChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Count">ComponentDocker.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Item_System_Int32_">ComponentDocker.this[int]</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetEnumerator">ComponentDocker.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_String_">ComponentDocker.Contains(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1">ComponentDocker.Contains&lt;__Type&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1_System_String_">ComponentDocker.Contains&lt;__Type&gt;(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_ICollection_System_String__">ComponentDocker.Contains(ICollection&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1_System_Collections_Generic_ICollection_System_String__">ComponentDocker.Contains&lt;__Type&gt;(ICollection&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_OsmiumNucleus_Component_">ComponentDocker.Contains(Component)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ContainsAll_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__">ComponentDocker.ContainsAll(IEnumerable&lt;Component&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll">ComponentDocker.GetAll()</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1">ComponentDocker.Get&lt;__Type&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet__1___0__">ComponentDocker.TryGet&lt;__Type&gt;(out __Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1">ComponentDocker.GetAll&lt;__Type&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll__1_System_Collections_Generic_ICollection___0___">ComponentDocker.TryGetAll&lt;__Type&gt;(out ICollection&lt;__Type&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll_System_Collections_Generic_ICollection_System_String__">ComponentDocker.GetAll(ICollection&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll_System_Collections_Generic_ICollection_System_String__System_Collections_Generic_ICollection_OsmiumNucleus_Component___">ComponentDocker.TryGetAll(ICollection&lt;string&gt;, out ICollection&lt;Component&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1_System_Collections_Generic_ICollection_System_String__">ComponentDocker.GetAll&lt;__Type&gt;(ICollection&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll__1_System_Collections_Generic_ICollection_System_String__System_Collections_Generic_ICollection___0___">ComponentDocker.TryGetAll&lt;__Type&gt;(ICollection&lt;string&gt;, out ICollection&lt;__Type&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll_System_String_">ComponentDocker.GetAll(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll_System_String_System_Collections_Generic_ICollection_OsmiumNucleus_Component___">ComponentDocker.TryGetAll(string, out ICollection&lt;Component&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1_System_String_">ComponentDocker.GetAll&lt;__Type&gt;(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll__1_System_String_System_Collections_Generic_ICollection___0___">ComponentDocker.TryGetAll&lt;__Type&gt;(string, out ICollection&lt;__Type&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get_System_Collections_Generic_ICollection_System_String__">ComponentDocker.Get(ICollection&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet_System_Collections_Generic_ICollection_System_String__OsmiumNucleus_Component__">ComponentDocker.TryGet(ICollection&lt;string&gt;, out Component)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get_System_String_">ComponentDocker.Get(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet_System_String_OsmiumNucleus_Component__">ComponentDocker.TryGet(string, out Component)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1_System_String_">ComponentDocker.Get&lt;__Type&gt;(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet__1_System_String___0__">ComponentDocker.TryGet&lt;__Type&gt;(string, out __Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1_System_Collections_Generic_ICollection_System_String__">ComponentDocker.Get&lt;__Type&gt;(ICollection&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet__1_System_Collections_Generic_ICollection_System_String____0__">ComponentDocker.TryGet&lt;__Type&gt;(ICollection&lt;string&gt;, out __Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentMoved">ComponentDocker.ComponentMoved</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_Component_OsmiumNucleus_ComponentDocker_">ComponentDocker.Move(Component, ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__OsmiumNucleus_ComponentDocker_">ComponentDocker.MoveAll(IEnumerable&lt;Component&gt;, ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_OsmiumNucleus_ComponentDocker_">ComponentDocker.MoveAll(ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_">ComponentDocker.Move&lt;__Type&gt;(ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_">ComponentDocker.MoveAll&lt;__Type&gt;(ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_System_Collections_Generic_ICollection_System_String__OsmiumNucleus_ComponentDocker_">ComponentDocker.MoveAll(ICollection&lt;string&gt;, ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_System_Collections_Generic_ICollection_System_String__OsmiumNucleus_ComponentDocker_">ComponentDocker.MoveAll&lt;__Type&gt;(ICollection&lt;string&gt;, ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_System_String_OsmiumNucleus_ComponentDocker_">ComponentDocker.MoveAll(string, ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_System_String_OsmiumNucleus_ComponentDocker_">ComponentDocker.MoveAll&lt;__Type&gt;(string, ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_System_String_OsmiumNucleus_ComponentDocker_">ComponentDocker.Move(string, ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_System_String_OsmiumNucleus_ComponentDocker_">ComponentDocker.Move&lt;__Type&gt;(string, ComponentDocker)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentAdded">ComponentDocker.ComponentAdded</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentRemoved">ComponentDocker.ComponentRemoved</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_System_Collections_Generic_ICollection_System_String__System_Int32_System_Boolean_">ComponentDocker.Add&lt;__Type&gt;(string, ICollection&lt;string&gt;, int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add_OsmiumNucleus_Component_">ComponentDocker.Add(Component)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_OsmiumNucleus_Component_">ComponentDocker.Destroy(Component)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll">ComponentDocker.DestroyAll()</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_Collections_Generic_ICollection_OsmiumNucleus_Component__">ComponentDocker.DestroyAll(ICollection&lt;Component&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1">ComponentDocker.Destroy&lt;__Type&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1">ComponentDocker.DestroyAll&lt;__Type&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_Collections_Generic_ICollection_System_String__">ComponentDocker.DestroyAll(ICollection&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1_System_Collections_Generic_ICollection_System_String__">ComponentDocker.DestroyAll&lt;__Type&gt;(ICollection&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_String_">ComponentDocker.DestroyAll(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1_System_String_">ComponentDocker.DestroyAll&lt;__Type&gt;(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_String_">ComponentDocker.Destroy(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1_System_String_">ComponentDocker.Destroy&lt;__Type&gt;(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="OsmiumNucleus_Component_AllParents_" data-uid="OsmiumNucleus.Component.AllParents*"></a>
+
+  <h3 id="OsmiumNucleus_Component_AllParents" data-uid="OsmiumNucleus.Component.AllParents">
+  AllParents
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentCalculatedProperties.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>All parent Components and the parents of the parents up until the Scene. Will only list parents of parents, not uncle Components. And will not list the Scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)]
+[MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
+public IReadOnlyList&lt;Component&gt; AllParents { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="OsmiumNucleus.Component.html">Component</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_ComponentParent_" data-uid="OsmiumNucleus.Component.ComponentParent*"></a>
+
+  <h3 id="OsmiumNucleus_Component_ComponentParent" data-uid="OsmiumNucleus.Component.ComponentParent">
+  ComponentParent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentCalculatedProperties.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the Parent Component. Will be null if the Component's parent is not a Component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.VeryLow)]
+[MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
+public Component? ComponentParent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="OsmiumNucleus.Component.html">Component</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_DeltaTime_" data-uid="OsmiumNucleus.Component.DeltaTime*"></a>
+
+  <h3 id="OsmiumNucleus_Component_DeltaTime" data-uid="OsmiumNucleus.Component.DeltaTime">
+  DeltaTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The seconds since the last type of frame event. For instance if Draw was just called, DeltaTime would currently reflect the time since the
+last DRAW call, even though there was an Update call in between. Use this for framerate independent logic!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static double DeltaTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_Enabled_" data-uid="OsmiumNucleus.Component.Enabled*"></a>
+
+  <h3 id="OsmiumNucleus_Component_Enabled" data-uid="OsmiumNucleus.Component.Enabled">
+  Enabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/Component.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If the component receives time events or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.VeryLow)]
+[MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
+public bool Enabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_Name_" data-uid="OsmiumNucleus.Component.Name*"></a>
+
+  <h3 id="OsmiumNucleus_Component_Name" data-uid="OsmiumNucleus.Component.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/Component.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Component's name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_OsmiumWindow_" data-uid="OsmiumNucleus.Component.OsmiumWindow*"></a>
+
+  <h3 id="OsmiumNucleus_Component_OsmiumWindow" data-uid="OsmiumNucleus.Component.OsmiumWindow">
+  OsmiumWindow
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Bottom class of Osmium. Contains the OpenTK Instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static Window OsmiumWindow { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="OsmiumBedrock.Window.html">Window</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_Parent_" data-uid="OsmiumNucleus.Component.Parent*"></a>
+
+  <h3 id="OsmiumNucleus_Component_Parent" data-uid="OsmiumNucleus.Component.Parent">
+  Parent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/Component.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current parent of the Component. Can be either a Scene or another Component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComponentDocker Parent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="OsmiumNucleus.ComponentDocker.html">ComponentDocker</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_Priority_" data-uid="OsmiumNucleus.Component.Priority*"></a>
+
+  <h3 id="OsmiumNucleus_Component_Priority" data-uid="OsmiumNucleus.Component.Priority">
+  Priority
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/Component.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents the Component's Update priority; higher priorities get updated first. Can be any integer in the range -63 -&gt; 63. Easy to calculate, but when set, it must resort all Components.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.High)]
+[MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
+public int Priority { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_Scene_" data-uid="OsmiumNucleus.Component.Scene*"></a>
+
+  <h3 id="OsmiumNucleus_Component_Scene" data-uid="OsmiumNucleus.Component.Scene">
+  Scene
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentCalculatedProperties.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scene the Component resides in. To save ram it's not stored but calculated on the fly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)]
+[MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
+public Scene? Scene { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="OsmiumNucleus.Scene.html">Scene</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_SceneParent_" data-uid="OsmiumNucleus.Component.SceneParent*"></a>
+
+  <h3 id="OsmiumNucleus_Component_SceneParent" data-uid="OsmiumNucleus.Component.SceneParent">
+  SceneParent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentCalculatedProperties.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the Parent Scene. Will be null if the Component's parent is not a Scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.VeryLow)]
+[MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
+public Scene? SceneParent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="OsmiumNucleus.Scene.html">Scene</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_Scenes_" data-uid="OsmiumNucleus.Component.Scenes*"></a>
+
+  <h3 id="OsmiumNucleus_Component_Scenes" data-uid="OsmiumNucleus.Component.Scenes">
+  Scenes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static IReadOnlySet&lt;Scene&gt; Scenes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlyset-1">IReadOnlySet</a>&lt;<a class="xref" href="OsmiumNucleus.Scene.html">Scene</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_Tags_" data-uid="OsmiumNucleus.Component.Tags*"></a>
+
+  <h3 id="OsmiumNucleus_Component_Tags" data-uid="OsmiumNucleus.Component.Tags">
+  Tags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/Component.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A list of all tags belonging to the component. Use AddTag() to modify it. Easy to calculate, but setting this requires that the Docker resorts Components;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)]
+[MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
+public IReadOnlySet&lt;string&gt; Tags { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlyset-1">IReadOnlySet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="OsmiumNucleus_Component_AddScene_" data-uid="OsmiumNucleus.Component.AddScene*"></a>
+
+  <h3 id="OsmiumNucleus_Component_AddScene_System_String_" data-uid="OsmiumNucleus.Component.AddScene(System.String)">
+  AddScene(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a> with the given name, returns null if creating it fails</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static Scene AddScene(string __name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>__name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the new Scene and its unique identifier as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>; cannot match up with any other names in the scene.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="OsmiumNucleus.Scene.html">Scene</a></dt>
+    <dd><p>The <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a> you created, or null if there is a failure.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_AddTag_" data-uid="OsmiumNucleus.Component.AddTag*"></a>
+
+  <h3 id="OsmiumNucleus_Component_AddTag_System_String_" data-uid="OsmiumNucleus.Component.AddTag(System.String)">
+  AddTag(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/Component.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new tag to the component</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low)]
+[MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
+public void AddTag(string __tag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>__tag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_ContainsScene_" data-uid="OsmiumNucleus.Component.ContainsScene*"></a>
+
+  <h3 id="OsmiumNucleus_Component_ContainsScene_System_String_" data-uid="OsmiumNucleus.Component.ContainsScene(System.String)">
+  ContainsScene(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tells you whether a <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a> is currently loaded or not</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static bool ContainsScene(string __name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>__name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a> you are searching for</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> that is either true or false depending on if a scene with the given name is loaded or not</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_Destroy_" data-uid="OsmiumNucleus.Component.Destroy*"></a>
+
+  <h3 id="OsmiumNucleus_Component_Destroy" data-uid="OsmiumNucleus.Component.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes the Component destroy itself</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_GetScene_" data-uid="OsmiumNucleus.Component.GetScene*"></a>
+
+  <h3 id="OsmiumNucleus_Component_GetScene_System_String_" data-uid="OsmiumNucleus.Component.GetScene(System.String)">
+  GetScene(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds a <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a> from the given name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static Scene GetScene(string __name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>__name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a> you want to find</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="OsmiumNucleus.Scene.html">Scene</a></dt>
+    <dd><p>The newly found <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a>! Or null if there currently isn't one</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_Move_" data-uid="OsmiumNucleus.Component.Move*"></a>
+
+  <h3 id="OsmiumNucleus_Component_Move_OsmiumNucleus_ComponentDocker_" data-uid="OsmiumNucleus.Component.Move(OsmiumNucleus.ComponentDocker)">
+  Move(ComponentDocker)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves a component belonging to the docker to another docker</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Move(ComponentDocker __newDocker)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>__newDocker</code> <a class="xref" href="OsmiumNucleus.ComponentDocker.html">ComponentDocker</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_RemoveScene_" data-uid="OsmiumNucleus.Component.RemoveScene*"></a>
+
+  <h3 id="OsmiumNucleus_Component_RemoveScene_OsmiumNucleus_Scene_" data-uid="OsmiumNucleus.Component.RemoveScene(OsmiumNucleus.Scene)">
+  RemoveScene(Scene)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a currently loaded <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a> from Osmium</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static void RemoveScene(Scene __scene)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>__scene</code> <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a></dt>
+    <dd><p>The scene to remove</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_RemoveScene_" data-uid="OsmiumNucleus.Component.RemoveScene*"></a>
+
+  <h3 id="OsmiumNucleus_Component_RemoveScene_System_String_" data-uid="OsmiumNucleus.Component.RemoveScene(System.String)">
+  RemoveScene(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static void RemoveScene(string __name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>__name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_RemoveTag_" data-uid="OsmiumNucleus.Component.RemoveTag*"></a>
+
+  <h3 id="OsmiumNucleus_Component_RemoveTag_System_String_" data-uid="OsmiumNucleus.Component.RemoveTag(System.String)">
+  RemoveTag(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/Component.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a tag from the component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low)]
+[MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
+public void RemoveTag(string __tag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>__tag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_Start_" data-uid="OsmiumNucleus.Component.Start*"></a>
+
+  <h3 id="OsmiumNucleus_Component_Start_System_Collections_Generic_IEnumerator_OsmiumNucleus_ICoroutineAction__" data-uid="OsmiumNucleus.Component.Start(System.Collections.Generic.IEnumerator{OsmiumNucleus.ICoroutineAction})">
+  Start(IEnumerator&lt;ICoroutineAction&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Begins a coroutine, which will advance asynchronously every frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Start(IEnumerator&lt;ICoroutineAction&gt; __coroutine)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>__coroutine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="OsmiumNucleus.ICoroutineAction.html">ICoroutineAction</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OsmiumNucleus_Component_ToString_" data-uid="OsmiumNucleus.Component.ToString*"></a>
+
+  <h3 id="OsmiumNucleus_Component_ToString" data-uid="OsmiumNucleus.Component.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/Component.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Just gives the Component's name. But makes debugging a little easier :).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Component/ComponentLambda.cs/#L7" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Reflection;
 
 
 namespace OsmiumNucleus;
@@ -15,16 +16,6 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
     
     //Blocks external inheritance
     internal ComponentDocker() {}
-
-
-    
-    /// <summary> Cleans existing events after closing so that Modules can be collected </summary>
-    /// <errors> Do not call this unless you have already closed the Nucleus </errors>
-    public static void CleanVirtualRuntime() {
-        ComponentAdded = null;
-        ComponentMoved = null;
-        ComponentRemoved = null;
-    }
 
 
 
@@ -178,6 +169,13 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
         if (_componentTagDictionary.TryGetValue(__tag, out HashSet<Component>? value)) {
             value.Remove(__component); if(value.Count == 0) _componentTagDictionary.Remove(__tag);
         }
+    }
+
+    internal static void ClearCollectibleAssemblies() {
+        if(ComponentMoved != null) foreach (Action<ComponentDocker, ComponentDocker, Component> listener in ComponentMoved.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) ComponentMoved -= listener;
+        if(ComponentAdded != null) foreach (Action<ComponentDocker, Component> listener in ComponentAdded.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) ComponentAdded -= listener;
+        if(ComponentRemoved != null) foreach (Action<ComponentDocker, Component> listener in ComponentRemoved.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) ComponentRemoved -= listener;
+        
     }
 
 }

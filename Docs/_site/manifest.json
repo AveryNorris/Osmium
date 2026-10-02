@@ -1,0 +1,728 @@
+{
+  "source_base_path": "/Users/averynorris/Osmium/Docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Markdown/Component.md",
+      "output": {
+        ".html": {
+          "relative_path": "Markdown/Component.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Markdown/ComponentDocker.md",
+      "output": {
+        ".html": {
+          "relative_path": "Markdown/ComponentDocker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Markdown/Scene.md",
+      "output": {
+        ".html": {
+          "relative_path": "Markdown/Scene.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "Markdown/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Markdown/toc.html"
+        },
+        ".json": {
+          "relative_path": "Markdown/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Dear_ImGui_Sample.Backends.AssetLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Dear_ImGui_Sample.Backends.AssetLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Dear_ImGui_Sample.Backends.AssetLoader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Dear_ImGui_Sample.Backends.BedrockImGUICompatability.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Dear_ImGui_Sample.Backends.BedrockImGUICompatability.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Dear_ImGui_Sample.Backends.BedrockImGUICompatability",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Dear_ImGui_Sample.Backends.ImguiImplOpenGL3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Dear_ImGui_Sample.Backends.ImguiImplOpenGL3.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Dear_ImGui_Sample.Backends.ImguiImplOpenGL3",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Dear_ImGui_Sample.Backends.Types.Texture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Dear_ImGui_Sample.Backends.Types.Texture.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Dear_ImGui_Sample.Backends.Types.Texture",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Dear_ImGui_Sample.Backends.Types.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Dear_ImGui_Sample.Backends.Types.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Dear_ImGui_Sample.Backends.Types",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Dear_ImGui_Sample.Backends.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Dear_ImGui_Sample.Backends.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Dear_ImGui_Sample.Backends",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumBedrock.Bedrock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumBedrock.Bedrock.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumBedrock.Bedrock",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumBedrock.Window.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumBedrock.Window.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumBedrock.Window",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumBedrock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumBedrock.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumBedrock",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumEditor.Appdata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumEditor.Appdata.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumEditor.Appdata",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumEditor.Editor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumEditor.Editor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumEditor.Editor",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumEditor.Project.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumEditor.Project.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumEditor.Project",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumEditor.ProjectMemory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumEditor.ProjectMemory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumEditor.ProjectMemory",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumEditor.ProjectMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumEditor.ProjectMenu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumEditor.ProjectMenu",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumEditor.Source.NewEditor.NewEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumEditor.Source.NewEditor.NewEditor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumEditor.Source.NewEditor.NewEditor",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumEditor.Source.NewEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumEditor.Source.NewEditor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumEditor.Source.NewEditor",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumEditor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumEditor",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.AlwaysUpdate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.AlwaysUpdate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.AlwaysUpdate",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.AlwaysUpdate.yml\" sourcestartlinenumber=\"1\">Allows a Component to be updated even if Osmium is only initialized</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.Component.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.Component.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.Component",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.Component.yml\" sourcestartlinenumber=\"1\">The backing class for all Components in Osmium. Inherit this to become one.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.ComponentDocker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.ComponentDocker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.ComponentDocker",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.ComponentDocker.yml\" sourcestartlinenumber=\"1\">Base class for both Scenes and Components. Responsible for Managing hierarchy between Components and Scenes and managing children, has Extensive Component Manipulation Available.\nAlso transfers Time and Carries most of the responsibilities akin to the Component. NOT FOR OUTSIDE INHERITANCE (this is very under the hood, and meant to be mostly hidden), please use docker by inheriting component.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.Debug.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.Debug.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.Debug",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.DebugMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.DebugMessage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.DebugMessage",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.Delay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.Delay.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.Delay",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.Delay.yml\" sourcestartlinenumber=\"1\">Represents a timed delay in a coroutine, which can be used with yield return.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.EditorOnly.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.EditorOnly.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.EditorOnly",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.EditorOnly.yml\" sourcestartlinenumber=\"1\">Shows that a piece of code is used only for the Editor, and it should be ignored in the compilation phase</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.Event.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.Event.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.Event",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.Event.yml\" sourcestartlinenumber=\"1\">Represents an Event in Osmium.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.ICoroutineAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.ICoroutineAction.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.ICoroutineAction",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.ICoroutineAction.yml\" sourcestartlinenumber=\"1\">An action taken during a coroutine.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MarkerAttributes.CalculatedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MarkerAttributes.CalculatedProperty.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MarkerAttributes.CalculatedProperty",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.MarkerAttributes.CalculatedProperty.yml\" sourcestartlinenumber=\"1\">Shows that the given object is calculated every time it is called! Good to know for performance heavy systems.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MarkerAttributes.Complexity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MarkerAttributes.Complexity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MarkerAttributes.Complexity",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.MarkerAttributes.Complexity.yml\" sourcestartlinenumber=\"1\">Just a way to write the time complexity of a calculated property or method.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MarkerAttributes.Expense.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MarkerAttributes.Expense.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MarkerAttributes.Expense",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.MarkerAttributes.Expense.yml\" sourcestartlinenumber=\"1\">Just a way to write how expensive a calculated property or method can be.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MarkerAttributes.MethodLambda.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MarkerAttributes.MethodLambda.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MarkerAttributes.MethodLambda",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.MarkerAttributes.MethodLambda.yml\" sourcestartlinenumber=\"1\">Shows that the given method does not actually belong to the object, but instead just calls a lambda to another method.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MarkerAttributes.UnsafeInternal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MarkerAttributes.UnsafeInternal.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MarkerAttributes.UnsafeInternal",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.MarkerAttributes.UnsafeInternal.yml\" sourcestartlinenumber=\"1\">Shows that the given object is unsafe (ex. it doesn't check for null values and such, or it doesn't have guardrails based on cases).\nThis is just for internal/private methods to remind myself how to call it :) The reasoning is case by case, but most of the time,\nit is because all the exposing public methods already check, and double checks would only slow me down</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MarkerAttributes.UnsafePipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MarkerAttributes.UnsafePipeline.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MarkerAttributes.UnsafePipeline",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.MarkerAttributes.UnsafePipeline.yml\" sourcestartlinenumber=\"1\">The given function is missing many guiderails, and it should be used carefully.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MarkerAttributes.VariableLambda.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MarkerAttributes.VariableLambda.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MarkerAttributes.VariableLambda",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.MarkerAttributes.VariableLambda.yml\" sourcestartlinenumber=\"1\">Shows that the given variable does not actually belong to the object, but instead just calls a lambda to another method.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MarkerAttributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MarkerAttributes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MarkerAttributes",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.MarkerAttributes.yml\" sourcestartlinenumber=\"1\">Provides many handy cosmetic attributes for methods to specify use cases or provide information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.MessageType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.MessageType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.MessageType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.OnEditorOpen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.OnEditorOpen.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.OnEditorOpen",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.OnEditorOpen.yml\" sourcestartlinenumber=\"1\">Used to mark any method you would like to call once Osmium opens a project.\nOnly static, parameterless, methods may be called. Your code will compile regardless, but your event will be ignored at runtime.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.OnInitialize.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.OnInitialize.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.OnInitialize",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.OnInitialize.yml\" sourcestartlinenumber=\"1\">Used to mark any method you would like to call once Osmium initializes.\nOnly static, parameterless, methods may be called. Your code will compile regardless, but your event will be ignored at runtime.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.Osmium.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.Osmium.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.Osmium",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.Osmium.yml\" sourcestartlinenumber=\"1\">Bottom class of Osmium. Carries events from MonoGame into Scenes, and provides OpenTK context.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.Scene.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.Scene.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.Scene",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.Scene.yml\" sourcestartlinenumber=\"1\">One of the main Osmium entities. Acts like a master folder for components to be stored in. Feel free to inherit this and make a custom scene!</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumTests.DockerTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumTests.DockerTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumTests.DockerTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumTests.Tests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumTests.Tests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumTests.Tests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumTests",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

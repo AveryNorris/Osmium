@@ -1,0 +1,513 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumEditor.Project
+  commentId: T:OsmiumEditor.Project
+  id: Project
+  parent: OsmiumEditor
+  children:
+  - OsmiumEditor.Project.GetProjectSubdirectory(System.Boolean,System.String[])
+  - OsmiumEditor.Project.GetProjectSubpath(System.Boolean,System.String[])
+  - OsmiumEditor.Project.ProjectPath
+  - OsmiumEditor.Project.RuntimeModulesPath
+  - OsmiumEditor.Project.SourcePath
+  langs:
+  - csharp
+  - vb
+  name: Project
+  nameWithType: Project
+  fullName: OsmiumEditor.Project
+  type: Class
+  source:
+    remote:
+      path: Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Project
+    path: ../Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+    startLine: 4
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static class Project
+    content.vb: Public Module Project
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: OsmiumEditor.Project.ProjectPath
+  commentId: F:OsmiumEditor.Project.ProjectPath
+  id: ProjectPath
+  parent: OsmiumEditor.Project
+  langs:
+  - csharp
+  - vb
+  name: ProjectPath
+  nameWithType: Project.ProjectPath
+  fullName: OsmiumEditor.Project.ProjectPath
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ProjectPath
+    path: ../Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+    startLine: 6
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static string ProjectPath
+    return:
+      type: System.String
+    content.vb: Public Shared ProjectPath As String
+- uid: OsmiumEditor.Project.RuntimeModulesPath
+  commentId: P:OsmiumEditor.Project.RuntimeModulesPath
+  id: RuntimeModulesPath
+  parent: OsmiumEditor.Project
+  langs:
+  - csharp
+  - vb
+  name: RuntimeModulesPath
+  nameWithType: Project.RuntimeModulesPath
+  fullName: OsmiumEditor.Project.RuntimeModulesPath
+  type: Property
+  source:
+    remote:
+      path: Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: RuntimeModulesPath
+    path: ../Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+    startLine: 8
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static string RuntimeModulesPath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property RuntimeModulesPath As String
+  overload: OsmiumEditor.Project.RuntimeModulesPath*
+- uid: OsmiumEditor.Project.SourcePath
+  commentId: P:OsmiumEditor.Project.SourcePath
+  id: SourcePath
+  parent: OsmiumEditor.Project
+  langs:
+  - csharp
+  - vb
+  name: SourcePath
+  nameWithType: Project.SourcePath
+  fullName: OsmiumEditor.Project.SourcePath
+  type: Property
+  source:
+    remote:
+      path: Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: SourcePath
+    path: ../Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+    startLine: 10
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static string SourcePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property SourcePath As String
+  overload: OsmiumEditor.Project.SourcePath*
+- uid: OsmiumEditor.Project.GetProjectSubdirectory(System.Boolean,System.String[])
+  commentId: M:OsmiumEditor.Project.GetProjectSubdirectory(System.Boolean,System.String[])
+  id: GetProjectSubdirectory(System.Boolean,System.String[])
+  parent: OsmiumEditor.Project
+  langs:
+  - csharp
+  - vb
+  name: GetProjectSubdirectory(bool, params string[])
+  nameWithType: Project.GetProjectSubdirectory(bool, params string[])
+  fullName: OsmiumEditor.Project.GetProjectSubdirectory(bool, params string[])
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: GetProjectSubdirectory
+    path: ../Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+    startLine: 16
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static string GetProjectSubdirectory(bool regenerate, params string[] subdirectoryPath)
+    parameters:
+    - id: regenerate
+      type: System.Boolean
+    - id: subdirectoryPath
+      type: System.String[]
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetProjectSubdirectory(regenerate As Boolean, ParamArray subdirectoryPath As String()) As String
+  overload: OsmiumEditor.Project.GetProjectSubdirectory*
+  nameWithType.vb: Project.GetProjectSubdirectory(Boolean, ParamArray String())
+  fullName.vb: OsmiumEditor.Project.GetProjectSubdirectory(Boolean, ParamArray String())
+  name.vb: GetProjectSubdirectory(Boolean, ParamArray String())
+- uid: OsmiumEditor.Project.GetProjectSubpath(System.Boolean,System.String[])
+  commentId: M:OsmiumEditor.Project.GetProjectSubpath(System.Boolean,System.String[])
+  id: GetProjectSubpath(System.Boolean,System.String[])
+  parent: OsmiumEditor.Project
+  langs:
+  - csharp
+  - vb
+  name: GetProjectSubpath(bool, params string[])
+  nameWithType: Project.GetProjectSubpath(bool, params string[])
+  fullName: OsmiumEditor.Project.GetProjectSubpath(bool, params string[])
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: GetProjectSubpath
+    path: ../Osmium-Editor/Source/ProjectSelectMenu/Project.cs
+    startLine: 36
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static string GetProjectSubpath(bool regenerate, params string[] subdirectoryPath)
+    parameters:
+    - id: regenerate
+      type: System.Boolean
+    - id: subdirectoryPath
+      type: System.String[]
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetProjectSubpath(regenerate As Boolean, ParamArray subdirectoryPath As String()) As String
+  overload: OsmiumEditor.Project.GetProjectSubpath*
+  nameWithType.vb: Project.GetProjectSubpath(Boolean, ParamArray String())
+  fullName.vb: OsmiumEditor.Project.GetProjectSubpath(Boolean, ParamArray String())
+  name.vb: GetProjectSubpath(Boolean, ParamArray String())
+references:
+- uid: OsmiumEditor
+  commentId: N:OsmiumEditor
+  href: OsmiumEditor.html
+  name: OsmiumEditor
+  nameWithType: OsmiumEditor
+  fullName: OsmiumEditor
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OsmiumEditor.Project.RuntimeModulesPath*
+  commentId: Overload:OsmiumEditor.Project.RuntimeModulesPath
+  href: OsmiumEditor.Project.html#OsmiumEditor_Project_RuntimeModulesPath
+  name: RuntimeModulesPath
+  nameWithType: Project.RuntimeModulesPath
+  fullName: OsmiumEditor.Project.RuntimeModulesPath
+- uid: OsmiumEditor.Project.SourcePath*
+  commentId: Overload:OsmiumEditor.Project.SourcePath
+  href: OsmiumEditor.Project.html#OsmiumEditor_Project_SourcePath
+  name: SourcePath
+  nameWithType: Project.SourcePath
+  fullName: OsmiumEditor.Project.SourcePath
+- uid: OsmiumEditor.Project.GetProjectSubdirectory*
+  commentId: Overload:OsmiumEditor.Project.GetProjectSubdirectory
+  href: OsmiumEditor.Project.html#OsmiumEditor_Project_GetProjectSubdirectory_System_Boolean_System_String___
+  name: GetProjectSubdirectory
+  nameWithType: Project.GetProjectSubdirectory
+  fullName: OsmiumEditor.Project.GetProjectSubdirectory
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: OsmiumEditor.Project.GetProjectSubpath*
+  commentId: Overload:OsmiumEditor.Project.GetProjectSubpath
+  href: OsmiumEditor.Project.html#OsmiumEditor_Project_GetProjectSubpath_System_Boolean_System_String___
+  name: GetProjectSubpath
+  nameWithType: Project.GetProjectSubpath
+  fullName: OsmiumEditor.Project.GetProjectSubpath

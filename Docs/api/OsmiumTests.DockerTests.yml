@@ -1,0 +1,507 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumTests.DockerTests
+  commentId: T:OsmiumTests.DockerTests
+  id: DockerTests
+  parent: OsmiumTests
+  children:
+  - OsmiumTests.DockerTests.ComponentsMoveBetweenScenes
+  - OsmiumTests.DockerTests.FilledDockerContainsComponent
+  - OsmiumTests.DockerTests.GetReturnsIdenticalReference
+  - OsmiumTests.DockerTests.GetTagReturnsNull
+  - OsmiumTests.DockerTests.IndexingMatchesChildren
+  langs:
+  - csharp
+  - vb
+  name: DockerTests
+  nameWithType: DockerTests
+  fullName: OsmiumTests.DockerTests
+  type: Class
+  source:
+    remote:
+      path: Osmium-Tests/Source/Nucleus/DockerTests.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: DockerTests
+    path: ../Osmium-Tests/Source/Nucleus/DockerTests.cs
+    startLine: 2
+  assemblies:
+  - Osmium-Tests
+  namespace: OsmiumTests
+  syntax:
+    content: >-
+      [TestFixture]
+
+      public class DockerTests
+    content.vb: >-
+      <TestFixture>
+
+      Public Class DockerTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: NUnit.Framework.TestFixtureAttribute
+    ctor: NUnit.Framework.TestFixtureAttribute.#ctor
+    arguments: []
+- uid: OsmiumTests.DockerTests.IndexingMatchesChildren
+  commentId: M:OsmiumTests.DockerTests.IndexingMatchesChildren
+  id: IndexingMatchesChildren
+  parent: OsmiumTests.DockerTests
+  langs:
+  - csharp
+  - vb
+  name: IndexingMatchesChildren()
+  nameWithType: DockerTests.IndexingMatchesChildren()
+  fullName: OsmiumTests.DockerTests.IndexingMatchesChildren()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Tests/Source/Nucleus/DockerTests.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: IndexingMatchesChildren
+    path: ../Osmium-Tests/Source/Nucleus/DockerTests.cs
+    startLine: 5
+  assemblies:
+  - Osmium-Tests
+  namespace: OsmiumTests
+  syntax:
+    content: >-
+      [Test]
+
+      public void IndexingMatchesChildren()
+    content.vb: >-
+      <Test>
+
+      Public Sub IndexingMatchesChildren()
+  overload: OsmiumTests.DockerTests.IndexingMatchesChildren*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+- uid: OsmiumTests.DockerTests.ComponentsMoveBetweenScenes
+  commentId: M:OsmiumTests.DockerTests.ComponentsMoveBetweenScenes
+  id: ComponentsMoveBetweenScenes
+  parent: OsmiumTests.DockerTests
+  langs:
+  - csharp
+  - vb
+  name: ComponentsMoveBetweenScenes()
+  nameWithType: DockerTests.ComponentsMoveBetweenScenes()
+  fullName: OsmiumTests.DockerTests.ComponentsMoveBetweenScenes()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Tests/Source/Nucleus/DockerTests.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ComponentsMoveBetweenScenes
+    path: ../Osmium-Tests/Source/Nucleus/DockerTests.cs
+    startLine: 11
+  assemblies:
+  - Osmium-Tests
+  namespace: OsmiumTests
+  syntax:
+    content: >-
+      [Test]
+
+      public void ComponentsMoveBetweenScenes()
+    content.vb: >-
+      <Test>
+
+      Public Sub ComponentsMoveBetweenScenes()
+  overload: OsmiumTests.DockerTests.ComponentsMoveBetweenScenes*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+- uid: OsmiumTests.DockerTests.GetReturnsIdenticalReference
+  commentId: M:OsmiumTests.DockerTests.GetReturnsIdenticalReference
+  id: GetReturnsIdenticalReference
+  parent: OsmiumTests.DockerTests
+  langs:
+  - csharp
+  - vb
+  name: GetReturnsIdenticalReference()
+  nameWithType: DockerTests.GetReturnsIdenticalReference()
+  fullName: OsmiumTests.DockerTests.GetReturnsIdenticalReference()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Tests/Source/Nucleus/DockerTests.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: GetReturnsIdenticalReference
+    path: ../Osmium-Tests/Source/Nucleus/DockerTests.cs
+    startLine: 17
+  assemblies:
+  - Osmium-Tests
+  namespace: OsmiumTests
+  syntax:
+    content: >-
+      [Test]
+
+      public void GetReturnsIdenticalReference()
+    content.vb: >-
+      <Test>
+
+      Public Sub GetReturnsIdenticalReference()
+  overload: OsmiumTests.DockerTests.GetReturnsIdenticalReference*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+- uid: OsmiumTests.DockerTests.GetTagReturnsNull
+  commentId: M:OsmiumTests.DockerTests.GetTagReturnsNull
+  id: GetTagReturnsNull
+  parent: OsmiumTests.DockerTests
+  langs:
+  - csharp
+  - vb
+  name: GetTagReturnsNull()
+  nameWithType: DockerTests.GetTagReturnsNull()
+  fullName: OsmiumTests.DockerTests.GetTagReturnsNull()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Tests/Source/Nucleus/DockerTests.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: GetTagReturnsNull
+    path: ../Osmium-Tests/Source/Nucleus/DockerTests.cs
+    startLine: 23
+  assemblies:
+  - Osmium-Tests
+  namespace: OsmiumTests
+  syntax:
+    content: >-
+      [Test]
+
+      public void GetTagReturnsNull()
+    content.vb: >-
+      <Test>
+
+      Public Sub GetTagReturnsNull()
+  overload: OsmiumTests.DockerTests.GetTagReturnsNull*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+- uid: OsmiumTests.DockerTests.FilledDockerContainsComponent
+  commentId: M:OsmiumTests.DockerTests.FilledDockerContainsComponent
+  id: FilledDockerContainsComponent
+  parent: OsmiumTests.DockerTests
+  langs:
+  - csharp
+  - vb
+  name: FilledDockerContainsComponent()
+  nameWithType: DockerTests.FilledDockerContainsComponent()
+  fullName: OsmiumTests.DockerTests.FilledDockerContainsComponent()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Tests/Source/Nucleus/DockerTests.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: FilledDockerContainsComponent
+    path: ../Osmium-Tests/Source/Nucleus/DockerTests.cs
+    startLine: 29
+  assemblies:
+  - Osmium-Tests
+  namespace: OsmiumTests
+  syntax:
+    content: >-
+      [Test]
+
+      public void FilledDockerContainsComponent()
+    content.vb: >-
+      <Test>
+
+      Public Sub FilledDockerContainsComponent()
+  overload: OsmiumTests.DockerTests.FilledDockerContainsComponent*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+references:
+- uid: OsmiumTests
+  commentId: N:OsmiumTests
+  href: OsmiumTests.html
+  name: OsmiumTests
+  nameWithType: OsmiumTests
+  fullName: OsmiumTests
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OsmiumTests.DockerTests.IndexingMatchesChildren*
+  commentId: Overload:OsmiumTests.DockerTests.IndexingMatchesChildren
+  href: OsmiumTests.DockerTests.html#OsmiumTests_DockerTests_IndexingMatchesChildren
+  name: IndexingMatchesChildren
+  nameWithType: DockerTests.IndexingMatchesChildren
+  fullName: OsmiumTests.DockerTests.IndexingMatchesChildren
+- uid: OsmiumTests.DockerTests.ComponentsMoveBetweenScenes*
+  commentId: Overload:OsmiumTests.DockerTests.ComponentsMoveBetweenScenes
+  href: OsmiumTests.DockerTests.html#OsmiumTests_DockerTests_ComponentsMoveBetweenScenes
+  name: ComponentsMoveBetweenScenes
+  nameWithType: DockerTests.ComponentsMoveBetweenScenes
+  fullName: OsmiumTests.DockerTests.ComponentsMoveBetweenScenes
+- uid: OsmiumTests.DockerTests.GetReturnsIdenticalReference*
+  commentId: Overload:OsmiumTests.DockerTests.GetReturnsIdenticalReference
+  href: OsmiumTests.DockerTests.html#OsmiumTests_DockerTests_GetReturnsIdenticalReference
+  name: GetReturnsIdenticalReference
+  nameWithType: DockerTests.GetReturnsIdenticalReference
+  fullName: OsmiumTests.DockerTests.GetReturnsIdenticalReference
+- uid: OsmiumTests.DockerTests.GetTagReturnsNull*
+  commentId: Overload:OsmiumTests.DockerTests.GetTagReturnsNull
+  href: OsmiumTests.DockerTests.html#OsmiumTests_DockerTests_GetTagReturnsNull
+  name: GetTagReturnsNull
+  nameWithType: DockerTests.GetTagReturnsNull
+  fullName: OsmiumTests.DockerTests.GetTagReturnsNull
+- uid: OsmiumTests.DockerTests.FilledDockerContainsComponent*
+  commentId: Overload:OsmiumTests.DockerTests.FilledDockerContainsComponent
+  href: OsmiumTests.DockerTests.html#OsmiumTests_DockerTests_FilledDockerContainsComponent
+  name: FilledDockerContainsComponent
+  nameWithType: DockerTests.FilledDockerContainsComponent
+  fullName: OsmiumTests.DockerTests.FilledDockerContainsComponent

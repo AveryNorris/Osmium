@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumBedrock
+  commentId: N:OsmiumBedrock
+  id: OsmiumBedrock
+  children:
+  - OsmiumBedrock.Bedrock
+  - OsmiumBedrock.Window
+  langs:
+  - csharp
+  - vb
+  name: OsmiumBedrock
+  nameWithType: OsmiumBedrock
+  fullName: OsmiumBedrock
+  type: Namespace
+  assemblies:
+  - Osmium-Bedrock
+references:
+- uid: OsmiumBedrock.Bedrock
+  commentId: T:OsmiumBedrock.Bedrock
+  href: OsmiumBedrock.Bedrock.html
+  name: Bedrock
+  nameWithType: Bedrock
+  fullName: OsmiumBedrock.Bedrock
+- uid: OsmiumBedrock.Window
+  commentId: T:OsmiumBedrock.Window
+  parent: OsmiumBedrock
+  href: OsmiumBedrock.Window.html
+  name: Window
+  nameWithType: Window
+  fullName: OsmiumBedrock.Window
+- uid: OsmiumBedrock
+  commentId: N:OsmiumBedrock
+  href: OsmiumBedrock.html
+  name: OsmiumBedrock
+  nameWithType: OsmiumBedrock
+  fullName: OsmiumBedrock

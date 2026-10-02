@@ -1,0 +1,95 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumNucleus.ICoroutineAction
+  commentId: T:OsmiumNucleus.ICoroutineAction
+  id: ICoroutineAction
+  parent: OsmiumNucleus
+  children:
+  - OsmiumNucleus.ICoroutineAction.Continue
+  langs:
+  - csharp
+  - vb
+  name: ICoroutineAction
+  nameWithType: ICoroutineAction
+  fullName: OsmiumNucleus.ICoroutineAction
+  type: Interface
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Coroutines/ICoroutineAction.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: ICoroutineAction
+    path: ../Osmium-Nucleus/Source/Coroutines/ICoroutineAction.cs
+    startLine: 5
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: An action taken during a coroutine.
+  example: []
+  syntax:
+    content: public interface ICoroutineAction
+    content.vb: Public Interface ICoroutineAction
+  derivedClasses:
+  - OsmiumNucleus.Delay
+- uid: OsmiumNucleus.ICoroutineAction.Continue
+  commentId: M:OsmiumNucleus.ICoroutineAction.Continue
+  id: Continue
+  parent: OsmiumNucleus.ICoroutineAction
+  langs:
+  - csharp
+  - vb
+  name: Continue()
+  nameWithType: ICoroutineAction.Continue()
+  fullName: OsmiumNucleus.ICoroutineAction.Continue()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Coroutines/ICoroutineAction.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Continue
+    path: ../Osmium-Nucleus/Source/Coroutines/ICoroutineAction.cs
+    startLine: 12
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: Processes the current Action in the coroutine
+  example: []
+  syntax:
+    content: bool Continue()
+    return:
+      type: System.Boolean
+      description: Returns false if the coroutine should exit from this action.
+    content.vb: Function [Continue]() As Boolean
+  overload: OsmiumNucleus.ICoroutineAction.Continue*
+references:
+- uid: OsmiumNucleus
+  commentId: N:OsmiumNucleus
+  href: OsmiumNucleus.html
+  name: OsmiumNucleus
+  nameWithType: OsmiumNucleus
+  fullName: OsmiumNucleus
+- uid: OsmiumNucleus.ICoroutineAction.Continue*
+  commentId: Overload:OsmiumNucleus.ICoroutineAction.Continue
+  href: OsmiumNucleus.ICoroutineAction.html#OsmiumNucleus_ICoroutineAction_Continue
+  name: Continue
+  nameWithType: ICoroutineAction.Continue
+  fullName: OsmiumNucleus.ICoroutineAction.Continue
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

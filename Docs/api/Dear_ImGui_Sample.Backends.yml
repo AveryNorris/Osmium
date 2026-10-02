@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Dear_ImGui_Sample.Backends
+  commentId: N:Dear_ImGui_Sample.Backends
+  id: Dear_ImGui_Sample.Backends
+  children:
+  - Dear_ImGui_Sample.Backends.AssetLoader
+  - Dear_ImGui_Sample.Backends.BedrockImGUICompatability
+  - Dear_ImGui_Sample.Backends.ImguiImplOpenGL3
+  langs:
+  - csharp
+  - vb
+  name: Dear_ImGui_Sample.Backends
+  nameWithType: Dear_ImGui_Sample.Backends
+  fullName: Dear_ImGui_Sample.Backends
+  type: Namespace
+  assemblies:
+  - Osmium-Editor
+references:
+- uid: Dear_ImGui_Sample.Backends.AssetLoader
+  commentId: T:Dear_ImGui_Sample.Backends.AssetLoader
+  href: Dear_ImGui_Sample.Backends.AssetLoader.html
+  name: AssetLoader
+  nameWithType: AssetLoader
+  fullName: Dear_ImGui_Sample.Backends.AssetLoader
+- uid: Dear_ImGui_Sample.Backends.BedrockImGUICompatability
+  commentId: T:Dear_ImGui_Sample.Backends.BedrockImGUICompatability
+  href: Dear_ImGui_Sample.Backends.BedrockImGUICompatability.html
+  name: BedrockImGUICompatability
+  nameWithType: BedrockImGUICompatability
+  fullName: Dear_ImGui_Sample.Backends.BedrockImGUICompatability
+- uid: Dear_ImGui_Sample.Backends.ImguiImplOpenGL3
+  commentId: T:Dear_ImGui_Sample.Backends.ImguiImplOpenGL3
+  href: Dear_ImGui_Sample.Backends.ImguiImplOpenGL3.html
+  name: ImguiImplOpenGL3
+  nameWithType: ImguiImplOpenGL3
+  fullName: Dear_ImGui_Sample.Backends.ImguiImplOpenGL3

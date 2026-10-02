@@ -1,0 +1,1427 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumEditor.Editor
+  commentId: T:OsmiumEditor.Editor
+  id: Editor
+  parent: OsmiumEditor
+  children:
+  - OsmiumEditor.Editor.Assemblies
+  - OsmiumEditor.Editor.BuildDirectory
+  - OsmiumEditor.Editor.CSProjEnd
+  - OsmiumEditor.Editor.CSProjFront
+  - OsmiumEditor.Editor.CSProjModuleReferenceEnd
+  - OsmiumEditor.Editor.CSProjModuleReferenceMiddle
+  - OsmiumEditor.Editor.CSProjModuleReferenceStart
+  - OsmiumEditor.Editor.CloseGame
+  - OsmiumEditor.Editor.EditorCompile
+  - OsmiumEditor.Editor.EditorLoadContext
+  - OsmiumEditor.Editor.GenerateCSProj(System.String[],System.Boolean)
+  - OsmiumEditor.Editor.GetCoreDependenciesPath
+  - OsmiumEditor.Editor.GetDependencies
+  - OsmiumEditor.Editor.GetExternalModulePaths
+  - OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths
+  - OsmiumEditor.Editor.GlobalUsage
+  - OsmiumEditor.Editor.Main(System.String[])
+  - OsmiumEditor.Editor.OnCompile
+  - OsmiumEditor.Editor.OnEnd
+  - OsmiumEditor.Editor.OnRun
+  - OsmiumEditor.Editor.OnSave
+  - OsmiumEditor.Editor.OpenProject(System.String)
+  - OsmiumEditor.Editor.RunGame
+  - OsmiumEditor.Editor.RuntimeAssemblies
+  - OsmiumEditor.Editor.RuntimeCompile
+  - OsmiumEditor.Editor.Save
+  - OsmiumEditor.Editor.TopLevelNugget
+  - OsmiumEditor.Editor._Modules
+  langs:
+  - csharp
+  - vb
+  name: Editor
+  nameWithType: Editor
+  fullName: OsmiumEditor.Editor
+  type: Class
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Startup.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Editor
+    path: ../Osmium-Editor/Source/Editor/Startup.cs
+    startLine: 6
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static class Editor
+    content.vb: Public Module Editor
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: OsmiumEditor.Editor.OnSave
+  commentId: E:OsmiumEditor.Editor.OnSave
+  id: OnSave
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: OnSave
+  nameWithType: Editor.OnSave
+  fullName: OsmiumEditor.Editor.OnSave
+  type: Event
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/CommonAction.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: OnSave
+    path: ../Osmium-Editor/Source/Editor/CommonAction.cs
+    startLine: 4
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static event Action OnSave
+    return:
+      type: System.Action
+    content.vb: Public Shared Event OnSave As Action
+- uid: OsmiumEditor.Editor.OnCompile
+  commentId: E:OsmiumEditor.Editor.OnCompile
+  id: OnCompile
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: OnCompile
+  nameWithType: Editor.OnCompile
+  fullName: OsmiumEditor.Editor.OnCompile
+  type: Event
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/CommonAction.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: OnCompile
+    path: ../Osmium-Editor/Source/Editor/CommonAction.cs
+    startLine: 5
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static event Action OnCompile
+    return:
+      type: System.Action
+    content.vb: Public Shared Event OnCompile As Action
+- uid: OsmiumEditor.Editor.EditorLoadContext
+  commentId: F:OsmiumEditor.Editor.EditorLoadContext
+  id: EditorLoadContext
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: EditorLoadContext
+  nameWithType: Editor.EditorLoadContext
+  fullName: OsmiumEditor.Editor.EditorLoadContext
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Compiler.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: EditorLoadContext
+    path: ../Osmium-Editor/Source/Editor/Compiler.cs
+    startLine: 14
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static AssemblyLoadContext EditorLoadContext
+    return:
+      type: System.Runtime.Loader.AssemblyLoadContext
+    content.vb: Public Shared EditorLoadContext As AssemblyLoadContext
+- uid: OsmiumEditor.Editor.BuildDirectory
+  commentId: F:OsmiumEditor.Editor.BuildDirectory
+  id: BuildDirectory
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: BuildDirectory
+  nameWithType: Editor.BuildDirectory
+  fullName: OsmiumEditor.Editor.BuildDirectory
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Compiler.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: BuildDirectory
+    path: ../Osmium-Editor/Source/Editor/Compiler.cs
+    startLine: 16
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static string BuildDirectory
+    return:
+      type: System.String
+    content.vb: Public Shared BuildDirectory As String
+- uid: OsmiumEditor.Editor.Save
+  commentId: M:OsmiumEditor.Editor.Save
+  id: Save
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: Save()
+  nameWithType: Editor.Save()
+  fullName: OsmiumEditor.Editor.Save()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Compiler.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Save
+    path: ../Osmium-Editor/Source/Editor/Compiler.cs
+    startLine: 18
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static void Save()
+    content.vb: Public Shared Sub Save()
+  overload: OsmiumEditor.Editor.Save*
+- uid: OsmiumEditor.Editor.RuntimeCompile
+  commentId: M:OsmiumEditor.Editor.RuntimeCompile
+  id: RuntimeCompile
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: RuntimeCompile()
+  nameWithType: Editor.RuntimeCompile()
+  fullName: OsmiumEditor.Editor.RuntimeCompile()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Compiler.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: RuntimeCompile
+    path: ../Osmium-Editor/Source/Editor/Compiler.cs
+    startLine: 23
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  summary: Builds all dependencies into one program
+  example: []
+  syntax:
+    content: public static void RuntimeCompile()
+    content.vb: Public Shared Sub RuntimeCompile()
+  overload: OsmiumEditor.Editor.RuntimeCompile*
+- uid: OsmiumEditor.Editor.EditorCompile
+  commentId: M:OsmiumEditor.Editor.EditorCompile
+  id: EditorCompile
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: EditorCompile()
+  nameWithType: Editor.EditorCompile()
+  fullName: OsmiumEditor.Editor.EditorCompile()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Compiler.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: EditorCompile
+    path: ../Osmium-Editor/Source/Editor/Compiler.cs
+    startLine: 84
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  summary: Builds just the scripts in source, and loads them temporarily
+  example: []
+  syntax:
+    content: public static void EditorCompile()
+    content.vb: Public Shared Sub EditorCompile()
+  overload: OsmiumEditor.Editor.EditorCompile*
+- uid: OsmiumEditor.Editor.GetDependencies
+  commentId: M:OsmiumEditor.Editor.GetDependencies
+  id: GetDependencies
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: GetDependencies()
+  nameWithType: Editor.GetDependencies()
+  fullName: OsmiumEditor.Editor.GetDependencies()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Compiler.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: GetDependencies
+    path: ../Osmium-Editor/Source/Editor/Compiler.cs
+    startLine: 120
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static MetadataReference[] GetDependencies()
+    return:
+      type: Microsoft.CodeAnalysis.MetadataReference[]
+    content.vb: Public Shared Function GetDependencies() As MetadataReference()
+  overload: OsmiumEditor.Editor.GetDependencies*
+- uid: OsmiumEditor.Editor.GetExternalModulePaths
+  commentId: M:OsmiumEditor.Editor.GetExternalModulePaths
+  id: GetExternalModulePaths
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: GetExternalModulePaths()
+  nameWithType: Editor.GetExternalModulePaths()
+  fullName: OsmiumEditor.Editor.GetExternalModulePaths()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Compiler.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: GetExternalModulePaths
+    path: ../Osmium-Editor/Source/Editor/Compiler.cs
+    startLine: 150
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  summary: Finds all the external modules that are present in the current plugin directory
+  example: []
+  syntax:
+    content: public static string[] GetExternalModulePaths()
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function GetExternalModulePaths() As String()
+  overload: OsmiumEditor.Editor.GetExternalModulePaths*
+- uid: OsmiumEditor.Editor.GetCoreDependenciesPath
+  commentId: M:OsmiumEditor.Editor.GetCoreDependenciesPath
+  id: GetCoreDependenciesPath
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: GetCoreDependenciesPath()
+  nameWithType: Editor.GetCoreDependenciesPath()
+  fullName: OsmiumEditor.Editor.GetCoreDependenciesPath()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Compiler.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: GetCoreDependenciesPath
+    path: ../Osmium-Editor/Source/Editor/Compiler.cs
+    startLine: 153
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static string[] GetCoreDependenciesPath()
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function GetCoreDependenciesPath() As String()
+  overload: OsmiumEditor.Editor.GetCoreDependenciesPath*
+- uid: OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths
+  commentId: M:OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths
+  id: GetTrustedPlatformAssemblyPaths
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: GetTrustedPlatformAssemblyPaths()
+  nameWithType: Editor.GetTrustedPlatformAssemblyPaths()
+  fullName: OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Compiler.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: GetTrustedPlatformAssemblyPaths
+    path: ../Osmium-Editor/Source/Editor/Compiler.cs
+    startLine: 157
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static string[] GetTrustedPlatformAssemblyPaths()
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function GetTrustedPlatformAssemblyPaths() As String()
+  overload: OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths*
+- uid: OsmiumEditor.Editor._Modules
+  commentId: F:OsmiumEditor.Editor._Modules
+  id: _Modules
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: _Modules
+  nameWithType: Editor._Modules
+  fullName: OsmiumEditor.Editor._Modules
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Context.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: _Modules
+    path: ../Osmium-Editor/Source/Editor/Context.cs
+    startLine: 9
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static readonly AssemblyLoadContext _Modules
+    return:
+      type: System.Runtime.Loader.AssemblyLoadContext
+    content.vb: Public Shared ReadOnly _Modules As AssemblyLoadContext
+- uid: OsmiumEditor.Editor.Assemblies
+  commentId: P:OsmiumEditor.Editor.Assemblies
+  id: Assemblies
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: Assemblies
+  nameWithType: Editor.Assemblies
+  fullName: OsmiumEditor.Editor.Assemblies
+  type: Property
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Context.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Assemblies
+    path: ../Osmium-Editor/Source/Editor/Context.cs
+    startLine: 11
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static Assembly[] Assemblies { get; }
+    parameters: []
+    return:
+      type: System.Reflection.Assembly[]
+    content.vb: Public Shared ReadOnly Property Assemblies As Assembly()
+  overload: OsmiumEditor.Editor.Assemblies*
+- uid: OsmiumEditor.Editor.GlobalUsage
+  commentId: F:OsmiumEditor.Editor.GlobalUsage
+  id: GlobalUsage
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: GlobalUsage
+  nameWithType: Editor.GlobalUsage
+  fullName: OsmiumEditor.Editor.GlobalUsage
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Lifetime.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: GlobalUsage
+    path: ../Osmium-Editor/Source/Editor/Lifetime.cs
+    startLine: 12
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public const string GlobalUsage = "//-------------------------- READ ME --------------------------\n// THIS IS AN AUTO-GENERATED FILE! EDITING THIS IS OK, BUT\n// BE SURE YOU KNOW WHAT YOU ARE DOING, THE AVERAGE USER HAS NO REASON TO BE HERE\n//-------------------------------------------------------------\n\n//Automatically references OsmiumNucleus to make life easier!\nglobal using OsmiumNucleus;\nglobal using OsmiumBedrock;\n\n//Most IDES will automatically add this file to avoid redundant usage statements for obvious libraries\n//this is added to match the user experience of most IDES\nglobal using System;\nglobal using System.Collections.Generic;\nglobal using System.IO;\nglobal using System.Linq;\nglobal using System.Net.Http;\nglobal using System.Threading;\nglobal using System.Threading.Tasks;\n\n//The word IEnumerator can be confusing for beginners! Coroutine is cleaner and more readable\nglobal using Coroutine = System.Collections.Generic.IEnumerator<OsmiumNucleus.ICoroutineAction>;"
+    return:
+      type: System.String
+    content.vb: Public Const GlobalUsage As String = "//-------------------------- READ ME --------------------------" & vbLf & "// THIS IS AN AUTO-GENERATED FILE! EDITING THIS IS OK, BUT" & vbLf & "// BE SURE YOU KNOW WHAT YOU ARE DOING, THE AVERAGE USER HAS NO REASON TO BE HERE" & vbLf & "//-------------------------------------------------------------" & vbLf & vbLf & "//Automatically references OsmiumNucleus to make life easier!" & vbLf & "global using OsmiumNucleus;" & vbLf & "global using OsmiumBedrock;" & vbLf & vbLf & "//Most IDES will automatically add this file to avoid redundant usage statements for obvious libraries" & vbLf & "//this is added to match the user experience of most IDES" & vbLf & "global using System;" & vbLf & "global using System.Collections.Generic;" & vbLf & "global using System.IO;" & vbLf & "global using System.Linq;" & vbLf & "global using System.Net.Http;" & vbLf & "global using System.Threading;" & vbLf & "global using System.Threading.Tasks;" & vbLf & vbLf & "//The word IEnumerator can be confusing for beginners! Coroutine is cleaner and more readable" & vbLf & "global using Coroutine = System.Collections.Generic.IEnumerator<OsmiumNucleus.ICoroutineAction>;"
+- uid: OsmiumEditor.Editor.TopLevelNugget
+  commentId: F:OsmiumEditor.Editor.TopLevelNugget
+  id: TopLevelNugget
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: TopLevelNugget
+  nameWithType: Editor.TopLevelNugget
+  fullName: OsmiumEditor.Editor.TopLevelNugget
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Lifetime.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: TopLevelNugget
+    path: ../Osmium-Editor/Source/Editor/Lifetime.cs
+    startLine: 15
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public const string TopLevelNugget = "using System.Reflection;\n\nOsmium.Initialize();\n\nforeach (AssemblyName assembly in Assembly.GetExecutingAssembly().GetReferencedAssemblies())\n{\n    Assembly.Load(assembly);\n    Console.WriteLine(assembly.FullName);\n}\n\nBedrock.Run(); \nOsmium.Run();"
+    return:
+      type: System.String
+    content.vb: Public Const TopLevelNugget As String = "using System.Reflection;" & vbLf & vbLf & "Osmium.Initialize();" & vbLf & vbLf & "foreach (AssemblyName assembly in Assembly.GetExecutingAssembly().GetReferencedAssemblies())" & vbLf & "{" & vbLf & "    Assembly.Load(assembly);" & vbLf & "    Console.WriteLine(assembly.FullName);" & vbLf & "}" & vbLf & vbLf & "Bedrock.Run(); " & vbLf & "Osmium.Run();"
+- uid: OsmiumEditor.Editor.CSProjFront
+  commentId: F:OsmiumEditor.Editor.CSProjFront
+  id: CSProjFront
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: CSProjFront
+  nameWithType: Editor.CSProjFront
+  fullName: OsmiumEditor.Editor.CSProjFront
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Lifetime.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: CSProjFront
+    path: ../Osmium-Editor/Source/Editor/Lifetime.cs
+    startLine: 17
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public const string CSProjFront = "<Project Sdk=\"Microsoft.NET.Sdk\">\n\n    <PropertyGroup>\n        <OutputType>Exe</OutputType>\n        <TargetFramework>net10.0</TargetFramework>\n        <ImplicitUsings>enable</ImplicitUsings>\n        <Nullable>enable</Nullable>\n        <OutputPath>Build</OutputPath>\n\n        <SelfContained>false</SelfContained>\n        <PublishSingleFile>false</PublishSingleFile>\n        <PublishTrimmed>false</PublishTrimmed>\n        <PublishReadyToRun>false</PublishReadyToRun>\n    </PropertyGroup>"
+    return:
+      type: System.String
+    content.vb: Public Const CSProjFront As String = "<Project Sdk=""Microsoft.NET.Sdk"">" & vbLf & vbLf & "    <PropertyGroup>" & vbLf & "        <OutputType>Exe</OutputType>" & vbLf & "        <TargetFramework>net10.0</TargetFramework>" & vbLf & "        <ImplicitUsings>enable</ImplicitUsings>" & vbLf & "        <Nullable>enable</Nullable>" & vbLf & "        <OutputPath>Build</OutputPath>" & vbLf & vbLf & "        <SelfContained>false</SelfContained>" & vbLf & "        <PublishSingleFile>false</PublishSingleFile>" & vbLf & "        <PublishTrimmed>false</PublishTrimmed>" & vbLf & "        <PublishReadyToRun>false</PublishReadyToRun>" & vbLf & "    </PropertyGroup>"
+- uid: OsmiumEditor.Editor.CSProjEnd
+  commentId: F:OsmiumEditor.Editor.CSProjEnd
+  id: CSProjEnd
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: CSProjEnd
+  nameWithType: Editor.CSProjEnd
+  fullName: OsmiumEditor.Editor.CSProjEnd
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Lifetime.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: CSProjEnd
+    path: ../Osmium-Editor/Source/Editor/Lifetime.cs
+    startLine: 18
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public const string CSProjEnd = "</Project>\n"
+    return:
+      type: System.String
+    content.vb: Public Const CSProjEnd As String = "</Project>" & vbLf
+- uid: OsmiumEditor.Editor.CSProjModuleReferenceStart
+  commentId: F:OsmiumEditor.Editor.CSProjModuleReferenceStart
+  id: CSProjModuleReferenceStart
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: CSProjModuleReferenceStart
+  nameWithType: Editor.CSProjModuleReferenceStart
+  fullName: OsmiumEditor.Editor.CSProjModuleReferenceStart
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Lifetime.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: CSProjModuleReferenceStart
+    path: ../Osmium-Editor/Source/Editor/Lifetime.cs
+    startLine: 20
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public const string CSProjModuleReferenceStart = "<ItemGroup>\n      <Reference Include=\""
+    return:
+      type: System.String
+    content.vb: Public Const CSProjModuleReferenceStart As String = "<ItemGroup>" & vbLf & "      <Reference Include="""
+- uid: OsmiumEditor.Editor.CSProjModuleReferenceMiddle
+  commentId: F:OsmiumEditor.Editor.CSProjModuleReferenceMiddle
+  id: CSProjModuleReferenceMiddle
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: CSProjModuleReferenceMiddle
+  nameWithType: Editor.CSProjModuleReferenceMiddle
+  fullName: OsmiumEditor.Editor.CSProjModuleReferenceMiddle
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Lifetime.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: CSProjModuleReferenceMiddle
+    path: ../Osmium-Editor/Source/Editor/Lifetime.cs
+    startLine: 23
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public const string CSProjModuleReferenceMiddle = "\">\n        <HintPath>"
+    return:
+      type: System.String
+    content.vb: Public Const CSProjModuleReferenceMiddle As String = """>" & vbLf & "        <HintPath>"
+- uid: OsmiumEditor.Editor.CSProjModuleReferenceEnd
+  commentId: F:OsmiumEditor.Editor.CSProjModuleReferenceEnd
+  id: CSProjModuleReferenceEnd
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: CSProjModuleReferenceEnd
+  nameWithType: Editor.CSProjModuleReferenceEnd
+  fullName: OsmiumEditor.Editor.CSProjModuleReferenceEnd
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Lifetime.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: CSProjModuleReferenceEnd
+    path: ../Osmium-Editor/Source/Editor/Lifetime.cs
+    startLine: 25
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public const string CSProjModuleReferenceEnd = "</HintPath>\n      </Reference>\n    </ItemGroup>"
+    return:
+      type: System.String
+    content.vb: Public Const CSProjModuleReferenceEnd As String = "</HintPath>" & vbLf & "      </Reference>" & vbLf & "    </ItemGroup>"
+- uid: OsmiumEditor.Editor.RuntimeAssemblies
+  commentId: F:OsmiumEditor.Editor.RuntimeAssemblies
+  id: RuntimeAssemblies
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: RuntimeAssemblies
+  nameWithType: Editor.RuntimeAssemblies
+  fullName: OsmiumEditor.Editor.RuntimeAssemblies
+  type: Field
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Lifetime.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: RuntimeAssemblies
+    path: ../Osmium-Editor/Source/Editor/Lifetime.cs
+    startLine: 27
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static List<Assembly> RuntimeAssemblies
+    return:
+      type: System.Collections.Generic.List{System.Reflection.Assembly}
+    content.vb: Public Shared RuntimeAssemblies As List(Of Assembly)
+- uid: OsmiumEditor.Editor.OpenProject(System.String)
+  commentId: M:OsmiumEditor.Editor.OpenProject(System.String)
+  id: OpenProject(System.String)
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: OpenProject(string)
+  nameWithType: Editor.OpenProject(string)
+  fullName: OsmiumEditor.Editor.OpenProject(string)
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Lifetime.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: OpenProject
+    path: ../Osmium-Editor/Source/Editor/Lifetime.cs
+    startLine: 30
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static void OpenProject(string __path)
+    parameters:
+    - id: __path
+      type: System.String
+    content.vb: Public Shared Sub OpenProject(__path As String)
+  overload: OsmiumEditor.Editor.OpenProject*
+  nameWithType.vb: Editor.OpenProject(String)
+  fullName.vb: OsmiumEditor.Editor.OpenProject(String)
+  name.vb: OpenProject(String)
+- uid: OsmiumEditor.Editor.GenerateCSProj(System.String[],System.Boolean)
+  commentId: M:OsmiumEditor.Editor.GenerateCSProj(System.String[],System.Boolean)
+  id: GenerateCSProj(System.String[],System.Boolean)
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: GenerateCSProj(string[], bool)
+  nameWithType: Editor.GenerateCSProj(string[], bool)
+  fullName: OsmiumEditor.Editor.GenerateCSProj(string[], bool)
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Lifetime.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: GenerateCSProj
+    path: ../Osmium-Editor/Source/Editor/Lifetime.cs
+    startLine: 74
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static string GenerateCSProj(string[] extraDependencies, bool __ignoreCSFiles)
+    parameters:
+    - id: extraDependencies
+      type: System.String[]
+    - id: __ignoreCSFiles
+      type: System.Boolean
+    return:
+      type: System.String
+    content.vb: Public Shared Function GenerateCSProj(extraDependencies As String(), __ignoreCSFiles As Boolean) As String
+  overload: OsmiumEditor.Editor.GenerateCSProj*
+  nameWithType.vb: Editor.GenerateCSProj(String(), Boolean)
+  fullName.vb: OsmiumEditor.Editor.GenerateCSProj(String(), Boolean)
+  name.vb: GenerateCSProj(String(), Boolean)
+- uid: OsmiumEditor.Editor.OnRun
+  commentId: E:OsmiumEditor.Editor.OnRun
+  id: OnRun
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: OnRun
+  nameWithType: Editor.OnRun
+  fullName: OsmiumEditor.Editor.OnRun
+  type: Event
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Player.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: OnRun
+    path: ../Osmium-Editor/Source/Editor/Player.cs
+    startLine: 7
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static event Action? OnRun
+    return:
+      type: System.Action
+    content.vb: Public Shared Event OnRun As Action
+- uid: OsmiumEditor.Editor.OnEnd
+  commentId: E:OsmiumEditor.Editor.OnEnd
+  id: OnEnd
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: OnEnd
+  nameWithType: Editor.OnEnd
+  fullName: OsmiumEditor.Editor.OnEnd
+  type: Event
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Player.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: OnEnd
+    path: ../Osmium-Editor/Source/Editor/Player.cs
+    startLine: 8
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static event Action? OnEnd
+    return:
+      type: System.Action
+    content.vb: Public Shared Event OnEnd As Action
+- uid: OsmiumEditor.Editor.RunGame
+  commentId: M:OsmiumEditor.Editor.RunGame
+  id: RunGame
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: RunGame()
+  nameWithType: Editor.RunGame()
+  fullName: OsmiumEditor.Editor.RunGame()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Player.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: RunGame
+    path: ../Osmium-Editor/Source/Editor/Player.cs
+    startLine: 10
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static void RunGame()
+    content.vb: Public Shared Sub RunGame()
+  overload: OsmiumEditor.Editor.RunGame*
+- uid: OsmiumEditor.Editor.CloseGame
+  commentId: M:OsmiumEditor.Editor.CloseGame
+  id: CloseGame
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: CloseGame()
+  nameWithType: Editor.CloseGame()
+  fullName: OsmiumEditor.Editor.CloseGame()
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Player.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: CloseGame
+    path: ../Osmium-Editor/Source/Editor/Player.cs
+    startLine: 22
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static void CloseGame()
+    content.vb: Public Shared Sub CloseGame()
+  overload: OsmiumEditor.Editor.CloseGame*
+- uid: OsmiumEditor.Editor.Main(System.String[])
+  commentId: M:OsmiumEditor.Editor.Main(System.String[])
+  id: Main(System.String[])
+  parent: OsmiumEditor.Editor
+  langs:
+  - csharp
+  - vb
+  name: Main(string[])
+  nameWithType: Editor.Main(string[])
+  fullName: OsmiumEditor.Editor.Main(string[])
+  type: Method
+  source:
+    remote:
+      path: Osmium-Editor/Source/Editor/Startup.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: Main
+    path: ../Osmium-Editor/Source/Editor/Startup.cs
+    startLine: 8
+  assemblies:
+  - Osmium-Editor
+  namespace: OsmiumEditor
+  syntax:
+    content: public static int Main(string[] __args)
+    parameters:
+    - id: __args
+      type: System.String[]
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Main(__args As String()) As Integer
+  overload: OsmiumEditor.Editor.Main*
+  nameWithType.vb: Editor.Main(String())
+  fullName.vb: OsmiumEditor.Editor.Main(String())
+  name.vb: Main(String())
+references:
+- uid: OsmiumEditor
+  commentId: N:OsmiumEditor
+  href: OsmiumEditor.html
+  name: OsmiumEditor
+  nameWithType: OsmiumEditor
+  fullName: OsmiumEditor
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System.Runtime.Loader.AssemblyLoadContext
+  commentId: T:System.Runtime.Loader.AssemblyLoadContext
+  parent: System.Runtime.Loader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.loader.assemblyloadcontext
+  name: AssemblyLoadContext
+  nameWithType: AssemblyLoadContext
+  fullName: System.Runtime.Loader.AssemblyLoadContext
+- uid: System.Runtime.Loader
+  commentId: N:System.Runtime.Loader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Runtime.Loader
+  nameWithType: System.Runtime.Loader
+  fullName: System.Runtime.Loader
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Loader
+    name: Loader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.loader
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Loader
+    name: Loader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.loader
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OsmiumEditor.Editor.Save*
+  commentId: Overload:OsmiumEditor.Editor.Save
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_Save
+  name: Save
+  nameWithType: Editor.Save
+  fullName: OsmiumEditor.Editor.Save
+- uid: OsmiumEditor.Editor.RuntimeCompile*
+  commentId: Overload:OsmiumEditor.Editor.RuntimeCompile
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_RuntimeCompile
+  name: RuntimeCompile
+  nameWithType: Editor.RuntimeCompile
+  fullName: OsmiumEditor.Editor.RuntimeCompile
+- uid: OsmiumEditor.Editor.EditorCompile*
+  commentId: Overload:OsmiumEditor.Editor.EditorCompile
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_EditorCompile
+  name: EditorCompile
+  nameWithType: Editor.EditorCompile
+  fullName: OsmiumEditor.Editor.EditorCompile
+- uid: OsmiumEditor.Editor.GetDependencies*
+  commentId: Overload:OsmiumEditor.Editor.GetDependencies
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetDependencies
+  name: GetDependencies
+  nameWithType: Editor.GetDependencies
+  fullName: OsmiumEditor.Editor.GetDependencies
+- uid: Microsoft.CodeAnalysis.MetadataReference[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.metadatareference
+  name: MetadataReference[]
+  nameWithType: MetadataReference[]
+  fullName: Microsoft.CodeAnalysis.MetadataReference[]
+  nameWithType.vb: MetadataReference()
+  fullName.vb: Microsoft.CodeAnalysis.MetadataReference()
+  name.vb: MetadataReference()
+  spec.csharp:
+  - uid: Microsoft.CodeAnalysis.MetadataReference
+    name: MetadataReference
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.metadatareference
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Microsoft.CodeAnalysis.MetadataReference
+    name: MetadataReference
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.metadatareference
+  - name: (
+  - name: )
+- uid: OsmiumEditor.Editor.GetExternalModulePaths*
+  commentId: Overload:OsmiumEditor.Editor.GetExternalModulePaths
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetExternalModulePaths
+  name: GetExternalModulePaths
+  nameWithType: Editor.GetExternalModulePaths
+  fullName: OsmiumEditor.Editor.GetExternalModulePaths
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: OsmiumEditor.Editor.GetCoreDependenciesPath*
+  commentId: Overload:OsmiumEditor.Editor.GetCoreDependenciesPath
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetCoreDependenciesPath
+  name: GetCoreDependenciesPath
+  nameWithType: Editor.GetCoreDependenciesPath
+  fullName: OsmiumEditor.Editor.GetCoreDependenciesPath
+- uid: OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths*
+  commentId: Overload:OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetTrustedPlatformAssemblyPaths
+  name: GetTrustedPlatformAssemblyPaths
+  nameWithType: Editor.GetTrustedPlatformAssemblyPaths
+  fullName: OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths
+- uid: OsmiumEditor.Editor.Assemblies*
+  commentId: Overload:OsmiumEditor.Editor.Assemblies
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_Assemblies
+  name: Assemblies
+  nameWithType: Editor.Assemblies
+  fullName: OsmiumEditor.Editor.Assemblies
+- uid: System.Reflection.Assembly[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  name: Assembly[]
+  nameWithType: Assembly[]
+  fullName: System.Reflection.Assembly[]
+  nameWithType.vb: Assembly()
+  fullName.vb: System.Reflection.Assembly()
+  name.vb: Assembly()
+  spec.csharp:
+  - uid: System.Reflection.Assembly
+    name: Assembly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Reflection.Assembly
+    name: Assembly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.List{System.Reflection.Assembly}
+  commentId: T:System.Collections.Generic.List{System.Reflection.Assembly}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Assembly>
+  nameWithType: List<Assembly>
+  fullName: System.Collections.Generic.List<System.Reflection.Assembly>
+  nameWithType.vb: List(Of Assembly)
+  fullName.vb: System.Collections.Generic.List(Of System.Reflection.Assembly)
+  name.vb: List(Of Assembly)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Reflection.Assembly
+    name: Assembly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Reflection.Assembly
+    name: Assembly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OsmiumEditor.Editor.OpenProject*
+  commentId: Overload:OsmiumEditor.Editor.OpenProject
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_OpenProject_System_String_
+  name: OpenProject
+  nameWithType: Editor.OpenProject
+  fullName: OsmiumEditor.Editor.OpenProject
+- uid: OsmiumEditor.Editor.GenerateCSProj*
+  commentId: Overload:OsmiumEditor.Editor.GenerateCSProj
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_GenerateCSProj_System_String___System_Boolean_
+  name: GenerateCSProj
+  nameWithType: Editor.GenerateCSProj
+  fullName: OsmiumEditor.Editor.GenerateCSProj
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OsmiumEditor.Editor.RunGame*
+  commentId: Overload:OsmiumEditor.Editor.RunGame
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_RunGame
+  name: RunGame
+  nameWithType: Editor.RunGame
+  fullName: OsmiumEditor.Editor.RunGame
+- uid: OsmiumEditor.Editor.CloseGame*
+  commentId: Overload:OsmiumEditor.Editor.CloseGame
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_CloseGame
+  name: CloseGame
+  nameWithType: Editor.CloseGame
+  fullName: OsmiumEditor.Editor.CloseGame
+- uid: OsmiumEditor.Editor.Main*
+  commentId: Overload:OsmiumEditor.Editor.Main
+  href: OsmiumEditor.Editor.html#OsmiumEditor_Editor_Main_System_String___
+  name: Main
+  nameWithType: Editor.Main
+  fullName: OsmiumEditor.Editor.Main
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

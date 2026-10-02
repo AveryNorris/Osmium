@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: OsmiumEditor
+  commentId: N:OsmiumEditor
+  id: OsmiumEditor
+  children:
+  - OsmiumEditor.Appdata
+  - OsmiumEditor.Editor
+  - OsmiumEditor.Project
+  - OsmiumEditor.ProjectMemory
+  - OsmiumEditor.ProjectMenu
+  langs:
+  - csharp
+  - vb
+  name: OsmiumEditor
+  nameWithType: OsmiumEditor
+  fullName: OsmiumEditor
+  type: Namespace
+  assemblies:
+  - Osmium-Editor
+references:
+- uid: OsmiumEditor.ProjectMenu
+  commentId: T:OsmiumEditor.ProjectMenu
+  href: OsmiumEditor.ProjectMenu.html
+  name: ProjectMenu
+  nameWithType: ProjectMenu
+  fullName: OsmiumEditor.ProjectMenu
+- uid: OsmiumEditor.Editor
+  commentId: T:OsmiumEditor.Editor
+  href: OsmiumEditor.Editor.html
+  name: Editor
+  nameWithType: Editor
+  fullName: OsmiumEditor.Editor
+- uid: OsmiumEditor.Appdata
+  commentId: T:OsmiumEditor.Appdata
+  href: OsmiumEditor.Appdata.html
+  name: Appdata
+  nameWithType: Appdata
+  fullName: OsmiumEditor.Appdata
+- uid: OsmiumEditor.Project
+  commentId: T:OsmiumEditor.Project
+  href: OsmiumEditor.Project.html
+  name: Project
+  nameWithType: Project
+  fullName: OsmiumEditor.Project
+- uid: OsmiumEditor.ProjectMemory
+  commentId: T:OsmiumEditor.ProjectMemory
+  href: OsmiumEditor.ProjectMemory.html
+  name: ProjectMemory
+  nameWithType: ProjectMemory
+  fullName: OsmiumEditor.ProjectMemory
