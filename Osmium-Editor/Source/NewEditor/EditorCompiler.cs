@@ -3,14 +3,15 @@ using System.Reflection;
 using System.Runtime.Loader;
 using OsmiumBedrock;
 using OsmiumNucleus;
+using Debug = OsmiumNucleus.Debug;
 
-namespace OsmiumEditor.Source.NewEditor;
+namespace OsmiumEditor;
 
-public static partial class NewEditor
+public static partial class Editor
 {
     public static AssemblyLoadContext EditorLoadContext = new AssemblyLoadContext(null, true);
 
-    public const string EditorCompileCSProjFront = $"<Project Sdk=\"Microsoft.NET.Sdk\">\n\n    <PropertyGroup>\n        <TargetFramework>{NetVersion}</TargetFramework>\n        <ImplicitUsings>enable</ImplicitUsings>\n        <Nullable>enable</Nullable>\n        <OutputPath>{EditorCompileOutputPath}</OutputPath>\n    </PropertyGroup> \n\n   <ItemGroup>\n        <PackageReference Include=\"OpenTK\\\" Version=\"4.9.4\" />\n    </ItemGroup> \n   <PropertyGroup>\n    <BaseIntermediateOutputPath>{EditorCompileOutputPath}/</BaseIntermediateOutputPath>\n</PropertyGroup>";
+    public const string EditorCompileCSProjFront = $"<Project Sdk=\"Microsoft.NET.Sdk\">\n\n    <PropertyGroup>\n        <TargetFramework>{NetVersion}</TargetFramework>\n        <ImplicitUsings>enable</ImplicitUsings>\n        <Nullable>enable</Nullable>\n        <OutputPath>{EditorCompileOutputPath}</OutputPath>\n    </PropertyGroup> \n\n   <ItemGroup>\n        <PackageReference Include=\"OpenTK\" Version=\"4.9.4\" />\n    </ItemGroup> \n   <PropertyGroup>\n\n</PropertyGroup>";
     public const string EditorCompileCSProjEnd = "\n\n</Project>\n";
 
     public const string EditorCompileOutputPath = ".editorCompileOutputPath";
@@ -56,6 +57,8 @@ public static partial class NewEditor
             UseShellExecute = false,
             CreateNoWindow = false
         });
+        
+        Debug.Log(process.StandardOutput.ReadToEnd());
         
         //todo: add error checking
         

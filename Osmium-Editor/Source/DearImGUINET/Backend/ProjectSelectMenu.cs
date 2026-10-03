@@ -4,7 +4,6 @@
     using OpenTK.Mathematics;
     using OpenTK.Windowing.Common;
     using OsmiumBedrock;
-    using OsmiumEditor.Source.NewEditor;
     using OsmiumNucleus;
     using Texture = Dear_ImGui_Sample.Backends.Types.Texture;
     using Vector2 = System.Numerics.Vector2;
@@ -123,7 +122,7 @@
                 {
                     //Editor.OpenProject(ProjectMemory.Projects[i]);
                     
-                    NewEditor.OpenProject(ProjectMemory.Projects[i]);
+                    Editor.OpenProject(ProjectMemory.Projects[i]);
 
                     Bedrock.Draw -= Draw;
                 }

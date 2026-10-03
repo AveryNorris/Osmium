@@ -10,18 +10,20 @@ using OsmiumBedrock;
 using OsmiumNucleus;
 using Debug = OsmiumNucleus.Debug;
 
-namespace OsmiumEditor.Source.NewEditor;
+namespace OsmiumEditor;
 
-public static partial class NewEditor
+public static partial class Editor
 {
 
     public static readonly List<Assembly> EditorModules = [];
 
     public static readonly List<Assembly> RuntimeModules = [];
 
-    public static readonly List<Assembly> Modules = [..EditorModules, ..RuntimeModules];
+    public static List<Assembly> Modules => [..EditorModules, ..RuntimeModules];
+
+    public static List<Assembly> Assemblies => [..Modules, ..EditorLoadContext.Assemblies];
     
-    public const string IDETrickingCSProjFront = $"<Project Sdk=\"Microsoft.NET.Sdk\">\n\n    <PropertyGroup>\n      <OutputType>Exe</OutputType>\n        <TargetFramework>{NetVersion}</TargetFramework>\n        <ImplicitUsings>enable</ImplicitUsings>\n        <Nullable>enable</Nullable>\n\n    </PropertyGroup> \n\n   <ItemGroup>\n        <PackageReference Include=\"OpenTK\\\" Version=\"4.9.4\" />\n    </ItemGroup> \n   <PropertyGroup>\n";
+    public const string IDETrickingCSProjFront = $"<Project Sdk=\"Microsoft.NET.Sdk\">\n\n    <PropertyGroup>\n        <TargetFramework>{NetVersion}</TargetFramework>\n        <ImplicitUsings>enable</ImplicitUsings>\n        <Nullable>enable</Nullable>\n\n    </PropertyGroup> \n\n   <ItemGroup>\n        <PackageReference Include=\"OpenTK\" Version=\"4.9.4\" />\n    </ItemGroup> \n   \n";
     public const string IDETrickingCSProjEnd = "\n\n</Project>\n";
     
     public const string GlobalUsage = "//-------------------------- READ ME --------------------------\n// THIS IS AN AUTO-GENERATED FILE BY OSMIUM! EDITING THIS IS OK, BUT\n// BE SURE YOU KNOW WHAT YOU ARE DOING, THE AVERAGE USER HAS NO REASON TO BE HERE\n//-------------------------------------------------------------\n\n//Automatically references OsmiumNucleus to make life easier!\nglobal using OsmiumNucleus;\nglobal using OsmiumBedrock;\n\n//Most IDES will automatically add this file to avoid redundant usage statements for obvious libraries\n//this is added to match the user experience of most IDES\nglobal using System;\nglobal using System.Collections.Generic;\nglobal using System.IO;\nglobal using System.Linq;\nglobal using System.Net.Http;\nglobal using System.Threading;\nglobal using System.Threading.Tasks;\n\n//The word IEnumerator can be confusing for beginners! Coroutine is cleaner and more readable\nglobal using Coroutine = System.Collections.Generic.IEnumerator<OsmiumNucleus.ICoroutineAction>;";
@@ -32,7 +34,7 @@ public static partial class NewEditor
         
         Project.ProjectPath = Path.GetDirectoryName(__projectPath);
         ProjectMemory.RefreshProjectTime(__projectPath);
-        File.WriteAllText(Project.GetProjectSubdirectory(true, "Editor", "GlobalUsage.cs"), GlobalUsage);
+        File.WriteAllText(Project.GetProjectSubpath(true, "Editor", "GlobalUsage.cs"), GlobalUsage);
         Bedrock.window.WindowBorder = WindowBorder.Resizable;
         Bedrock.Unload += SaveProject;
         

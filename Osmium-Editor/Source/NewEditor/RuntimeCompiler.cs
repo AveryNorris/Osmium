@@ -3,12 +3,12 @@ using System.Reflection;
 using OsmiumBedrock;
 using OsmiumNucleus;
 
-namespace OsmiumEditor.Source.NewEditor;
+namespace OsmiumEditor;
 
-public static partial class NewEditor
+public static partial class Editor
 {
     
-    public const string RuntimeCompileCSProjFront = $"<Project Sdk=\"Microsoft.NET.Sdk\">\n\n    <PropertyGroup>\n      <OutputType>Exe</OutputType>\n        <TargetFramework>{NetVersion}</TargetFramework>\n        <ImplicitUsings>enable</ImplicitUsings>\n        <Nullable>enable</Nullable>\n        <OutputPath>{RuntimeCompileOutputPath}</OutputPath>\n    </PropertyGroup> \n\n   <ItemGroup>\n        <PackageReference Include=\"OpenTK\\\" Version=\"4.9.4\" />\n    </ItemGroup> \n   <PropertyGroup>\n    <BaseIntermediateOutputPath>{RuntimeCompileOutputPath}/</BaseIntermediateOutputPath>\n</PropertyGroup>";
+    public const string RuntimeCompileCSProjFront = $"<Project Sdk=\"Microsoft.NET.Sdk\">\n\n    <PropertyGroup>\n      <OutputType>Exe</OutputType>\n        <TargetFramework>{NetVersion}</TargetFramework>\n        <ImplicitUsings>enable</ImplicitUsings>\n        <Nullable>enable</Nullable>\n        <OutputPath>{RuntimeCompileOutputPath}</OutputPath>\n    </PropertyGroup> \n\n   <ItemGroup>\n        <PackageReference Include=\"OpenTK\" Version=\"4.9.4\" />\n    </ItemGroup> \n   <PropertyGroup>\n    <BaseIntermediateOutputPath>{RuntimeCompileOutputPath}/</BaseIntermediateOutputPath>\n</PropertyGroup>";
 
     
     public const string RuntimeCompileCSProjEnd = "\n\n</Project>\n";
