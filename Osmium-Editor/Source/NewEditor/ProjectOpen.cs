@@ -55,6 +55,24 @@ public static partial class Editor
             }
         }
         
+        foreach (Assembly assembly in Modules) {
+            foreach (Type type in assembly.GetTypes()) {
+                foreach (MethodInfo method in type.GetMethods())
+                {
+                    //todo: prevent double attributes
+                    OnInitialize? attribute = method.GetCustomAttributes(typeof(OnInitialize)).OfType<OnInitialize>().FirstOrDefault();
+
+                    if (attribute != null) {
+                        if (attribute.IgnoreVirtualization)
+                        {
+                            if(method.IsStatic && method.GetParameters().Length == 0 && method.ReturnType == typeof(void))
+                                method.Invoke(null,null);
+                        }
+                    }
+                }
+            }
+        }
+        
         //COMPILATION AND LYING TO IDES
         
         StringBuilder sbr = new StringBuilder(IDETrickingCSProjFront);

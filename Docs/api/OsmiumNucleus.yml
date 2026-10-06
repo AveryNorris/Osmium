@@ -17,6 +17,7 @@ items:
   - OsmiumNucleus.MarkerAttributes.CalculatedProperty
   - OsmiumNucleus.MarkerAttributes.Complexity
   - OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
+  - OsmiumNucleus.MarkerAttributes.ComplexityON
   - OsmiumNucleus.MarkerAttributes.Expense
   - OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
   - OsmiumNucleus.MarkerAttributes.MethodLambda
@@ -208,6 +209,28 @@ references:
   - uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
     name: TimeComplexity
     href: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.html
+- uid: OsmiumNucleus.MarkerAttributes.ComplexityON
+  commentId: T:OsmiumNucleus.MarkerAttributes.ComplexityON
+  href: OsmiumNucleus.MarkerAttributes.html
+  name: MarkerAttributes.ComplexityON
+  nameWithType: MarkerAttributes.ComplexityON
+  fullName: OsmiumNucleus.MarkerAttributes.ComplexityON
+  spec.csharp:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.ComplexityON
+    name: ComplexityON
+    href: OsmiumNucleus.MarkerAttributes.ComplexityON.html
+  spec.vb:
+  - uid: OsmiumNucleus.MarkerAttributes
+    name: MarkerAttributes
+    href: OsmiumNucleus.MarkerAttributes.html
+  - name: .
+  - uid: OsmiumNucleus.MarkerAttributes.ComplexityON
+    name: ComplexityON
+    href: OsmiumNucleus.MarkerAttributes.ComplexityON.html
 - uid: OsmiumNucleus.MarkerAttributes.MethodLambda
   commentId: T:OsmiumNucleus.MarkerAttributes.MethodLambda
   href: OsmiumNucleus.MarkerAttributes.html

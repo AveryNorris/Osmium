@@ -72,7 +72,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: ThrowErrors
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 19
+    startLine: 18
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -101,7 +101,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: WriteToConsole
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 21
+    startLine: 20
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -130,7 +130,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: OnMessage
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 23
+    startLine: 22
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -157,7 +157,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: OnClear
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 25
+    startLine: 24
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -184,7 +184,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: DefaultCategory
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 27
+    startLine: 26
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -211,7 +211,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Log
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 33
+    startLine: 32
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -243,7 +243,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Log
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 35
+    startLine: 34
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -279,7 +279,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Warning
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 37
+    startLine: 36
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -311,7 +311,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Warning
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 39
+    startLine: 38
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -347,7 +347,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Error
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 41
+    startLine: 40
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -379,7 +379,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Error
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 43
+    startLine: 42
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -415,7 +415,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Fatal
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 45
+    startLine: 44
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -447,7 +447,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Fatal
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 47
+    startLine: 46
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -483,7 +483,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: RegisterCategory
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 49
+    startLine: 48
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -515,7 +515,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: FindCategory
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 55
+    startLine: 54
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -546,7 +546,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Clear
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 66
+    startLine: 65
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -572,7 +572,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Message
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 72
+    startLine: 71
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -601,7 +601,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: CollectVirtualization
     path: ../Osmium-Nucleus/Source/Debug/Debug.cs
-    startLine: 79
+    startLine: 78
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus

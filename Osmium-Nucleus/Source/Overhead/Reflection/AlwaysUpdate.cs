@@ -1,5 +1,5 @@
 namespace OsmiumNucleus;
 
-/// <summary> Allows a Component to be updated even if Osmium is only initialized </summary>
+/// <summary> Ignores virtualization when receiving events </summary>
 [AttributeUsage(AttributeTargets.Class)]
 public class AlwaysUpdate : Attribute;

@@ -19,7 +19,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: MethodLambda
     path: ../Osmium-Nucleus/Source/Attributes/MarkerAttributes.cs
-    startLine: 69
+    startLine: 73
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus

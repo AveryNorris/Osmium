@@ -63,7 +63,11 @@ public static partial class Osmium
     [MarkerAttributes.UnsafePipeline]
     public static void VirtualClose() {
         if (IsRunning) {
-            foreach (Scene scene in Scenes) scene.ChainEvent(Event.Unload);
+            foreach (Scene scene in Scenes)
+            {
+                scene.ChainEvent(Event.Unload);
+                RemoveScene(scene);
+            }
             IsRunning = false;
         }
         
@@ -89,6 +93,9 @@ public static partial class Osmium
         
         if(SceneAdded != null) foreach (Action<Scene> listener in SceneAdded.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) SceneAdded -= listener;
         if(SceneRemoved != null) foreach (Action<Scene> listener in SceneRemoved.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) SceneRemoved -= listener;
-
+        
+        GC.Collect();
+        
+        GC.WaitForPendingFinalizers();
     }
 }

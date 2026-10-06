@@ -399,24 +399,6 @@ references:
   isSpec: "True"
   fullName: OsmiumEditor.Editor.Assemblies
   nameWithType: Editor.Assemblies
-- uid: OsmiumEditor.Editor.BuildDirectory
-  name: BuildDirectory
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_BuildDirectory
-  commentId: F:OsmiumEditor.Editor.BuildDirectory
-  fullName: OsmiumEditor.Editor.BuildDirectory
-  nameWithType: Editor.BuildDirectory
-- uid: OsmiumEditor.Editor.CSProjEnd
-  name: CSProjEnd
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_CSProjEnd
-  commentId: F:OsmiumEditor.Editor.CSProjEnd
-  fullName: OsmiumEditor.Editor.CSProjEnd
-  nameWithType: Editor.CSProjEnd
-- uid: OsmiumEditor.Editor.CSProjFront
-  name: CSProjFront
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_CSProjFront
-  commentId: F:OsmiumEditor.Editor.CSProjFront
-  fullName: OsmiumEditor.Editor.CSProjFront
-  nameWithType: Editor.CSProjFront
 - uid: OsmiumEditor.Editor.CSProjModuleReferenceEnd
   name: CSProjModuleReferenceEnd
   href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_CSProjModuleReferenceEnd
@@ -435,112 +417,73 @@ references:
   commentId: F:OsmiumEditor.Editor.CSProjModuleReferenceStart
   fullName: OsmiumEditor.Editor.CSProjModuleReferenceStart
   nameWithType: Editor.CSProjModuleReferenceStart
-- uid: OsmiumEditor.Editor.CloseGame
-  name: CloseGame()
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_CloseGame
-  commentId: M:OsmiumEditor.Editor.CloseGame
-  fullName: OsmiumEditor.Editor.CloseGame()
-  nameWithType: Editor.CloseGame()
-- uid: OsmiumEditor.Editor.CloseGame*
-  name: CloseGame
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_CloseGame_
-  commentId: Overload:OsmiumEditor.Editor.CloseGame
+- uid: OsmiumEditor.Editor.CompileProject
+  name: CompileProject()
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_CompileProject
+  commentId: M:OsmiumEditor.Editor.CompileProject
+  fullName: OsmiumEditor.Editor.CompileProject()
+  nameWithType: Editor.CompileProject()
+- uid: OsmiumEditor.Editor.CompileProject*
+  name: CompileProject
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_CompileProject_
+  commentId: Overload:OsmiumEditor.Editor.CompileProject
   isSpec: "True"
-  fullName: OsmiumEditor.Editor.CloseGame
-  nameWithType: Editor.CloseGame
-- uid: OsmiumEditor.Editor.EditorCompile
-  name: EditorCompile()
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_EditorCompile
-  commentId: M:OsmiumEditor.Editor.EditorCompile
-  fullName: OsmiumEditor.Editor.EditorCompile()
-  nameWithType: Editor.EditorCompile()
-- uid: OsmiumEditor.Editor.EditorCompile*
-  name: EditorCompile
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_EditorCompile_
-  commentId: Overload:OsmiumEditor.Editor.EditorCompile
-  isSpec: "True"
-  fullName: OsmiumEditor.Editor.EditorCompile
-  nameWithType: Editor.EditorCompile
+  fullName: OsmiumEditor.Editor.CompileProject
+  nameWithType: Editor.CompileProject
+- uid: OsmiumEditor.Editor.EditorCompileCSProjEnd
+  name: EditorCompileCSProjEnd
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_EditorCompileCSProjEnd
+  commentId: F:OsmiumEditor.Editor.EditorCompileCSProjEnd
+  fullName: OsmiumEditor.Editor.EditorCompileCSProjEnd
+  nameWithType: Editor.EditorCompileCSProjEnd
+- uid: OsmiumEditor.Editor.EditorCompileCSProjFront
+  name: EditorCompileCSProjFront
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_EditorCompileCSProjFront
+  commentId: F:OsmiumEditor.Editor.EditorCompileCSProjFront
+  fullName: OsmiumEditor.Editor.EditorCompileCSProjFront
+  nameWithType: Editor.EditorCompileCSProjFront
+- uid: OsmiumEditor.Editor.EditorCompileCSProjPath
+  name: EditorCompileCSProjPath
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_EditorCompileCSProjPath
+  commentId: F:OsmiumEditor.Editor.EditorCompileCSProjPath
+  fullName: OsmiumEditor.Editor.EditorCompileCSProjPath
+  nameWithType: Editor.EditorCompileCSProjPath
+- uid: OsmiumEditor.Editor.EditorCompileOutputPath
+  name: EditorCompileOutputPath
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_EditorCompileOutputPath
+  commentId: F:OsmiumEditor.Editor.EditorCompileOutputPath
+  fullName: OsmiumEditor.Editor.EditorCompileOutputPath
+  nameWithType: Editor.EditorCompileOutputPath
 - uid: OsmiumEditor.Editor.EditorLoadContext
   name: EditorLoadContext
   href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_EditorLoadContext
   commentId: F:OsmiumEditor.Editor.EditorLoadContext
   fullName: OsmiumEditor.Editor.EditorLoadContext
   nameWithType: Editor.EditorLoadContext
-- uid: OsmiumEditor.Editor.GenerateCSProj(System.String[],System.Boolean)
-  name: GenerateCSProj(string[], bool)
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GenerateCSProj_System_String___System_Boolean_
-  commentId: M:OsmiumEditor.Editor.GenerateCSProj(System.String[],System.Boolean)
-  name.vb: GenerateCSProj(String(), Boolean)
-  fullName: OsmiumEditor.Editor.GenerateCSProj(string[], bool)
-  fullName.vb: OsmiumEditor.Editor.GenerateCSProj(String(), Boolean)
-  nameWithType: Editor.GenerateCSProj(string[], bool)
-  nameWithType.vb: Editor.GenerateCSProj(String(), Boolean)
-- uid: OsmiumEditor.Editor.GenerateCSProj*
-  name: GenerateCSProj
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GenerateCSProj_
-  commentId: Overload:OsmiumEditor.Editor.GenerateCSProj
-  isSpec: "True"
-  fullName: OsmiumEditor.Editor.GenerateCSProj
-  nameWithType: Editor.GenerateCSProj
-- uid: OsmiumEditor.Editor.GetCoreDependenciesPath
-  name: GetCoreDependenciesPath()
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetCoreDependenciesPath
-  commentId: M:OsmiumEditor.Editor.GetCoreDependenciesPath
-  fullName: OsmiumEditor.Editor.GetCoreDependenciesPath()
-  nameWithType: Editor.GetCoreDependenciesPath()
-- uid: OsmiumEditor.Editor.GetCoreDependenciesPath*
-  name: GetCoreDependenciesPath
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetCoreDependenciesPath_
-  commentId: Overload:OsmiumEditor.Editor.GetCoreDependenciesPath
-  isSpec: "True"
-  fullName: OsmiumEditor.Editor.GetCoreDependenciesPath
-  nameWithType: Editor.GetCoreDependenciesPath
-- uid: OsmiumEditor.Editor.GetDependencies
-  name: GetDependencies()
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetDependencies
-  commentId: M:OsmiumEditor.Editor.GetDependencies
-  fullName: OsmiumEditor.Editor.GetDependencies()
-  nameWithType: Editor.GetDependencies()
-- uid: OsmiumEditor.Editor.GetDependencies*
-  name: GetDependencies
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetDependencies_
-  commentId: Overload:OsmiumEditor.Editor.GetDependencies
-  isSpec: "True"
-  fullName: OsmiumEditor.Editor.GetDependencies
-  nameWithType: Editor.GetDependencies
-- uid: OsmiumEditor.Editor.GetExternalModulePaths
-  name: GetExternalModulePaths()
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetExternalModulePaths
-  commentId: M:OsmiumEditor.Editor.GetExternalModulePaths
-  fullName: OsmiumEditor.Editor.GetExternalModulePaths()
-  nameWithType: Editor.GetExternalModulePaths()
-- uid: OsmiumEditor.Editor.GetExternalModulePaths*
-  name: GetExternalModulePaths
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetExternalModulePaths_
-  commentId: Overload:OsmiumEditor.Editor.GetExternalModulePaths
-  isSpec: "True"
-  fullName: OsmiumEditor.Editor.GetExternalModulePaths
-  nameWithType: Editor.GetExternalModulePaths
-- uid: OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths
-  name: GetTrustedPlatformAssemblyPaths()
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetTrustedPlatformAssemblyPaths
-  commentId: M:OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths
-  fullName: OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths()
-  nameWithType: Editor.GetTrustedPlatformAssemblyPaths()
-- uid: OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths*
-  name: GetTrustedPlatformAssemblyPaths
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GetTrustedPlatformAssemblyPaths_
-  commentId: Overload:OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths
-  isSpec: "True"
-  fullName: OsmiumEditor.Editor.GetTrustedPlatformAssemblyPaths
-  nameWithType: Editor.GetTrustedPlatformAssemblyPaths
+- uid: OsmiumEditor.Editor.EditorModules
+  name: EditorModules
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_EditorModules
+  commentId: F:OsmiumEditor.Editor.EditorModules
+  fullName: OsmiumEditor.Editor.EditorModules
+  nameWithType: Editor.EditorModules
 - uid: OsmiumEditor.Editor.GlobalUsage
   name: GlobalUsage
   href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_GlobalUsage
   commentId: F:OsmiumEditor.Editor.GlobalUsage
   fullName: OsmiumEditor.Editor.GlobalUsage
   nameWithType: Editor.GlobalUsage
+- uid: OsmiumEditor.Editor.IDETrickingCSProjEnd
+  name: IDETrickingCSProjEnd
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_IDETrickingCSProjEnd
+  commentId: F:OsmiumEditor.Editor.IDETrickingCSProjEnd
+  fullName: OsmiumEditor.Editor.IDETrickingCSProjEnd
+  nameWithType: Editor.IDETrickingCSProjEnd
+- uid: OsmiumEditor.Editor.IDETrickingCSProjFront
+  name: IDETrickingCSProjFront
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_IDETrickingCSProjFront
+  commentId: F:OsmiumEditor.Editor.IDETrickingCSProjFront
+  fullName: OsmiumEditor.Editor.IDETrickingCSProjFront
+  nameWithType: Editor.IDETrickingCSProjFront
 - uid: OsmiumEditor.Editor.Main(System.String[])
   name: Main(string[])
   href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_Main_System_String___
@@ -557,103 +500,99 @@ references:
   isSpec: "True"
   fullName: OsmiumEditor.Editor.Main
   nameWithType: Editor.Main
-- uid: OsmiumEditor.Editor.OnCompile
-  name: OnCompile
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_OnCompile
-  commentId: E:OsmiumEditor.Editor.OnCompile
-  fullName: OsmiumEditor.Editor.OnCompile
-  nameWithType: Editor.OnCompile
-- uid: OsmiumEditor.Editor.OnEnd
-  name: OnEnd
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_OnEnd
-  commentId: E:OsmiumEditor.Editor.OnEnd
-  fullName: OsmiumEditor.Editor.OnEnd
-  nameWithType: Editor.OnEnd
-- uid: OsmiumEditor.Editor.OnRun
-  name: OnRun
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_OnRun
-  commentId: E:OsmiumEditor.Editor.OnRun
-  fullName: OsmiumEditor.Editor.OnRun
-  nameWithType: Editor.OnRun
+- uid: OsmiumEditor.Editor.Modules
+  name: Modules
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_Modules
+  commentId: P:OsmiumEditor.Editor.Modules
+  fullName: OsmiumEditor.Editor.Modules
+  nameWithType: Editor.Modules
+- uid: OsmiumEditor.Editor.Modules*
+  name: Modules
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_Modules_
+  commentId: Overload:OsmiumEditor.Editor.Modules
+  isSpec: "True"
+  fullName: OsmiumEditor.Editor.Modules
+  nameWithType: Editor.Modules
+- uid: OsmiumEditor.Editor.NetVersion
+  name: NetVersion
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_NetVersion
+  commentId: F:OsmiumEditor.Editor.NetVersion
+  fullName: OsmiumEditor.Editor.NetVersion
+  nameWithType: Editor.NetVersion
 - uid: OsmiumEditor.Editor.OnSave
   name: OnSave
   href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_OnSave
   commentId: E:OsmiumEditor.Editor.OnSave
   fullName: OsmiumEditor.Editor.OnSave
   nameWithType: Editor.OnSave
-- uid: OsmiumEditor.Editor.OpenProject(System.String)
-  name: OpenProject(string)
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_OpenProject_System_String_
-  commentId: M:OsmiumEditor.Editor.OpenProject(System.String)
-  name.vb: OpenProject(String)
-  fullName: OsmiumEditor.Editor.OpenProject(string)
-  fullName.vb: OsmiumEditor.Editor.OpenProject(String)
-  nameWithType: Editor.OpenProject(string)
-  nameWithType.vb: Editor.OpenProject(String)
-- uid: OsmiumEditor.Editor.OpenProject*
-  name: OpenProject
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_OpenProject_
-  commentId: Overload:OsmiumEditor.Editor.OpenProject
+- uid: OsmiumEditor.Editor.RefreshEditor
+  name: RefreshEditor()
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RefreshEditor
+  commentId: M:OsmiumEditor.Editor.RefreshEditor
+  fullName: OsmiumEditor.Editor.RefreshEditor()
+  nameWithType: Editor.RefreshEditor()
+- uid: OsmiumEditor.Editor.RefreshEditor*
+  name: RefreshEditor
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RefreshEditor_
+  commentId: Overload:OsmiumEditor.Editor.RefreshEditor
   isSpec: "True"
-  fullName: OsmiumEditor.Editor.OpenProject
-  nameWithType: Editor.OpenProject
-- uid: OsmiumEditor.Editor.RunGame
-  name: RunGame()
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RunGame
-  commentId: M:OsmiumEditor.Editor.RunGame
-  fullName: OsmiumEditor.Editor.RunGame()
-  nameWithType: Editor.RunGame()
-- uid: OsmiumEditor.Editor.RunGame*
-  name: RunGame
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RunGame_
-  commentId: Overload:OsmiumEditor.Editor.RunGame
+  fullName: OsmiumEditor.Editor.RefreshEditor
+  nameWithType: Editor.RefreshEditor
+- uid: OsmiumEditor.Editor.RuntimeCompileCSProjEnd
+  name: RuntimeCompileCSProjEnd
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RuntimeCompileCSProjEnd
+  commentId: F:OsmiumEditor.Editor.RuntimeCompileCSProjEnd
+  fullName: OsmiumEditor.Editor.RuntimeCompileCSProjEnd
+  nameWithType: Editor.RuntimeCompileCSProjEnd
+- uid: OsmiumEditor.Editor.RuntimeCompileCSProjFront
+  name: RuntimeCompileCSProjFront
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RuntimeCompileCSProjFront
+  commentId: F:OsmiumEditor.Editor.RuntimeCompileCSProjFront
+  fullName: OsmiumEditor.Editor.RuntimeCompileCSProjFront
+  nameWithType: Editor.RuntimeCompileCSProjFront
+- uid: OsmiumEditor.Editor.RuntimeCompileCSProjPath
+  name: RuntimeCompileCSProjPath
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RuntimeCompileCSProjPath
+  commentId: F:OsmiumEditor.Editor.RuntimeCompileCSProjPath
+  fullName: OsmiumEditor.Editor.RuntimeCompileCSProjPath
+  nameWithType: Editor.RuntimeCompileCSProjPath
+- uid: OsmiumEditor.Editor.RuntimeCompileOutputPath
+  name: RuntimeCompileOutputPath
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RuntimeCompileOutputPath
+  commentId: F:OsmiumEditor.Editor.RuntimeCompileOutputPath
+  fullName: OsmiumEditor.Editor.RuntimeCompileOutputPath
+  nameWithType: Editor.RuntimeCompileOutputPath
+- uid: OsmiumEditor.Editor.RuntimeModules
+  name: RuntimeModules
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RuntimeModules
+  commentId: F:OsmiumEditor.Editor.RuntimeModules
+  fullName: OsmiumEditor.Editor.RuntimeModules
+  nameWithType: Editor.RuntimeModules
+- uid: OsmiumEditor.Editor.SaveProject
+  name: SaveProject()
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_SaveProject
+  commentId: M:OsmiumEditor.Editor.SaveProject
+  fullName: OsmiumEditor.Editor.SaveProject()
+  nameWithType: Editor.SaveProject()
+- uid: OsmiumEditor.Editor.SaveProject*
+  name: SaveProject
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_SaveProject_
+  commentId: Overload:OsmiumEditor.Editor.SaveProject
   isSpec: "True"
-  fullName: OsmiumEditor.Editor.RunGame
-  nameWithType: Editor.RunGame
-- uid: OsmiumEditor.Editor.RuntimeAssemblies
-  name: RuntimeAssemblies
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RuntimeAssemblies
-  commentId: F:OsmiumEditor.Editor.RuntimeAssemblies
-  fullName: OsmiumEditor.Editor.RuntimeAssemblies
-  nameWithType: Editor.RuntimeAssemblies
-- uid: OsmiumEditor.Editor.RuntimeCompile
-  name: RuntimeCompile()
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RuntimeCompile
-  commentId: M:OsmiumEditor.Editor.RuntimeCompile
-  fullName: OsmiumEditor.Editor.RuntimeCompile()
-  nameWithType: Editor.RuntimeCompile()
-- uid: OsmiumEditor.Editor.RuntimeCompile*
-  name: RuntimeCompile
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_RuntimeCompile_
-  commentId: Overload:OsmiumEditor.Editor.RuntimeCompile
-  isSpec: "True"
-  fullName: OsmiumEditor.Editor.RuntimeCompile
-  nameWithType: Editor.RuntimeCompile
-- uid: OsmiumEditor.Editor.Save
-  name: Save()
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_Save
-  commentId: M:OsmiumEditor.Editor.Save
-  fullName: OsmiumEditor.Editor.Save()
-  nameWithType: Editor.Save()
-- uid: OsmiumEditor.Editor.Save*
-  name: Save
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_Save_
-  commentId: Overload:OsmiumEditor.Editor.Save
-  isSpec: "True"
-  fullName: OsmiumEditor.Editor.Save
-  nameWithType: Editor.Save
+  fullName: OsmiumEditor.Editor.SaveProject
+  nameWithType: Editor.SaveProject
 - uid: OsmiumEditor.Editor.TopLevelNugget
   name: TopLevelNugget
   href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_TopLevelNugget
   commentId: F:OsmiumEditor.Editor.TopLevelNugget
   fullName: OsmiumEditor.Editor.TopLevelNugget
   nameWithType: Editor.TopLevelNugget
-- uid: OsmiumEditor.Editor._Modules
-  name: _Modules
-  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor__Modules
-  commentId: F:OsmiumEditor.Editor._Modules
-  fullName: OsmiumEditor.Editor._Modules
-  nameWithType: Editor._Modules
+- uid: OsmiumEditor.Editor.TopLevelNuggetPath
+  name: TopLevelNuggetPath
+  href: api/OsmiumEditor.Editor.html#OsmiumEditor_Editor_TopLevelNuggetPath
+  commentId: F:OsmiumEditor.Editor.TopLevelNuggetPath
+  fullName: OsmiumEditor.Editor.TopLevelNuggetPath
+  nameWithType: Editor.TopLevelNuggetPath
 - uid: OsmiumEditor.Project
   name: Project
   href: api/OsmiumEditor.Project.html
@@ -1334,12 +1273,15 @@ references:
   commentId: T:OsmiumNucleus.ComponentDocker
   fullName: OsmiumNucleus.ComponentDocker
   nameWithType: ComponentDocker
-- uid: OsmiumNucleus.ComponentDocker.Add(OsmiumNucleus.Component)
-  name: Add(Component)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add_OsmiumNucleus_Component_
-  commentId: M:OsmiumNucleus.ComponentDocker.Add(OsmiumNucleus.Component)
-  fullName: OsmiumNucleus.ComponentDocker.Add(OsmiumNucleus.Component)
-  nameWithType: ComponentDocker.Add(Component)
+- uid: OsmiumNucleus.ComponentDocker.Add(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
+  name: Add(params IEnumerable<Component>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
+  commentId: M:OsmiumNucleus.ComponentDocker.Add(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
+  name.vb: Add(IEnumerable(Of Component))
+  fullName: OsmiumNucleus.ComponentDocker.Add(params System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Add(System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component))
+  nameWithType: ComponentDocker.Add(params IEnumerable<Component>)
+  nameWithType.vb: ComponentDocker.Add(IEnumerable(Of Component))
 - uid: OsmiumNucleus.ComponentDocker.Add*
   name: Add
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add_
@@ -1347,96 +1289,78 @@ references:
   isSpec: "True"
   fullName: OsmiumNucleus.ComponentDocker.Add
   nameWithType: ComponentDocker.Add
-- uid: OsmiumNucleus.ComponentDocker.Add``1(System.String,System.Collections.Generic.ICollection{System.String},System.Int32,System.Boolean)
-  name: Add<__Type>(string?, ICollection<string>?, int, bool)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_System_Collections_Generic_ICollection_System_String__System_Int32_System_Boolean_
-  commentId: M:OsmiumNucleus.ComponentDocker.Add``1(System.String,System.Collections.Generic.ICollection{System.String},System.Int32,System.Boolean)
-  name.vb: Add(Of __Type)(String, ICollection(Of String), Integer, Boolean)
-  fullName: OsmiumNucleus.ComponentDocker.Add<__Type>(string?, System.Collections.Generic.ICollection<string>?, int, bool)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Add(Of __Type)(String, System.Collections.Generic.ICollection(Of String), Integer, Boolean)
-  nameWithType: ComponentDocker.Add<__Type>(string?, ICollection<string>?, int, bool)
-  nameWithType.vb: ComponentDocker.Add(Of __Type)(String, ICollection(Of String), Integer, Boolean)
-- uid: OsmiumNucleus.ComponentDocker.AllChildren
-  name: AllChildren
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_AllChildren
-  commentId: P:OsmiumNucleus.ComponentDocker.AllChildren
-  fullName: OsmiumNucleus.ComponentDocker.AllChildren
-  nameWithType: ComponentDocker.AllChildren
-- uid: OsmiumNucleus.ComponentDocker.AllChildren*
-  name: AllChildren
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_AllChildren_
-  commentId: Overload:OsmiumNucleus.ComponentDocker.AllChildren
-  isSpec: "True"
-  fullName: OsmiumNucleus.ComponentDocker.AllChildren
-  nameWithType: ComponentDocker.AllChildren
-- uid: OsmiumNucleus.ComponentDocker.Children
-  name: Children
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Children
-  commentId: P:OsmiumNucleus.ComponentDocker.Children
-  fullName: OsmiumNucleus.ComponentDocker.Children
-  nameWithType: ComponentDocker.Children
-- uid: OsmiumNucleus.ComponentDocker.Children*
-  name: Children
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Children_
-  commentId: Overload:OsmiumNucleus.ComponentDocker.Children
-  isSpec: "True"
-  fullName: OsmiumNucleus.ComponentDocker.Children
-  nameWithType: ComponentDocker.Children
-- uid: OsmiumNucleus.ComponentDocker.CleanVirtualRuntime
-  name: CleanVirtualRuntime()
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_CleanVirtualRuntime
-  commentId: M:OsmiumNucleus.ComponentDocker.CleanVirtualRuntime
-  fullName: OsmiumNucleus.ComponentDocker.CleanVirtualRuntime()
-  nameWithType: ComponentDocker.CleanVirtualRuntime()
-- uid: OsmiumNucleus.ComponentDocker.CleanVirtualRuntime*
-  name: CleanVirtualRuntime
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_CleanVirtualRuntime_
-  commentId: Overload:OsmiumNucleus.ComponentDocker.CleanVirtualRuntime
-  isSpec: "True"
-  fullName: OsmiumNucleus.ComponentDocker.CleanVirtualRuntime
-  nameWithType: ComponentDocker.CleanVirtualRuntime
+- uid: OsmiumNucleus.ComponentDocker.Add``1
+  name: Add<TComponent>()
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1
+  commentId: M:OsmiumNucleus.ComponentDocker.Add``1
+  name.vb: Add(Of TComponent)()
+  fullName: OsmiumNucleus.ComponentDocker.Add<TComponent>()
+  fullName.vb: OsmiumNucleus.ComponentDocker.Add(Of TComponent)()
+  nameWithType: ComponentDocker.Add<TComponent>()
+  nameWithType.vb: ComponentDocker.Add(Of TComponent)()
+- uid: OsmiumNucleus.ComponentDocker.Add``1(System.Int32)
+  name: Add<TComponent>(int)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_Int32_
+  commentId: M:OsmiumNucleus.ComponentDocker.Add``1(System.Int32)
+  name.vb: Add(Of TComponent)(Integer)
+  fullName: OsmiumNucleus.ComponentDocker.Add<TComponent>(int)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Add(Of TComponent)(Integer)
+  nameWithType: ComponentDocker.Add<TComponent>(int)
+  nameWithType.vb: ComponentDocker.Add(Of TComponent)(Integer)
+- uid: OsmiumNucleus.ComponentDocker.Add``1(System.String)
+  name: Add<TComponent>(string)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_
+  commentId: M:OsmiumNucleus.ComponentDocker.Add``1(System.String)
+  name.vb: Add(Of TComponent)(String)
+  fullName: OsmiumNucleus.ComponentDocker.Add<TComponent>(string)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Add(Of TComponent)(String)
+  nameWithType: ComponentDocker.Add<TComponent>(string)
+  nameWithType.vb: ComponentDocker.Add(Of TComponent)(String)
+- uid: OsmiumNucleus.ComponentDocker.Add``1(System.String,System.Int32)
+  name: Add<TComponent>(string, int)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_System_Int32_
+  commentId: M:OsmiumNucleus.ComponentDocker.Add``1(System.String,System.Int32)
+  name.vb: Add(Of TComponent)(String, Integer)
+  fullName: OsmiumNucleus.ComponentDocker.Add<TComponent>(string, int)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Add(Of TComponent)(String, Integer)
+  nameWithType: ComponentDocker.Add<TComponent>(string, int)
+  nameWithType.vb: ComponentDocker.Add(Of TComponent)(String, Integer)
 - uid: OsmiumNucleus.ComponentDocker.ComponentAdded
   name: ComponentAdded
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentAdded
   commentId: E:OsmiumNucleus.ComponentDocker.ComponentAdded
   fullName: OsmiumNucleus.ComponentDocker.ComponentAdded
   nameWithType: ComponentDocker.ComponentAdded
+- uid: OsmiumNucleus.ComponentDocker.ComponentDestroyed
+  name: ComponentDestroyed
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentDestroyed
+  commentId: E:OsmiumNucleus.ComponentDocker.ComponentDestroyed
+  fullName: OsmiumNucleus.ComponentDocker.ComponentDestroyed
+  nameWithType: ComponentDocker.ComponentDestroyed
 - uid: OsmiumNucleus.ComponentDocker.ComponentMoved
   name: ComponentMoved
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentMoved
   commentId: E:OsmiumNucleus.ComponentDocker.ComponentMoved
   fullName: OsmiumNucleus.ComponentDocker.ComponentMoved
   nameWithType: ComponentDocker.ComponentMoved
-- uid: OsmiumNucleus.ComponentDocker.ComponentRemoved
-  name: ComponentRemoved
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentRemoved
-  commentId: E:OsmiumNucleus.ComponentDocker.ComponentRemoved
-  fullName: OsmiumNucleus.ComponentDocker.ComponentRemoved
-  nameWithType: ComponentDocker.ComponentRemoved
-- uid: OsmiumNucleus.ComponentDocker.Contains(OsmiumNucleus.Component)
-  name: Contains(Component)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_OsmiumNucleus_Component_
-  commentId: M:OsmiumNucleus.ComponentDocker.Contains(OsmiumNucleus.Component)
-  fullName: OsmiumNucleus.ComponentDocker.Contains(OsmiumNucleus.Component)
-  nameWithType: ComponentDocker.Contains(Component)
-- uid: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.ICollection{System.String})
-  name: Contains(ICollection<string>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_ICollection_System_String__
-  commentId: M:OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.ICollection{System.String})
-  name.vb: Contains(ICollection(Of String))
-  fullName: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.ICollection<string>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.ICollection(Of String))
-  nameWithType: ComponentDocker.Contains(ICollection<string>)
-  nameWithType.vb: ComponentDocker.Contains(ICollection(Of String))
-- uid: OsmiumNucleus.ComponentDocker.Contains(System.String)
-  name: Contains(string)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_String_
-  commentId: M:OsmiumNucleus.ComponentDocker.Contains(System.String)
-  name.vb: Contains(String)
-  fullName: OsmiumNucleus.ComponentDocker.Contains(string)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(String)
-  nameWithType: ComponentDocker.Contains(string)
-  nameWithType.vb: ComponentDocker.Contains(String)
+- uid: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
+  name: Contains(params IEnumerable<Component>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
+  commentId: M:OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
+  name.vb: Contains(IEnumerable(Of Component))
+  fullName: OsmiumNucleus.ComponentDocker.Contains(params System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component))
+  nameWithType: ComponentDocker.Contains(params IEnumerable<Component>)
+  nameWithType.vb: ComponentDocker.Contains(IEnumerable(Of Component))
+- uid: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{System.String})
+  name: Contains(params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Contains(IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.Contains(params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.Contains(params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.Contains(IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.Contains*
   name: Contains
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_
@@ -1444,77 +1368,42 @@ references:
   isSpec: "True"
   fullName: OsmiumNucleus.ComponentDocker.Contains
   nameWithType: ComponentDocker.Contains
-- uid: OsmiumNucleus.ComponentDocker.ContainsAll(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  name: ContainsAll(IEnumerable<Component>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ContainsAll_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  commentId: M:OsmiumNucleus.ComponentDocker.ContainsAll(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  name.vb: ContainsAll(IEnumerable(Of Component))
-  fullName: OsmiumNucleus.ComponentDocker.ContainsAll(System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.ContainsAll(System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component))
-  nameWithType: ComponentDocker.ContainsAll(IEnumerable<Component>)
-  nameWithType.vb: ComponentDocker.ContainsAll(IEnumerable(Of Component))
-- uid: OsmiumNucleus.ComponentDocker.ContainsAll*
-  name: ContainsAll
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ContainsAll_
-  commentId: Overload:OsmiumNucleus.ComponentDocker.ContainsAll
-  isSpec: "True"
-  fullName: OsmiumNucleus.ComponentDocker.ContainsAll
-  nameWithType: ComponentDocker.ContainsAll
 - uid: OsmiumNucleus.ComponentDocker.Contains``1
-  name: Contains<__Type>()
+  name: Contains<TComponent>()
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1
   commentId: M:OsmiumNucleus.ComponentDocker.Contains``1
-  name.vb: Contains(Of __Type)()
-  fullName: OsmiumNucleus.ComponentDocker.Contains<__Type>()
-  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(Of __Type)()
-  nameWithType: ComponentDocker.Contains<__Type>()
-  nameWithType.vb: ComponentDocker.Contains(Of __Type)()
-- uid: OsmiumNucleus.ComponentDocker.Contains``1(System.Collections.Generic.ICollection{System.String})
-  name: Contains<__Type>(ICollection<string>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1_System_Collections_Generic_ICollection_System_String__
-  commentId: M:OsmiumNucleus.ComponentDocker.Contains``1(System.Collections.Generic.ICollection{System.String})
-  name.vb: Contains(Of __Type)(ICollection(Of String))
-  fullName: OsmiumNucleus.ComponentDocker.Contains<__Type>(System.Collections.Generic.ICollection<string>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(Of __Type)(System.Collections.Generic.ICollection(Of String))
-  nameWithType: ComponentDocker.Contains<__Type>(ICollection<string>)
-  nameWithType.vb: ComponentDocker.Contains(Of __Type)(ICollection(Of String))
-- uid: OsmiumNucleus.ComponentDocker.Contains``1(System.String)
-  name: Contains<__Type>(string)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1_System_String_
-  commentId: M:OsmiumNucleus.ComponentDocker.Contains``1(System.String)
-  name.vb: Contains(Of __Type)(String)
-  fullName: OsmiumNucleus.ComponentDocker.Contains<__Type>(string)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(Of __Type)(String)
-  nameWithType: ComponentDocker.Contains<__Type>(string)
-  nameWithType.vb: ComponentDocker.Contains(Of __Type)(String)
-- uid: OsmiumNucleus.ComponentDocker.Count
-  name: Count
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Count
-  commentId: P:OsmiumNucleus.ComponentDocker.Count
-  fullName: OsmiumNucleus.ComponentDocker.Count
-  nameWithType: ComponentDocker.Count
-- uid: OsmiumNucleus.ComponentDocker.Count*
-  name: Count
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Count_
-  commentId: Overload:OsmiumNucleus.ComponentDocker.Count
-  isSpec: "True"
-  fullName: OsmiumNucleus.ComponentDocker.Count
-  nameWithType: ComponentDocker.Count
-- uid: OsmiumNucleus.ComponentDocker.Destroy(OsmiumNucleus.Component)
-  name: Destroy(Component)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_OsmiumNucleus_Component_
-  commentId: M:OsmiumNucleus.ComponentDocker.Destroy(OsmiumNucleus.Component)
-  fullName: OsmiumNucleus.ComponentDocker.Destroy(OsmiumNucleus.Component)
-  nameWithType: ComponentDocker.Destroy(Component)
-- uid: OsmiumNucleus.ComponentDocker.Destroy(System.String)
-  name: Destroy(string)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_String_
-  commentId: M:OsmiumNucleus.ComponentDocker.Destroy(System.String)
-  name.vb: Destroy(String)
-  fullName: OsmiumNucleus.ComponentDocker.Destroy(string)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(String)
-  nameWithType: ComponentDocker.Destroy(string)
-  nameWithType.vb: ComponentDocker.Destroy(String)
+  name.vb: Contains(Of TComponent)()
+  fullName: OsmiumNucleus.ComponentDocker.Contains<TComponent>()
+  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(Of TComponent)()
+  nameWithType: ComponentDocker.Contains<TComponent>()
+  nameWithType.vb: ComponentDocker.Contains(Of TComponent)()
+- uid: OsmiumNucleus.ComponentDocker.Contains``1(System.Collections.Generic.IEnumerable{System.String})
+  name: Contains<TComponent>(params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.Contains``1(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Contains(Of TComponent)(IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.Contains<TComponent>(params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.Contains<TComponent>(params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.Contains(Of TComponent)(IEnumerable(Of String))
+- uid: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
+  name: Destroy(params IEnumerable<Component>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
+  commentId: M:OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
+  name.vb: Destroy(IEnumerable(Of Component))
+  fullName: OsmiumNucleus.ComponentDocker.Destroy(params System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component))
+  nameWithType: ComponentDocker.Destroy(params IEnumerable<Component>)
+  nameWithType.vb: ComponentDocker.Destroy(IEnumerable(Of Component))
+- uid: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{System.String})
+  name: Destroy(params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Destroy(IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.Destroy(params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.Destroy(params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.Destroy(IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.Destroy*
   name: Destroy
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_
@@ -1528,33 +1417,15 @@ references:
   commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll
   fullName: OsmiumNucleus.ComponentDocker.DestroyAll()
   nameWithType: ComponentDocker.DestroyAll()
-- uid: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.ICollection{OsmiumNucleus.Component})
-  name: DestroyAll(ICollection<Component>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_Collections_Generic_ICollection_OsmiumNucleus_Component__
-  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.ICollection{OsmiumNucleus.Component})
-  name.vb: DestroyAll(ICollection(Of Component))
-  fullName: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.ICollection<OsmiumNucleus.Component>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.ICollection(Of OsmiumNucleus.Component))
-  nameWithType: ComponentDocker.DestroyAll(ICollection<Component>)
-  nameWithType.vb: ComponentDocker.DestroyAll(ICollection(Of Component))
-- uid: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.ICollection{System.String})
-  name: DestroyAll(ICollection<string>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_Collections_Generic_ICollection_System_String__
-  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.ICollection{System.String})
-  name.vb: DestroyAll(ICollection(Of String))
-  fullName: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.ICollection<string>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.ICollection(Of String))
-  nameWithType: ComponentDocker.DestroyAll(ICollection<string>)
-  nameWithType.vb: ComponentDocker.DestroyAll(ICollection(Of String))
-- uid: OsmiumNucleus.ComponentDocker.DestroyAll(System.String)
-  name: DestroyAll(string)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_String_
-  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll(System.String)
-  name.vb: DestroyAll(String)
-  fullName: OsmiumNucleus.ComponentDocker.DestroyAll(string)
-  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(String)
-  nameWithType: ComponentDocker.DestroyAll(string)
-  nameWithType.vb: ComponentDocker.DestroyAll(String)
+- uid: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
+  name: DestroyAll(params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: DestroyAll(IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.DestroyAll(params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.DestroyAll(params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.DestroyAll(IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.DestroyAll*
   name: DestroyAll
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_
@@ -1563,68 +1434,56 @@ references:
   fullName: OsmiumNucleus.ComponentDocker.DestroyAll
   nameWithType: ComponentDocker.DestroyAll
 - uid: OsmiumNucleus.ComponentDocker.DestroyAll``1
-  name: DestroyAll<__Type>()
+  name: DestroyAll<TComponent>()
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1
   commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll``1
-  name.vb: DestroyAll(Of __Type)()
-  fullName: OsmiumNucleus.ComponentDocker.DestroyAll<__Type>()
-  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(Of __Type)()
-  nameWithType: ComponentDocker.DestroyAll<__Type>()
-  nameWithType.vb: ComponentDocker.DestroyAll(Of __Type)()
-- uid: OsmiumNucleus.ComponentDocker.DestroyAll``1(System.Collections.Generic.ICollection{System.String})
-  name: DestroyAll<__Type>(ICollection<string>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1_System_Collections_Generic_ICollection_System_String__
-  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll``1(System.Collections.Generic.ICollection{System.String})
-  name.vb: DestroyAll(Of __Type)(ICollection(Of String))
-  fullName: OsmiumNucleus.ComponentDocker.DestroyAll<__Type>(System.Collections.Generic.ICollection<string>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(Of __Type)(System.Collections.Generic.ICollection(Of String))
-  nameWithType: ComponentDocker.DestroyAll<__Type>(ICollection<string>)
-  nameWithType.vb: ComponentDocker.DestroyAll(Of __Type)(ICollection(Of String))
-- uid: OsmiumNucleus.ComponentDocker.DestroyAll``1(System.String)
-  name: DestroyAll<__Type>(string)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1_System_String_
-  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll``1(System.String)
-  name.vb: DestroyAll(Of __Type)(String)
-  fullName: OsmiumNucleus.ComponentDocker.DestroyAll<__Type>(string)
-  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(Of __Type)(String)
-  nameWithType: ComponentDocker.DestroyAll<__Type>(string)
-  nameWithType.vb: ComponentDocker.DestroyAll(Of __Type)(String)
+  name.vb: DestroyAll(Of TComponent)()
+  fullName: OsmiumNucleus.ComponentDocker.DestroyAll<TComponent>()
+  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(Of TComponent)()
+  nameWithType: ComponentDocker.DestroyAll<TComponent>()
+  nameWithType.vb: ComponentDocker.DestroyAll(Of TComponent)()
+- uid: OsmiumNucleus.ComponentDocker.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
+  name: DestroyAll<TComponent>(params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: DestroyAll(Of TComponent)(IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.DestroyAll<TComponent>(params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.DestroyAll<TComponent>(params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.DestroyAll(Of TComponent)(IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.Destroy``1
-  name: Destroy<__Type>()
+  name: Destroy<TComponent>()
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1
   commentId: M:OsmiumNucleus.ComponentDocker.Destroy``1
-  name.vb: Destroy(Of __Type)()
-  fullName: OsmiumNucleus.ComponentDocker.Destroy<__Type>()
-  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(Of __Type)()
-  nameWithType: ComponentDocker.Destroy<__Type>()
-  nameWithType.vb: ComponentDocker.Destroy(Of __Type)()
-- uid: OsmiumNucleus.ComponentDocker.Destroy``1(System.String)
-  name: Destroy<__Type>(string)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1_System_String_
-  commentId: M:OsmiumNucleus.ComponentDocker.Destroy``1(System.String)
-  name.vb: Destroy(Of __Type)(String)
-  fullName: OsmiumNucleus.ComponentDocker.Destroy<__Type>(string)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(Of __Type)(String)
-  nameWithType: ComponentDocker.Destroy<__Type>(string)
-  nameWithType.vb: ComponentDocker.Destroy(Of __Type)(String)
-- uid: OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.ICollection{System.String})
-  name: Get(ICollection<string>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get_System_Collections_Generic_ICollection_System_String__
-  commentId: M:OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.ICollection{System.String})
-  name.vb: Get(ICollection(Of String))
-  fullName: OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.ICollection<string>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.ICollection(Of String))
-  nameWithType: ComponentDocker.Get(ICollection<string>)
-  nameWithType.vb: ComponentDocker.Get(ICollection(Of String))
-- uid: OsmiumNucleus.ComponentDocker.Get(System.String)
-  name: Get(string)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get_System_String_
-  commentId: M:OsmiumNucleus.ComponentDocker.Get(System.String)
-  name.vb: Get(String)
-  fullName: OsmiumNucleus.ComponentDocker.Get(string)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Get(String)
-  nameWithType: ComponentDocker.Get(string)
-  nameWithType.vb: ComponentDocker.Get(String)
+  name.vb: Destroy(Of TComponent)()
+  fullName: OsmiumNucleus.ComponentDocker.Destroy<TComponent>()
+  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(Of TComponent)()
+  nameWithType: ComponentDocker.Destroy<TComponent>()
+  nameWithType.vb: ComponentDocker.Destroy(Of TComponent)()
+- uid: OsmiumNucleus.ComponentDocker.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
+  name: Destroy<TComponent>(params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Destroy(Of TComponent)(IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.Destroy<TComponent>(params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.Destroy<TComponent>(params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.Destroy(Of TComponent)(IEnumerable(Of String))
+- uid: OsmiumNucleus.ComponentDocker.Get
+  name: Get()
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get
+  commentId: M:OsmiumNucleus.ComponentDocker.Get
+  fullName: OsmiumNucleus.ComponentDocker.Get()
+  nameWithType: ComponentDocker.Get()
+- uid: OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.IEnumerable{System.String})
+  name: Get(params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Get(IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.Get(params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.Get(params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.Get(IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.Get*
   name: Get
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get_
@@ -1638,24 +1497,15 @@ references:
   commentId: M:OsmiumNucleus.ComponentDocker.GetAll
   fullName: OsmiumNucleus.ComponentDocker.GetAll()
   nameWithType: ComponentDocker.GetAll()
-- uid: OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.ICollection{System.String})
-  name: GetAll(ICollection<string>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll_System_Collections_Generic_ICollection_System_String__
-  commentId: M:OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.ICollection{System.String})
-  name.vb: GetAll(ICollection(Of String))
-  fullName: OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.ICollection<string>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.ICollection(Of String))
-  nameWithType: ComponentDocker.GetAll(ICollection<string>)
-  nameWithType.vb: ComponentDocker.GetAll(ICollection(Of String))
-- uid: OsmiumNucleus.ComponentDocker.GetAll(System.String)
-  name: GetAll(string)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll_System_String_
-  commentId: M:OsmiumNucleus.ComponentDocker.GetAll(System.String)
-  name.vb: GetAll(String)
-  fullName: OsmiumNucleus.ComponentDocker.GetAll(string)
-  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(String)
-  nameWithType: ComponentDocker.GetAll(string)
-  nameWithType.vb: ComponentDocker.GetAll(String)
+- uid: OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.IEnumerable{System.String})
+  name: GetAll(params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: GetAll(IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.GetAll(params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.GetAll(params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.GetAll(IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.GetAll*
   name: GetAll
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll_
@@ -1663,46 +1513,24 @@ references:
   isSpec: "True"
   fullName: OsmiumNucleus.ComponentDocker.GetAll
   nameWithType: ComponentDocker.GetAll
-- uid: OsmiumNucleus.ComponentDocker.GetAllChildren
-  name: GetAllChildren()
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAllChildren
-  commentId: M:OsmiumNucleus.ComponentDocker.GetAllChildren
-  fullName: OsmiumNucleus.ComponentDocker.GetAllChildren()
-  nameWithType: ComponentDocker.GetAllChildren()
-- uid: OsmiumNucleus.ComponentDocker.GetAllChildren*
-  name: GetAllChildren
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAllChildren_
-  commentId: Overload:OsmiumNucleus.ComponentDocker.GetAllChildren
-  isSpec: "True"
-  fullName: OsmiumNucleus.ComponentDocker.GetAllChildren
-  nameWithType: ComponentDocker.GetAllChildren
 - uid: OsmiumNucleus.ComponentDocker.GetAll``1
-  name: GetAll<__Type>()
+  name: GetAll<TComponent>()
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1
   commentId: M:OsmiumNucleus.ComponentDocker.GetAll``1
-  name.vb: GetAll(Of __Type)()
-  fullName: OsmiumNucleus.ComponentDocker.GetAll<__Type>()
-  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(Of __Type)()
-  nameWithType: ComponentDocker.GetAll<__Type>()
-  nameWithType.vb: ComponentDocker.GetAll(Of __Type)()
-- uid: OsmiumNucleus.ComponentDocker.GetAll``1(System.Collections.Generic.ICollection{System.String})
-  name: GetAll<__Type>(ICollection<string>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1_System_Collections_Generic_ICollection_System_String__
-  commentId: M:OsmiumNucleus.ComponentDocker.GetAll``1(System.Collections.Generic.ICollection{System.String})
-  name.vb: GetAll(Of __Type)(ICollection(Of String))
-  fullName: OsmiumNucleus.ComponentDocker.GetAll<__Type>(System.Collections.Generic.ICollection<string>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(Of __Type)(System.Collections.Generic.ICollection(Of String))
-  nameWithType: ComponentDocker.GetAll<__Type>(ICollection<string>)
-  nameWithType.vb: ComponentDocker.GetAll(Of __Type)(ICollection(Of String))
-- uid: OsmiumNucleus.ComponentDocker.GetAll``1(System.String)
-  name: GetAll<__Type>(string)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1_System_String_
-  commentId: M:OsmiumNucleus.ComponentDocker.GetAll``1(System.String)
-  name.vb: GetAll(Of __Type)(String)
-  fullName: OsmiumNucleus.ComponentDocker.GetAll<__Type>(string)
-  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(Of __Type)(String)
-  nameWithType: ComponentDocker.GetAll<__Type>(string)
-  nameWithType.vb: ComponentDocker.GetAll(Of __Type)(String)
+  name.vb: GetAll(Of TComponent)()
+  fullName: OsmiumNucleus.ComponentDocker.GetAll<TComponent>()
+  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(Of TComponent)()
+  nameWithType: ComponentDocker.GetAll<TComponent>()
+  nameWithType.vb: ComponentDocker.GetAll(Of TComponent)()
+- uid: OsmiumNucleus.ComponentDocker.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
+  name: GetAll<TComponent>(IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: GetAll(Of TComponent)(IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.GetAll<TComponent>(System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.GetAll<TComponent>(IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.GetAll(Of TComponent)(IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.GetEnumerator
   name: GetEnumerator()
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetEnumerator
@@ -1717,32 +1545,23 @@ references:
   fullName: OsmiumNucleus.ComponentDocker.GetEnumerator
   nameWithType: ComponentDocker.GetEnumerator
 - uid: OsmiumNucleus.ComponentDocker.Get``1
-  name: Get<__Type>()
+  name: Get<TComponent>()
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1
   commentId: M:OsmiumNucleus.ComponentDocker.Get``1
-  name.vb: Get(Of __Type)()
-  fullName: OsmiumNucleus.ComponentDocker.Get<__Type>()
-  fullName.vb: OsmiumNucleus.ComponentDocker.Get(Of __Type)()
-  nameWithType: ComponentDocker.Get<__Type>()
-  nameWithType.vb: ComponentDocker.Get(Of __Type)()
-- uid: OsmiumNucleus.ComponentDocker.Get``1(System.Collections.Generic.ICollection{System.String})
-  name: Get<__Type>(ICollection<string>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1_System_Collections_Generic_ICollection_System_String__
-  commentId: M:OsmiumNucleus.ComponentDocker.Get``1(System.Collections.Generic.ICollection{System.String})
-  name.vb: Get(Of __Type)(ICollection(Of String))
-  fullName: OsmiumNucleus.ComponentDocker.Get<__Type>(System.Collections.Generic.ICollection<string>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Get(Of __Type)(System.Collections.Generic.ICollection(Of String))
-  nameWithType: ComponentDocker.Get<__Type>(ICollection<string>)
-  nameWithType.vb: ComponentDocker.Get(Of __Type)(ICollection(Of String))
-- uid: OsmiumNucleus.ComponentDocker.Get``1(System.String)
-  name: Get<__Type>(string)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1_System_String_
-  commentId: M:OsmiumNucleus.ComponentDocker.Get``1(System.String)
-  name.vb: Get(Of __Type)(String)
-  fullName: OsmiumNucleus.ComponentDocker.Get<__Type>(string)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Get(Of __Type)(String)
-  nameWithType: ComponentDocker.Get<__Type>(string)
-  nameWithType.vb: ComponentDocker.Get(Of __Type)(String)
+  name.vb: Get(Of TComponent)()
+  fullName: OsmiumNucleus.ComponentDocker.Get<TComponent>()
+  fullName.vb: OsmiumNucleus.ComponentDocker.Get(Of TComponent)()
+  nameWithType: ComponentDocker.Get<TComponent>()
+  nameWithType.vb: ComponentDocker.Get(Of TComponent)()
+- uid: OsmiumNucleus.ComponentDocker.Get``1(System.Collections.Generic.IEnumerable{System.String})
+  name: Get<TComponent>(params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.Get``1(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Get(Of TComponent)(IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.Get<TComponent>(params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Get(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.Get<TComponent>(params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.Get(Of TComponent)(IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.Item(System.Int32)
   name: this[int]
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Item_System_Int32_
@@ -1762,21 +1581,24 @@ references:
   fullName.vb: OsmiumNucleus.ComponentDocker.this[]
   nameWithType: ComponentDocker.this
   nameWithType.vb: ComponentDocker.this[]
-- uid: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.Component,OsmiumNucleus.ComponentDocker)
-  name: Move(Component, ComponentDocker)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_Component_OsmiumNucleus_ComponentDocker_
-  commentId: M:OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.Component,OsmiumNucleus.ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.Component, OsmiumNucleus.ComponentDocker)
-  nameWithType: ComponentDocker.Move(Component, ComponentDocker)
-- uid: OsmiumNucleus.ComponentDocker.Move(System.String,OsmiumNucleus.ComponentDocker)
-  name: Move(string, ComponentDocker)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_System_String_OsmiumNucleus_ComponentDocker_
-  commentId: M:OsmiumNucleus.ComponentDocker.Move(System.String,OsmiumNucleus.ComponentDocker)
-  name.vb: Move(String, ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.Move(string, OsmiumNucleus.ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Move(String, OsmiumNucleus.ComponentDocker)
-  nameWithType: ComponentDocker.Move(string, ComponentDocker)
-  nameWithType.vb: ComponentDocker.Move(String, ComponentDocker)
+- uid: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
+  name: Move(ComponentDocker, params IEnumerable<Component>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
+  commentId: M:OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
+  name.vb: Move(ComponentDocker, IEnumerable(Of Component))
+  fullName: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker, params System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker, System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component))
+  nameWithType: ComponentDocker.Move(ComponentDocker, params IEnumerable<Component>)
+  nameWithType.vb: ComponentDocker.Move(ComponentDocker, IEnumerable(Of Component))
+- uid: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
+  name: Move(ComponentDocker, params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Move(ComponentDocker, IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker, params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker, System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.Move(ComponentDocker, params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.Move(ComponentDocker, IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.Move*
   name: Move
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_
@@ -1790,33 +1612,15 @@ references:
   commentId: M:OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker)
   fullName: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker)
   nameWithType: ComponentDocker.MoveAll(ComponentDocker)
-- uid: OsmiumNucleus.ComponentDocker.MoveAll(System.Collections.Generic.ICollection{System.String},OsmiumNucleus.ComponentDocker)
-  name: MoveAll(ICollection<string>, ComponentDocker)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_System_Collections_Generic_ICollection_System_String__OsmiumNucleus_ComponentDocker_
-  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll(System.Collections.Generic.ICollection{System.String},OsmiumNucleus.ComponentDocker)
-  name.vb: MoveAll(ICollection(Of String), ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.MoveAll(System.Collections.Generic.ICollection<string>, OsmiumNucleus.ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(System.Collections.Generic.ICollection(Of String), OsmiumNucleus.ComponentDocker)
-  nameWithType: ComponentDocker.MoveAll(ICollection<string>, ComponentDocker)
-  nameWithType.vb: ComponentDocker.MoveAll(ICollection(Of String), ComponentDocker)
-- uid: OsmiumNucleus.ComponentDocker.MoveAll(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component},OsmiumNucleus.ComponentDocker)
-  name: MoveAll(IEnumerable<Component>, ComponentDocker)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__OsmiumNucleus_ComponentDocker_
-  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component},OsmiumNucleus.ComponentDocker)
-  name.vb: MoveAll(IEnumerable(Of Component), ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.MoveAll(System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>, OsmiumNucleus.ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component), OsmiumNucleus.ComponentDocker)
-  nameWithType: ComponentDocker.MoveAll(IEnumerable<Component>, ComponentDocker)
-  nameWithType.vb: ComponentDocker.MoveAll(IEnumerable(Of Component), ComponentDocker)
-- uid: OsmiumNucleus.ComponentDocker.MoveAll(System.String,OsmiumNucleus.ComponentDocker)
-  name: MoveAll(string, ComponentDocker)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_System_String_OsmiumNucleus_ComponentDocker_
-  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll(System.String,OsmiumNucleus.ComponentDocker)
-  name.vb: MoveAll(String, ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.MoveAll(string, OsmiumNucleus.ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(String, OsmiumNucleus.ComponentDocker)
-  nameWithType: ComponentDocker.MoveAll(string, ComponentDocker)
-  nameWithType.vb: ComponentDocker.MoveAll(String, ComponentDocker)
+- uid: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
+  name: MoveAll(ComponentDocker, params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
+  name.vb: MoveAll(ComponentDocker, IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker, params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker, System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.MoveAll(ComponentDocker, params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.MoveAll(ComponentDocker, IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.MoveAll*
   name: MoveAll
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_
@@ -1825,154 +1629,41 @@ references:
   fullName: OsmiumNucleus.ComponentDocker.MoveAll
   nameWithType: ComponentDocker.MoveAll
 - uid: OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker)
-  name: MoveAll<__Type>(ComponentDocker)
+  name: MoveAll<TComponent>(ComponentDocker)
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_
   commentId: M:OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker)
-  name.vb: MoveAll(Of __Type)(ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.MoveAll<__Type>(OsmiumNucleus.ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(Of __Type)(OsmiumNucleus.ComponentDocker)
-  nameWithType: ComponentDocker.MoveAll<__Type>(ComponentDocker)
-  nameWithType.vb: ComponentDocker.MoveAll(Of __Type)(ComponentDocker)
-- uid: OsmiumNucleus.ComponentDocker.MoveAll``1(System.Collections.Generic.ICollection{System.String},OsmiumNucleus.ComponentDocker)
-  name: MoveAll<__Type>(ICollection<string>, ComponentDocker)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_System_Collections_Generic_ICollection_System_String__OsmiumNucleus_ComponentDocker_
-  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll``1(System.Collections.Generic.ICollection{System.String},OsmiumNucleus.ComponentDocker)
-  name.vb: MoveAll(Of __Type)(ICollection(Of String), ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.MoveAll<__Type>(System.Collections.Generic.ICollection<string>, OsmiumNucleus.ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(Of __Type)(System.Collections.Generic.ICollection(Of String), OsmiumNucleus.ComponentDocker)
-  nameWithType: ComponentDocker.MoveAll<__Type>(ICollection<string>, ComponentDocker)
-  nameWithType.vb: ComponentDocker.MoveAll(Of __Type)(ICollection(Of String), ComponentDocker)
-- uid: OsmiumNucleus.ComponentDocker.MoveAll``1(System.String,OsmiumNucleus.ComponentDocker)
-  name: MoveAll<__Type>(string, ComponentDocker)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_System_String_OsmiumNucleus_ComponentDocker_
-  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll``1(System.String,OsmiumNucleus.ComponentDocker)
-  name.vb: MoveAll(Of __Type)(String, ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.MoveAll<__Type>(string, OsmiumNucleus.ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(Of __Type)(String, OsmiumNucleus.ComponentDocker)
-  nameWithType: ComponentDocker.MoveAll<__Type>(string, ComponentDocker)
-  nameWithType.vb: ComponentDocker.MoveAll(Of __Type)(String, ComponentDocker)
+  name.vb: MoveAll(Of TComponent)(ComponentDocker)
+  fullName: OsmiumNucleus.ComponentDocker.MoveAll<TComponent>(OsmiumNucleus.ComponentDocker)
+  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(Of TComponent)(OsmiumNucleus.ComponentDocker)
+  nameWithType: ComponentDocker.MoveAll<TComponent>(ComponentDocker)
+  nameWithType.vb: ComponentDocker.MoveAll(Of TComponent)(ComponentDocker)
+- uid: OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
+  name: MoveAll<TComponent>(ComponentDocker, params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
+  name.vb: MoveAll(Of TComponent)(ComponentDocker, IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.MoveAll<TComponent>(OsmiumNucleus.ComponentDocker, params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(Of TComponent)(OsmiumNucleus.ComponentDocker, System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.MoveAll<TComponent>(ComponentDocker, params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.MoveAll(Of TComponent)(ComponentDocker, IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker)
-  name: Move<__Type>(ComponentDocker)
+  name: Move<TComponent>(ComponentDocker)
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_
   commentId: M:OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker)
-  name.vb: Move(Of __Type)(ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.Move<__Type>(OsmiumNucleus.ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Move(Of __Type)(OsmiumNucleus.ComponentDocker)
-  nameWithType: ComponentDocker.Move<__Type>(ComponentDocker)
-  nameWithType.vb: ComponentDocker.Move(Of __Type)(ComponentDocker)
-- uid: OsmiumNucleus.ComponentDocker.Move``1(System.String,OsmiumNucleus.ComponentDocker)
-  name: Move<__Type>(string, ComponentDocker)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_System_String_OsmiumNucleus_ComponentDocker_
-  commentId: M:OsmiumNucleus.ComponentDocker.Move``1(System.String,OsmiumNucleus.ComponentDocker)
-  name.vb: Move(Of __Type)(String, ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.Move<__Type>(string, OsmiumNucleus.ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Move(Of __Type)(String, OsmiumNucleus.ComponentDocker)
-  nameWithType: ComponentDocker.Move<__Type>(string, ComponentDocker)
-  nameWithType.vb: ComponentDocker.Move(Of __Type)(String, ComponentDocker)
-- uid: OsmiumNucleus.ComponentDocker.TryGet(System.Collections.Generic.ICollection{System.String},OsmiumNucleus.Component@)
-  name: TryGet(ICollection<string>, out Component?)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet_System_Collections_Generic_ICollection_System_String__OsmiumNucleus_Component__
-  commentId: M:OsmiumNucleus.ComponentDocker.TryGet(System.Collections.Generic.ICollection{System.String},OsmiumNucleus.Component@)
-  name.vb: TryGet(ICollection(Of String), Component)
-  fullName: OsmiumNucleus.ComponentDocker.TryGet(System.Collections.Generic.ICollection<string>, out OsmiumNucleus.Component?)
-  fullName.vb: OsmiumNucleus.ComponentDocker.TryGet(System.Collections.Generic.ICollection(Of String), OsmiumNucleus.Component)
-  nameWithType: ComponentDocker.TryGet(ICollection<string>, out Component?)
-  nameWithType.vb: ComponentDocker.TryGet(ICollection(Of String), Component)
-- uid: OsmiumNucleus.ComponentDocker.TryGet(System.String,OsmiumNucleus.Component@)
-  name: TryGet(string, out Component?)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet_System_String_OsmiumNucleus_Component__
-  commentId: M:OsmiumNucleus.ComponentDocker.TryGet(System.String,OsmiumNucleus.Component@)
-  name.vb: TryGet(String, Component)
-  fullName: OsmiumNucleus.ComponentDocker.TryGet(string, out OsmiumNucleus.Component?)
-  fullName.vb: OsmiumNucleus.ComponentDocker.TryGet(String, OsmiumNucleus.Component)
-  nameWithType: ComponentDocker.TryGet(string, out Component?)
-  nameWithType.vb: ComponentDocker.TryGet(String, Component)
-- uid: OsmiumNucleus.ComponentDocker.TryGet*
-  name: TryGet
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet_
-  commentId: Overload:OsmiumNucleus.ComponentDocker.TryGet
-  isSpec: "True"
-  fullName: OsmiumNucleus.ComponentDocker.TryGet
-  nameWithType: ComponentDocker.TryGet
-- uid: OsmiumNucleus.ComponentDocker.TryGetAll(System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{OsmiumNucleus.Component}@)
-  name: TryGetAll(ICollection<string>, out ICollection<Component>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll_System_Collections_Generic_ICollection_System_String__System_Collections_Generic_ICollection_OsmiumNucleus_Component___
-  commentId: M:OsmiumNucleus.ComponentDocker.TryGetAll(System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{OsmiumNucleus.Component}@)
-  name.vb: TryGetAll(ICollection(Of String), ICollection(Of Component))
-  fullName: OsmiumNucleus.ComponentDocker.TryGetAll(System.Collections.Generic.ICollection<string>, out System.Collections.Generic.ICollection<OsmiumNucleus.Component>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.TryGetAll(System.Collections.Generic.ICollection(Of String), System.Collections.Generic.ICollection(Of OsmiumNucleus.Component))
-  nameWithType: ComponentDocker.TryGetAll(ICollection<string>, out ICollection<Component>)
-  nameWithType.vb: ComponentDocker.TryGetAll(ICollection(Of String), ICollection(Of Component))
-- uid: OsmiumNucleus.ComponentDocker.TryGetAll(System.String,System.Collections.Generic.ICollection{OsmiumNucleus.Component}@)
-  name: TryGetAll(string, out ICollection<Component>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll_System_String_System_Collections_Generic_ICollection_OsmiumNucleus_Component___
-  commentId: M:OsmiumNucleus.ComponentDocker.TryGetAll(System.String,System.Collections.Generic.ICollection{OsmiumNucleus.Component}@)
-  name.vb: TryGetAll(String, ICollection(Of Component))
-  fullName: OsmiumNucleus.ComponentDocker.TryGetAll(string, out System.Collections.Generic.ICollection<OsmiumNucleus.Component>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.TryGetAll(String, System.Collections.Generic.ICollection(Of OsmiumNucleus.Component))
-  nameWithType: ComponentDocker.TryGetAll(string, out ICollection<Component>)
-  nameWithType.vb: ComponentDocker.TryGetAll(String, ICollection(Of Component))
-- uid: OsmiumNucleus.ComponentDocker.TryGetAll*
-  name: TryGetAll
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll_
-  commentId: Overload:OsmiumNucleus.ComponentDocker.TryGetAll
-  isSpec: "True"
-  fullName: OsmiumNucleus.ComponentDocker.TryGetAll
-  nameWithType: ComponentDocker.TryGetAll
-- uid: OsmiumNucleus.ComponentDocker.TryGetAll``1(System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{``0}@)
-  name: TryGetAll<__Type>(ICollection<string>, out ICollection<__Type>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll__1_System_Collections_Generic_ICollection_System_String__System_Collections_Generic_ICollection___0___
-  commentId: M:OsmiumNucleus.ComponentDocker.TryGetAll``1(System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{``0}@)
-  name.vb: TryGetAll(Of __Type)(ICollection(Of String), ICollection(Of __Type))
-  fullName: OsmiumNucleus.ComponentDocker.TryGetAll<__Type>(System.Collections.Generic.ICollection<string>, out System.Collections.Generic.ICollection<__Type>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.TryGetAll(Of __Type)(System.Collections.Generic.ICollection(Of String), System.Collections.Generic.ICollection(Of __Type))
-  nameWithType: ComponentDocker.TryGetAll<__Type>(ICollection<string>, out ICollection<__Type>)
-  nameWithType.vb: ComponentDocker.TryGetAll(Of __Type)(ICollection(Of String), ICollection(Of __Type))
-- uid: OsmiumNucleus.ComponentDocker.TryGetAll``1(System.Collections.Generic.ICollection{``0}@)
-  name: TryGetAll<__Type>(out ICollection<__Type>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll__1_System_Collections_Generic_ICollection___0___
-  commentId: M:OsmiumNucleus.ComponentDocker.TryGetAll``1(System.Collections.Generic.ICollection{``0}@)
-  name.vb: TryGetAll(Of __Type)(ICollection(Of __Type))
-  fullName: OsmiumNucleus.ComponentDocker.TryGetAll<__Type>(out System.Collections.Generic.ICollection<__Type>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.TryGetAll(Of __Type)(System.Collections.Generic.ICollection(Of __Type))
-  nameWithType: ComponentDocker.TryGetAll<__Type>(out ICollection<__Type>)
-  nameWithType.vb: ComponentDocker.TryGetAll(Of __Type)(ICollection(Of __Type))
-- uid: OsmiumNucleus.ComponentDocker.TryGetAll``1(System.String,System.Collections.Generic.ICollection{``0}@)
-  name: TryGetAll<__Type>(string, out ICollection<__Type>)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGetAll__1_System_String_System_Collections_Generic_ICollection___0___
-  commentId: M:OsmiumNucleus.ComponentDocker.TryGetAll``1(System.String,System.Collections.Generic.ICollection{``0}@)
-  name.vb: TryGetAll(Of __Type)(String, ICollection(Of __Type))
-  fullName: OsmiumNucleus.ComponentDocker.TryGetAll<__Type>(string, out System.Collections.Generic.ICollection<__Type>)
-  fullName.vb: OsmiumNucleus.ComponentDocker.TryGetAll(Of __Type)(String, System.Collections.Generic.ICollection(Of __Type))
-  nameWithType: ComponentDocker.TryGetAll<__Type>(string, out ICollection<__Type>)
-  nameWithType.vb: ComponentDocker.TryGetAll(Of __Type)(String, ICollection(Of __Type))
-- uid: OsmiumNucleus.ComponentDocker.TryGet``1(System.Collections.Generic.ICollection{System.String},``0@)
-  name: TryGet<__Type>(ICollection<string>, out __Type?)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet__1_System_Collections_Generic_ICollection_System_String____0__
-  commentId: M:OsmiumNucleus.ComponentDocker.TryGet``1(System.Collections.Generic.ICollection{System.String},``0@)
-  name.vb: TryGet(Of __Type)(ICollection(Of String), __Type)
-  fullName: OsmiumNucleus.ComponentDocker.TryGet<__Type>(System.Collections.Generic.ICollection<string>, out __Type?)
-  fullName.vb: OsmiumNucleus.ComponentDocker.TryGet(Of __Type)(System.Collections.Generic.ICollection(Of String), __Type)
-  nameWithType: ComponentDocker.TryGet<__Type>(ICollection<string>, out __Type?)
-  nameWithType.vb: ComponentDocker.TryGet(Of __Type)(ICollection(Of String), __Type)
-- uid: OsmiumNucleus.ComponentDocker.TryGet``1(System.String,``0@)
-  name: TryGet<__Type>(string, out __Type?)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet__1_System_String___0__
-  commentId: M:OsmiumNucleus.ComponentDocker.TryGet``1(System.String,``0@)
-  name.vb: TryGet(Of __Type)(String, __Type)
-  fullName: OsmiumNucleus.ComponentDocker.TryGet<__Type>(string, out __Type?)
-  fullName.vb: OsmiumNucleus.ComponentDocker.TryGet(Of __Type)(String, __Type)
-  nameWithType: ComponentDocker.TryGet<__Type>(string, out __Type?)
-  nameWithType.vb: ComponentDocker.TryGet(Of __Type)(String, __Type)
-- uid: OsmiumNucleus.ComponentDocker.TryGet``1(``0@)
-  name: TryGet<__Type>(out __Type?)
-  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_TryGet__1___0__
-  commentId: M:OsmiumNucleus.ComponentDocker.TryGet``1(``0@)
-  name.vb: TryGet(Of __Type)(__Type)
-  fullName: OsmiumNucleus.ComponentDocker.TryGet<__Type>(out __Type?)
-  fullName.vb: OsmiumNucleus.ComponentDocker.TryGet(Of __Type)(__Type)
-  nameWithType: ComponentDocker.TryGet<__Type>(out __Type?)
-  nameWithType.vb: ComponentDocker.TryGet(Of __Type)(__Type)
+  name.vb: Move(Of TComponent)(ComponentDocker)
+  fullName: OsmiumNucleus.ComponentDocker.Move<TComponent>(OsmiumNucleus.ComponentDocker)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Move(Of TComponent)(OsmiumNucleus.ComponentDocker)
+  nameWithType: ComponentDocker.Move<TComponent>(ComponentDocker)
+  nameWithType.vb: ComponentDocker.Move(Of TComponent)(ComponentDocker)
+- uid: OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
+  name: Move<TComponent>(ComponentDocker, params IEnumerable<string>)
+  href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Move(Of TComponent)(ComponentDocker, IEnumerable(Of String))
+  fullName: OsmiumNucleus.ComponentDocker.Move<TComponent>(OsmiumNucleus.ComponentDocker, params System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: OsmiumNucleus.ComponentDocker.Move(Of TComponent)(OsmiumNucleus.ComponentDocker, System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: ComponentDocker.Move<TComponent>(ComponentDocker, params IEnumerable<string>)
+  nameWithType.vb: ComponentDocker.Move(Of TComponent)(ComponentDocker, IEnumerable(Of String))
 - uid: OsmiumNucleus.ComponentDocker._componentPriorityDictionary
   name: _componentPriorityDictionary
   href: api/OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__componentPriorityDictionary
@@ -2698,6 +2389,31 @@ references:
   commentId: F:OsmiumNucleus.MarkerAttributes.Complexity.complexity
   fullName: OsmiumNucleus.MarkerAttributes.Complexity.complexity
   nameWithType: MarkerAttributes.Complexity.complexity
+- uid: OsmiumNucleus.MarkerAttributes.ComplexityON
+  name: MarkerAttributes.ComplexityON
+  href: api/OsmiumNucleus.MarkerAttributes.ComplexityON.html
+  commentId: T:OsmiumNucleus.MarkerAttributes.ComplexityON
+  fullName: OsmiumNucleus.MarkerAttributes.ComplexityON
+  nameWithType: MarkerAttributes.ComplexityON
+- uid: OsmiumNucleus.MarkerAttributes.ComplexityON.#ctor
+  name: ComplexityON()
+  href: api/OsmiumNucleus.MarkerAttributes.ComplexityON.html#OsmiumNucleus_MarkerAttributes_ComplexityON__ctor
+  commentId: M:OsmiumNucleus.MarkerAttributes.ComplexityON.#ctor
+  name.vb: New()
+  fullName: OsmiumNucleus.MarkerAttributes.ComplexityON.ComplexityON()
+  fullName.vb: OsmiumNucleus.MarkerAttributes.ComplexityON.New()
+  nameWithType: MarkerAttributes.ComplexityON.ComplexityON()
+  nameWithType.vb: MarkerAttributes.ComplexityON.New()
+- uid: OsmiumNucleus.MarkerAttributes.ComplexityON.#ctor*
+  name: ComplexityON
+  href: api/OsmiumNucleus.MarkerAttributes.ComplexityON.html#OsmiumNucleus_MarkerAttributes_ComplexityON__ctor_
+  commentId: Overload:OsmiumNucleus.MarkerAttributes.ComplexityON.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: OsmiumNucleus.MarkerAttributes.ComplexityON.ComplexityON
+  fullName.vb: OsmiumNucleus.MarkerAttributes.ComplexityON.New
+  nameWithType: MarkerAttributes.ComplexityON.ComplexityON
+  nameWithType.vb: MarkerAttributes.ComplexityON.New
 - uid: OsmiumNucleus.MarkerAttributes.Expense
   name: MarkerAttributes.Expense
   href: api/OsmiumNucleus.MarkerAttributes.Expense.html
@@ -2891,12 +2607,6 @@ references:
   isSpec: "True"
   fullName: OsmiumNucleus.Osmium.Close
   nameWithType: Osmium.Close
-- uid: OsmiumNucleus.Osmium.Collect
-  name: Collect
-  href: api/OsmiumNucleus.Osmium.html#OsmiumNucleus_Osmium_Collect
-  commentId: E:OsmiumNucleus.Osmium.Collect
-  fullName: OsmiumNucleus.Osmium.Collect
-  nameWithType: Osmium.Collect
 - uid: OsmiumNucleus.Osmium.ContainsScene(OsmiumNucleus.Scene)
   name: ContainsScene(Scene)
   href: api/OsmiumNucleus.Osmium.html#OsmiumNucleus_Osmium_ContainsScene_OsmiumNucleus_Scene_

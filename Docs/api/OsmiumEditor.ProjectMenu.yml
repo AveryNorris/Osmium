@@ -83,7 +83,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: CreateProjectPrompt
     path: ../Osmium-Editor/Source/DearImGUINET/Backend/ProjectSelectMenu.cs
-    startLine: 131
+    startLine: 133
   assemblies:
   - Osmium-Editor
   namespace: OsmiumEditor
@@ -109,7 +109,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: OpenProjectPrompt
     path: ../Osmium-Editor/Source/DearImGUINET/Backend/ProjectSelectMenu.cs
-    startLine: 157
+    startLine: 159
   assemblies:
   - Osmium-Editor
   namespace: OsmiumEditor

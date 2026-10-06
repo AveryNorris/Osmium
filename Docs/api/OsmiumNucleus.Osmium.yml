@@ -9,7 +9,6 @@ items:
   - OsmiumNucleus.Osmium.AddScene(System.String)
   - OsmiumNucleus.Osmium.Assemblies
   - OsmiumNucleus.Osmium.Close
-  - OsmiumNucleus.Osmium.Collect
   - OsmiumNucleus.Osmium.ContainsScene(OsmiumNucleus.Scene)
   - OsmiumNucleus.Osmium.ContainsScene(System.String)
   - OsmiumNucleus.Osmium.DeltaTime
@@ -826,33 +825,6 @@ items:
       type: System.Boolean
     content.vb: Public Shared Property IsVirtualized As Boolean
   overload: OsmiumNucleus.Osmium.IsVirtualized*
-- uid: OsmiumNucleus.Osmium.Collect
-  commentId: E:OsmiumNucleus.Osmium.Collect
-  id: Collect
-  parent: OsmiumNucleus.Osmium
-  langs:
-  - csharp
-  - vb
-  name: Collect
-  nameWithType: Osmium.Collect
-  fullName: OsmiumNucleus.Osmium.Collect
-  type: Event
-  source:
-    remote:
-      path: Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-      branch: main
-      repo: https://github.com/AveryNorris/Osmium.git
-    id: Collect
-    path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 46
-  assemblies:
-  - Osmium-Nucleus
-  namespace: OsmiumNucleus
-  syntax:
-    content: public static event Action? Collect
-    return:
-      type: System.Action
-    content.vb: Public Shared Event Collect As Action
 - uid: OsmiumNucleus.Osmium.SafeEscape
   commentId: F:OsmiumNucleus.Osmium.SafeEscape
   id: SafeEscape
@@ -871,7 +843,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: SafeEscape
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 50
+    startLine: 48
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -900,7 +872,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: DeltaTime
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 56
+    startLine: 54
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -933,7 +905,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: SceneAdded
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 61
+    startLine: 59
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -962,7 +934,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: SceneRemoved
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 63
+    startLine: 61
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -991,7 +963,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Initialize
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 70
+    startLine: 68
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1019,7 +991,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Run
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 94
+    startLine: 92
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1047,7 +1019,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Close
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 110
+    startLine: 108
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1075,7 +1047,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: AddScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 134
+    startLine: 132
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1134,7 +1106,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: AddScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 153
+    startLine: 151
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1188,7 +1160,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: GetScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 167
+    startLine: 165
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1247,7 +1219,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: ContainsScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 182
+    startLine: 180
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1306,7 +1278,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: ContainsScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 197
+    startLine: 195
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1362,7 +1334,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: RemoveScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 211
+    startLine: 209
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1418,7 +1390,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: RemoveScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 227
+    startLine: 225
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1471,7 +1443,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: StartCoroutine
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 241
+    startLine: 239
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus

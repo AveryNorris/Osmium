@@ -49,13 +49,6 @@ items:
   - uid: OsmiumEditor.ProjectMenu
     name: ProjectMenu
     type: Class
-- uid: OsmiumEditor.Source.NewEditor
-  name: OsmiumEditor.Source.NewEditor
-  type: Namespace
-  items:
-  - uid: OsmiumEditor.Source.NewEditor.NewEditor
-    name: NewEditor
-    type: Class
 - uid: OsmiumNucleus
   name: OsmiumNucleus
   type: Namespace
@@ -99,6 +92,9 @@ items:
   - uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
     name: MarkerAttributes.Complexity.TimeComplexity
     type: Enum
+  - uid: OsmiumNucleus.MarkerAttributes.ComplexityON
+    name: MarkerAttributes.ComplexityON
+    type: Class
   - uid: OsmiumNucleus.MarkerAttributes.Expense
     name: MarkerAttributes.Expense
     type: Class

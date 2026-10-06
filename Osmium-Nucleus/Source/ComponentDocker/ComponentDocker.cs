@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Reflection;
 
 
 namespace OsmiumNucleus;
@@ -18,6 +17,15 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
     internal ComponentDocker() {}
 
 
+    
+    /// <summary> Whether the <see cref="ComponentDocker"/> is receiving events or not. </summary>
+    public bool Enabled;
+
+    /// <summary> If the <see cref="ComponentDocker"/> has been destroyed. </summary>
+    public bool Destroyed;
+    
+
+
 
     /// <summary> Core of the Docker, holds all the Components.</summary>
     [MarkerAttributes.UnsafeInternal] protected readonly List<Component> _components = [];
@@ -28,16 +36,12 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
     /// <summary> Stores a Component in a list at each of their tags. This optimizes Get(string tag) to O(1)</summary>
     [MarkerAttributes.UnsafeInternal] protected readonly Dictionary<string, HashSet<Component>> _componentTagDictionary = new();
     
-    
-    
     /// <summary> Algorithm for how Components are sorted via Priority </summary>
     internal static readonly Comparer<int> _prioritySorter = Comparer<int>.Create((a, b) => {
         int result = b.CompareTo(a);
         return result != 0 ? result : 0;
     });
     
-    
-
     /// <summary> Resorts the component list to order of priority, assumes that old and new priority are different! </summary>
     [MarkerAttributes.UnsafeInternal]
     internal void UpdatePriority(Component __component, int __oldPriority, int __newPriority) {
@@ -51,64 +55,25 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
         if (!_componentPriorityDictionary.TryAdd(__newPriority, [__component])) _componentPriorityDictionary[__newPriority].Add(__component);
     }
     
-    
-    
-    
-    
-    /// <summary>  All children belonging to the Docker. </summary>
-    public IReadOnlyList<Component> Children => _components.ToList();
-    
-    
-    
-    /// <summary> All children and children of children until the bottom of the scene. Uses Breadth First Search. </summary>
-    [MarkerAttributes.CalculatedProperty, MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.High), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
-    public IList<Component> AllChildren => GetAllChildren();
-    public IList<Component> GetAllChildren() {
-        List<Component> returnValue = [];
-        Queue<Component> queue = new(_components);
-        while (queue.Count > 0) {
-            Component current = queue.Dequeue();
-            returnValue.Add(current);
-            
-            for (int i = 0; i < current.Count; i++) queue.Enqueue(current[i]);
-        }
-
-        return returnValue;
-    }
-    
-    
-    
-    /// <summary>Amount of Components attached to the Docker</summary>
-    public int Count => _components.Count;
-    
-    
-    
     //Indexers to make for loops easier.
     public Component this[int __index] {
         get {
-            if(__index < 0 || __index >= _components.Count) { Debug.Error("Docker Index out of range!", ["Count", "Index"], [Count.ToString(), __index.ToString()]); return null; }
+            if(__index < 0 || __index >= _components.Count) { Debug.Error("Docker Index out of range!", ["Count", "Index"], [_components.Count.ToString(), __index.ToString()]); return null; }
             return _components[__index];
         }
         set {
-            if(__index < 0 || __index >= _components.Count) { Debug.Error("Docker Index out of range!", ["Count", "Index"], [Count.ToString(), __index.ToString()]); return; }
+            if(__index < 0 || __index >= _components.Count) { Debug.Error("Docker Index out of range!", ["Count", "Index"], [_components.Count.ToString(), __index.ToString()]); return; }
             _components[__index] = value;
         }
     }
     
-    
-    
-    //Enumerators that allow convenient foreach loops. Uses ToList() to make a new snapshot of the hashset and allow hashset modification in the loop.
     IEnumerator IEnumerable.GetEnumerator() { return  GetEnumerator(); }
 
-    public IEnumerator<Component> GetEnumerator() { return _components.ToList().GetEnumerator(); }
+    public IEnumerator<Component> GetEnumerator() { return _components.GetEnumerator(); }
     
-    
-    
-    /// <summary> Sends an event to all Children and tells them to continue it. Will stop if this is a Component, and it is not enabled</summary>
-    /// <param name="__timeEvent"> Integer ID of the event to send. </param>
     [MarkerAttributes.UnsafeInternal]
     internal void ChainEvent(Event __timeEvent) {
-        if(this is Component { Enabled: false }) return;
+        if (!Enabled) return;
 
         foreach(KeyValuePair<int, HashSet<Component>> ComponentPriorityValues in _componentPriorityDictionary) {
             foreach (Component component in ComponentPriorityValues.Value) {
@@ -118,11 +83,9 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
         }
     }
     
-    
-    
     /// <summary> Add a Component to the Docker. </summary>
     [MarkerAttributes.UnsafeInternal]
-    private void AddComponentToLists(Component __component) {
+    internal void AddComponentToLists(Component __component) {
         Type Type = __component.GetType();
         _components.Add(__component); 
         
@@ -137,7 +100,7 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
     
     /// <summary> Removes a Component from the Docker. </summary>
     [MarkerAttributes.UnsafeInternal]
-    private void RemoveComponentFromLists(Component __component) {
+    internal void RemoveComponentFromLists(Component __component) {
         Type Type = __component.GetType();
         _components.Remove(__component); 
         
@@ -170,12 +133,6 @@ public abstract partial class ComponentDocker : IEnumerable<Component>
             value.Remove(__component); if(value.Count == 0) _componentTagDictionary.Remove(__tag);
         }
     }
-
-    internal static void ClearCollectibleAssemblies() {
-        if(ComponentMoved != null) foreach (Action<ComponentDocker, ComponentDocker, Component> listener in ComponentMoved.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) ComponentMoved -= listener;
-        if(ComponentAdded != null) foreach (Action<ComponentDocker, Component> listener in ComponentAdded.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) ComponentAdded -= listener;
-        if(ComponentRemoved != null) foreach (Action<ComponentDocker, Component> listener in ComponentRemoved.GetInvocationList()) if (listener.GetMethodInfo().IsCollectible) ComponentRemoved -= listener;
-        
-    }
+    
 
 }
