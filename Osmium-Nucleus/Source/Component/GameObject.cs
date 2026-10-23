@@ -4,30 +4,25 @@ namespace OsmiumNucleus;
 /// <summary> The backing class for all Components in Osmium. Inherit this to become one. </summary>
 /// <author> Avery Norris </author>
 #nullable enable
-public abstract partial class Component : ComponentDocker   
+public abstract partial class GameObject : Entity   
 {
     
 
 
-    /// <summary> Current parent of the Component. Can be either a Scene or another Component.</summary>
-    public ComponentDocker Parent { get; internal set; }
+    /// <summary> Current parent of the GameObject. Can be either a Scene or another GameObject.</summary>
+    public Entity Docker { get; internal set; }
     
-    #region Component Information
+    #region GameObject Information
     
-    /// <summary> The Component's name </summary>
+    /// <summary> The GameObject's name </summary>
     public string Name {
         get => _name;
         set { 
-            if (value == null) { Debug.Error("A Component's name cannot be null!"); return; } 
+            if (value == null) { Debug.Error("A GameObject's name cannot be null!"); return; } 
             
             _name = value; 
         }
     } private string _name = String.Empty;
-
-
-
-    public int Priority;
-    
     
 
     #endregion Tags
@@ -35,7 +30,6 @@ public abstract partial class Component : ComponentDocker
     #region Tags
     
     /// <summary> A list of all tags belonging to the component. Use AddTag() to modify it. Easy to calculate, but setting this requires that the Docker resorts Components; </summary>
-    [MarkerAttributes.CalculatedProperty, MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public IReadOnlySet<string> Tags {
         get => _tags;
         set {
@@ -44,30 +38,28 @@ public abstract partial class Component : ComponentDocker
             foreach (string tag in _tags.ToArray()) if(!value.Contains(tag)) RemoveTag(tag);
             foreach (string tag in value) if(!previousTags.Contains(tag)) AddTag(tag);
         }
-    } [MarkerAttributes.UnsafeInternal] internal HashSet<string> _tags = [];
+    } internal HashSet<string> _tags = [];
     
     
 
     /// <summary> Adds a new tag to the component</summary>
-    [MarkerAttributes.CalculatedProperty, MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public void AddTag(string __tag) {
-        if(__tag == null) { Debug.Error("A Component's tag cannot be null!"); return; }
-        if(Tags.Contains(__tag)) { Debug.Error("Component already has the given tag!", ["ComponentName", "Tag"], [_name, __tag]); return; }
+        if(__tag == null) { Debug.Error("A GameObject's tag cannot be null!"); return; }
+        if(Tags.Contains(__tag)) { Debug.Error("GameObject already has the given tag!", ["ComponentName", "Tag"], [_name, __tag]); return; }
 
         _tags.Add(__tag);
-        Parent.HashTaggedComponent(__tag, this);
+        Docker.HashTaggedComponent(__tag, this);
     }
     
     
     
     /// <summary> Removes a tag from the component.</summary>
-    [MarkerAttributes.CalculatedProperty, MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public void RemoveTag(string __tag) {
         if (__tag == null) { Debug.Error("Cannot remove a null tag! It is impossible for Components to have null tags"); return;};
-        if(!Tags.Contains(__tag)) { Debug.Error("Component does not have the given tag!", ["ComponentName", "Tag"], [_name, __tag]); return; }
+        if(!Tags.Contains(__tag)) { Debug.Error("GameObject does not have the given tag!", ["ComponentName", "Tag"], [_name, __tag]); return; }
 
         _tags.Remove(__tag);
-        Parent.UnhashTaggedComponent(__tag, this);
+        Docker.UnhashTaggedComponent(__tag, this);
     }
     
     #endregion Tags
@@ -75,7 +67,6 @@ public abstract partial class Component : ComponentDocker
     
     
     /// <summary> Attempts to send an event to the component, and quietly exits if not.</summary>
-    [MarkerAttributes.UnsafeInternal]
     internal void TryEvent(Event __timeEvent) {
         EventManager.EventProfile profile = EventManager._TypeAssociatedTimeEvents[GetType()];
         
@@ -85,7 +76,7 @@ public abstract partial class Component : ComponentDocker
     }
     
 
-    /// <summary> Just gives the Component's name. But makes debugging a little easier :).</summary>
+    /// <summary> Just gives the GameObject's name. But makes debugging a little easier :).</summary>
     public override string ToString() => this.Name;
     
 }

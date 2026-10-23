@@ -1,7 +1,9 @@
 namespace OsmiumNucleus;
 
-/// <summary> Used to mark any method you would like to call once Osmium initializes.
-/// Only static, parameterless, methods may be called. Your code will compile regardless, but your event will be ignored at runtime. </summary>
+/// <summary>
+/// 
+/// </summary>
+/// <param name="__ignoreVirtualization"></param>
 [AttributeUsage(AttributeTargets.Method)]
 public class OnInitialize(bool __ignoreVirtualization = false) : Attribute
 {

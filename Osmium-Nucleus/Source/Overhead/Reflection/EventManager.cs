@@ -7,23 +7,23 @@ using System.Reflection;
 namespace OsmiumNucleus;
 
 
-/// <summary> Registers <see cref="Component"/> events for Osmium! Builds them into a hyper fast dictionary for quick access. </summary>
+/// <summary> Registers <see cref="GameObject"/> events for Osmium! Builds them into a hyper fast dictionary for quick access. </summary>
 /// <author> Avery Norris </author>
 internal static class EventManager
 {
     
     
     
-    /// <summary> Holds an index of each Component Type and their respective Event Profile,
+    /// <summary> Holds an index of each GameObject Type and their respective Event Profile,
     /// which contains a callback to all the Components events and information and rules on how to update
-    /// the Component </summary>
-    [MarkerAttributes.UnsafeInternal]
+    /// the GameObject </summary>
+    [UnsafeInternal] 
     internal static FrozenDictionary<Type, EventProfile> _TypeAssociatedTimeEvents = FrozenDictionary<Type, EventProfile>.Empty;
     
     
-    /// <summary> Represents a Component's event callbacks and flags/capabilities </summary>
-    internal record EventProfile(Action<Component>[] callbacks, bool __alwaysUpdate) {
-        public readonly Action<Component>?[] Callbacks = callbacks;
+    /// <summary> Represents a GameObject's event callbacks and flags/capabilities </summary>
+    internal record EventProfile(Action<GameObject>[] callbacks, bool __alwaysUpdate) {
+        public readonly Action<GameObject>?[] Callbacks = callbacks;
         public readonly bool AlwaysUpdate = __alwaysUpdate;
     }
     
@@ -43,7 +43,7 @@ internal static class EventManager
     
     /// <summary> Searches all assemblies in the current App Domain; and automatically resolves all Components with a given type! This is necessary for Osmium's function
     /// and part of the reason why Initialize() must be called so early.</summary>
-    [MarkerAttributes.UnsafeInternal]
+    [UnsafeInternal]
     internal static void ResolveAllModules() {
         HashSet<Assembly> FoundAssemblies = AppDomain.CurrentDomain.GetAssemblies().ToHashSet();
         foreach (AssemblyName assembly in Assembly.GetEntryAssembly().GetReferencedAssemblies()) FoundAssemblies.Add(Assembly.Load(assembly));
@@ -79,7 +79,7 @@ internal static class EventManager
     
     
     /// <summary> Resolves all the components from only the given assemblies</summary>
-    [MarkerAttributes.UnsafePipeline]
+    [UnsafeInternal]
     internal static void ResolveAllModules(IEnumerable<Assembly> __sources) {
         
         Dictionary<Type, EventProfile> _newAssociatedTimeEvents = [];
@@ -93,21 +93,24 @@ internal static class EventManager
                     }
                 }
                 
-                if (!type.IsSubclassOf(typeof(Component))) continue;
+                if (!type.IsSubclassOf(typeof(GameObject))) continue;
 
-                List<Action<Component>> timeEvents = [];
+                List<Action<GameObject>> timeEvents = [];
 
                 foreach (MethodInfo eventMethod in Events.Select(type.GetMethod)) {
                     if (eventMethod == null) {
+                        //is this bad?
                         timeEvents.Add(null);
                         continue;
                     }
+                    
+                    Debug.Log("Found event " + eventMethod.Name + " on " + type.Name);
 
                     //create a new delegate expression that calls the Components associated method.
-                    ParameterExpression ComponentInstanceParameter = Expression.Parameter(typeof(Component), "__component");
+                    ParameterExpression ComponentInstanceParameter = Expression.Parameter(typeof(GameObject), "__component");
                     UnaryExpression Casting = Expression.Convert(ComponentInstanceParameter, type);
                     MethodCallExpression Call = Expression.Call(Casting, eventMethod);
-                    Expression<Action<Component>> Lambda = Expression.Lambda<Action<Component>>(Call, ComponentInstanceParameter);
+                    Expression<Action<GameObject>> Lambda = Expression.Lambda<Action<GameObject>>(Call, ComponentInstanceParameter);
                     timeEvents.Add(Lambda.Compile());
                 }
                 
@@ -125,7 +128,7 @@ internal static class EventManager
 
 
     /// <summary> Resolves all the components from only the given assemblies</summary>
-    [MarkerAttributes.UnsafePipeline]
+    [UnsafeInternal]
     internal static void InvokeModulesInitializeEvent()
     {
         foreach (MethodInfo method in OnInitializeEvents) {

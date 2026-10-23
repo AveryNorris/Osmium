@@ -2,9 +2,9 @@
 
 namespace OsmiumNucleus;
 
-/// <summary> The root for a hierarchy of <see cref="Component">Components</see>. Scenes are stored with a list inside of <see cref="Osmium"/>, and <see cref="Component">Components</see> are added to said Scene.</summary>
-/// <param name="Name"> The fully unique identifier of the Scene. Must not match a name from any other Scene. And cannot be null. </param>
-public class Scene(string Name) : ComponentDocker
+/// <summary> Represents the root in a tree of <see cref="GameObject">GameObjects</see>. </summary>
+/// <param name="Name"> The unique identifier of the Scene </param>
+public class Scene(string Name) : Entity
 {
     
     

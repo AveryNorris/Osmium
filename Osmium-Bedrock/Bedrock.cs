@@ -36,8 +36,6 @@ public static class Bedrock
         window.Resize += (ResizeEventArgs) => {
             GL.Viewport(0, 0, Bedrock.window.FramebufferSize.X, Bedrock.window.FramebufferSize.Y);
         };
-        
-        GL.ClearColor(0,0,0,0);
     }
 
     private static void OnLoad() {
@@ -71,8 +69,6 @@ public static class Bedrock
         window.SwapBuffers();
     }
     
-    
-    //todo: Debug System??
     
     
 }

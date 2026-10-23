@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Source\Radium\" />
+      <ProjectReference Include="..\Osmium-Nucleus\Osmium-Nucleus.csproj" />
     </ItemGroup>
 
 </Project>

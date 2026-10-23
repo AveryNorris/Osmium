@@ -27,7 +27,7 @@ public static partial class Osmium
     
     /// <summary> List of all scenes currently loaded in the kernel. </summary>
     public static IReadOnlySet<Scene> Scenes => _scenes;
-    [MarkerAttributes.UnsafeInternal] internal static readonly HashSet<Scene> _scenes = [];
+    [UnsafeInternal] internal static readonly HashSet<Scene> _scenes = [];
     
     
     /// <summary> All assemblies loaded by Osmium </summary>
@@ -130,7 +130,6 @@ public static partial class Osmium
     /// <param name="__name"> The name of the new Scene and its unique identifier as a <see cref="string"/>; cannot match up with any other names in the scene.</param>
     /// <returns> The <see cref="Scene"/> you created, or null if there is a failure. </returns>
     /// <errors>Osmium must be initialized before calling this method.The given name cannot be null. And Osmium cannot have a Scene by the same name! </errors>
-    [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
     public static Scene? AddScene(string __name) {
         if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return null; }
         if (__name == null) { Debug.Error("A Scene cannot have a null name!"); return null; }
@@ -149,7 +148,6 @@ public static partial class Osmium
     /// <param name="__scene"> The <see cref="Scene"/> you want to add </param>
     /// <errors> Osmium must be initialized before calling this method. The given Scene cannot be null. And Osmium cannot have a Scene by the same name! </errors>
     /// <remarks> Using this is only recommended for custom types of Scene! If you wish to Spawn in a normal scene, use <see cref="AddScene(string)"/> </remarks>
-    [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
     public static void AddScene(Scene __scene) {
         if(!IsInitialized) { Debug.Error("Osmium has not been Initialized yet!"); return; }
         
@@ -163,8 +161,6 @@ public static partial class Osmium
     /// <param name="__name"> The name of the <see cref="Scene"/> you want to find </param>
     /// <returns> The newly found <see cref="Scene"/>! Or null if there currently isn't one </returns>
     /// <errors> Osmium must be initialized before calling this method. The given Scene cannot be null. And Osmium cannot have a Scene by the same name! </errors>
-    [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium),
-     MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public static Scene? GetScene(string __name) {
         if(!IsInitialized)  { Debug.Error("Osmium has not been Initialized yet!"); return null; }
         if(__name == null) { Debug.Error("A Scene cannot have a null name!"); return null; }
@@ -178,8 +174,6 @@ public static partial class Osmium
     /// <param name="__name"> The name of the <see cref="Scene"/> you are searching for </param>
     /// <returns> A <see cref="bool"/> that is either true or false depending on if a scene with the given name is loaded or not</returns>
     /// <errors> Osmium must be initialized before calling this method. The given name cannot be null. </errors>
-    [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium),
-     MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public static bool ContainsScene(string __name) {
         if(!IsInitialized)  { Debug.Error("Osmium has not been Initialized yet!"); return false; }
         if(__name == null) { Debug.Error("A Scene cannot have a null name!"); return false; }
@@ -193,8 +187,6 @@ public static partial class Osmium
     /// <param name="__scene"> A reference to the <see cref="Scene"/> you are looking for </param>
     /// <returns> A <see cref="bool"/> that is either true or false depending on if a scene with the given name is loaded or not</returns>
     /// <errors> Osmium must be initialized before calling this method. The given name cannot be null. </errors>
-    [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium),
-     MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
     public static bool ContainsScene(Scene __scene) {
         if(!IsInitialized)  { Debug.Error("Osmium has not been Initialized yet!"); return false; }
         if(__scene == null) { Debug.Error("A Scene cannot be null!"); return false; }
@@ -207,7 +199,6 @@ public static partial class Osmium
     /// <summary> Removes a currently loaded <see cref="Scene"/> from Osmium from a given name</summary>
     /// <param name="__name"> The name of the scene you want to remove </param>
     /// <errors> Osmium must be initialized before calling this method. The given Name cannot be null. And the given Scene must exist </errors>
-    [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
     public static void RemoveScene(string __name) {
         if(!IsInitialized)  { Debug.Error("Osmium has not been Initialized yet!"); return; }
         if(__name == null) { Debug.Error("A Scene cannot have a null name!"); return; }
@@ -215,6 +206,7 @@ public static partial class Osmium
         
         Scene scene = GetScene(__name)!;
         _scenes.Remove(scene);
+        scene.Destroyed = true;
         SceneRemoved?.Invoke(scene);
     }
 
@@ -223,13 +215,13 @@ public static partial class Osmium
     /// <summary> Removes a currently loaded <see cref="Scene"/> from Osmium </summary>
     /// <param name="__scene"> The scene to remove </param>
     /// <errors> Osmium must be initialized before calling this method. The given Scene cannot be null. And the given Scene must exist </errors>
-    [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium), MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
     public static void RemoveScene(Scene __scene) {
         if(!IsInitialized)  { Debug.Error("Osmium has not been Initialized yet!"); return; }
         if(__scene == null) { Debug.Error("A given scene cannot be null!"); return; }
         if(!ContainsScene(__scene)) { Debug.Error("The given scene does not exist!"); return; }
         
         _scenes.Remove(__scene);
+        __scene.Destroyed = true;
         SceneRemoved?.Invoke(__scene);
     }
 
@@ -237,7 +229,6 @@ public static partial class Osmium
 
     /// <summary> Starts a coroutine </summary>
     /// <inheritdoc cref="CoroutineRunner.Start"/>
-    [MarkerAttributes.MethodLambda]
     public static void StartCoroutine(IEnumerator<ICoroutineAction> __coroutine) => CoroutineRunner.Start(__coroutine); 
     
     
