@@ -25,6 +25,7 @@ public static class Bedrock
 
 
 
+
     public static void Run() {
         window.Load += OnLoad;
         window.Unload += OnUnload;

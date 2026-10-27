@@ -4,7 +4,9 @@ items:
   commentId: T:OsmiumNucleus.OnInitialize
   id: OnInitialize
   parent: OsmiumNucleus
-  children: []
+  children:
+  - OsmiumNucleus.OnInitialize.#ctor(System.Boolean)
+  - OsmiumNucleus.OnInitialize.IgnoreVirtualization
   langs:
   - csharp
   - vb
@@ -19,13 +21,11 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: OnInitialize
     path: ../Osmium-Nucleus/Source/Overhead/Reflection/OnInitialize.cs
-    startLine: 4
+    startLine: 6
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
-  summary: >-
-    Used to mark any method you would like to call once Osmium initializes.
-       Only static, parameterless, methods may be called. Your code will compile regardless, but your event will be ignored at runtime.
+  summary: ''
   example: []
   syntax:
     content: >-
@@ -88,6 +88,68 @@ items:
     arguments:
     - type: System.AttributeTargets
       value: 64
+- uid: OsmiumNucleus.OnInitialize.#ctor(System.Boolean)
+  commentId: M:OsmiumNucleus.OnInitialize.#ctor(System.Boolean)
+  id: '#ctor(System.Boolean)'
+  parent: OsmiumNucleus.OnInitialize
+  langs:
+  - csharp
+  - vb
+  name: OnInitialize(bool)
+  nameWithType: OnInitialize.OnInitialize(bool)
+  fullName: OsmiumNucleus.OnInitialize.OnInitialize(bool)
+  type: Constructor
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Overhead/Reflection/OnInitialize.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: .ctor
+    path: ../Osmium-Nucleus/Source/Overhead/Reflection/OnInitialize.cs
+    startLine: 6
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  summary: ''
+  example: []
+  syntax:
+    content: public OnInitialize(bool __ignoreVirtualization = false)
+    parameters:
+    - id: __ignoreVirtualization
+      type: System.Boolean
+      description: ''
+    content.vb: Public Sub New(__ignoreVirtualization As Boolean = False)
+  overload: OsmiumNucleus.OnInitialize.#ctor*
+  nameWithType.vb: OnInitialize.New(Boolean)
+  fullName.vb: OsmiumNucleus.OnInitialize.New(Boolean)
+  name.vb: New(Boolean)
+- uid: OsmiumNucleus.OnInitialize.IgnoreVirtualization
+  commentId: F:OsmiumNucleus.OnInitialize.IgnoreVirtualization
+  id: IgnoreVirtualization
+  parent: OsmiumNucleus.OnInitialize
+  langs:
+  - csharp
+  - vb
+  name: IgnoreVirtualization
+  nameWithType: OnInitialize.IgnoreVirtualization
+  fullName: OsmiumNucleus.OnInitialize.IgnoreVirtualization
+  type: Field
+  source:
+    remote:
+      path: Osmium-Nucleus/Source/Overhead/Reflection/OnInitialize.cs
+      branch: main
+      repo: https://github.com/AveryNorris/Osmium.git
+    id: IgnoreVirtualization
+    path: ../Osmium-Nucleus/Source/Overhead/Reflection/OnInitialize.cs
+    startLine: 9
+  assemblies:
+  - Osmium-Nucleus
+  namespace: OsmiumNucleus
+  syntax:
+    content: public readonly bool IgnoreVirtualization
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly IgnoreVirtualization As Boolean
 references:
 - uid: OsmiumNucleus
   commentId: N:OsmiumNucleus
@@ -1889,3 +1951,23 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: OsmiumNucleus.OnInitialize.#ctor*
+  commentId: Overload:OsmiumNucleus.OnInitialize.#ctor
+  href: OsmiumNucleus.OnInitialize.html#OsmiumNucleus_OnInitialize__ctor_System_Boolean_
+  name: OnInitialize
+  nameWithType: OnInitialize.OnInitialize
+  fullName: OsmiumNucleus.OnInitialize.OnInitialize
+  nameWithType.vb: OnInitialize.New
+  fullName.vb: OsmiumNucleus.OnInitialize.New
+  name.vb: New
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

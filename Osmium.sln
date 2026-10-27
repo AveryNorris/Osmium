@@ -4,9 +4,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osmium-Editor", "Osmium-Edi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osmium-Nucleus", "Osmium-Nucleus\Osmium-Nucleus.csproj", "{44E070F0-9D78-403F-A5FA-186B70DFC0B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osmium-Tests", "Osmium-Tests\Osmium-Tests.csproj", "{FB1774B4-4F23-4AF5-A3D6-4CC54F646B23}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osmium-Bedrock", "Osmium-Bedrock\Osmium-Bedrock.csproj", "{C6D39E4B-0775-4C9E-AC63-744B2254459E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osmium-Tests", "Osmium-Tests\Osmium-Tests.csproj", "{F542B248-DFD4-4CAD-88E2-F713235C87B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,13 +22,13 @@ Global
 		{44E070F0-9D78-403F-A5FA-186B70DFC0B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44E070F0-9D78-403F-A5FA-186B70DFC0B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44E070F0-9D78-403F-A5FA-186B70DFC0B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB1774B4-4F23-4AF5-A3D6-4CC54F646B23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB1774B4-4F23-4AF5-A3D6-4CC54F646B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB1774B4-4F23-4AF5-A3D6-4CC54F646B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB1774B4-4F23-4AF5-A3D6-4CC54F646B23}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C6D39E4B-0775-4C9E-AC63-744B2254459E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6D39E4B-0775-4C9E-AC63-744B2254459E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6D39E4B-0775-4C9E-AC63-744B2254459E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6D39E4B-0775-4C9E-AC63-744B2254459E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F542B248-DFD4-4CAD-88E2-F713235C87B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F542B248-DFD4-4CAD-88E2-F713235C87B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F542B248-DFD4-4CAD-88E2-F713235C87B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F542B248-DFD4-4CAD-88E2-F713235C87B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

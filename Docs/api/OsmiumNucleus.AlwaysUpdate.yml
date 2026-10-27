@@ -23,7 +23,7 @@ items:
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
-  summary: Allows a Component to be updated even if Osmium is only initialized
+  summary: Ignores virtualization when receiving events
   example: []
   syntax:
     content: >-

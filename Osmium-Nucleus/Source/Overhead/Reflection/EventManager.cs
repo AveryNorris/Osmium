@@ -17,7 +17,6 @@ internal static class EventManager
     /// <summary> Holds an index of each GameObject Type and their respective Event Profile,
     /// which contains a callback to all the Components events and information and rules on how to update
     /// the GameObject </summary>
-    [UnsafeInternal] 
     internal static FrozenDictionary<Type, EventProfile> _TypeAssociatedTimeEvents = FrozenDictionary<Type, EventProfile>.Empty;
     
     
@@ -43,7 +42,6 @@ internal static class EventManager
     
     /// <summary> Searches all assemblies in the current App Domain; and automatically resolves all Components with a given type! This is necessary for Osmium's function
     /// and part of the reason why Initialize() must be called so early.</summary>
-    [UnsafeInternal]
     internal static void ResolveAllModules() {
         HashSet<Assembly> FoundAssemblies = AppDomain.CurrentDomain.GetAssemblies().ToHashSet();
         foreach (AssemblyName assembly in Assembly.GetEntryAssembly().GetReferencedAssemblies()) FoundAssemblies.Add(Assembly.Load(assembly));
@@ -79,7 +77,6 @@ internal static class EventManager
     
     
     /// <summary> Resolves all the components from only the given assemblies</summary>
-    [UnsafeInternal]
     internal static void ResolveAllModules(IEnumerable<Assembly> __sources) {
         
         Dictionary<Type, EventProfile> _newAssociatedTimeEvents = [];
@@ -128,7 +125,6 @@ internal static class EventManager
 
 
     /// <summary> Resolves all the components from only the given assemblies</summary>
-    [UnsafeInternal]
     internal static void InvokeModulesInitializeEvent()
     {
         foreach (MethodInfo method in OnInitializeEvents) {

@@ -303,7 +303,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "OsmiumNucleus.AlwaysUpdate",
-      "Summary": "<p sourcefile=\"api/OsmiumNucleus.AlwaysUpdate.yml\" sourcestartlinenumber=\"1\">Allows a Component to be updated even if Osmium is only initialized</p>\n"
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.AlwaysUpdate.yml\" sourcestartlinenumber=\"1\">Ignores virtualization when receiving events</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -391,6 +391,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.Entity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.Entity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.Entity",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.Entity.yml\" sourcestartlinenumber=\"1\">Any object that transfers updates, and has GameObject children.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/OsmiumNucleus.Event.yml",
       "output": {
         ".html": {
@@ -402,6 +416,20 @@
       "IsMRef": true,
       "Title": "OsmiumNucleus.Event",
       "Summary": "<p sourcefile=\"api/OsmiumNucleus.Event.yml\" sourcestartlinenumber=\"1\">Represents an Event in Osmium.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OsmiumNucleus.GameObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OsmiumNucleus.GameObject.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OsmiumNucleus.GameObject",
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.GameObject.yml\" sourcestartlinenumber=\"1\">The backing class for all Components in Osmium. Inherit this to become one.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -611,7 +639,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "OsmiumNucleus.OnInitialize",
-      "Summary": "<p sourcefile=\"api/OsmiumNucleus.OnInitialize.yml\" sourcestartlinenumber=\"1\">Used to mark any method you would like to call once Osmium initializes.\nOnly static, parameterless, methods may be called. Your code will compile regardless, but your event will be ignored at runtime.</p>\n"
+      "Summary": ""
     },
     {
       "type": "ManagedReference",
@@ -639,7 +667,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "OsmiumNucleus.Scene",
-      "Summary": "<p sourcefile=\"api/OsmiumNucleus.Scene.yml\" sourcestartlinenumber=\"1\">One of the main Osmium entities. Acts like a master folder for components to be stored in. Feel free to inherit this and make a custom scene!</p>\n"
+      "Summary": "<p sourcefile=\"api/OsmiumNucleus.Scene.yml\" sourcestartlinenumber=\"1\">Represents the root in a tree of <xref href=\"OsmiumNucleus.GameObject?text=GameObjects\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -695,6 +723,34 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "OsmiumTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Osmium_Tests.Tests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Osmium_Tests.Tests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Osmium_Tests.Tests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Osmium_Tests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Osmium_Tests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Osmium_Tests",
       "Summary": null
     },
     {

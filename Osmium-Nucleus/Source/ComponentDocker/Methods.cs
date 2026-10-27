@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Reflection;
 
 namespace OsmiumNucleus;
@@ -13,13 +14,13 @@ public abstract partial class Entity
     
     /// <summary> Tests to see if every single <see cref="GameObject"/> is a direct child of the <see cref="Entity"/>. </summary>
     /// <param name="Components">The components that are being tested</param>
-    /// <returns> True if every <see cref="GameObject"/> in <see cref="Components"/> belongs to the Docker, otherwise false. </returns>
+    /// <returns> True if every <see cref="GameObject"/> in <see cref="Components"/> belongs to the Parent, otherwise false. </returns>
     public bool Contains(params IEnumerable<GameObject> Components) => Components.All(x => _components.Contains(x));
 
     /// <summary> Tests if the <see cref="Entity"/> contains a components of type <see cref="TComponent"/>. </summary>
     /// <typeparam name="TComponent"> The type of the <see cref="GameObject"/> you want to check for </typeparam>
-    /// <returns> True if the Docker has at least one child of type <see cref="TComponent"/>, otherwise false. </returns>
-    public bool Contains<TComponent>() where TComponent : GameObject, new() => _componentTypeDictionary.ContainsKey(typeof(TComponent));
+    /// <returns> True if the Parent has at least one child of type <see cref="TComponent"/>, otherwise false. </returns>
+    public bool Contains<TComponent>() where TComponent : GameObject, new() => Get<TComponent>() != null;
 
     /// <summary> Tests to see if the <see cref="Entity"/> has a child with all the given tags at the very least.</summary>
     /// <param name="Tags"> The list of tags to find on a <see cref="GameObject"/> </param>
@@ -64,13 +65,16 @@ public abstract partial class Entity
     /// <typeparam name="TComponent">The type of <see cref="GameObject"/> to search for. </typeparam>
     /// <returns> A <see cref="List{T}"/> of all <see cref="GameObject">Components</see> that belong to the <see cref="Entity"/> and are of type <see cref="TComponent"/>. </returns>
     public List<TComponent> GetAll<TComponent>() where TComponent : GameObject, new() {
-        if (_componentTypeDictionary.TryGetValue(typeof(TComponent), out HashSet<GameObject>? components))
+        List<TComponent> Result = [];
+
+        foreach (GameObject gameObject in GetAll())
         {
-            //todo: BAD TO LIST CALL! MAYBE TYPEDICTIONARY is a list?
-            return components.OfType<TComponent>().ToList();
+            if (gameObject is TComponent tComponent) {
+                Result.Add(tComponent);
+            }
         }
-        
-        return [];
+
+        return Result;
     }
     
     /// <summary> Finds all <see cref="GameObject">Components</see> owned by the <see cref="Entity"/> that have all the tags in <see cref="Tags"/>. </summary>
@@ -79,16 +83,18 @@ public abstract partial class Entity
     public List<GameObject> GetAll(params IEnumerable<string> Tags) {
         if (Tags == null) { Debug.Error("The given Tags cannot be null!"); return []; }
         if (Tags.Contains(null)) { Debug.Error("A given Tag cannot be null!"); return []; }
-        if(!Tags.Any()) return GetAll(); 
-        
-        HashSet<GameObject> components;
-        if (_componentTagDictionary.TryGetValue(Tags.First(), out HashSet<GameObject>? firstComponents)) components = firstComponents.ToHashSet(); else return [];
-        
-        foreach(string tag in Tags)
-            if (_componentTagDictionary.TryGetValue(tag, out HashSet<GameObject>? taggedComponents))
-                components.RemoveWhere(x => !taggedComponents.Contains(x));
+        if(!Tags.Any()) return GetAll();
 
-        return components.ToList();
+        List<GameObject> Result = [];
+
+        foreach (GameObject gameObject in GetAll())
+        {
+            if (Tags.All(x => gameObject.Tags.Contains(x))) {
+                Result.Add(gameObject);
+            }
+        }
+
+        return Result;
     }
 
     /// <summary> Finds all the <see cref="GameObject">Components</see> owned by the <see cref="Entity"/> of type <see cref="TComponent"/> that have all the tags in <see cref="Tags"/>. </summary>
@@ -100,16 +106,16 @@ public abstract partial class Entity
         if (Tags.Contains(null)) { Debug.Error("A given Tag cannot be null!"); return []; }
         if (!Tags.Any()) return GetAll<TComponent>();
         
-        HashSet<TComponent> components = [];
+        List<TComponent> Result = [];
 
-        if (_componentTagDictionary.TryGetValue(Tags.First(), out HashSet<GameObject>? firstComponents)) 
-            foreach (GameObject component in firstComponents) if (component is TComponent typedComponent) components.Add(typedComponent);
-        
-        foreach(string tag in Tags)
-            if (_componentTagDictionary.TryGetValue(tag, out HashSet<GameObject>? taggedComponents)) 
-                components.RemoveWhere(x => !taggedComponents.Contains(x));
+        foreach (GameObject gameObject in GetAll())
+        {
+            if (gameObject is TComponent tComponent && Tags.All(x => gameObject.Tags.Contains(x))) {
+                Result.Add(tComponent);
+            }
+        }
 
-        return components.ToList();
+        return Result;
     }
 
 
@@ -118,9 +124,9 @@ public abstract partial class Entity
     /// <param name="Components"> All the <see cref="GameObject">Components</see> to add. </param>
     public void Add(params GameObject[] Components) {
         foreach (GameObject component in Components) {
-            component.Docker = this;
+            component.Parent = this;
         
-            //add to GameObject Docker's lists
+            //add to GameObject Parent's lists
             AddComponentToLists(component);
             
             ComponentAdded?.Invoke(this, component);
@@ -149,7 +155,7 @@ public abstract partial class Entity
     /// <param name="Tags"> The tags of the new <see cref="GameObject"/> </param>
     /// <typeparam name="TComponent"> The type of <see cref="GameObject"/> to create. </typeparam>
     /// <returns> The new <see cref="GameObject"/> that was created. </returns>
-    public TComponent Add<TComponent>(string Name, params IEnumerable<string> Tags) where TComponent : GameObject, new() { TComponent component = new TComponent() {  Name = Name }; foreach(string tag in Tags) component.AddTag(tag); Add(component); return component; }
+    public TComponent Add<TComponent>(string Name, params IEnumerable<string> Tags) where TComponent : GameObject, new() { TComponent component = new TComponent() {  Name = Name }; foreach(string tag in Tags) component.Tags.Add(tag); Add(component); return component; }
 
 
 
@@ -160,11 +166,11 @@ public abstract partial class Entity
             component.TryEvent(Event.Destroy);
             component.ChainEvent(Event.Destroy);
 
-            RemoveComponentFromLists(component);
-            component.Docker = null;
+            component.Parent.RemoveComponentFromLists(component);
+            component.Parent = null;
             component.Destroyed = true;
 
-            ComponentDestroyed?.Invoke(this, component);
+            ComponentDestroyed?.Invoke(component.Parent, component);
         }
     }
 
@@ -207,10 +213,10 @@ public abstract partial class Entity
         foreach (GameObject component in Components) {
 
             if (!component.Destroyed) {
-                RemoveComponentFromLists(component);
+                component.Parent.RemoveComponentFromLists(component);
                 entity.AddComponentToLists(component);
 
-                component.Docker = entity;
+                component.Parent = entity;
 
                 ComponentMoved?.Invoke(this, entity, component);
             }
@@ -259,4 +265,20 @@ public abstract partial class Entity
     
     
     
+    public void AddScene(Scene scene) => Osmium.AddScene(scene);
+    
+    public Scene AddScene(string sceneName) => Osmium.AddScene(sceneName);
+    
+    public void RemoveScene(Scene scene) => Osmium.RemoveScene(scene);
+    
+    public void RemoveScene(string sceneName) => Osmium.RemoveScene(sceneName);
+    
+    public bool ContainsScene(Scene scene) => Osmium.ContainsScene(scene);
+    
+    public bool ContainsScene(string sceneName) => Osmium.ContainsScene(sceneName);
+    
+    public void StartCoroutine(IEnumerator<ICoroutineAction> coroutine) => Osmium.StartCoroutine(coroutine);
+
+    public float DeltaTime() => Osmium.DeltaTime;
+
 }

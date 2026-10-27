@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Scene | Osmium ">
       
-      <meta name="description" content="One of the main Osmium entities. Acts like a master folder for components to be stored in. Feel free to inherit this and make a custom scene!">
+      <meta name="description" content="Represents the root in a tree of .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,12 +97,12 @@ Class Scene  <a class="header-action link-secondary" title="View source" href="h
   <dl><dt>Assembly</dt><dd>Osmium-Nucleus.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>One of the main Osmium entities. Acts like a master folder for components to be stored in. Feel free to inherit this and make a custom scene!</p>
+  <div class="markdown summary"><p>Represents the root in a tree of <a class="xref" href="OsmiumNucleus.GameObject.html">GameObjects</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Scene : ComponentDocker, IEnumerable&lt;Component&gt;, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public class Scene : Entity</code></pre>
   </div>
 
 
@@ -112,151 +112,153 @@ Class Scene  <a class="header-action link-secondary" title="View source" href="h
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="OsmiumNucleus.ComponentDocker.html">ComponentDocker</a></div>
+      <div><a class="xref" href="OsmiumNucleus.Entity.html">Entity</a></div>
       <div><span class="xref">Scene</span></div>
     </dd>
   </dl>
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OsmiumNucleus.Component.html">Component</a>&gt;</div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
-    </dd>
-  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__components">ComponentDocker._components</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Enabled">Entity.Enabled</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__componentPriorityDictionary">ComponentDocker._componentPriorityDictionary</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroyed">Entity.Destroyed</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__componentTypeDictionary">ComponentDocker._componentTypeDictionary</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ComponentMoved">Entity.ComponentMoved</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__componentTagDictionary">ComponentDocker._componentTagDictionary</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ComponentAdded">Entity.ComponentAdded</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Item_System_Int32_">ComponentDocker.this[int]</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ComponentDestroyed">Entity.ComponentDestroyed</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetEnumerator">ComponentDocker.GetEnumerator()</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Equals_System_Object_">Entity.Equals(object)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentMoved">ComponentDocker.ComponentMoved</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__">Entity.Contains(params IEnumerable&lt;GameObject&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentAdded">ComponentDocker.ComponentAdded</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains__1">Entity.Contains&lt;TComponent&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentDestroyed">ComponentDocker.ComponentDestroyed</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains_System_Collections_Generic_IEnumerable_System_String__">Entity.Contains(params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__">ComponentDocker.Contains(params IEnumerable&lt;Component&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains__1_System_Collections_Generic_IEnumerable_System_String__">Entity.Contains&lt;TComponent&gt;(params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1">ComponentDocker.Contains&lt;TComponent&gt;()</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get">Entity.Get()</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.Contains(params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get__1">Entity.Get&lt;TComponent&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.Contains&lt;TComponent&gt;(params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get_System_Collections_Generic_IEnumerable_System_String__">Entity.Get(params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get">ComponentDocker.Get()</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get__1_System_Collections_Generic_IEnumerable_System_String__">Entity.Get&lt;TComponent&gt;(params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1">ComponentDocker.Get&lt;TComponent&gt;()</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll">Entity.GetAll()</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.Get(params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll__1">Entity.GetAll&lt;TComponent&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.Get&lt;TComponent&gt;(params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll_System_Collections_Generic_IEnumerable_System_String__">Entity.GetAll(params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll">ComponentDocker.GetAll()</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll__1_System_Collections_Generic_IEnumerable_System_String__">Entity.GetAll&lt;TComponent&gt;(IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1">ComponentDocker.GetAll&lt;TComponent&gt;()</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add_OsmiumNucleus_GameObject___">Entity.Add(params GameObject[])</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.GetAll(params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1">Entity.Add&lt;TComponent&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.GetAll&lt;TComponent&gt;(IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1_System_String_">Entity.Add&lt;TComponent&gt;(string)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__">ComponentDocker.Add(params IEnumerable&lt;Component&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1_System_String_System_Collections_Generic_IEnumerable_System_String__">Entity.Add&lt;TComponent&gt;(string, params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1">ComponentDocker.Add&lt;TComponent&gt;()</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__">Entity.Destroy(params IEnumerable&lt;GameObject&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_">ComponentDocker.Add&lt;TComponent&gt;(string)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy__1">Entity.Destroy&lt;TComponent&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_Int32_">ComponentDocker.Add&lt;TComponent&gt;(int)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy_System_Collections_Generic_IEnumerable_System_String__">Entity.Destroy(params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_System_Int32_">ComponentDocker.Add&lt;TComponent&gt;(string, int)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy__1_System_Collections_Generic_IEnumerable_System_String__">Entity.Destroy&lt;TComponent&gt;(params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__">ComponentDocker.Destroy(params IEnumerable&lt;Component&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll">Entity.DestroyAll()</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1">ComponentDocker.Destroy&lt;TComponent&gt;()</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll__1">Entity.DestroyAll&lt;TComponent&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.Destroy(params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll_System_Collections_Generic_IEnumerable_System_String__">Entity.DestroyAll(params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.Destroy&lt;TComponent&gt;(params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll__1_System_Collections_Generic_IEnumerable_System_String__">Entity.DestroyAll&lt;TComponent&gt;(params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll">ComponentDocker.DestroyAll()</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__">Entity.Move(Entity, params IEnumerable&lt;GameObject&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1">ComponentDocker.DestroyAll&lt;TComponent&gt;()</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move__1_OsmiumNucleus_Entity_">Entity.Move&lt;TComponent&gt;(Entity)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.DestroyAll(params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__">Entity.Move(Entity, params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.DestroyAll&lt;TComponent&gt;(params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move__1_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__">Entity.Move&lt;TComponent&gt;(Entity, params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__">ComponentDocker.Move(ComponentDocker, params IEnumerable&lt;Component&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll_OsmiumNucleus_Entity_">Entity.MoveAll(Entity)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_">ComponentDocker.Move&lt;TComponent&gt;(ComponentDocker)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll__1_OsmiumNucleus_Entity_">Entity.MoveAll&lt;TComponent&gt;(Entity)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.Move(ComponentDocker, params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__">Entity.MoveAll(Entity, params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.Move&lt;TComponent&gt;(ComponentDocker, params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll__1_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__">Entity.MoveAll&lt;TComponent&gt;(Entity, params IEnumerable&lt;string&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_OsmiumNucleus_ComponentDocker_">ComponentDocker.MoveAll(ComponentDocker)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_AddScene_OsmiumNucleus_Scene_">Entity.AddScene(Scene)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_">ComponentDocker.MoveAll&lt;TComponent&gt;(ComponentDocker)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_AddScene_System_String_">Entity.AddScene(string)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.MoveAll(ComponentDocker, params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_RemoveScene_OsmiumNucleus_Scene_">Entity.RemoveScene(Scene)</a>
     </div>
     <div>
-      <a class="xref" href="OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__">ComponentDocker.MoveAll&lt;TComponent&gt;(ComponentDocker, params IEnumerable&lt;string&gt;)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_RemoveScene_System_String_">Entity.RemoveScene(string)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ContainsScene_OsmiumNucleus_Scene_">Entity.ContainsScene(Scene)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ContainsScene_System_String_">Entity.ContainsScene(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_StartCoroutine_System_Collections_Generic_IEnumerator_OsmiumNucleus_ICoroutineAction__">Entity.StartCoroutine(IEnumerator&lt;ICoroutineAction&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DeltaTime">Entity.DeltaTime()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
@@ -294,57 +296,23 @@ Class Scene  <a class="header-action link-secondary" title="View source" href="h
   <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Scene/Scene.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>One of the main Osmium entities. Acts like a master folder for components to be stored in. Feel free to inherit this and make a custom scene!</p>
+  <div class="markdown level1 summary"><p>Represents the root in a tree of <a class="xref" href="OsmiumNucleus.GameObject.html">GameObjects</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Scene(string __name)</code></pre>
+    <pre><code class="lang-csharp hljs">public Scene(string Name)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>__name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dt><code>Name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique identifier of the Scene</p>
+</dd>
   </dl>
 
 
 
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="fields">Fields
-</h2>
-
-
-
-  <h3 id="OsmiumNucleus_Scene_Enabled" data-uid="OsmiumNucleus.Scene.Enabled">
-  Enabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Scene/Scene.cs/#L13"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Whether the Scene is capturing events or not</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Enabled</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -362,10 +330,10 @@ Class Scene  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="OsmiumNucleus_Scene_Name" data-uid="OsmiumNucleus.Scene.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Scene/Scene.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AveryNorris/Osmium/blob/main/Osmium-Nucleus/Source/Scene/Scene.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Unique identifier of the Scene</p>
+  <div class="markdown level1 summary"><p>The fully unique identifier of the <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a>. Must not match a name from any other <a class="xref" href="OsmiumNucleus.Scene.html">Scene</a>. And cannot be null.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

@@ -6,8 +6,8 @@ namespace OsmiumNucleus;
 
 
 
-/// <summary> Any object that transfers updates, and has GameObject children. </summary>
-public abstract partial class Entity : IEnumerable<GameObject>
+/// <summary> An object that transfers updates, and has GameObject children. </summary>
+public abstract partial class Entity
 {
     
     
@@ -25,11 +25,6 @@ public abstract partial class Entity : IEnumerable<GameObject>
     
     
     
-    
-    IEnumerator IEnumerable.GetEnumerator() { return  GetEnumerator(); }
-
-    public IEnumerator<GameObject> GetEnumerator() { return _components.GetEnumerator(); }
-    
     public static event Action<Entity, Entity, GameObject>? ComponentMoved;
     
     public static event Action<Entity, GameObject>? ComponentAdded;
@@ -38,16 +33,12 @@ public abstract partial class Entity : IEnumerable<GameObject>
     
     
     
-    /// <summary> Core of the Docker, holds all the Components.</summary>
-    [UnsafeInternal] private readonly List<GameObject> _components = [];
-    /// <summary> Holds a list of Components at each of their types. This optimizes <see cref="Get()"/> to O(1) </summary>
-    [UnsafeInternal] private readonly Dictionary<Type, HashSet<GameObject>> _componentTypeDictionary = new();
-    /// <summary> Stores a GameObject in a list at each of their tags. This optimizes Get(string tag) to O(1)</summary>
-    [UnsafeInternal] private readonly Dictionary<string, HashSet<GameObject>> _componentTagDictionary = new();
+    /// <summary> Core of the Parent, holds all the Components.</summary>
+    internal readonly List<GameObject> _components = [];
     
         
     //Treats a destroyed Entity as null
-    public static bool operator ==(Entity? __left, Entity? __right) {
+    public static bool operator ==(Entity __left, Entity __right) {
         if (__left is null) {
             if (__right is null) return true;
             return __right.Destroyed;
@@ -60,7 +51,7 @@ public abstract partial class Entity : IEnumerable<GameObject>
         return ReferenceEquals(__left, __right);
     }
 
-    public static bool operator !=(Entity? __left, Entity? __right) {
+    public static bool operator !=(Entity __left, Entity __right) {
         return !(__left == __right);
     }
     
@@ -68,7 +59,6 @@ public abstract partial class Entity : IEnumerable<GameObject>
     public override bool Equals(object? obj) { return Destroyed ? obj == null : ReferenceEquals(this, obj); }
     
     
-    [UnsafeInternal]
     internal void ChainEvent(Event __timeEvent) {
         if (!Enabled) return;
 
@@ -78,47 +68,16 @@ public abstract partial class Entity : IEnumerable<GameObject>
         }
     }
     
-    /// <summary> Add a GameObject to the Docker. </summary>
-    [UnsafeInternal]
+    /// <summary> Add a GameObject to the Parent. </summary>
     private void AddComponentToLists(GameObject gameObject) {
-        Type Type = gameObject.GetType();
-        _components.Add(gameObject); 
-        
-        if (!_componentTypeDictionary.TryAdd(Type, [gameObject])) _componentTypeDictionary[Type].Add(gameObject);
-
-        foreach (string tag in gameObject._tags) HashTaggedComponent(tag, gameObject);
+        _components.Add(gameObject);
     }
 
     
     
-    /// <summary> Removes a GameObject from the Docker. </summary>
-    [UnsafeInternal]
+    /// <summary> Removes a GameObject from the Parent. </summary>
     private void RemoveComponentFromLists(GameObject gameObject) {
-        Type Type = gameObject.GetType();
-        _components.Remove(gameObject); 
-        
-        if (_componentTypeDictionary.TryGetValue(Type, out HashSet<GameObject>? componentsOfType)) {
-            //if there is only one item or less in the list, just remove it from the dictionary as a whole since the priority of this has now changed.
-            if (componentsOfType.Count > 1) componentsOfType.Remove(gameObject);
-            else _componentTypeDictionary.Remove(Type);
-        }
-        
-        foreach (string tag in gameObject._tags) UnhashTaggedComponent(tag, gameObject);
-    }
-
-    /// <summary> Hashes a component in the tag dictionary </summary>
-    [UnsafeInternal]
-    internal void HashTaggedComponent(string __tag, GameObject gameObject) {
-        if (!_componentTagDictionary.TryAdd(__tag, [gameObject])) 
-            _componentTagDictionary[__tag].Add(gameObject);
-    }
-
-    /// <summary> Removes a component's hash from the tag dictionary </summary>
-    [UnsafeInternal]
-    internal void UnhashTaggedComponent(string __tag, GameObject gameObject) {
-        if (_componentTagDictionary.TryGetValue(__tag, out HashSet<GameObject>? value)) {
-            value.Remove(gameObject); if(value.Count == 0) _componentTagDictionary.Remove(__tag);
-        }
+        _components.Remove(gameObject);
     }
     
     internal static void ClearCollectibleAssemblies() {

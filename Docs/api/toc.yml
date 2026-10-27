@@ -56,12 +56,6 @@ items:
   - uid: OsmiumNucleus.AlwaysUpdate
     name: AlwaysUpdate
     type: Class
-  - uid: OsmiumNucleus.Component
-    name: Component
-    type: Class
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    type: Class
   - uid: OsmiumNucleus.Debug
     name: Debug
     type: Class
@@ -74,45 +68,18 @@ items:
   - uid: OsmiumNucleus.EditorOnly
     name: EditorOnly
     type: Class
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    type: Class
   - uid: OsmiumNucleus.Event
     name: Event
     type: Enum
+  - uid: OsmiumNucleus.GameObject
+    name: GameObject
+    type: Class
   - uid: OsmiumNucleus.ICoroutineAction
     name: ICoroutineAction
     type: Interface
-  - uid: OsmiumNucleus.MarkerAttributes
-    name: MarkerAttributes
-    type: Class
-  - uid: OsmiumNucleus.MarkerAttributes.CalculatedProperty
-    name: MarkerAttributes.CalculatedProperty
-    type: Class
-  - uid: OsmiumNucleus.MarkerAttributes.Complexity
-    name: MarkerAttributes.Complexity
-    type: Class
-  - uid: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
-    name: MarkerAttributes.Complexity.TimeComplexity
-    type: Enum
-  - uid: OsmiumNucleus.MarkerAttributes.ComplexityON
-    name: MarkerAttributes.ComplexityON
-    type: Class
-  - uid: OsmiumNucleus.MarkerAttributes.Expense
-    name: MarkerAttributes.Expense
-    type: Class
-  - uid: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
-    name: MarkerAttributes.Expense.ExpenseLevel
-    type: Enum
-  - uid: OsmiumNucleus.MarkerAttributes.MethodLambda
-    name: MarkerAttributes.MethodLambda
-    type: Class
-  - uid: OsmiumNucleus.MarkerAttributes.UnsafeInternal
-    name: MarkerAttributes.UnsafeInternal
-    type: Class
-  - uid: OsmiumNucleus.MarkerAttributes.UnsafePipeline
-    name: MarkerAttributes.UnsafePipeline
-    type: Class
-  - uid: OsmiumNucleus.MarkerAttributes.VariableLambda
-    name: MarkerAttributes.VariableLambda
-    type: Class
   - uid: OsmiumNucleus.MessageType
     name: MessageType
     type: Enum
@@ -128,14 +95,11 @@ items:
   - uid: OsmiumNucleus.Scene
     name: Scene
     type: Class
-- uid: OsmiumTests
-  name: OsmiumTests
+- uid: Osmium_Tests
+  name: Osmium_Tests
   type: Namespace
   items:
-  - uid: OsmiumTests.DockerTests
-    name: DockerTests
-    type: Class
-  - uid: OsmiumTests.Tests
+  - uid: Osmium_Tests.Tests
     name: Tests
     type: Class
 memberLayout: SamePage

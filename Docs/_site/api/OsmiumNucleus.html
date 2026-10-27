@@ -96,18 +96,7 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="OsmiumNucleus.AlwaysUpdate.html">AlwaysUpdate</a></dt>
-      <dd><p>Allows a Component to be updated even if Osmium is only initialized</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.Component.html">Component</a></dt>
-      <dd><p>The backing class for all Components in Osmium. Inherit this to become one.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.ComponentDocker.html">ComponentDocker</a></dt>
-      <dd><p>Base class for both Scenes and Components. Responsible for Managing hierarchy between Components and Scenes and managing children, has Extensive Component Manipulation Available.
-Also transfers Time and Carries most of the responsibilities akin to the Component. NOT FOR OUTSIDE INHERITANCE (this is very under the hood, and meant to be mostly hidden), please use docker by inheriting component.</p>
+      <dd><p>Ignores virtualization when receiving events</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -129,50 +118,13 @@ Also transfers Time and Carries most of the responsibilities akin to the Compone
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.html">MarkerAttributes</a></dt>
-      <dd><p>Provides many handy cosmetic attributes for methods to specify use cases or provide information.</p>
+      <dt><a class="xref" href="OsmiumNucleus.Entity.html">Entity</a></dt>
+      <dd><p>Any object that transfers updates, and has GameObject children.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.CalculatedProperty.html">MarkerAttributes.CalculatedProperty</a></dt>
-      <dd><p>Shows that the given object is calculated every time it is called! Good to know for performance heavy systems.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.Complexity.html">MarkerAttributes.Complexity</a></dt>
-      <dd><p>Just a way to write the time complexity of a calculated property or method.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.ComplexityON.html">MarkerAttributes.ComplexityON</a></dt>
-      <dd><p>Just a way to write the time complexity of a calculated property or method.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.Expense.html">MarkerAttributes.Expense</a></dt>
-      <dd><p>Just a way to write how expensive a calculated property or method can be.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.MethodLambda.html">MarkerAttributes.MethodLambda</a></dt>
-      <dd><p>Shows that the given method does not actually belong to the object, but instead just calls a lambda to another method.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.UnsafeInternal.html">MarkerAttributes.UnsafeInternal</a></dt>
-      <dd><p>Shows that the given object is unsafe (ex. it doesn't check for null values and such, or it doesn't have guardrails based on cases).
-This is just for internal/private methods to remind myself how to call it :) The reasoning is case by case, but most of the time,
-it is because all the exposing public methods already check, and double checks would only slow me down</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.UnsafePipeline.html">MarkerAttributes.UnsafePipeline</a></dt>
-      <dd><p>The given function is missing many guiderails, and it should be used carefully.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.VariableLambda.html">MarkerAttributes.VariableLambda</a></dt>
-      <dd><p>Shows that the given variable does not actually belong to the object, but instead just calls a lambda to another method.</p>
+      <dt><a class="xref" href="OsmiumNucleus.GameObject.html">GameObject</a></dt>
+      <dd><p>The backing class for all Components in Osmium. Inherit this to become one.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -183,9 +135,7 @@ Only static, parameterless, methods may be called. Your code will compile regard
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="OsmiumNucleus.OnInitialize.html">OnInitialize</a></dt>
-      <dd><p>Used to mark any method you would like to call once Osmium initializes.
-Only static, parameterless, methods may be called. Your code will compile regardless, but your event will be ignored at runtime.</p>
-</dd>
+      <dd></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="OsmiumNucleus.Osmium.html">Osmium</a></dt>
@@ -194,7 +144,7 @@ Only static, parameterless, methods may be called. Your code will compile regard
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="OsmiumNucleus.Scene.html">Scene</a></dt>
-      <dd><p>One of the main Osmium entities. Acts like a master folder for components to be stored in. Feel free to inherit this and make a custom scene!</p>
+      <dd><p>Represents the root in a tree of <a class="xref" href="OsmiumNucleus.GameObject.html">GameObjects</a>.</p>
 </dd>
     </dl>
     <h3 id="interfaces">
@@ -212,14 +162,6 @@ Enums
       <dt><a class="xref" href="OsmiumNucleus.Event.html">Event</a></dt>
       <dd><p>Represents an Event in Osmium.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity.html">MarkerAttributes.Complexity.TimeComplexity</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel.html">MarkerAttributes.Expense.ExpenseLevel</a></dt>
-      <dd></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="OsmiumNucleus.MessageType.html">MessageType</a></dt>

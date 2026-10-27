@@ -127,7 +127,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: EditorRun
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Editor.cs
-    startLine: 21
+    startLine: 20
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -158,7 +158,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: VirtualInitialize
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Editor.cs
-    startLine: 34
+    startLine: 32
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -195,7 +195,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: VirtualRun
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Editor.cs
-    startLine: 50
+    startLine: 47
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -226,7 +226,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: VirtualClose
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Editor.cs
-    startLine: 62
+    startLine: 58
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1054,12 +1054,7 @@ items:
   summary: Creates a new <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref> with the given name, returns null if creating it fails
   example: []
   syntax:
-    content: >-
-      [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low)]
-
-      [MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
-
-      public static Scene? AddScene(string __name)
+    content: public static Scene? AddScene(string __name)
     parameters:
     - id: __name
       type: System.String
@@ -1067,24 +1062,8 @@ items:
     return:
       type: OsmiumNucleus.Scene
       description: The <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref> you created, or null if there is a failure.
-    content.vb: >-
-      <MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low)>
-
-      <MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)>
-
-      Public Shared Function AddScene(__name As String) As Scene
+    content.vb: Public Shared Function AddScene(__name As String) As Scene
   overload: OsmiumNucleus.Osmium.AddScene*
-  attributes:
-  - type: OsmiumNucleus.MarkerAttributes.Expense
-    ctor: OsmiumNucleus.MarkerAttributes.Expense.#ctor(OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
-      value: 2
-  - type: OsmiumNucleus.MarkerAttributes.Complexity
-    ctor: OsmiumNucleus.MarkerAttributes.Complexity.#ctor(OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
-      value: 0
   nameWithType.vb: Osmium.AddScene(String)
   fullName.vb: OsmiumNucleus.Osmium.AddScene(String)
   name.vb: AddScene(String)
@@ -1106,7 +1085,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: AddScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 151
+    startLine: 150
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
@@ -1114,34 +1093,13 @@ items:
   remarks: Using this is only recommended for custom types of Scene! If you wish to Spawn in a normal scene, use <xref href="OsmiumNucleus.Osmium.AddScene(System.String)" data-throw-if-not-resolved="false"></xref>
   example: []
   syntax:
-    content: >-
-      [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low)]
-
-      [MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
-
-      public static void AddScene(Scene __scene)
+    content: public static void AddScene(Scene __scene)
     parameters:
     - id: __scene
       type: OsmiumNucleus.Scene
       description: The <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref> you want to add
-    content.vb: >-
-      <MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Low)>
-
-      <MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)>
-
-      Public Shared Sub AddScene(__scene As Scene)
+    content.vb: Public Shared Sub AddScene(__scene As Scene)
   overload: OsmiumNucleus.Osmium.AddScene*
-  attributes:
-  - type: OsmiumNucleus.MarkerAttributes.Expense
-    ctor: OsmiumNucleus.MarkerAttributes.Expense.#ctor(OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
-      value: 2
-  - type: OsmiumNucleus.MarkerAttributes.Complexity
-    ctor: OsmiumNucleus.MarkerAttributes.Complexity.#ctor(OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
-      value: 0
 - uid: OsmiumNucleus.Osmium.GetScene(System.String)
   commentId: M:OsmiumNucleus.Osmium.GetScene(System.String)
   id: GetScene(System.String)
@@ -1160,19 +1118,14 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: GetScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 165
+    startLine: 163
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
   summary: Finds a <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref> from the given name.
   example: []
   syntax:
-    content: >-
-      [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)]
-
-      [MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
-
-      public static Scene? GetScene(string __name)
+    content: public static Scene? GetScene(string __name)
     parameters:
     - id: __name
       type: System.String
@@ -1180,24 +1133,8 @@ items:
     return:
       type: OsmiumNucleus.Scene
       description: The newly found <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref>! Or null if there currently isn't one
-    content.vb: >-
-      <MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)>
-
-      <MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)>
-
-      Public Shared Function GetScene(__name As String) As Scene
+    content.vb: Public Shared Function GetScene(__name As String) As Scene
   overload: OsmiumNucleus.Osmium.GetScene*
-  attributes:
-  - type: OsmiumNucleus.MarkerAttributes.Expense
-    ctor: OsmiumNucleus.MarkerAttributes.Expense.#ctor(OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
-      value: 3
-  - type: OsmiumNucleus.MarkerAttributes.Complexity
-    ctor: OsmiumNucleus.MarkerAttributes.Complexity.#ctor(OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
-      value: 2
   nameWithType.vb: Osmium.GetScene(String)
   fullName.vb: OsmiumNucleus.Osmium.GetScene(String)
   name.vb: GetScene(String)
@@ -1219,19 +1156,14 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: ContainsScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 180
+    startLine: 176
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
   summary: Tells you whether a <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref> is currently loaded or not
   example: []
   syntax:
-    content: >-
-      [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)]
-
-      [MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
-
-      public static bool ContainsScene(string __name)
+    content: public static bool ContainsScene(string __name)
     parameters:
     - id: __name
       type: System.String
@@ -1239,24 +1171,8 @@ items:
     return:
       type: System.Boolean
       description: A <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> that is either true or false depending on if a scene with the given name is loaded or not
-    content.vb: >-
-      <MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)>
-
-      <MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)>
-
-      Public Shared Function ContainsScene(__name As String) As Boolean
+    content.vb: Public Shared Function ContainsScene(__name As String) As Boolean
   overload: OsmiumNucleus.Osmium.ContainsScene*
-  attributes:
-  - type: OsmiumNucleus.MarkerAttributes.Expense
-    ctor: OsmiumNucleus.MarkerAttributes.Expense.#ctor(OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
-      value: 3
-  - type: OsmiumNucleus.MarkerAttributes.Complexity
-    ctor: OsmiumNucleus.MarkerAttributes.Complexity.#ctor(OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
-      value: 2
   nameWithType.vb: Osmium.ContainsScene(String)
   fullName.vb: OsmiumNucleus.Osmium.ContainsScene(String)
   name.vb: ContainsScene(String)
@@ -1278,19 +1194,14 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: ContainsScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 195
+    startLine: 189
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
   summary: Tells you whether a <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref> is currently loaded or not
   example: []
   syntax:
-    content: >-
-      [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)]
-
-      [MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
-
-      public static bool ContainsScene(Scene __scene)
+    content: public static bool ContainsScene(Scene __scene)
     parameters:
     - id: __scene
       type: OsmiumNucleus.Scene
@@ -1298,24 +1209,8 @@ items:
     return:
       type: System.Boolean
       description: A <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> that is either true or false depending on if a scene with the given name is loaded or not
-    content.vb: >-
-      <MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)>
-
-      <MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)>
-
-      Public Shared Function ContainsScene(__scene As Scene) As Boolean
+    content.vb: Public Shared Function ContainsScene(__scene As Scene) As Boolean
   overload: OsmiumNucleus.Osmium.ContainsScene*
-  attributes:
-  - type: OsmiumNucleus.MarkerAttributes.Expense
-    ctor: OsmiumNucleus.MarkerAttributes.Expense.#ctor(OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
-      value: 3
-  - type: OsmiumNucleus.MarkerAttributes.Complexity
-    ctor: OsmiumNucleus.MarkerAttributes.Complexity.#ctor(OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
-      value: 0
 - uid: OsmiumNucleus.Osmium.RemoveScene(System.String)
   commentId: M:OsmiumNucleus.Osmium.RemoveScene(System.String)
   id: RemoveScene(System.String)
@@ -1334,41 +1229,20 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: RemoveScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 209
+    startLine: 201
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
   summary: Removes a currently loaded <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref> from Osmium from a given name
   example: []
   syntax:
-    content: >-
-      [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)]
-
-      [MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)]
-
-      public static void RemoveScene(string __name)
+    content: public static void RemoveScene(string __name)
     parameters:
     - id: __name
       type: System.String
       description: The name of the scene you want to remove
-    content.vb: >-
-      <MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)>
-
-      <MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.ON)>
-
-      Public Shared Sub RemoveScene(__name As String)
+    content.vb: Public Shared Sub RemoveScene(__name As String)
   overload: OsmiumNucleus.Osmium.RemoveScene*
-  attributes:
-  - type: OsmiumNucleus.MarkerAttributes.Expense
-    ctor: OsmiumNucleus.MarkerAttributes.Expense.#ctor(OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
-      value: 3
-  - type: OsmiumNucleus.MarkerAttributes.Complexity
-    ctor: OsmiumNucleus.MarkerAttributes.Complexity.#ctor(OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
-      value: 2
   nameWithType.vb: Osmium.RemoveScene(String)
   fullName.vb: OsmiumNucleus.Osmium.RemoveScene(String)
   name.vb: RemoveScene(String)
@@ -1390,41 +1264,20 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: RemoveScene
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 225
+    startLine: 217
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
   summary: Removes a currently loaded <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref> from Osmium
   example: []
   syntax:
-    content: >-
-      [MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)]
-
-      [MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)]
-
-      public static void RemoveScene(Scene __scene)
+    content: public static void RemoveScene(Scene __scene)
     parameters:
     - id: __scene
       type: OsmiumNucleus.Scene
       description: The scene to remove
-    content.vb: >-
-      <MarkerAttributes.Expense(MarkerAttributes.Expense.ExpenseLevel.Medium)>
-
-      <MarkerAttributes.Complexity(MarkerAttributes.Complexity.TimeComplexity.O1)>
-
-      Public Shared Sub RemoveScene(__scene As Scene)
+    content.vb: Public Shared Sub RemoveScene(__scene As Scene)
   overload: OsmiumNucleus.Osmium.RemoveScene*
-  attributes:
-  - type: OsmiumNucleus.MarkerAttributes.Expense
-    ctor: OsmiumNucleus.MarkerAttributes.Expense.#ctor(OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Expense.ExpenseLevel
-      value: 3
-  - type: OsmiumNucleus.MarkerAttributes.Complexity
-    ctor: OsmiumNucleus.MarkerAttributes.Complexity.#ctor(OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity)
-    arguments:
-    - type: OsmiumNucleus.MarkerAttributes.Complexity.TimeComplexity
-      value: 0
 - uid: OsmiumNucleus.Osmium.StartCoroutine(System.Collections.Generic.IEnumerator{OsmiumNucleus.ICoroutineAction})
   commentId: M:OsmiumNucleus.Osmium.StartCoroutine(System.Collections.Generic.IEnumerator{OsmiumNucleus.ICoroutineAction})
   id: StartCoroutine(System.Collections.Generic.IEnumerator{OsmiumNucleus.ICoroutineAction})
@@ -1443,7 +1296,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: StartCoroutine
     path: ../Osmium-Nucleus/Source/Overhead/Osmium/Osmium.cs
-    startLine: 239
+    startLine: 231
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus

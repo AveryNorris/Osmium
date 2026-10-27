@@ -23,7 +23,7 @@ internal static class CoroutineRunner
     /// <summary> Advances and calls all coroutines that frame </summary>
     public static void Advance() {
         for (int i = 0; i < CurrentRoutines.Count; i++) {
-            ICoroutineAction? current = CurrentRoutines[i].Current;
+            ICoroutineAction current = CurrentRoutines[i].Current;
             
             if(current == null) { CurrentRoutines[i].MoveNext(); continue; }
             if (current.Continue()) continue;

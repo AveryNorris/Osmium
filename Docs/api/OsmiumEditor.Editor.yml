@@ -543,7 +543,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: OnSave
     path: ../Osmium-Editor/Source/NewEditor/ProjectOpen.cs
-    startLine: 76
+    startLine: 94
   assemblies:
   - Osmium-Editor
   namespace: OsmiumEditor
@@ -570,7 +570,7 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: SaveProject
     path: ../Osmium-Editor/Source/NewEditor/ProjectOpen.cs
-    startLine: 78
+    startLine: 96
   assemblies:
   - Osmium-Editor
   namespace: OsmiumEditor

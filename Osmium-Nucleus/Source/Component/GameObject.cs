@@ -3,66 +3,30 @@ namespace OsmiumNucleus;
 
 /// <summary> The backing class for all Components in Osmium. Inherit this to become one. </summary>
 /// <author> Avery Norris </author>
-#nullable enable
-public abstract partial class GameObject : Entity   
+public abstract class GameObject : Entity
 {
     
 
 
     /// <summary> Current parent of the GameObject. Can be either a Scene or another GameObject.</summary>
-    public Entity Docker { get; internal set; }
+    public Entity Parent { get; internal set; }
     
-    #region GameObject Information
     
     /// <summary> The GameObject's name </summary>
     public string Name {
-        get => _name;
+        get => field;
         set { 
             if (value == null) { Debug.Error("A GameObject's name cannot be null!"); return; } 
             
-            _name = value; 
+            field = value; 
         }
-    } private string _name = String.Empty;
-    
-
-    #endregion Tags
-    
-    #region Tags
-    
-    /// <summary> A list of all tags belonging to the component. Use AddTag() to modify it. Easy to calculate, but setting this requires that the Docker resorts Components; </summary>
-    public IReadOnlySet<string> Tags {
-        get => _tags;
-        set {
-            HashSet<string> previousTags = _tags;
-            
-            foreach (string tag in _tags.ToArray()) if(!value.Contains(tag)) RemoveTag(tag);
-            foreach (string tag in value) if(!previousTags.Contains(tag)) AddTag(tag);
-        }
-    } internal HashSet<string> _tags = [];
-    
-    
-
-    /// <summary> Adds a new tag to the component</summary>
-    public void AddTag(string __tag) {
-        if(__tag == null) { Debug.Error("A GameObject's tag cannot be null!"); return; }
-        if(Tags.Contains(__tag)) { Debug.Error("GameObject already has the given tag!", ["ComponentName", "Tag"], [_name, __tag]); return; }
-
-        _tags.Add(__tag);
-        Docker.HashTaggedComponent(__tag, this);
     }
     
-    
-    
-    /// <summary> Removes a tag from the component.</summary>
-    public void RemoveTag(string __tag) {
-        if (__tag == null) { Debug.Error("Cannot remove a null tag! It is impossible for Components to have null tags"); return;};
-        if(!Tags.Contains(__tag)) { Debug.Error("GameObject does not have the given tag!", ["ComponentName", "Tag"], [_name, __tag]); return; }
 
-        _tags.Remove(__tag);
-        Docker.UnhashTaggedComponent(__tag, this);
-    }
     
-    #endregion Tags
+    
+    /// <summary> A list of all tags belonging to the component. Use AddTag() to modify it. Easy to calculate, but setting this requires that the Parent resorts Components; </summary>
+    public HashSet<string> Tags = [];
     
     
     
@@ -78,5 +42,25 @@ public abstract partial class GameObject : Entity
 
     /// <summary> Just gives the GameObject's name. But makes debugging a little easier :).</summary>
     public override string ToString() => this.Name;
+    
+    /// <summary> Scene the GameObject resides in. To save ram it's not stored but calculated on the fly. </summary>
+    public Scene Scene => __QueryScene();
+    private Scene __QueryScene() {
+        if (Parent is Scene scene) return scene;
+        if (Parent is GameObject Component) return Component.__QueryScene();
+        
+        Debug.Error("Failed To Find Scene? Osmium does not know what is going on but you beefed up.");
+        
+        return null;
+    }
+    
+
+    /// <inheritdoc cref="Entity.Move(CoEntityentDocker)"/>
+    public void Move(Entity __newDocker) => Parent.Move(__newDocker, this);
+
+
+
+    /// <summary> Makes the GameObject destroy itself </summary>
+    public void Destroy() => Parent.Destroy(this);
     
 }

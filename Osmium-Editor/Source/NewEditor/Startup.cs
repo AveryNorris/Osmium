@@ -7,9 +7,10 @@ namespace OsmiumEditor;
 public static partial class Editor
 {
     public static int Main(string[] __args) {
+
         BedrockImGUICompatability.Incorporate();
         Osmium.EditorInitialize();
-
+        
         Bedrock.Load += BedrockLoad;
         
         Bedrock.Run();

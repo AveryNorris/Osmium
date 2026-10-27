@@ -27,7 +27,7 @@ public static partial class Osmium
     
     /// <summary> List of all scenes currently loaded in the kernel. </summary>
     public static IReadOnlySet<Scene> Scenes => _scenes;
-    [UnsafeInternal] internal static readonly HashSet<Scene> _scenes = [];
+    internal static readonly HashSet<Scene> _scenes = [];
     
     
     /// <summary> All assemblies loaded by Osmium </summary>
@@ -79,6 +79,21 @@ public static partial class Osmium
         Bedrock.Update += OnUpdate;
         Bedrock.Draw += OnDraw;
         Bedrock.Unload += OnUnload;
+        
+        EventManager.ResolveAllModules();
+        EventManager.InvokeModulesInitializeEvent();
+        
+        Debug.Log("Successfully Initialized Osmium!", [], []);
+    }
+    
+    
+    /// <summary> Runs without events, for the purpose of ECS testing </summary>
+    public static void HeadlessInitialize() {
+        if (IsClosed) { Debug.Error("Osmium is already closed!"); return; }
+        if (IsRunning) { Debug.Error("Osmium is already Running!"); return; }
+        if (IsInitialized) { Debug.Error("Osmium has already Started!"); return; }
+        
+        IsInitialized = true;
         
         EventManager.ResolveAllModules();
         EventManager.InvokeModulesInitializeEvent();

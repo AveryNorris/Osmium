@@ -6,7 +6,6 @@ items:
   parent: OsmiumNucleus
   children:
   - OsmiumNucleus.Scene.#ctor(System.String)
-  - OsmiumNucleus.Scene.Enabled
   - OsmiumNucleus.Scene.Name
   langs:
   - csharp
@@ -26,61 +25,61 @@ items:
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
-  summary: One of the main Osmium entities. Acts like a master folder for components to be stored in. Feel free to inherit this and make a custom scene!
+  summary: Represents the root in a tree of <xref href="OsmiumNucleus.GameObject?text=GameObjects" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: 'public class Scene : ComponentDocker, IEnumerable<Component>, IEnumerable'
-    content.vb: Public Class Scene Inherits ComponentDocker Implements IEnumerable(Of Component), IEnumerable
+    content: 'public class Scene : Entity'
+    content.vb: Public Class Scene Inherits Entity
   inheritance:
   - System.Object
-  - OsmiumNucleus.ComponentDocker
-  implements:
-  - System.Collections.Generic.IEnumerable{OsmiumNucleus.Component}
-  - System.Collections.IEnumerable
+  - OsmiumNucleus.Entity
   inheritedMembers:
-  - OsmiumNucleus.ComponentDocker._components
-  - OsmiumNucleus.ComponentDocker._componentPriorityDictionary
-  - OsmiumNucleus.ComponentDocker._componentTypeDictionary
-  - OsmiumNucleus.ComponentDocker._componentTagDictionary
-  - OsmiumNucleus.ComponentDocker.Item(System.Int32)
-  - OsmiumNucleus.ComponentDocker.GetEnumerator
-  - OsmiumNucleus.ComponentDocker.ComponentMoved
-  - OsmiumNucleus.ComponentDocker.ComponentAdded
-  - OsmiumNucleus.ComponentDocker.ComponentDestroyed
-  - OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  - OsmiumNucleus.ComponentDocker.Contains``1
-  - OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.Contains``1(System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.Get
-  - OsmiumNucleus.ComponentDocker.Get``1
-  - OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.Get``1(System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.GetAll
-  - OsmiumNucleus.ComponentDocker.GetAll``1
-  - OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.Add(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  - OsmiumNucleus.ComponentDocker.Add``1
-  - OsmiumNucleus.ComponentDocker.Add``1(System.String)
-  - OsmiumNucleus.ComponentDocker.Add``1(System.Int32)
-  - OsmiumNucleus.ComponentDocker.Add``1(System.String,System.Int32)
-  - OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  - OsmiumNucleus.ComponentDocker.Destroy``1
-  - OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.DestroyAll
-  - OsmiumNucleus.ComponentDocker.DestroyAll``1
-  - OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  - OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker)
-  - OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker)
-  - OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker)
-  - OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  - OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  - System.Object.Equals(System.Object)
+  - OsmiumNucleus.Entity.Enabled
+  - OsmiumNucleus.Entity.Destroyed
+  - OsmiumNucleus.Entity.ComponentMoved
+  - OsmiumNucleus.Entity.ComponentAdded
+  - OsmiumNucleus.Entity.ComponentDestroyed
+  - OsmiumNucleus.Entity.Equals(System.Object)
+  - OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+  - OsmiumNucleus.Entity.Contains``1
+  - OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.Contains``1(System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.Get
+  - OsmiumNucleus.Entity.Get``1
+  - OsmiumNucleus.Entity.Get(System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.Get``1(System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.GetAll
+  - OsmiumNucleus.Entity.GetAll``1
+  - OsmiumNucleus.Entity.GetAll(System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.Add(OsmiumNucleus.GameObject[])
+  - OsmiumNucleus.Entity.Add``1
+  - OsmiumNucleus.Entity.Add``1(System.String)
+  - OsmiumNucleus.Entity.Add``1(System.String,System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+  - OsmiumNucleus.Entity.Destroy``1
+  - OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.DestroyAll
+  - OsmiumNucleus.Entity.DestroyAll``1
+  - OsmiumNucleus.Entity.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+  - OsmiumNucleus.Entity.Move``1(OsmiumNucleus.Entity)
+  - OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.Move``1(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity)
+  - OsmiumNucleus.Entity.MoveAll``1(OsmiumNucleus.Entity)
+  - OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.MoveAll``1(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  - OsmiumNucleus.Entity.AddScene(OsmiumNucleus.Scene)
+  - OsmiumNucleus.Entity.AddScene(System.String)
+  - OsmiumNucleus.Entity.RemoveScene(OsmiumNucleus.Scene)
+  - OsmiumNucleus.Entity.RemoveScene(System.String)
+  - OsmiumNucleus.Entity.ContainsScene(OsmiumNucleus.Scene)
+  - OsmiumNucleus.Entity.ContainsScene(System.String)
+  - OsmiumNucleus.Entity.StartCoroutine(System.Collections.Generic.IEnumerator{OsmiumNucleus.ICoroutineAction})
+  - OsmiumNucleus.Entity.DeltaTime
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
@@ -109,47 +108,19 @@ items:
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
-  summary: One of the main Osmium entities. Acts like a master folder for components to be stored in. Feel free to inherit this and make a custom scene!
+  summary: Represents the root in a tree of <xref href="OsmiumNucleus.GameObject?text=GameObjects" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public Scene(string __name)
+    content: public Scene(string Name)
     parameters:
-    - id: __name
+    - id: Name
       type: System.String
-    content.vb: Public Sub New(__name As String)
+      description: The unique identifier of the Scene
+    content.vb: Public Sub New(Name As String)
   overload: OsmiumNucleus.Scene.#ctor*
   nameWithType.vb: Scene.New(String)
   fullName.vb: OsmiumNucleus.Scene.New(String)
   name.vb: New(String)
-- uid: OsmiumNucleus.Scene.Enabled
-  commentId: F:OsmiumNucleus.Scene.Enabled
-  id: Enabled
-  parent: OsmiumNucleus.Scene
-  langs:
-  - csharp
-  - vb
-  name: Enabled
-  nameWithType: Scene.Enabled
-  fullName: OsmiumNucleus.Scene.Enabled
-  type: Field
-  source:
-    remote:
-      path: Osmium-Nucleus/Source/Scene/Scene.cs
-      branch: main
-      repo: https://github.com/AveryNorris/Osmium.git
-    id: Enabled
-    path: ../Osmium-Nucleus/Source/Scene/Scene.cs
-    startLine: 12
-  assemblies:
-  - Osmium-Nucleus
-  namespace: OsmiumNucleus
-  summary: Whether the Scene is capturing events or not
-  example: []
-  syntax:
-    content: public bool Enabled
-    return:
-      type: System.Boolean
-    content.vb: Public Enabled As Boolean
 - uid: OsmiumNucleus.Scene.Name
   commentId: P:OsmiumNucleus.Scene.Name
   id: Name
@@ -168,11 +139,11 @@ items:
       repo: https://github.com/AveryNorris/Osmium.git
     id: Name
     path: ../Osmium-Nucleus/Source/Scene/Scene.cs
-    startLine: 17
+    startLine: 12
   assemblies:
   - Osmium-Nucleus
   namespace: OsmiumNucleus
-  summary: Unique identifier of the Scene
+  summary: The fully unique identifier of the <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref>. Must not match a name from any other <xref href="OsmiumNucleus.Scene" data-throw-if-not-resolved="false"></xref>. And cannot be null.
   example: []
   syntax:
     content: public string Name { get; set; }
@@ -182,6 +153,13 @@ items:
     content.vb: Public Property Name As String
   overload: OsmiumNucleus.Scene.Name*
 references:
+- uid: OsmiumNucleus.GameObject
+  commentId: T:OsmiumNucleus.GameObject
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.GameObject.html
+  name: GameObject
+  nameWithType: GameObject
+  fullName: OsmiumNucleus.GameObject
 - uid: OsmiumNucleus
   commentId: N:OsmiumNucleus
   href: OsmiumNucleus.html
@@ -199,1572 +177,63 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: OsmiumNucleus.ComponentDocker
-  commentId: T:OsmiumNucleus.ComponentDocker
+- uid: OsmiumNucleus.Entity
+  commentId: T:OsmiumNucleus.Entity
   parent: OsmiumNucleus
-  href: OsmiumNucleus.ComponentDocker.html
-  name: ComponentDocker
-  nameWithType: ComponentDocker
-  fullName: OsmiumNucleus.ComponentDocker
-- uid: System.Collections.Generic.IEnumerable{OsmiumNucleus.Component}
-  commentId: T:System.Collections.Generic.IEnumerable{OsmiumNucleus.Component}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IEnumerable`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  name: IEnumerable<Component>
-  nameWithType: IEnumerable<Component>
-  fullName: System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>
-  nameWithType.vb: IEnumerable(Of Component)
-  fullName.vb: System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component)
-  name.vb: IEnumerable(Of Component)
-  spec.csharp:
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: OsmiumNucleus.Component
-    name: Component
-    href: OsmiumNucleus.Component.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: OsmiumNucleus.Component
-    name: Component
-    href: OsmiumNucleus.Component.html
-  - name: )
-- uid: System.Collections.IEnumerable
-  commentId: T:System.Collections.IEnumerable
-  parent: System.Collections
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
-  name: IEnumerable
-  nameWithType: IEnumerable
-  fullName: System.Collections.IEnumerable
-- uid: OsmiumNucleus.ComponentDocker._components
-  commentId: F:OsmiumNucleus.ComponentDocker._components
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__components
-  name: _components
-  nameWithType: ComponentDocker._components
-  fullName: OsmiumNucleus.ComponentDocker._components
-- uid: OsmiumNucleus.ComponentDocker._componentPriorityDictionary
-  commentId: F:OsmiumNucleus.ComponentDocker._componentPriorityDictionary
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__componentPriorityDictionary
-  name: _componentPriorityDictionary
-  nameWithType: ComponentDocker._componentPriorityDictionary
-  fullName: OsmiumNucleus.ComponentDocker._componentPriorityDictionary
-- uid: OsmiumNucleus.ComponentDocker._componentTypeDictionary
-  commentId: F:OsmiumNucleus.ComponentDocker._componentTypeDictionary
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__componentTypeDictionary
-  name: _componentTypeDictionary
-  nameWithType: ComponentDocker._componentTypeDictionary
-  fullName: OsmiumNucleus.ComponentDocker._componentTypeDictionary
-- uid: OsmiumNucleus.ComponentDocker._componentTagDictionary
-  commentId: F:OsmiumNucleus.ComponentDocker._componentTagDictionary
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker__componentTagDictionary
-  name: _componentTagDictionary
-  nameWithType: ComponentDocker._componentTagDictionary
-  fullName: OsmiumNucleus.ComponentDocker._componentTagDictionary
-- uid: OsmiumNucleus.ComponentDocker.Item(System.Int32)
-  commentId: P:OsmiumNucleus.ComponentDocker.Item(System.Int32)
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: this[int]
-  nameWithType: ComponentDocker.this[int]
-  fullName: OsmiumNucleus.ComponentDocker.this[int]
-  nameWithType.vb: ComponentDocker.this[](Integer)
-  fullName.vb: OsmiumNucleus.ComponentDocker.this[](Integer)
-  name.vb: this[](Integer)
-  spec.csharp:
-  - name: this
-  - name: '['
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ']'
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Item(System.Int32)
-    name: this[]
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Item_System_Int32_
-  - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.GetEnumerator
-  commentId: M:OsmiumNucleus.ComponentDocker.GetEnumerator
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetEnumerator
-  name: GetEnumerator()
-  nameWithType: ComponentDocker.GetEnumerator()
-  fullName: OsmiumNucleus.ComponentDocker.GetEnumerator()
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.GetEnumerator
-    name: GetEnumerator
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetEnumerator
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.GetEnumerator
-    name: GetEnumerator
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetEnumerator
-  - name: (
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.ComponentMoved
-  commentId: E:OsmiumNucleus.ComponentDocker.ComponentMoved
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentMoved
+  href: OsmiumNucleus.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: OsmiumNucleus.Entity
+- uid: OsmiumNucleus.Entity.Enabled
+  commentId: P:OsmiumNucleus.Entity.Enabled
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Enabled
+  name: Enabled
+  nameWithType: Entity.Enabled
+  fullName: OsmiumNucleus.Entity.Enabled
+- uid: OsmiumNucleus.Entity.Destroyed
+  commentId: P:OsmiumNucleus.Entity.Destroyed
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroyed
+  name: Destroyed
+  nameWithType: Entity.Destroyed
+  fullName: OsmiumNucleus.Entity.Destroyed
+- uid: OsmiumNucleus.Entity.ComponentMoved
+  commentId: E:OsmiumNucleus.Entity.ComponentMoved
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ComponentMoved
   name: ComponentMoved
-  nameWithType: ComponentDocker.ComponentMoved
-  fullName: OsmiumNucleus.ComponentDocker.ComponentMoved
-- uid: OsmiumNucleus.ComponentDocker.ComponentAdded
-  commentId: E:OsmiumNucleus.ComponentDocker.ComponentAdded
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentAdded
+  nameWithType: Entity.ComponentMoved
+  fullName: OsmiumNucleus.Entity.ComponentMoved
+- uid: OsmiumNucleus.Entity.ComponentAdded
+  commentId: E:OsmiumNucleus.Entity.ComponentAdded
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ComponentAdded
   name: ComponentAdded
-  nameWithType: ComponentDocker.ComponentAdded
-  fullName: OsmiumNucleus.ComponentDocker.ComponentAdded
-- uid: OsmiumNucleus.ComponentDocker.ComponentDestroyed
-  commentId: E:OsmiumNucleus.ComponentDocker.ComponentDestroyed
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_ComponentDestroyed
+  nameWithType: Entity.ComponentAdded
+  fullName: OsmiumNucleus.Entity.ComponentAdded
+- uid: OsmiumNucleus.Entity.ComponentDestroyed
+  commentId: E:OsmiumNucleus.Entity.ComponentDestroyed
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ComponentDestroyed
   name: ComponentDestroyed
-  nameWithType: ComponentDocker.ComponentDestroyed
-  fullName: OsmiumNucleus.ComponentDocker.ComponentDestroyed
-- uid: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  commentId: M:OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  parent: OsmiumNucleus.ComponentDocker
+  nameWithType: Entity.ComponentDestroyed
+  fullName: OsmiumNucleus.Entity.ComponentDestroyed
+- uid: OsmiumNucleus.Entity.Equals(System.Object)
+  commentId: M:OsmiumNucleus.Entity.Equals(System.Object)
+  parent: OsmiumNucleus.Entity
   isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  name: Contains(params IEnumerable<Component>)
-  nameWithType: ComponentDocker.Contains(params IEnumerable<Component>)
-  fullName: OsmiumNucleus.ComponentDocker.Contains(params System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>)
-  nameWithType.vb: ComponentDocker.Contains(IEnumerable(Of Component))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component))
-  name.vb: Contains(IEnumerable(Of Component))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-    name: Contains
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: OsmiumNucleus.Component
-    name: Component
-    href: OsmiumNucleus.Component.html
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-    name: Contains
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: OsmiumNucleus.Component
-    name: Component
-    href: OsmiumNucleus.Component.html
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Contains``1
-  commentId: M:OsmiumNucleus.ComponentDocker.Contains``1
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1
-  name: Contains<TComponent>()
-  nameWithType: ComponentDocker.Contains<TComponent>()
-  fullName: OsmiumNucleus.ComponentDocker.Contains<TComponent>()
-  nameWithType.vb: ComponentDocker.Contains(Of TComponent)()
-  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(Of TComponent)()
-  name.vb: Contains(Of TComponent)()
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Contains``1
-    name: Contains
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Contains``1
-    name: Contains
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_IEnumerable_System_String__
-  name: Contains(params IEnumerable<string>)
-  nameWithType: ComponentDocker.Contains(params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.Contains(params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.Contains(IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable(Of String))
-  name.vb: Contains(IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{System.String})
-    name: Contains
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Contains(System.Collections.Generic.IEnumerable{System.String})
-    name: Contains
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Contains``1(System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.Contains``1(System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1_System_Collections_Generic_IEnumerable_System_String__
-  name: Contains<TComponent>(params IEnumerable<string>)
-  nameWithType: ComponentDocker.Contains<TComponent>(params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.Contains<TComponent>(params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.Contains(Of TComponent)(IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Contains(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
-  name.vb: Contains(Of TComponent)(IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Contains``1(System.Collections.Generic.IEnumerable{System.String})
-    name: Contains
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1_System_Collections_Generic_IEnumerable_System_String__
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Contains``1(System.Collections.Generic.IEnumerable{System.String})
-    name: Contains
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Contains__1_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Get
-  commentId: M:OsmiumNucleus.ComponentDocker.Get
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get
-  name: Get()
-  nameWithType: ComponentDocker.Get()
-  fullName: OsmiumNucleus.ComponentDocker.Get()
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Get
-    name: Get
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Get
-    name: Get
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get
-  - name: (
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Get``1
-  commentId: M:OsmiumNucleus.ComponentDocker.Get``1
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1
-  name: Get<TComponent>()
-  nameWithType: ComponentDocker.Get<TComponent>()
-  fullName: OsmiumNucleus.ComponentDocker.Get<TComponent>()
-  nameWithType.vb: ComponentDocker.Get(Of TComponent)()
-  fullName.vb: OsmiumNucleus.ComponentDocker.Get(Of TComponent)()
-  name.vb: Get(Of TComponent)()
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Get``1
-    name: Get
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Get``1
-    name: Get
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get_System_Collections_Generic_IEnumerable_System_String__
-  name: Get(params IEnumerable<string>)
-  nameWithType: ComponentDocker.Get(params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.Get(params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.Get(IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.IEnumerable(Of String))
-  name.vb: Get(IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.IEnumerable{System.String})
-    name: Get
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Get(System.Collections.Generic.IEnumerable{System.String})
-    name: Get
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Get``1(System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.Get``1(System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1_System_Collections_Generic_IEnumerable_System_String__
-  name: Get<TComponent>(params IEnumerable<string>)
-  nameWithType: ComponentDocker.Get<TComponent>(params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.Get<TComponent>(params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.Get(Of TComponent)(IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Get(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
-  name.vb: Get(Of TComponent)(IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Get``1(System.Collections.Generic.IEnumerable{System.String})
-    name: Get
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1_System_Collections_Generic_IEnumerable_System_String__
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Get``1(System.Collections.Generic.IEnumerable{System.String})
-    name: Get
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Get__1_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.GetAll
-  commentId: M:OsmiumNucleus.ComponentDocker.GetAll
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll
-  name: GetAll()
-  nameWithType: ComponentDocker.GetAll()
-  fullName: OsmiumNucleus.ComponentDocker.GetAll()
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.GetAll
-    name: GetAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.GetAll
-    name: GetAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll
-  - name: (
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.GetAll``1
-  commentId: M:OsmiumNucleus.ComponentDocker.GetAll``1
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1
-  name: GetAll<TComponent>()
-  nameWithType: ComponentDocker.GetAll<TComponent>()
-  fullName: OsmiumNucleus.ComponentDocker.GetAll<TComponent>()
-  nameWithType.vb: ComponentDocker.GetAll(Of TComponent)()
-  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(Of TComponent)()
-  name.vb: GetAll(Of TComponent)()
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.GetAll``1
-    name: GetAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.GetAll``1
-    name: GetAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll_System_Collections_Generic_IEnumerable_System_String__
-  name: GetAll(params IEnumerable<string>)
-  nameWithType: ComponentDocker.GetAll(params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.GetAll(params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.GetAll(IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.IEnumerable(Of String))
-  name.vb: GetAll(IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.IEnumerable{System.String})
-    name: GetAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.GetAll(System.Collections.Generic.IEnumerable{System.String})
-    name: GetAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1_System_Collections_Generic_IEnumerable_System_String__
-  name: GetAll<TComponent>(IEnumerable<string>)
-  nameWithType: ComponentDocker.GetAll<TComponent>(IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.GetAll<TComponent>(System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.GetAll(Of TComponent)(IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.GetAll(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
-  name.vb: GetAll(Of TComponent)(IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
-    name: GetAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1_System_Collections_Generic_IEnumerable_System_String__
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
-    name: GetAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_GetAll__1_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Add(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  commentId: M:OsmiumNucleus.ComponentDocker.Add(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  name: Add(params IEnumerable<Component>)
-  nameWithType: ComponentDocker.Add(params IEnumerable<Component>)
-  fullName: OsmiumNucleus.ComponentDocker.Add(params System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>)
-  nameWithType.vb: ComponentDocker.Add(IEnumerable(Of Component))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Add(System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component))
-  name.vb: Add(IEnumerable(Of Component))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Add(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-    name: Add
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: OsmiumNucleus.Component
-    name: Component
-    href: OsmiumNucleus.Component.html
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Add(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-    name: Add
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: OsmiumNucleus.Component
-    name: Component
-    href: OsmiumNucleus.Component.html
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Add``1
-  commentId: M:OsmiumNucleus.ComponentDocker.Add``1
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1
-  name: Add<TComponent>()
-  nameWithType: ComponentDocker.Add<TComponent>()
-  fullName: OsmiumNucleus.ComponentDocker.Add<TComponent>()
-  nameWithType.vb: ComponentDocker.Add(Of TComponent)()
-  fullName.vb: OsmiumNucleus.ComponentDocker.Add(Of TComponent)()
-  name.vb: Add(Of TComponent)()
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Add``1
-    name: Add
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Add``1
-    name: Add
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Add``1(System.String)
-  commentId: M:OsmiumNucleus.ComponentDocker.Add``1(System.String)
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_
-  name: Add<TComponent>(string)
-  nameWithType: ComponentDocker.Add<TComponent>(string)
-  fullName: OsmiumNucleus.ComponentDocker.Add<TComponent>(string)
-  nameWithType.vb: ComponentDocker.Add(Of TComponent)(String)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Add(Of TComponent)(String)
-  name.vb: Add(Of TComponent)(String)
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Add``1(System.String)
-    name: Add
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Add``1(System.String)
-    name: Add
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Add``1(System.Int32)
-  commentId: M:OsmiumNucleus.ComponentDocker.Add``1(System.Int32)
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_Int32_
-  name: Add<TComponent>(int)
-  nameWithType: ComponentDocker.Add<TComponent>(int)
-  fullName: OsmiumNucleus.ComponentDocker.Add<TComponent>(int)
-  nameWithType.vb: ComponentDocker.Add(Of TComponent)(Integer)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Add(Of TComponent)(Integer)
-  name.vb: Add(Of TComponent)(Integer)
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Add``1(System.Int32)
-    name: Add
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_Int32_
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Add``1(System.Int32)
-    name: Add
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_Int32_
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Add``1(System.String,System.Int32)
-  commentId: M:OsmiumNucleus.ComponentDocker.Add``1(System.String,System.Int32)
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_System_Int32_
-  name: Add<TComponent>(string, int)
-  nameWithType: ComponentDocker.Add<TComponent>(string, int)
-  fullName: OsmiumNucleus.ComponentDocker.Add<TComponent>(string, int)
-  nameWithType.vb: ComponentDocker.Add(Of TComponent)(String, Integer)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Add(Of TComponent)(String, Integer)
-  name.vb: Add(Of TComponent)(String, Integer)
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Add``1(System.String,System.Int32)
-    name: Add
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_System_Int32_
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Add``1(System.String,System.Int32)
-    name: Add
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Add__1_System_String_System_Int32_
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  commentId: M:OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  name: Destroy(params IEnumerable<Component>)
-  nameWithType: ComponentDocker.Destroy(params IEnumerable<Component>)
-  fullName: OsmiumNucleus.ComponentDocker.Destroy(params System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>)
-  nameWithType.vb: ComponentDocker.Destroy(IEnumerable(Of Component))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component))
-  name.vb: Destroy(IEnumerable(Of Component))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-    name: Destroy
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: OsmiumNucleus.Component
-    name: Component
-    href: OsmiumNucleus.Component.html
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-    name: Destroy
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: OsmiumNucleus.Component
-    name: Component
-    href: OsmiumNucleus.Component.html
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Destroy``1
-  commentId: M:OsmiumNucleus.ComponentDocker.Destroy``1
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1
-  name: Destroy<TComponent>()
-  nameWithType: ComponentDocker.Destroy<TComponent>()
-  fullName: OsmiumNucleus.ComponentDocker.Destroy<TComponent>()
-  nameWithType.vb: ComponentDocker.Destroy(Of TComponent)()
-  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(Of TComponent)()
-  name.vb: Destroy(Of TComponent)()
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Destroy``1
-    name: Destroy
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Destroy``1
-    name: Destroy
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_Collections_Generic_IEnumerable_System_String__
-  name: Destroy(params IEnumerable<string>)
-  nameWithType: ComponentDocker.Destroy(params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.Destroy(params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.Destroy(IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable(Of String))
-  name.vb: Destroy(IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{System.String})
-    name: Destroy
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Destroy(System.Collections.Generic.IEnumerable{System.String})
-    name: Destroy
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1_System_Collections_Generic_IEnumerable_System_String__
-  name: Destroy<TComponent>(params IEnumerable<string>)
-  nameWithType: ComponentDocker.Destroy<TComponent>(params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.Destroy<TComponent>(params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.Destroy(Of TComponent)(IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Destroy(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
-  name.vb: Destroy(Of TComponent)(IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
-    name: Destroy
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1_System_Collections_Generic_IEnumerable_System_String__
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
-    name: Destroy
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Destroy__1_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.DestroyAll
-  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll
-  name: DestroyAll()
-  nameWithType: ComponentDocker.DestroyAll()
-  fullName: OsmiumNucleus.ComponentDocker.DestroyAll()
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.DestroyAll
-    name: DestroyAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.DestroyAll
-    name: DestroyAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll
-  - name: (
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.DestroyAll``1
-  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll``1
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1
-  name: DestroyAll<TComponent>()
-  nameWithType: ComponentDocker.DestroyAll<TComponent>()
-  fullName: OsmiumNucleus.ComponentDocker.DestroyAll<TComponent>()
-  nameWithType.vb: ComponentDocker.DestroyAll(Of TComponent)()
-  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(Of TComponent)()
-  name.vb: DestroyAll(Of TComponent)()
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.DestroyAll``1
-    name: DestroyAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.DestroyAll``1
-    name: DestroyAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_Collections_Generic_IEnumerable_System_String__
-  name: DestroyAll(params IEnumerable<string>)
-  nameWithType: ComponentDocker.DestroyAll(params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.DestroyAll(params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.DestroyAll(IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.IEnumerable(Of String))
-  name.vb: DestroyAll(IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
-    name: DestroyAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
-    name: DestroyAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1_System_Collections_Generic_IEnumerable_System_String__
-  name: DestroyAll<TComponent>(params IEnumerable<string>)
-  nameWithType: ComponentDocker.DestroyAll<TComponent>(params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.DestroyAll<TComponent>(params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.DestroyAll(Of TComponent)(IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.DestroyAll(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
-  name.vb: DestroyAll(Of TComponent)(IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
-    name: DestroyAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1_System_Collections_Generic_IEnumerable_System_String__
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
-    name: DestroyAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_DestroyAll__1_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  commentId: M:OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  name: Move(ComponentDocker, params IEnumerable<Component>)
-  nameWithType: ComponentDocker.Move(ComponentDocker, params IEnumerable<Component>)
-  fullName: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker, params System.Collections.Generic.IEnumerable<OsmiumNucleus.Component>)
-  nameWithType.vb: ComponentDocker.Move(ComponentDocker, IEnumerable(Of Component))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker, System.Collections.Generic.IEnumerable(Of OsmiumNucleus.Component))
-  name.vb: Move(ComponentDocker, IEnumerable(Of Component))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-    name: Move
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: ','
-  - name: " "
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: OsmiumNucleus.Component
-    name: Component
-    href: OsmiumNucleus.Component.html
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{OsmiumNucleus.Component})
-    name: Move
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_OsmiumNucleus_Component__
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: ','
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: OsmiumNucleus.Component
-    name: Component
-    href: OsmiumNucleus.Component.html
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker)
-  commentId: M:OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker)
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_
-  name: Move<TComponent>(ComponentDocker)
-  nameWithType: ComponentDocker.Move<TComponent>(ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.Move<TComponent>(OsmiumNucleus.ComponentDocker)
-  nameWithType.vb: ComponentDocker.Move(Of TComponent)(ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.Move(Of TComponent)(OsmiumNucleus.ComponentDocker)
-  name.vb: Move(Of TComponent)(ComponentDocker)
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker)
-    name: Move
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker)
-    name: Move
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  name: Move(ComponentDocker, params IEnumerable<string>)
-  nameWithType: ComponentDocker.Move(ComponentDocker, params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker, params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.Move(ComponentDocker, IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker, System.Collections.Generic.IEnumerable(Of String))
-  name.vb: Move(ComponentDocker, IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-    name: Move
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: ','
-  - name: " "
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Move(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-    name: Move
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: ','
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  name: Move<TComponent>(ComponentDocker, params IEnumerable<string>)
-  nameWithType: ComponentDocker.Move<TComponent>(ComponentDocker, params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.Move<TComponent>(OsmiumNucleus.ComponentDocker, params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.Move(Of TComponent)(ComponentDocker, IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.Move(Of TComponent)(OsmiumNucleus.ComponentDocker, System.Collections.Generic.IEnumerable(Of String))
-  name.vb: Move(Of TComponent)(ComponentDocker, IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-    name: Move
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: ','
-  - name: " "
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.Move``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-    name: Move
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_Move__1_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: ','
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker)
-  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker)
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_OsmiumNucleus_ComponentDocker_
-  name: MoveAll(ComponentDocker)
-  nameWithType: ComponentDocker.MoveAll(ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker)
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker)
-    name: MoveAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_OsmiumNucleus_ComponentDocker_
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker)
-    name: MoveAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_OsmiumNucleus_ComponentDocker_
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker)
-  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker)
-  parent: OsmiumNucleus.ComponentDocker
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_
-  name: MoveAll<TComponent>(ComponentDocker)
-  nameWithType: ComponentDocker.MoveAll<TComponent>(ComponentDocker)
-  fullName: OsmiumNucleus.ComponentDocker.MoveAll<TComponent>(OsmiumNucleus.ComponentDocker)
-  nameWithType.vb: ComponentDocker.MoveAll(Of TComponent)(ComponentDocker)
-  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(Of TComponent)(OsmiumNucleus.ComponentDocker)
-  name.vb: MoveAll(Of TComponent)(ComponentDocker)
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker)
-    name: MoveAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker)
-    name: MoveAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  name: MoveAll(ComponentDocker, params IEnumerable<string>)
-  nameWithType: ComponentDocker.MoveAll(ComponentDocker, params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker, params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.MoveAll(ComponentDocker, IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker, System.Collections.Generic.IEnumerable(Of String))
-  name.vb: MoveAll(ComponentDocker, IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-    name: MoveAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: ','
-  - name: " "
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.MoveAll(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-    name: MoveAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: ','
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  commentId: M:OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-  parent: OsmiumNucleus.ComponentDocker
-  isExternal: true
-  href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  name: MoveAll<TComponent>(ComponentDocker, params IEnumerable<string>)
-  nameWithType: ComponentDocker.MoveAll<TComponent>(ComponentDocker, params IEnumerable<string>)
-  fullName: OsmiumNucleus.ComponentDocker.MoveAll<TComponent>(OsmiumNucleus.ComponentDocker, params System.Collections.Generic.IEnumerable<string>)
-  nameWithType.vb: ComponentDocker.MoveAll(Of TComponent)(ComponentDocker, IEnumerable(Of String))
-  fullName.vb: OsmiumNucleus.ComponentDocker.MoveAll(Of TComponent)(OsmiumNucleus.ComponentDocker, System.Collections.Generic.IEnumerable(Of String))
-  name.vb: MoveAll(Of TComponent)(ComponentDocker, IEnumerable(Of String))
-  spec.csharp:
-  - uid: OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-    name: MoveAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  - name: <
-  - name: TComponent
-  - name: '>'
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: ','
-  - name: " "
-  - name: params
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: OsmiumNucleus.ComponentDocker.MoveAll``1(OsmiumNucleus.ComponentDocker,System.Collections.Generic.IEnumerable{System.String})
-    name: MoveAll
-    href: OsmiumNucleus.ComponentDocker.html#OsmiumNucleus_ComponentDocker_MoveAll__1_OsmiumNucleus_ComponentDocker_System_Collections_Generic_IEnumerable_System_String__
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TComponent
-  - name: )
-  - name: (
-  - uid: OsmiumNucleus.ComponentDocker
-    name: ComponentDocker
-    href: OsmiumNucleus.ComponentDocker.html
-  - name: ','
-  - name: " "
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  - name: )
-- uid: System.Object.Equals(System.Object)
-  commentId: M:System.Object.Equals(System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Equals_System_Object_
   name: Equals(object)
-  nameWithType: object.Equals(object)
-  fullName: object.Equals(object)
-  nameWithType.vb: Object.Equals(Object)
-  fullName.vb: Object.Equals(Object)
+  nameWithType: Entity.Equals(object)
+  fullName: OsmiumNucleus.Entity.Equals(object)
+  nameWithType.vb: Entity.Equals(Object)
+  fullName.vb: OsmiumNucleus.Entity.Equals(Object)
   name.vb: Equals(Object)
   spec.csharp:
-  - uid: System.Object.Equals(System.Object)
+  - uid: OsmiumNucleus.Entity.Equals(System.Object)
     name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Equals_System_Object_
   - name: (
   - uid: System.Object
     name: object
@@ -1772,15 +241,1617 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
   spec.vb:
-  - uid: System.Object.Equals(System.Object)
+  - uid: OsmiumNucleus.Entity.Equals(System.Object)
     name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Equals_System_Object_
   - name: (
   - uid: System.Object
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+  commentId: M:OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__
+  name: Contains(params IEnumerable<GameObject>)
+  nameWithType: Entity.Contains(params IEnumerable<GameObject>)
+  fullName: OsmiumNucleus.Entity.Contains(params System.Collections.Generic.IEnumerable<OsmiumNucleus.GameObject>)
+  nameWithType.vb: Entity.Contains(IEnumerable(Of GameObject))
+  fullName.vb: OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable(Of OsmiumNucleus.GameObject))
+  name.vb: Contains(IEnumerable(Of GameObject))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+    name: Contains
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: OsmiumNucleus.GameObject
+    name: GameObject
+    href: OsmiumNucleus.GameObject.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+    name: Contains
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OsmiumNucleus.GameObject
+    name: GameObject
+    href: OsmiumNucleus.GameObject.html
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Contains``1
+  commentId: M:OsmiumNucleus.Entity.Contains``1
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains__1
+  name: Contains<TComponent>()
+  nameWithType: Entity.Contains<TComponent>()
+  fullName: OsmiumNucleus.Entity.Contains<TComponent>()
+  nameWithType.vb: Entity.Contains(Of TComponent)()
+  fullName.vb: OsmiumNucleus.Entity.Contains(Of TComponent)()
+  name.vb: Contains(Of TComponent)()
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Contains``1
+    name: Contains
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains__1
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Contains``1
+    name: Contains
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains_System_Collections_Generic_IEnumerable_System_String__
+  name: Contains(params IEnumerable<string>)
+  nameWithType: Entity.Contains(params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.Contains(params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.Contains(IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: Contains(IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable{System.String})
+    name: Contains
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Contains(System.Collections.Generic.IEnumerable{System.String})
+    name: Contains
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Contains``1(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.Contains``1(System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains__1_System_Collections_Generic_IEnumerable_System_String__
+  name: Contains<TComponent>(params IEnumerable<string>)
+  nameWithType: Entity.Contains<TComponent>(params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.Contains<TComponent>(params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.Contains(Of TComponent)(IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.Contains(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: Contains(Of TComponent)(IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Contains``1(System.Collections.Generic.IEnumerable{System.String})
+    name: Contains
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains__1_System_Collections_Generic_IEnumerable_System_String__
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Contains``1(System.Collections.Generic.IEnumerable{System.String})
+    name: Contains
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Contains__1_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Get
+  commentId: M:OsmiumNucleus.Entity.Get
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get
+  name: Get()
+  nameWithType: Entity.Get()
+  fullName: OsmiumNucleus.Entity.Get()
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Get
+    name: Get
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Get
+    name: Get
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.Entity.Get``1
+  commentId: M:OsmiumNucleus.Entity.Get``1
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get__1
+  name: Get<TComponent>()
+  nameWithType: Entity.Get<TComponent>()
+  fullName: OsmiumNucleus.Entity.Get<TComponent>()
+  nameWithType.vb: Entity.Get(Of TComponent)()
+  fullName.vb: OsmiumNucleus.Entity.Get(Of TComponent)()
+  name.vb: Get(Of TComponent)()
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Get``1
+    name: Get
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get__1
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Get``1
+    name: Get
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.Entity.Get(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.Get(System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get_System_Collections_Generic_IEnumerable_System_String__
+  name: Get(params IEnumerable<string>)
+  nameWithType: Entity.Get(params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.Get(params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.Get(IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.Get(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: Get(IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Get(System.Collections.Generic.IEnumerable{System.String})
+    name: Get
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Get(System.Collections.Generic.IEnumerable{System.String})
+    name: Get
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Get``1(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.Get``1(System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get__1_System_Collections_Generic_IEnumerable_System_String__
+  name: Get<TComponent>(params IEnumerable<string>)
+  nameWithType: Entity.Get<TComponent>(params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.Get<TComponent>(params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.Get(Of TComponent)(IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.Get(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: Get(Of TComponent)(IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Get``1(System.Collections.Generic.IEnumerable{System.String})
+    name: Get
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get__1_System_Collections_Generic_IEnumerable_System_String__
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Get``1(System.Collections.Generic.IEnumerable{System.String})
+    name: Get
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Get__1_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.GetAll
+  commentId: M:OsmiumNucleus.Entity.GetAll
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll
+  name: GetAll()
+  nameWithType: Entity.GetAll()
+  fullName: OsmiumNucleus.Entity.GetAll()
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.GetAll
+    name: GetAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.GetAll
+    name: GetAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.Entity.GetAll``1
+  commentId: M:OsmiumNucleus.Entity.GetAll``1
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll__1
+  name: GetAll<TComponent>()
+  nameWithType: Entity.GetAll<TComponent>()
+  fullName: OsmiumNucleus.Entity.GetAll<TComponent>()
+  nameWithType.vb: Entity.GetAll(Of TComponent)()
+  fullName.vb: OsmiumNucleus.Entity.GetAll(Of TComponent)()
+  name.vb: GetAll(Of TComponent)()
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.GetAll``1
+    name: GetAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll__1
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.GetAll``1
+    name: GetAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.Entity.GetAll(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.GetAll(System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll_System_Collections_Generic_IEnumerable_System_String__
+  name: GetAll(params IEnumerable<string>)
+  nameWithType: Entity.GetAll(params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.GetAll(params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.GetAll(IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.GetAll(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: GetAll(IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.GetAll(System.Collections.Generic.IEnumerable{System.String})
+    name: GetAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.GetAll(System.Collections.Generic.IEnumerable{System.String})
+    name: GetAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll__1_System_Collections_Generic_IEnumerable_System_String__
+  name: GetAll<TComponent>(IEnumerable<string>)
+  nameWithType: Entity.GetAll<TComponent>(IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.GetAll<TComponent>(System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.GetAll(Of TComponent)(IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.GetAll(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: GetAll(Of TComponent)(IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
+    name: GetAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll__1_System_Collections_Generic_IEnumerable_System_String__
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.GetAll``1(System.Collections.Generic.IEnumerable{System.String})
+    name: GetAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_GetAll__1_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Add(OsmiumNucleus.GameObject[])
+  commentId: M:OsmiumNucleus.Entity.Add(OsmiumNucleus.GameObject[])
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add_OsmiumNucleus_GameObject___
+  name: Add(params GameObject[])
+  nameWithType: Entity.Add(params GameObject[])
+  fullName: OsmiumNucleus.Entity.Add(params OsmiumNucleus.GameObject[])
+  nameWithType.vb: Entity.Add(ParamArray GameObject())
+  fullName.vb: OsmiumNucleus.Entity.Add(ParamArray OsmiumNucleus.GameObject())
+  name.vb: Add(ParamArray GameObject())
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Add(OsmiumNucleus.GameObject[])
+    name: Add
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add_OsmiumNucleus_GameObject___
+  - name: (
+  - name: params
+  - name: " "
+  - uid: OsmiumNucleus.GameObject
+    name: GameObject
+    href: OsmiumNucleus.GameObject.html
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Add(OsmiumNucleus.GameObject[])
+    name: Add
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add_OsmiumNucleus_GameObject___
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: OsmiumNucleus.GameObject
+    name: GameObject
+    href: OsmiumNucleus.GameObject.html
+  - name: (
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Add``1
+  commentId: M:OsmiumNucleus.Entity.Add``1
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1
+  name: Add<TComponent>()
+  nameWithType: Entity.Add<TComponent>()
+  fullName: OsmiumNucleus.Entity.Add<TComponent>()
+  nameWithType.vb: Entity.Add(Of TComponent)()
+  fullName.vb: OsmiumNucleus.Entity.Add(Of TComponent)()
+  name.vb: Add(Of TComponent)()
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Add``1
+    name: Add
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Add``1
+    name: Add
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.Entity.Add``1(System.String)
+  commentId: M:OsmiumNucleus.Entity.Add``1(System.String)
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1_System_String_
+  name: Add<TComponent>(string)
+  nameWithType: Entity.Add<TComponent>(string)
+  fullName: OsmiumNucleus.Entity.Add<TComponent>(string)
+  nameWithType.vb: Entity.Add(Of TComponent)(String)
+  fullName.vb: OsmiumNucleus.Entity.Add(Of TComponent)(String)
+  name.vb: Add(Of TComponent)(String)
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Add``1(System.String)
+    name: Add
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1_System_String_
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Add``1(System.String)
+    name: Add
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OsmiumNucleus.Entity.Add``1(System.String,System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.Add``1(System.String,System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1_System_String_System_Collections_Generic_IEnumerable_System_String__
+  name: Add<TComponent>(string, params IEnumerable<string>)
+  nameWithType: Entity.Add<TComponent>(string, params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.Add<TComponent>(string, params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.Add(Of TComponent)(String, IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.Add(Of TComponent)(String, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: Add(Of TComponent)(String, IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Add``1(System.String,System.Collections.Generic.IEnumerable{System.String})
+    name: Add
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1_System_String_System_Collections_Generic_IEnumerable_System_String__
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Add``1(System.String,System.Collections.Generic.IEnumerable{System.String})
+    name: Add
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Add__1_System_String_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+  commentId: M:OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__
+  name: Destroy(params IEnumerable<GameObject>)
+  nameWithType: Entity.Destroy(params IEnumerable<GameObject>)
+  fullName: OsmiumNucleus.Entity.Destroy(params System.Collections.Generic.IEnumerable<OsmiumNucleus.GameObject>)
+  nameWithType.vb: Entity.Destroy(IEnumerable(Of GameObject))
+  fullName.vb: OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable(Of OsmiumNucleus.GameObject))
+  name.vb: Destroy(IEnumerable(Of GameObject))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+    name: Destroy
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: OsmiumNucleus.GameObject
+    name: GameObject
+    href: OsmiumNucleus.GameObject.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+    name: Destroy
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OsmiumNucleus.GameObject
+    name: GameObject
+    href: OsmiumNucleus.GameObject.html
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Destroy``1
+  commentId: M:OsmiumNucleus.Entity.Destroy``1
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy__1
+  name: Destroy<TComponent>()
+  nameWithType: Entity.Destroy<TComponent>()
+  fullName: OsmiumNucleus.Entity.Destroy<TComponent>()
+  nameWithType.vb: Entity.Destroy(Of TComponent)()
+  fullName.vb: OsmiumNucleus.Entity.Destroy(Of TComponent)()
+  name.vb: Destroy(Of TComponent)()
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Destroy``1
+    name: Destroy
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy__1
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Destroy``1
+    name: Destroy
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy_System_Collections_Generic_IEnumerable_System_String__
+  name: Destroy(params IEnumerable<string>)
+  nameWithType: Entity.Destroy(params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.Destroy(params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.Destroy(IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: Destroy(IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable{System.String})
+    name: Destroy
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Destroy(System.Collections.Generic.IEnumerable{System.String})
+    name: Destroy
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy__1_System_Collections_Generic_IEnumerable_System_String__
+  name: Destroy<TComponent>(params IEnumerable<string>)
+  nameWithType: Entity.Destroy<TComponent>(params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.Destroy<TComponent>(params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.Destroy(Of TComponent)(IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.Destroy(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: Destroy(Of TComponent)(IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
+    name: Destroy
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy__1_System_Collections_Generic_IEnumerable_System_String__
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Destroy``1(System.Collections.Generic.IEnumerable{System.String})
+    name: Destroy
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Destroy__1_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.DestroyAll
+  commentId: M:OsmiumNucleus.Entity.DestroyAll
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll
+  name: DestroyAll()
+  nameWithType: Entity.DestroyAll()
+  fullName: OsmiumNucleus.Entity.DestroyAll()
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.DestroyAll
+    name: DestroyAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.DestroyAll
+    name: DestroyAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.Entity.DestroyAll``1
+  commentId: M:OsmiumNucleus.Entity.DestroyAll``1
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll__1
+  name: DestroyAll<TComponent>()
+  nameWithType: Entity.DestroyAll<TComponent>()
+  fullName: OsmiumNucleus.Entity.DestroyAll<TComponent>()
+  nameWithType.vb: Entity.DestroyAll(Of TComponent)()
+  fullName.vb: OsmiumNucleus.Entity.DestroyAll(Of TComponent)()
+  name.vb: DestroyAll(Of TComponent)()
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.DestroyAll``1
+    name: DestroyAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll__1
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.DestroyAll``1
+    name: DestroyAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - name: )
+- uid: OsmiumNucleus.Entity.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll_System_Collections_Generic_IEnumerable_System_String__
+  name: DestroyAll(params IEnumerable<string>)
+  nameWithType: Entity.DestroyAll(params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.DestroyAll(params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.DestroyAll(IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.DestroyAll(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: DestroyAll(IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
+    name: DestroyAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.DestroyAll(System.Collections.Generic.IEnumerable{System.String})
+    name: DestroyAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll__1_System_Collections_Generic_IEnumerable_System_String__
+  name: DestroyAll<TComponent>(params IEnumerable<string>)
+  nameWithType: Entity.DestroyAll<TComponent>(params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.DestroyAll<TComponent>(params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.DestroyAll(Of TComponent)(IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.DestroyAll(Of TComponent)(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: DestroyAll(Of TComponent)(IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
+    name: DestroyAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll__1_System_Collections_Generic_IEnumerable_System_String__
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.DestroyAll``1(System.Collections.Generic.IEnumerable{System.String})
+    name: DestroyAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DestroyAll__1_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+  commentId: M:OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__
+  name: Move(Entity, params IEnumerable<GameObject>)
+  nameWithType: Entity.Move(Entity, params IEnumerable<GameObject>)
+  fullName: OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity, params System.Collections.Generic.IEnumerable<OsmiumNucleus.GameObject>)
+  nameWithType.vb: Entity.Move(Entity, IEnumerable(Of GameObject))
+  fullName.vb: OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity, System.Collections.Generic.IEnumerable(Of OsmiumNucleus.GameObject))
+  name.vb: Move(Entity, IEnumerable(Of GameObject))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+    name: Move
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: OsmiumNucleus.GameObject
+    name: GameObject
+    href: OsmiumNucleus.GameObject.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{OsmiumNucleus.GameObject})
+    name: Move
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_OsmiumNucleus_GameObject__
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OsmiumNucleus.GameObject
+    name: GameObject
+    href: OsmiumNucleus.GameObject.html
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Move``1(OsmiumNucleus.Entity)
+  commentId: M:OsmiumNucleus.Entity.Move``1(OsmiumNucleus.Entity)
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move__1_OsmiumNucleus_Entity_
+  name: Move<TComponent>(Entity)
+  nameWithType: Entity.Move<TComponent>(Entity)
+  fullName: OsmiumNucleus.Entity.Move<TComponent>(OsmiumNucleus.Entity)
+  nameWithType.vb: Entity.Move(Of TComponent)(Entity)
+  fullName.vb: OsmiumNucleus.Entity.Move(Of TComponent)(OsmiumNucleus.Entity)
+  name.vb: Move(Of TComponent)(Entity)
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Move``1(OsmiumNucleus.Entity)
+    name: Move
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move__1_OsmiumNucleus_Entity_
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Move``1(OsmiumNucleus.Entity)
+    name: Move
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move__1_OsmiumNucleus_Entity_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: )
+- uid: OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  name: Move(Entity, params IEnumerable<string>)
+  nameWithType: Entity.Move(Entity, params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity, params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.Move(Entity, IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: Move(Entity, IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+    name: Move
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Move(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+    name: Move
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.Move``1(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.Move``1(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move__1_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  name: Move<TComponent>(Entity, params IEnumerable<string>)
+  nameWithType: Entity.Move<TComponent>(Entity, params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.Move<TComponent>(OsmiumNucleus.Entity, params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.Move(Of TComponent)(Entity, IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.Move(Of TComponent)(OsmiumNucleus.Entity, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: Move(Of TComponent)(Entity, IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.Move``1(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+    name: Move
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move__1_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.Move``1(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+    name: Move
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_Move__1_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity)
+  commentId: M:OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity)
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll_OsmiumNucleus_Entity_
+  name: MoveAll(Entity)
+  nameWithType: Entity.MoveAll(Entity)
+  fullName: OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity)
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity)
+    name: MoveAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll_OsmiumNucleus_Entity_
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity)
+    name: MoveAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll_OsmiumNucleus_Entity_
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: )
+- uid: OsmiumNucleus.Entity.MoveAll``1(OsmiumNucleus.Entity)
+  commentId: M:OsmiumNucleus.Entity.MoveAll``1(OsmiumNucleus.Entity)
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll__1_OsmiumNucleus_Entity_
+  name: MoveAll<TComponent>(Entity)
+  nameWithType: Entity.MoveAll<TComponent>(Entity)
+  fullName: OsmiumNucleus.Entity.MoveAll<TComponent>(OsmiumNucleus.Entity)
+  nameWithType.vb: Entity.MoveAll(Of TComponent)(Entity)
+  fullName.vb: OsmiumNucleus.Entity.MoveAll(Of TComponent)(OsmiumNucleus.Entity)
+  name.vb: MoveAll(Of TComponent)(Entity)
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.MoveAll``1(OsmiumNucleus.Entity)
+    name: MoveAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll__1_OsmiumNucleus_Entity_
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.MoveAll``1(OsmiumNucleus.Entity)
+    name: MoveAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll__1_OsmiumNucleus_Entity_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: )
+- uid: OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  name: MoveAll(Entity, params IEnumerable<string>)
+  nameWithType: Entity.MoveAll(Entity, params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity, params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.MoveAll(Entity, IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: MoveAll(Entity, IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+    name: MoveAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.MoveAll(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+    name: MoveAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.MoveAll``1(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:OsmiumNucleus.Entity.MoveAll``1(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll__1_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  name: MoveAll<TComponent>(Entity, params IEnumerable<string>)
+  nameWithType: Entity.MoveAll<TComponent>(Entity, params IEnumerable<string>)
+  fullName: OsmiumNucleus.Entity.MoveAll<TComponent>(OsmiumNucleus.Entity, params System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: Entity.MoveAll(Of TComponent)(Entity, IEnumerable(Of String))
+  fullName.vb: OsmiumNucleus.Entity.MoveAll(Of TComponent)(OsmiumNucleus.Entity, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: MoveAll(Of TComponent)(Entity, IEnumerable(Of String))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.MoveAll``1(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+    name: MoveAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll__1_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.MoveAll``1(OsmiumNucleus.Entity,System.Collections.Generic.IEnumerable{System.String})
+    name: MoveAll
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_MoveAll__1_OsmiumNucleus_Entity_System_Collections_Generic_IEnumerable_System_String__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - uid: OsmiumNucleus.Entity
+    name: Entity
+    href: OsmiumNucleus.Entity.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.AddScene(OsmiumNucleus.Scene)
+  commentId: M:OsmiumNucleus.Entity.AddScene(OsmiumNucleus.Scene)
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_AddScene_OsmiumNucleus_Scene_
+  name: AddScene(Scene)
+  nameWithType: Entity.AddScene(Scene)
+  fullName: OsmiumNucleus.Entity.AddScene(OsmiumNucleus.Scene)
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.AddScene(OsmiumNucleus.Scene)
+    name: AddScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_AddScene_OsmiumNucleus_Scene_
+  - name: (
+  - uid: OsmiumNucleus.Scene
+    name: Scene
+    href: OsmiumNucleus.Scene.html
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.AddScene(OsmiumNucleus.Scene)
+    name: AddScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_AddScene_OsmiumNucleus_Scene_
+  - name: (
+  - uid: OsmiumNucleus.Scene
+    name: Scene
+    href: OsmiumNucleus.Scene.html
+  - name: )
+- uid: OsmiumNucleus.Entity.AddScene(System.String)
+  commentId: M:OsmiumNucleus.Entity.AddScene(System.String)
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_AddScene_System_String_
+  name: AddScene(string)
+  nameWithType: Entity.AddScene(string)
+  fullName: OsmiumNucleus.Entity.AddScene(string)
+  nameWithType.vb: Entity.AddScene(String)
+  fullName.vb: OsmiumNucleus.Entity.AddScene(String)
+  name.vb: AddScene(String)
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.AddScene(System.String)
+    name: AddScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_AddScene_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.AddScene(System.String)
+    name: AddScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_AddScene_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OsmiumNucleus.Entity.RemoveScene(OsmiumNucleus.Scene)
+  commentId: M:OsmiumNucleus.Entity.RemoveScene(OsmiumNucleus.Scene)
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_RemoveScene_OsmiumNucleus_Scene_
+  name: RemoveScene(Scene)
+  nameWithType: Entity.RemoveScene(Scene)
+  fullName: OsmiumNucleus.Entity.RemoveScene(OsmiumNucleus.Scene)
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.RemoveScene(OsmiumNucleus.Scene)
+    name: RemoveScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_RemoveScene_OsmiumNucleus_Scene_
+  - name: (
+  - uid: OsmiumNucleus.Scene
+    name: Scene
+    href: OsmiumNucleus.Scene.html
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.RemoveScene(OsmiumNucleus.Scene)
+    name: RemoveScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_RemoveScene_OsmiumNucleus_Scene_
+  - name: (
+  - uid: OsmiumNucleus.Scene
+    name: Scene
+    href: OsmiumNucleus.Scene.html
+  - name: )
+- uid: OsmiumNucleus.Entity.RemoveScene(System.String)
+  commentId: M:OsmiumNucleus.Entity.RemoveScene(System.String)
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_RemoveScene_System_String_
+  name: RemoveScene(string)
+  nameWithType: Entity.RemoveScene(string)
+  fullName: OsmiumNucleus.Entity.RemoveScene(string)
+  nameWithType.vb: Entity.RemoveScene(String)
+  fullName.vb: OsmiumNucleus.Entity.RemoveScene(String)
+  name.vb: RemoveScene(String)
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.RemoveScene(System.String)
+    name: RemoveScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_RemoveScene_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.RemoveScene(System.String)
+    name: RemoveScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_RemoveScene_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OsmiumNucleus.Entity.ContainsScene(OsmiumNucleus.Scene)
+  commentId: M:OsmiumNucleus.Entity.ContainsScene(OsmiumNucleus.Scene)
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ContainsScene_OsmiumNucleus_Scene_
+  name: ContainsScene(Scene)
+  nameWithType: Entity.ContainsScene(Scene)
+  fullName: OsmiumNucleus.Entity.ContainsScene(OsmiumNucleus.Scene)
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.ContainsScene(OsmiumNucleus.Scene)
+    name: ContainsScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ContainsScene_OsmiumNucleus_Scene_
+  - name: (
+  - uid: OsmiumNucleus.Scene
+    name: Scene
+    href: OsmiumNucleus.Scene.html
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.ContainsScene(OsmiumNucleus.Scene)
+    name: ContainsScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ContainsScene_OsmiumNucleus_Scene_
+  - name: (
+  - uid: OsmiumNucleus.Scene
+    name: Scene
+    href: OsmiumNucleus.Scene.html
+  - name: )
+- uid: OsmiumNucleus.Entity.ContainsScene(System.String)
+  commentId: M:OsmiumNucleus.Entity.ContainsScene(System.String)
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ContainsScene_System_String_
+  name: ContainsScene(string)
+  nameWithType: Entity.ContainsScene(string)
+  fullName: OsmiumNucleus.Entity.ContainsScene(string)
+  nameWithType.vb: Entity.ContainsScene(String)
+  fullName.vb: OsmiumNucleus.Entity.ContainsScene(String)
+  name.vb: ContainsScene(String)
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.ContainsScene(System.String)
+    name: ContainsScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ContainsScene_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.ContainsScene(System.String)
+    name: ContainsScene
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_ContainsScene_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: OsmiumNucleus.Entity.StartCoroutine(System.Collections.Generic.IEnumerator{OsmiumNucleus.ICoroutineAction})
+  commentId: M:OsmiumNucleus.Entity.StartCoroutine(System.Collections.Generic.IEnumerator{OsmiumNucleus.ICoroutineAction})
+  parent: OsmiumNucleus.Entity
+  isExternal: true
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_StartCoroutine_System_Collections_Generic_IEnumerator_OsmiumNucleus_ICoroutineAction__
+  name: StartCoroutine(IEnumerator<ICoroutineAction>)
+  nameWithType: Entity.StartCoroutine(IEnumerator<ICoroutineAction>)
+  fullName: OsmiumNucleus.Entity.StartCoroutine(System.Collections.Generic.IEnumerator<OsmiumNucleus.ICoroutineAction>)
+  nameWithType.vb: Entity.StartCoroutine(IEnumerator(Of ICoroutineAction))
+  fullName.vb: OsmiumNucleus.Entity.StartCoroutine(System.Collections.Generic.IEnumerator(Of OsmiumNucleus.ICoroutineAction))
+  name.vb: StartCoroutine(IEnumerator(Of ICoroutineAction))
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.StartCoroutine(System.Collections.Generic.IEnumerator{OsmiumNucleus.ICoroutineAction})
+    name: StartCoroutine
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_StartCoroutine_System_Collections_Generic_IEnumerator_OsmiumNucleus_ICoroutineAction__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - uid: OsmiumNucleus.ICoroutineAction
+    name: ICoroutineAction
+    href: OsmiumNucleus.ICoroutineAction.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.StartCoroutine(System.Collections.Generic.IEnumerator{OsmiumNucleus.ICoroutineAction})
+    name: StartCoroutine
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_StartCoroutine_System_Collections_Generic_IEnumerator_OsmiumNucleus_ICoroutineAction__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OsmiumNucleus.ICoroutineAction
+    name: ICoroutineAction
+    href: OsmiumNucleus.ICoroutineAction.html
+  - name: )
+  - name: )
+- uid: OsmiumNucleus.Entity.DeltaTime
+  commentId: M:OsmiumNucleus.Entity.DeltaTime
+  parent: OsmiumNucleus.Entity
+  href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DeltaTime
+  name: DeltaTime()
+  nameWithType: Entity.DeltaTime()
+  fullName: OsmiumNucleus.Entity.DeltaTime()
+  spec.csharp:
+  - uid: OsmiumNucleus.Entity.DeltaTime
+    name: DeltaTime
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DeltaTime
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OsmiumNucleus.Entity.DeltaTime
+    name: DeltaTime
+    href: OsmiumNucleus.Entity.html#OsmiumNucleus_Entity_DeltaTime
+  - name: (
   - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
@@ -1975,98 +2046,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.Collections.Generic.IEnumerable`1
-  commentId: T:System.Collections.Generic.IEnumerable`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  name: IEnumerable<T>
-  nameWithType: IEnumerable<T>
-  fullName: System.Collections.Generic.IEnumerable<T>
-  nameWithType.vb: IEnumerable(Of T)
-  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
-  name.vb: IEnumerable(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: System.Collections
-  commentId: N:System.Collections
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections
-  nameWithType: System.Collections
-  fullName: System.Collections
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
 - uid: OsmiumNucleus.Scene.#ctor*
   commentId: Overload:OsmiumNucleus.Scene.#ctor
   href: OsmiumNucleus.Scene.html#OsmiumNucleus_Scene__ctor_System_String_
@@ -2087,17 +2066,13 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
+- uid: OsmiumNucleus.Scene
+  commentId: T:OsmiumNucleus.Scene
+  parent: OsmiumNucleus
+  href: OsmiumNucleus.Scene.html
+  name: Scene
+  nameWithType: Scene
+  fullName: OsmiumNucleus.Scene
 - uid: OsmiumNucleus.Scene.Name*
   commentId: Overload:OsmiumNucleus.Scene.Name
   href: OsmiumNucleus.Scene.html#OsmiumNucleus_Scene_Name
